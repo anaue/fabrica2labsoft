@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/relatorio.master" AutoEventWireup="true" CodeFile="relatorio_exemplo.aspx.cs" Inherits="relatorio_exemplo" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Relatorios.master" AutoEventWireup="true" CodeFile="relatorio_exemplo.aspx.cs" Inherits="relatorio_exemplo" Title="Untitled Page" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <asp:Panel ID="panRelatorio" runat="server" Width="700px"><hr />

@@ -65,3 +65,9 @@ Default skin template. The following skins are provided as examples only.
             <EditRowStyle BackColor="#999999" />
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         </asp:DetailsView>
+        
+        
+        
+<asp:Label SkinID="willows" runat="server" 
+            style="font-family: 'Tw Cen MT'; font-size: xx-large; color: #FF99FF" 
+            Text="Label"></asp:Label>

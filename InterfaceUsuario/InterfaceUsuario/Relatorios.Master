@@ -1,0 +1,40 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Relatorios.master.cs" Inherits="InterfaceUsuario.Relatorios" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>Impressão</title>
+    <link rel="stylesheet" href="App_Themes/Theme1/StyleSheet.css" type="text/css" media="all" />
+</head>
+<body style="margin-left: 0px; margin-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px;">
+    <form id="form1" runat="server" >
+        <div style="width: 700px;" class="relatorio">
+            <table>
+                <tr>
+                    <td >
+                        <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagens/LogoMenor.jpg" /></td>
+                    <td style="width: 450px; text-align: center">
+                        <span style="font-size: 7pt; ">
+                           Av.Profº. Mello Moraes, 2.373 - 1º andar - Ed.
+                                de Engenharia de Minas e Petróleo
+                            <br />
+                            CEP 05508-900 - São Paulo/SP -
+                            Telefones: (11) 2106-2400 - Fax: (11) 3816-3530
+                            <br />
+                            Site: www.pece.org.br - e-mail: atendimento@pece.org.br</span></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td style="width: 700px; border-top-style: solid; border-top-color: #666666; text-align: center">
+                        <span style="font-size: 8pt;"><strong>
+                         Programa de Educação Continuada - PECE</strong></span></td>
+                </tr>
+            </table>
+        <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+        </asp:contentplaceholder>
+    </div>
+    </form>
+</body>
+</html>
