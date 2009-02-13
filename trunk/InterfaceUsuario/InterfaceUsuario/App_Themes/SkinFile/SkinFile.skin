@@ -1,0 +1,67 @@
+﻿<%--
+Default skin template. The following skins are provided as examples only.
+
+1. Named control skin. The SkinId should be uniquely defined because
+   duplicate SkinId's per control type are not allowed in the same theme.
+
+<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+   <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView>
+
+2. Default skin. The SkinId is not defined. Only one default 
+   control skin per control type is allowed in the same theme.
+
+<asp:Image runat="server" ImageUrl="~/images/image1.jpg" />
+--%>
+
+<asp:Label SkinID="lblTitulo" runat="server" Font-Bold="True" Font-Names="Verdana" Font-Size="12pt"
+                        ForeColor="#4D7F9A"></asp:Label>
+                        
+<asp:Label SkinID="lblPadraoPequeno" runat="server" Font-Names="Verdana" Font-Size="8pt"
+                        ForeColor="#666666"></asp:Label>
+
+<asp:Label SkinID="lblPadraoMedio" runat="server" Font-Names="Verdana" Font-Size="10pt"
+                        ForeColor="#666666"></asp:Label>
+                        
+<asp:Label SkinID="lblPadraoGrande" runat="server" Font-Names="Verdana" Font-Size="12pt"
+                        ForeColor="#666666"></asp:Label>
+                        
+                        
+ <asp:LinkButton SkinID="lnkPadrao" runat="server" Font-Names="Verdana" Font-Size="8pt"></asp:LinkButton>
+ 
+ <asp:LinkButton SkinID="lnkMenu" runat="server" Font-Underline="False" 
+                        style="font-family: Verdana; color: #3F3F3F; font-size: 10pt; font-weight: 700; text-align: center"></asp:LinkButton>
+                        
+<asp:Button SkinID="btnPadrao" runat="server" BackColor="#ECF1F4" BorderStyle="Solid" 
+                    Font-Names="Verdana" ForeColor="#4D7F9A" />
+                    
+<asp:DropDownList SkinID="ddlPadrao" runat="server" Font-Names="Verdana" ForeColor="#666666">
+                </asp:DropDownList>
+
+<asp:CheckBox SkinID="cbPadrao" runat="server" ForeColor="#666666" Font-Names="Verdana"/>
+
+<asp:RadioButton SkinID="rbPadrao" runat="server" ForeColor="#666666" Font-Names="Verdana"/>
+
+
+<asp:GridView SkinID="grvPadrao" runat="server" CellPadding="4" ForeColor="#666666" 
+            GridLines="None">
+            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <RowStyle BackColor="#ECF1F4" ForeColor="#666666" />
+            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+            <HeaderStyle BackColor="#4D7F9A" Font-Bold="True" ForeColor="White" />
+            <EditRowStyle BackColor="#999999" />
+            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+</asp:GridView>
+
+<asp:DetailsView SkinID="dtvPadrao" runat="server" CellPadding="4" 
+            ForeColor="#666666" GridLines="None">
+            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
+            <RowStyle BackColor="#F7F6F3" ForeColor="#666666" />
+            <FieldHeaderStyle BackColor="#ECF1F4" Font-Bold="True" />
+            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+            <HeaderStyle BackColor="#4D7F9A" Font-Bold="True" ForeColor="White" />
+            <EditRowStyle BackColor="#999999" />
+            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+        </asp:DetailsView>
