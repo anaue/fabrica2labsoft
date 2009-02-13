@@ -9,14 +9,12 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 
-public partial class Default5 : System.Web.UI.Page
+namespace InterfaceUsuario
 {
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class teste : System.Web.UI.Page
     {
-
-    }
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-        //ListBox.Items.Add(ListBox2.SelectedValue);
+        protected void Page_Load(object sender, EventArgs e)
+        {
+        }
     }
 }

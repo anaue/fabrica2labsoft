@@ -17,6 +17,6 @@ public partial class Default2 : System.Web.UI.Page
     }
     protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
     {
-        Panel1.Visible = true;
+        //Panel1.Visible = true;
     }
 }

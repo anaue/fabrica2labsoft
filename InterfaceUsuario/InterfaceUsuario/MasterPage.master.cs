@@ -25,7 +25,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
     }
     protected void LinkButton4_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Default4.aspx");
+        Response.Redirect("CriarAtributo.aspx");
     }
     protected void LinkButton3_Click(object sender, EventArgs e)
     {
