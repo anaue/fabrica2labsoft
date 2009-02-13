@@ -92,7 +92,8 @@
             <td>
                 &nbsp;</td>
             <td>
-                                &nbsp;</td>
+                                <asp:Label ID="Label6" runat="server" SkinID="willows" Text="TESTEEEEEEEEEEEE"></asp:Label>
+            </td>
             <td>
                 &nbsp;</td>
             <td>
@@ -106,6 +107,8 @@
         <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" 
             SkinID="dtvPadrao" Width="125px">
         </asp:DetailsView>
+        
+        
         
     <br />
 

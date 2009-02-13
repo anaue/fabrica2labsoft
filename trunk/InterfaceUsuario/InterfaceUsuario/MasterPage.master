@@ -123,9 +123,7 @@
                 <td class="style14" rowspan="4">
                     <img src="imagens/minerva.jpg" style="width: 115px; height: 164px" /></td>
                 <td class="style27">
-                    <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Verdana" 
-                        Font-Size="12pt" ForeColor="#4D7F9A" Text="Label"></asp:Label>
-                </td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="header_titulo_fundo" >
@@ -151,7 +149,9 @@
             </tr>
             <tr>
                 <td class="texto_titulo" valign="middle">
-                    , bem vindo ao controle de Patrimônio do PECE!</td></tr>
+                    , bem vindo ao controle de Patrimônio do PECE!<asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Verdana" 
+                        Font-Size="12pt" ForeColor="#4D7F9A" Text="Label"></asp:Label>
+                </td></tr>
             <tr>
                 <td class="menu_fundo" width="147px" height="583px" valign="top">
                    

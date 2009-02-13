@@ -46,11 +46,11 @@
     <Content Include="Default3.aspx" />
     <Content Include="Default4.aspx" />
     <Content Include="Default5.aspx" />
-    <Content Include="relatorio.master.vb" />
     <Content Include="relatorio_exemplo.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Atributo.cs" />
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
@@ -86,6 +86,13 @@
       <DependentUpon>CriarAtributo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Relatorios.Master.cs">
+      <DependentUpon>Relatorios.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios.Master.designer.cs">
+      <DependentUpon>Relatorios.Master</DependentUpon>
+    </Compile>
     <Compile Include="relatorio_exemplo.aspx.cs">
       <DependentUpon>relatorio_exemplo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -107,7 +114,6 @@
     <Content Include="imagens\minerva.jpg" />
     <Content Include="imagens\principal_bg.gif" />
     <Content Include="MasterPage.master" />
-    <Content Include="relatorio.master" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\SkinFile\SkinFile.skin" />
@@ -115,6 +121,9 @@
     <Content Include="obj\Debug\InterfaceUsuario.csproj.FileListAbsolute.txt" />
     <Content Include="CriarAtributo.aspx" />
     <Content Include="teste.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Relatorios.Master" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

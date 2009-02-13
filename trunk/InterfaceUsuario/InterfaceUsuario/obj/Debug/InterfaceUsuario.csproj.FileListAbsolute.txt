@@ -1,1 +1,6 @@
 C:\fabrica2\InterfaceUsuario\InterfaceUsuario\InterfaceUsuario\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\TEMP.POLI.USP.BR\Desktop\Nova pasta\InterfaceUsuario\InterfaceUsuario\bin\InterfaceUsuario.dll
+C:\Documents and Settings\TEMP.POLI.USP.BR\Desktop\Nova pasta\InterfaceUsuario\InterfaceUsuario\bin\InterfaceUsuario.pdb
+C:\Documents and Settings\TEMP.POLI.USP.BR\Desktop\Nova pasta\InterfaceUsuario\InterfaceUsuario\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\TEMP.POLI.USP.BR\Desktop\Nova pasta\InterfaceUsuario\InterfaceUsuario\obj\Debug\InterfaceUsuario.dll
+C:\Documents and Settings\TEMP.POLI.USP.BR\Desktop\Nova pasta\InterfaceUsuario\InterfaceUsuario\obj\Debug\InterfaceUsuario.pdb
