@@ -1,0 +1,250 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+     <link rel="stylesheet" href="App_Themes/Theme1/StyleSheet.css" type="text/css" media="all" />
+    <style type="text/css">
+        .style14
+        {
+            width: 172px;
+            text-align: right;
+        }
+        .style15
+        {
+            height: 30px;
+            text-align: right;
+        }
+        
+        .style20
+        {
+            height: 89px;
+        }
+        .style21
+        {
+            height: 10px;
+        }
+        .style22
+        {
+            width: 151px;
+            height: 10px;
+        }
+        .style23
+        {
+            height: 43px;
+        }
+        
+        .style25
+        {
+            width: 21px;
+            height: 8px;
+        }
+        .style27
+        {
+            height: 30px;
+        }
+        .style30
+        {
+            height: 89px;
+            width: 4px;
+        }
+        .style31
+        {
+            height: 10px;
+            width: 4px;
+        }
+        .style32
+        {
+            height: 43px;
+            width: 4px;
+        }
+        .style34
+        {
+            width: 4px;
+            height: 8px;
+        }
+        .style35
+        {
+            width: 151px;
+            height: 8px;
+        }
+        .style36
+        {
+            height: 8px;
+        }
+       
+        .style39
+        {
+            width: 4px;
+            height: 28px;
+        }
+     
+        .style42
+        {
+            width: 4px;
+            height: 30px;
+        }
+        .style44
+        {
+            height: 6px;
+            text-align: right;
+        }
+        .style45
+        {
+            width: 751px;
+        }
+        .style46
+        {
+            width: 800px;
+            height: 527px;
+        }
+        .style47
+        {
+            width: 751px;
+            height: 8px;
+        }
+        .style48
+        {
+            width: 21px;
+        }
+        .style49
+        {
+            width: 48px;
+        }
+        </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <table style="width: 1020px; height: 595px;" cellspacing="0">
+            <tr>
+                <td class="style14" rowspan="4">
+                    <img src="imagens/minerva.jpg" style="width: 115px; height: 164px" /></td>
+                <td class="style27">
+                    <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Verdana" 
+                        Font-Size="12pt" ForeColor="#4D7F9A" Text="Label"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="header_titulo_fundo" >
+                    <table style="width:100%;">
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                            <td class="header_titulo_texto">
+                                Controle de Patrimônio</td>
+                            <td class="style49">
+                                &nbsp;</td>
+                        </tr>
+                    </table>
+</td>
+            </tr>
+            <tr>
+                <td class="style44" valign="bottom">
+                    <asp:LinkButton ID="LinkButton1" runat="server" Font-Underline="False" 
+                        style="font-family: Verdana; color: #3F3F3F; font-size: 10pt; font-weight: 700; text-align: center">| 
+                    Log off |</asp:LinkButton>
+                    <br />
+                    </td>
+            </tr>
+            <tr>
+                <td class="texto_titulo" valign="middle">
+                    , bem vindo ao controle de Patrimônio do PECE!</td></tr>
+            <tr>
+                <td class="menu_fundo" width="147px" height="583px" valign="top">
+                   
+                    <table style="width: 116%;" cellspacing="0">
+                        <tr>
+                            <td class="style34">
+                                </td>
+                            <td class="style35">
+                                </td>
+                            <td class="style36">
+                                </td>
+                        </tr>
+                        <tr>
+                            <td class="style39">
+                                </td>
+                            <td width="151px"  height="28px" class="menu_dialog_aba">
+                                Equipamentos
+                                </td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                            <td class="style30">
+                            </td>
+                            <td width="151px" height="89px" class="menu_dialog_fundo">
+                                <asp:LinkButton ID="LinkButton6" runat="server" onclick="LinkButton6_Click" SkinID="lnkMenu">Consulta</asp:LinkButton>
+                                <br />
+                                <asp:LinkButton ID="LinkButton2" runat="server" onclick="LinkButton2_Click" SkinID="lnkMenu">Cadastro</asp:LinkButton>
+                                <br />
+                                <asp:LinkButton ID="LinkButton3" runat="server" onclick="LinkButton3_Click" SkinID="lnkMenu">Tipo</asp:LinkButton>
+                                <br />
+                                <asp:LinkButton ID="LinkButton4" runat="server" onclick="LinkButton4_Click" SkinID="lnkMenu">Atributo</asp:LinkButton>
+                            </td>
+                            <td class="style20" valign="top">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style31">
+                            </td>
+                            <td class="style22">
+                            </td>
+                            <td class="style21" valign="top">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style42">
+                                </td>
+                            <td width="151px"  height="28px" class="menu_dialog_aba">
+                                Administração</td>
+                            <td class="style15" valign="top">
+                                </td>
+                        </tr>
+                        <tr>
+                            <td class="style32">
+                            </td>
+                            <td width="151px" height="43px" class="menu_dialog_fundo">
+                                <asp:LinkButton ID="LinkButton5" runat="server" SkinID="lnkMenu">Manutenção</asp:LinkButton>
+                            </td>
+                            <td class="style23" valign="top">
+                            </td>
+                        </tr>
+                    </table>
+                            </td>
+                <td valign="top" class="principal_fundo" style="text-align: left">
+                    
+                    <table style="width: 100%" cellspacing="0">
+                        <tr>
+                            <td height="8px" valign="top" class="style45">
+                                </td>
+                            <td height="8px" valign="top" class="style48">
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="style46" style="background-color: #FFFFFF" valign="top">
+                   
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </td>
+                            <td valign="top" class="style48">
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="style47">
+                                </td>
+                            <td class="style25">
+                                &nbsp;</td>
+                        </tr>
+                    </table>
+                    
+                                </td>
+            </tr>
+            </table>
+    </div>
+                    
+    </form>
+</body>
+</html>
