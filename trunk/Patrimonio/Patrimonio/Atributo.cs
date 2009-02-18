@@ -15,7 +15,8 @@ namespace Patrimonio
         DAOAtributo daoatributo = new DAOAtributo();
         public void criarAtributo(int id, String nome, String descricao,String tipo, Boolean nulo)
         {
-            daoatributo.persisteNoBanco(id, nome, descricao, tipo, nulo);    
+            daoatributo.persisteNoBanco(id, nome, descricao, tipo, nulo);
+            daoatributo.persisteNoBanco(id, nome, descricao, tipo, nulo); ;
         }
 
 
