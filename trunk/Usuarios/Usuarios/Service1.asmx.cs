@@ -20,7 +20,7 @@ namespace Usuarios
         [WebMethod]
         public string HelloWorld()
         {
-            return "Hello World - Oduvas";
+            return "Hello World";
         }
     }
 }
