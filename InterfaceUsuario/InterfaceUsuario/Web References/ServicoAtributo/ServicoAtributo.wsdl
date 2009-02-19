@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.pece.org.br/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.pece.org.br/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.pece.org.br/">
+      <s:element name="CriaAtributo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestAtributo" nillable="true" type="tns:RequestAtributo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RequestAtributo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Atributo" nillable="true" type="tns:Atributo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Atributo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descricao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tipo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nulo" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CriaAtributoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ResponseAtributo" nillable="true" type="tns:ResponseAtributo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseAtributo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Message" nillable="true" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ListaAtributos" nillable="true" type="tns:Atributo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeletaAtributo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestAtributo" nillable="true" type="tns:RequestAtributo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletaAtributoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ResponseAtributo" nillable="true" type="tns:ResponseAtributo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlteraAtributo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestAtributo" nillable="true" type="tns:RequestAtributo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlteraAtributoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ResponseAtributo" nillable="true" type="tns:ResponseAtributo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaAtributo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestAtributo" nillable="true" type="tns:RequestAtributo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaAtributoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ResponseAtributo" nillable="true" type="tns:ResponseAtributo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CriaAtributoSoapIn">
+    <wsdl:part name="parameters" element="tns:CriaAtributo" />
+  </wsdl:message>
+  <wsdl:message name="CriaAtributoSoapOut">
+    <wsdl:part name="parameters" element="tns:CriaAtributoResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletaAtributoSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletaAtributo" />
+  </wsdl:message>
+  <wsdl:message name="DeletaAtributoSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletaAtributoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlteraAtributoSoapIn">
+    <wsdl:part name="parameters" element="tns:AlteraAtributo" />
+  </wsdl:message>
+  <wsdl:message name="AlteraAtributoSoapOut">
+    <wsdl:part name="parameters" element="tns:AlteraAtributoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaAtributoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaAtributo" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaAtributoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaAtributoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServicoAtributoSoap">
+    <wsdl:operation name="CriarAtributo">
+      <wsdl:input name="CriaAtributo" message="tns:CriaAtributoSoapIn" />
+      <wsdl:output name="CriaAtributo" message="tns:CriaAtributoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarAtributo">
+      <wsdl:input name="DeletaAtributo" message="tns:DeletaAtributoSoapIn" />
+      <wsdl:output name="DeletaAtributo" message="tns:DeletaAtributoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarAtributo">
+      <wsdl:input name="AlteraAtributo" message="tns:AlteraAtributoSoapIn" />
+      <wsdl:output name="AlteraAtributo" message="tns:AlteraAtributoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAtributo">
+      <wsdl:input name="ConsultaAtributo" message="tns:ConsultaAtributoSoapIn" />
+      <wsdl:output name="ConsultaAtributo" message="tns:ConsultaAtributoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServicoAtributoSoap" type="tns:ServicoAtributoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CriarAtributo">
+      <soap:operation soapAction="http://www.pece.org.br/CriaAtributo" style="document" />
+      <wsdl:input name="CriaAtributo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CriaAtributo">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarAtributo">
+      <soap:operation soapAction="http://www.pece.org.br/DeletaAtributo" style="document" />
+      <wsdl:input name="DeletaAtributo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DeletaAtributo">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarAtributo">
+      <soap:operation soapAction="http://www.pece.org.br/AlteraAtributo" style="document" />
+      <wsdl:input name="AlteraAtributo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AlteraAtributo">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAtributo">
+      <soap:operation soapAction="http://www.pece.org.br/ConsultaAtributo" style="document" />
+      <wsdl:input name="ConsultaAtributo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ConsultaAtributo">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServicoAtributoSoap12" type="tns:ServicoAtributoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CriarAtributo">
+      <soap12:operation soapAction="http://www.pece.org.br/CriaAtributo" style="document" />
+      <wsdl:input name="CriaAtributo">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CriaAtributo">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarAtributo">
+      <soap12:operation soapAction="http://www.pece.org.br/DeletaAtributo" style="document" />
+      <wsdl:input name="DeletaAtributo">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DeletaAtributo">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarAtributo">
+      <soap12:operation soapAction="http://www.pece.org.br/AlteraAtributo" style="document" />
+      <wsdl:input name="AlteraAtributo">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AlteraAtributo">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAtributo">
+      <soap12:operation soapAction="http://www.pece.org.br/ConsultaAtributo" style="document" />
+      <wsdl:input name="ConsultaAtributo">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ConsultaAtributo">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoAtributo">
+    <wsdl:port name="ServicoAtributoSoap" binding="tns:ServicoAtributoSoap">
+      <soap:address location="http://localhost:1165/Atributo/ServicoAtributo.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServicoAtributoSoap12" binding="tns:ServicoAtributoSoap12">
+      <soap12:address location="http://localhost:1165/Atributo/ServicoAtributo.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
