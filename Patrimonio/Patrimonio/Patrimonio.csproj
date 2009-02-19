@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Atributo\ServicoAtributo.asmx" />
-    <Content Include="Service1.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -51,10 +50,6 @@
     <Compile Include="Atributo\ResponseAtributo.cs" />
     <Compile Include="Atributo\ServicoAtributo.asmx.cs">
       <DependentUpon>ServicoAtributo.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Service1.asmx.cs">
-      <DependentUpon>Service1.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
