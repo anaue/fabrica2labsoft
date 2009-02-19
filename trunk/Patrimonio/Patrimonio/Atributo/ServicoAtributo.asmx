@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="ServicoAtributo.asmx.cs" Class="Patrimonio.ServicoAtributo" %>
