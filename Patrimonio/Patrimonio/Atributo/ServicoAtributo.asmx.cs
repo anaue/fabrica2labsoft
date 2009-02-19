@@ -23,11 +23,13 @@ namespace Patrimonio.Atributo
             {
                 if (_request != null)
                 {
-                    ////implementacao da função vai aqui
-
-
-                    /////
                     _response.StatusCode = 200;
+                    _response.ListaAtributos = new System.Collections.Generic.List<Atributo>();
+                    
+
+
+                   // _request.Atributo.Id = 1;
+                    _response.ListaAtributos.Add(_request.Atributo);
                 }
             }
             catch (Exception ex)
