@@ -18,7 +18,7 @@ namespace Patrimonio
     //Construtor
     public  ConectorSQL()
         {
-            StringConexao = "Data Source=WINDOSXPVM\SQLEXPRESS;Initial Catalog=fabrica2db;Integrated Security=True";
+            StringConexao = "Data Source=WINDOSXPVM\\SQLEXPRESS;Initial Catalog=fabrica2db;Integrated Security=True";
             
         }
     }
