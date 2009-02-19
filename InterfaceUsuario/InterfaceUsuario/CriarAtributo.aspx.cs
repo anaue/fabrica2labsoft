@@ -20,7 +20,20 @@ namespace InterfaceUsuario
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            Classes.Atributo atributo = new InterfaceUsuario.Classes.Atributo();
+            atributo.Nome = txtNome.Text;
+            atributo.Descricao = txtDescricao.Text;
+            atributo.Tipo = ddlTipo.SelectedValue.ToString();
+            atributo.Nulo = cbNulo.Checked;
+            if (atributo.CriaAtributo() < 0)
+                lblError.Visible = true;
+            else
+                lblError.Visible = false; ;
             
+                
+
+            
+
         }
 
 

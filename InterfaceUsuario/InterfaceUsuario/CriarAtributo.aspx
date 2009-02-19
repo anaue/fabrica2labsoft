@@ -96,6 +96,8 @@
                 </td>
             </tr>
         </table>
+        <asp:Label ID="lblError" runat="server" BorderColor="Black" ForeColor="Red" 
+            Text="Erro ao efetuar o cadastro o registro" Visible="False"></asp:Label>
      <br />
 </div>
 </asp:Content>
