@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace Patrimonio
+namespace Patrimonio.Atributo
 {
     [XmlRoot(ElementName = "RequestAtributo")]
     public class RequestAtributo
