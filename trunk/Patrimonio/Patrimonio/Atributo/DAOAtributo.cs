@@ -36,10 +36,11 @@ namespace Patrimonio.Atributo
                   + " ' " + atributo.Nulo + " ')"
                   , conn);
                 linhasafetadas = cmd.ExecuteNonQuery();
-                SqlCommand cmd2 = new SqlCommand(" SELECT     @@IDENTITY AS IDGerado"
-                  , conn);
-                idGerado =(Int32) cmd2.ExecuteScalar();
+                SqlCommand cmd2 = new SqlCommand(" SELECT     SCOPE_IDENTITY() AS ID", conn);
+                idGerado =Int32.Parse(cmd2.ExecuteScalar().ToString());
+                
             }
+          
             finally
             {
                 conn.Close();
