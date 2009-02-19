@@ -13,7 +13,7 @@ namespace Patrimonio.Atributo
 {
     public class DAOAtributo
     {
-        private SqlConnection conn;
+       
          public DAOAtributo()
         {
             
@@ -22,16 +22,18 @@ namespace Patrimonio.Atributo
         {
             int linhasafetadas;
             int idGerado;
+            SqlConnection conn = null;
             try
             {
-                conn.ConnectionString = new ConectorSQL().StringConexao;
+                conn = new SqlConnection(new ConectorSQL().StringConexao);
+                conn.Open();
                 SqlCommand cmd = new SqlCommand(
                   " INSERT INTO tb_Atributo (nomeAtributo, descAtributo, tipoAtributo, nuloAtributo) "
                   + " VALUES     ( "
                   + " ' " + atributo.Nome + " ',"
                   + " ' " + atributo.Descricao + " ',"
                   + " ' " + atributo.Tipo + " ',"
-                  + " ' " + atributo.Nulo + " '"
+                  + " ' " + atributo.Nulo + " ')"
                   , conn);
                 linhasafetadas = cmd.ExecuteNonQuery();
                 SqlCommand cmd2 = new SqlCommand(" SELECT     @@IDENTITY AS IDGerado"
