@@ -26,9 +26,13 @@ namespace InterfaceUsuario
             atributo.Tipo = ddlTipo.SelectedValue.ToString();
             atributo.Nulo = cbNulo.Checked;
             if (atributo.CriaAtributo() < 0)
+            {
                 lblError.Visible = true;
+            }
             else
-                lblError.Visible = false;         
+            {
+                lblError.Visible = false;
+            }
   
         }
 
