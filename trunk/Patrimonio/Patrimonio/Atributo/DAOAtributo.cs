@@ -45,7 +45,7 @@ namespace Patrimonio.Atributo
             {
                 conn.Close();
             }
-            if (linhasafetadas > 0) { return linhasafetadas; }
+            if (linhasafetadas == 0) { return linhasafetadas; }
             else {return idGerado;}
         }
     }
