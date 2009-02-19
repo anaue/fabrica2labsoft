@@ -20,9 +20,24 @@ namespace Maestro
             string _endereco = string.Empty;
             switch (_NomeServico)
             {
-                case "InserirAtributo":
+                case "CriarAtributo":
                     {
-                        _endereco = "http://localhost:3888/ItensPatrimonio.asmx";
+                        _endereco = "http://localhost:1165/Atributo/ServicoAtributo.asmx";
+                        break;
+                    }
+                case "DeletarAtributo":
+                    {
+                        _endereco = "http://localhost:1165/Atributo/ServicoAtributo.asmx";
+                        break;
+                    }
+                case "AlterarAtributo":
+                    {
+                        _endereco = "http://localhost:1165/Atributo/ServicoAtributo.asmx";
+                        break;
+                    }
+                case "ConsultarAtributo":
+                    {
+                        _endereco = "http://localhost:1165/Atributo/ServicoAtributo.asmx";
                         break;
                     }
             }
