@@ -4,6 +4,7 @@ using System.Xml.Serialization;
 
 namespace Patrimonio.Atributo
 {
+    [XmlRoot(ElementName = "Atributo")]
     public class Atributo
     {
         Atributo()
