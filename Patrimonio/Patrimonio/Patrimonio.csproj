@@ -46,12 +46,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Atributo\Atributo.cs" />
+    <Compile Include="Atributo\DAOAtributo.cs" />
     <Compile Include="Atributo\RequestAtributo.cs" />
     <Compile Include="Atributo\ResponseAtributo.cs" />
     <Compile Include="Atributo\ServicoAtributo.asmx.cs">
       <DependentUpon>ServicoAtributo.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ConectorSQL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
