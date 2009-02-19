@@ -15,6 +15,7 @@ namespace Patrimonio.Atributo
 
     public class ServicoAtributo : System.Web.Services.WebService
     {
+        DAOAtributo daoatributo = new DAOAtributo();
         [WebMethod(MessageName = "CriaAtributo")]
         public ResponseAtributo CriarAtributo(RequestAtributo _request)
         {
@@ -26,10 +27,16 @@ namespace Patrimonio.Atributo
                     _response.StatusCode = 200;
                     _response.ListaAtributos = new System.Collections.Generic.List<Atributo>();
                     
-
-
-                   // _request.Atributo.Id = 1;
-                    _response.ListaAtributos.Add(_request.Atributo);
+                    int idGerado = daoatributo.InsereAtributo(_request.Atributo);
+                    if (idGerado > 0)
+                    {
+                        _request.Atributo.Id = idGerado;
+                        _response.ListaAtributos.Add(_request.Atributo);
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
                 }
             }
             catch (Exception ex)
