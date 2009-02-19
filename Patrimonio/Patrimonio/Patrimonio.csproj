@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Atributo\ServicoAtributo.asmx" />
+    <Content Include="Patrimonio\ServicoPatrimonio.asmx" />
+    <Content Include="Relatorio\ServicoRelatorio.asmx" />
+    <Content Include="TipoPatrimonio\ServicoTipoPatrimonio.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -54,9 +57,33 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ConectorSQL.cs" />
+    <Compile Include="Patrimonio\Baixa.cs" />
+    <Compile Include="Patrimonio\Manutencao.cs" />
+    <Compile Include="Patrimonio\Patrimonio.cs" />
+    <Compile Include="Patrimonio\RequestPatrimonio.cs" />
+    <Compile Include="Patrimonio\ResponsePatrimonio.cs" />
+    <Compile Include="Patrimonio\ServicoPatrimonio.asmx.cs">
+      <DependentUpon>ServicoPatrimonio.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Relatorio\Relatorio.cs" />
+    <Compile Include="Relatorio\RequestRelatorio.cs" />
+    <Compile Include="Relatorio\ResponseRelatorio.cs" />
+    <Compile Include="Relatorio\ServicoRelatorio.asmx.cs">
+      <DependentUpon>ServicoRelatorio.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TipoPatrimonio\RequestTipoPatrimonio.cs" />
+    <Compile Include="TipoPatrimonio\ResponseTipoPatrimonio.cs" />
+    <Compile Include="TipoPatrimonio\ServicoTipoPatrimonio.asmx.cs">
+      <DependentUpon>ServicoTipoPatrimonio.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TipoPatrimonio\TipoPatrimonio.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Browsers\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
