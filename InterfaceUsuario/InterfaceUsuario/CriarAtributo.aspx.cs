@@ -28,12 +28,8 @@ namespace InterfaceUsuario
             if (atributo.CriaAtributo() < 0)
                 lblError.Visible = true;
             else
-                lblError.Visible = false; ;
-            
-                
-
-            
-
+                lblError.Visible = false;         
+  
         }
 
 
