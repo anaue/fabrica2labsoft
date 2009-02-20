@@ -24,10 +24,10 @@ namespace Usuarios.Usuario
                 if (_request != null)
                 {
                     _response.StatusCode = 200;
-                    ////implementacao da função vai aqui
 
-
-                    /////
+                    DAOUsuario daoUsuario = new DAOUsuario();
+                    _response.boolUsuario = daoUsuario.CriarUsuario(_request.Usuario);  
+                    //devolve uma variavel dizendo se foi cadastrado corretamente ou naum         
                 }
             }
             catch (Exception ex)
@@ -40,16 +40,16 @@ namespace Usuarios.Usuario
         [WebMethod(MessageName = "DeletaUsuario")]
         public ResponseUsuario DeletarUsuario(RequestUsuario _request)
         {
-            ResponseUsuario _response = new ResponseUsuario();
+              ResponseUsuario _response = new ResponseUsuario();
             try
             {
                 if (_request != null)
                 {
-                    ////implementacao da função vai aqui
-
-
-                    /////
                     _response.StatusCode = 200;
+
+                    DAOUsuario daoUsuario = new DAOUsuario();
+                    _response.BoolUsuario = daoUsuario.DeletarUsuario(_request.idUsuario);    
+
                 }
             }
             catch (Exception ex)
@@ -67,11 +67,11 @@ namespace Usuarios.Usuario
             {
                 if (_request != null)
                 {
-                    ////implementacao da função vai aqui
-
-
-                    /////
                     _response.StatusCode = 200;
+
+                    DAOUsuario daoUsuario = new DAOUsuario();
+
+                    _response.BoolUsuario = daoUsuario.AlterarUsuario(_request.Usuario); 
                 }
             }
             catch (Exception ex)
@@ -89,11 +89,12 @@ namespace Usuarios.Usuario
             {
                 if (_request != null)
                 {
-                    ////implementacao da função vai aqui
 
-
-                    /////
                     _response.StatusCode = 200;
+
+                    DAOUsuario daoUsuario = new DAOUsuario();
+
+                    _response.Usuario = daoUsuario.ConsultarUsuario(_request.idUsuario);
                 }
             }
             catch (Exception ex)
@@ -103,5 +104,31 @@ namespace Usuarios.Usuario
             }
             return _response;
         }
+
+        [WebMethod(MessageName = "BuscaUsuarios")]
+        public ResponseUsuario BuscaUsuarios(RequestUsuario _request)
+        {
+            ResponseUsuario _response = new ResponseUsuario();
+            try
+            {
+                if (_request != null)
+                {
+
+                    _response.StatusCode = 200;
+
+                    DAOUsuario daoUsuario = new DAOUsuario();
+
+                    _response.ListaUsuarios = daoUsuario.BuscaUsuarios(_request.Usuario.Nome, _request.Usuario.Descricao);
+                }
+            }
+            catch (Exception ex)
+            {
+                _response.StatusCode = 500;
+                _response.Message = string.Format("Erro na consulta do registro: {0}", ex.Message);
+            }
+            return _response;
+        }
+
+
     }
 }

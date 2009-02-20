@@ -25,5 +25,30 @@ namespace Usuarios.Usuario
             get { return _Message; }
             set { _Message = value; }
         }
+
+        private Usuario _usuario;
+        [XmlElement(ElementName = "Usuario", IsNullable = true)]
+        public Usuario Usuario
+        {
+            get { return _Usuario; }
+            set { _Usuario = value; }
+        }
+
+        private bool _boolUsuario;
+        [XmlElement(ElementName = "BoolUsuario", IsNullable = true)]
+        public bool BoolUsuario
+        {
+            get { return _boolUsuario; }
+            set { _boolUsuario = value; }
+        }
+
+        private List<Usuario> _listaUsuarios;
+        [XmlElement(ElementName = "ListaUsuario", IsNullable = true)]
+        public List<Usuario> ListaUsuarios
+        {
+            get { return _listaUsuarios; }
+            set { _listaUsuarios = value; }
+        }
+
     }
 }
