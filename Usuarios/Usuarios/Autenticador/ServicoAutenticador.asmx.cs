@@ -26,18 +26,18 @@ namespace Usuarios.Autenticador
                 {
                     _response.StatusCode = 200;
 
-                    DAOUsuario uDAO = new DAOUsuario();
+                    //DAOUsuario uDAO = new DAOUsuario();
                     ServicoUsuario sU = new ServicoUsuario();
-                    Usuario.Usuario u = sU.ConsultarUsuario(_request.IdUsuario);
+                    //Usuario.Usuario u = sU.ConsultarUsuario(_request.IdUsuario);
 
-                    if (u == null)
-                    {
-                        _response.EstaRegistrado = false;   
-                    }
-                    else
-                    {
-                        _response.EstaRegistrado = true;
-                    }                    
+                    //if (u == null)
+                    //{
+                    //    _response.EstaRegistrado = false;   
+                    //}
+                    //else
+                    //{
+                    //    _response.EstaRegistrado = true;
+                    //}                    
                 }
             }
             catch (Exception ex)
@@ -58,8 +58,8 @@ namespace Usuarios.Autenticador
                 {
                     _response.StatusCode = 200;
 
-                    DAOAutenticador aDAO = new DAOAutenticador();
-                    _response.Autenticador = aDAO.VerificaPermissoes(_request.IdUsuario, _request.IdTela);                    
+                    //DAOAutenticador aDAO = new DAOAutenticador();
+                    //_response.Autenticador = aDAO.VerificaPermissoes(_request.IdUsuario, _request.IdTela);                    
 
                 }
             }
