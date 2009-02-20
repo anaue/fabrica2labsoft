@@ -10,13 +10,7 @@ namespace Usuarios.Autenticador
         public Autenticador()
         {
         }
-        private int _idUsuario;
-        [XmlElement(ElementName = "IdUsuario")]
-        public int IdUsuario
-        {
-            get { return _idUsuario; }
-            set { _idUsuario = value; }
-        }
+        
         private bool _permissaoIncluir;
         [XmlElement(ElementName = "PermissaoIncluir")]
         public bool PermissaoIncluir
@@ -44,7 +38,6 @@ namespace Usuarios.Autenticador
         {
             get { return _permissaoEditar; }
             set { _permissaoEditar = value; }
-        }
-
+        }            
     }
 }

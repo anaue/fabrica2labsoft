@@ -5,6 +5,7 @@ using System.Data;
 using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
+using Usuarios.Usuario;
 
 namespace Usuarios.Autenticador
 {
@@ -24,10 +25,19 @@ namespace Usuarios.Autenticador
                 if (_request != null)
                 {
                     _response.StatusCode = 200;
-                    ////implementacao da função vai aqui
 
+                    DAOUsuario uDAO = new DAOUsuario();
+                    ServicoUsuario sU = new ServicoUsuario();
+                    Usuario.Usuario u = sU.ConsultarUsuario(_request.IdUsuario);
 
-                    /////
+                    if (u == null)
+                    {
+                        _response.EstaRegistrado = false;   
+                    }
+                    else
+                    {
+                        _response.EstaRegistrado = true;
+                    }                    
                 }
             }
             catch (Exception ex)
@@ -37,28 +47,7 @@ namespace Usuarios.Autenticador
             }
             return _response;
         }
-        [WebMethod(MessageName = "Logout")]
-        public ResponseAutenticador Logout(RequestAutenticador _request)
-        {
-            ResponseAutenticador _response = new ResponseAutenticador();
-            try
-            {
-                if (_request != null)
-                {
-                    _response.StatusCode = 200;
-                    ////implementacao da função vai aqui
-
-
-                    /////
-                }
-            }
-            catch (Exception ex)
-            {
-                _response.StatusCode = 500;
-                _response.Message = string.Format("Erro na criação do registro: {0}", ex.Message);
-            }
-            return _response;
-        }
+        
         [WebMethod(MessageName = "VerificaPermissoes")]
         public ResponseAutenticador VerificarPermissoes(RequestAutenticador _request)
         {
@@ -68,10 +57,10 @@ namespace Usuarios.Autenticador
                 if (_request != null)
                 {
                     _response.StatusCode = 200;
-                    ////implementacao da função vai aqui
 
+                    DAOAutenticador aDAO = new DAOAutenticador();
+                    _response.Autenticador = aDAO.VerificaPermissoes(_request.IdUsuario, _request.IdTela);                    
 
-                    /////
                 }
             }
             catch (Exception ex)

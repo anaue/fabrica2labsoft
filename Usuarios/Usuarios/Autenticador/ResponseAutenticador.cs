@@ -25,5 +25,21 @@ namespace Usuarios.Autenticador
             get { return _Message; }
             set { _Message = value; }
         }
+
+        private bool _estaRegistrado;
+        [XmlElement(ElementName = "EstaRegistrado", IsNullable = true)]
+        public bool EstaRegistrado
+        {
+            get { return _estaRegistrado; }
+            set { _estaRegistrado = value; }
+        }
+
+        private Autenticador _autenticador;
+        [XmlElement(ElementName = "Autenticador", IsNullable = true)]
+        public Autenticador Autenticador
+        {
+            get { return _autenticador; }
+            set { _autenticador = value; }
+        }
     }
 }
