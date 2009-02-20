@@ -15,11 +15,12 @@ namespace Patrimonio.Atributo
 
     public class ServicoAtributo : System.Web.Services.WebService
     {
-        DAOAtributo daoatributo = new DAOAtributo();
+        
         [WebMethod(MessageName = "CriaAtributo")]
         public ResponseAtributo CriarAtributo(RequestAtributo _request)
         {
             ResponseAtributo _response = new ResponseAtributo();
+            DAOAtributo daoatributo = new DAOAtributo();
             try
             {
                 if (_request != null)
@@ -47,11 +48,11 @@ namespace Patrimonio.Atributo
             return _response;
         }
 
-
         [WebMethod(MessageName = "DeletaAtributo")]
         public ResponseAtributo DeletarAtributo(RequestAtributo _request)
         {
             ResponseAtributo _response = new ResponseAtributo();
+            DAOAtributo daoatributo = new DAOAtributo();
             try
             {
                 if (_request != null)
@@ -74,6 +75,7 @@ namespace Patrimonio.Atributo
         public ResponseAtributo AlterarAtributo(RequestAtributo _request)
         {
             ResponseAtributo _response = new ResponseAtributo();
+            DAOAtributo daoatributo = new DAOAtributo();
             try
             {
                 if (_request != null)
@@ -96,6 +98,7 @@ namespace Patrimonio.Atributo
         public ResponseAtributo ConsultarAtributo(RequestAtributo _request)
         {
             ResponseAtributo _response = new ResponseAtributo();
+            DAOAtributo daoatributo = new DAOAtributo();
             try
             {
                 if (_request != null)
