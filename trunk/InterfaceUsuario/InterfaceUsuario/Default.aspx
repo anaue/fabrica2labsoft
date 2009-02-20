@@ -1,116 +1,136 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPage.master"  CodeFile="Default.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="InterfaceUsuario.Default" %>
 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="formulario">
-
-    Texto padrão do Formulário<br />
-    <hr />
-    <br />
-    <b>CSS<br />
-    <br />
-    </b>
-    <table>
-        <tr>
-            <td class="texto_titulo" style="height: 116px">
-                texto_titulo</td>
-            <td class="texto_padrao" style="height: 116px">
-                texto_padrao</td>
-            <td class="header_titulo_fundo" style="height: 116px">
-                header_titulo_fundo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </td>
-            <td class="principal_fundo" style="width: 212px; height: 116px">
-                principal_fundo</td>
-        </tr>
-    </table>
-    <br />
-    <br />
-    <br />
-    SKIN FILES (Os controles com SkinId nao ficam com as caracteristicas do skinfile em 
-        design mode, só em run-mode. Isso acontece pois esta página está dentro de um 
-        div com uma css class. Rode o programa para visualizar)<br />
-    <br />
-    <br />
-    <table>
-        <tr>
-            <td>
-                <asp:Label ID="Label5" runat="server" SkinID="lblTitulo" Text="lblTitulo"></asp:Label>
-            </td>
-            <td>
-                <asp:Label ID="Label2" runat="server" Text="lblPadraoPequeno" 
-                    SkinID="lblPadraoPequeno"></asp:Label>
-            </td>
-            <td>
-                <asp:Label ID="Label3" runat="server" Text="lblPadraoMedio" 
-                    SkinID="lblPadraoMedio"></asp:Label>
-            </td>
-            <td>
-                <asp:Label ID="Label4" runat="server" Text="lblPadraoGrande" 
-                    SkinID="lblPadraoGrande"></asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td>
-                <asp:LinkButton ID="LinkButton7" runat="server" SkinID="lnkPadrao">lnkPadrao</asp:LinkButton>
-            </td>
-            <td>
-                                <asp:LinkButton ID="LinkButton6" runat="server" SkinID="lnkMenu">lnkMenu</asp:LinkButton>
-                                </td>
-            <td>
-                <asp:Button ID="Button1" runat="server" Text="btnPadrao" 
-                    Width="99px" SkinID="btnPadrao" />
-            </td>
-            <td>
-                <asp:DropDownList ID="DropDownList1" runat="server" SkinID="ddlPadrao" >
-                </asp:DropDownList>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <asp:CheckBox ID="CheckBox1" runat="server" SkinID="cbPadrao" />
-            </td>
-            <td>
-                                <asp:RadioButton ID="RadioButton1" runat="server" SkinID="rbPadrao" />
-            </td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td>
-                &nbsp;</td>
-            <td>
-                                <asp:Label ID="Label6" runat="server" SkinID="willows" Text="TESTEEEEEEEEEEEE"></asp:Label>
-            </td>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
-    </table>
-        <br />
-        
-        <asp:GridView ID="GridView1" runat="server" SkinID="grvPadrao">
-        </asp:GridView>
-        <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" 
-            SkinID="dtvPadrao" Width="125px">
-        </asp:DetailsView>
-        
-        
-        
-    <br />
-
-</div>
-</asp:Content>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Untitled Page</title>
+    <style type="text/css">
+        .style1
+        {
+            height: 108px;
+        }
+        .style2
+        {
+            height: 237px;
+        }
+        .style3
+        {
+            height: 108px;
+            width: 259px;
+        }
+        .style4
+        {
+            height: 237px;
+            width: 259px;
+            text-align: center;
+        }
+        .style5
+        {
+            width: 259px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    
+        <table style="width:100%;">
+            <tr>
+                <td class="style1">
+                </td>
+                <td class="style3">
+                </td>
+                <td class="style1">
+                </td>
+            </tr>
+            <tr>
+                <td class="style2">
+                </td>
+                <td class="style4">
+                    <asp:Login ID="Login1" runat="server" BackColor="#F7F6F3" BorderColor="#E6E2D8" 
+                        BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" 
+                        Font-Size="0.8em" ForeColor="#333333" Width="236px">
+                        <TextBoxStyle Font-Size="0.8em" />
+                        <LoginButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" 
+                            BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284775" />
+                        <LayoutTemplate>
+                            <table border="0" cellpadding="4" cellspacing="0" 
+                                style="border-collapse:collapse;">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellpadding="0" style="width:236px;">
+                                            <tr>
+                                                <td align="center" colspan="2" 
+                                                    style="color:White;background-color:#5D7B9D;font-size:0.9em;font-weight:bold;">
+                                                    Sistema de Patrimônio do PECE</td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right">
+                                                    <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName" 
+                                                        SkinID="lblPadraoPequeno">Usuário:</asp:Label>
+                                                </td>
+                                                <td>
+                                                    <asp:TextBox ID="UserName" runat="server" Font-Size="0.8em" Width="95px"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" 
+                                                        ControlToValidate="UserName" ErrorMessage="User Name is required." 
+                                                        ToolTip="User Name is required." ValidationGroup="Login1">*</asp:RequiredFieldValidator>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right">
+                                                    <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password" 
+                                                        SkinID="lblPadraoPequeno">Senha:</asp:Label>
+                                                </td>
+                                                <td>
+                                                    <asp:TextBox ID="Password" runat="server" Font-Size="0.8em" TextMode="Password" 
+                                                        Width="95px"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" 
+                                                        ControlToValidate="Password" ErrorMessage="Password is required." 
+                                                        ToolTip="Password is required." ValidationGroup="Login1">*</asp:RequiredFieldValidator>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    &nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center" colspan="2" style="color:Red;">
+                                                    <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right" colspan="2">
+                                                    <asp:Button ID="LoginButton" runat="server" BackColor="#FFFBFF" 
+                                                        BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CommandName="Login" 
+                                                        Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284775" SkinID="btnPadrao" 
+                                                        Text="Log In" ValidationGroup="Login1" Width="60px" />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </LayoutTemplate>
+                        <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
+                        <TitleTextStyle BackColor="#5D7B9D" Font-Bold="True" Font-Size="0.9em" 
+                            ForeColor="White" />
+                    </asp:Login>
+                </td>
+                <td class="style2">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;</td>
+                <td class="style5">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+        </table>
+    
+    </div>
+    </form>
+</body>
+</html>
