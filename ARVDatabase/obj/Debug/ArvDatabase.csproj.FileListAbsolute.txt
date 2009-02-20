@@ -1,0 +1,5 @@
+C:\fabrica2labsoft\ARVDatabase\obj\Debug\ResolveAssemblyReference.cache
+C:\fabrica2labsoft\ARVDatabase\bin\Debug\ARVDatabase.dll
+C:\fabrica2labsoft\ARVDatabase\bin\Debug\ARVDatabase.pdb
+C:\fabrica2labsoft\ARVDatabase\obj\Debug\ARVDatabase.dll
+C:\fabrica2labsoft\ARVDatabase\obj\Debug\ARVDatabase.pdb
