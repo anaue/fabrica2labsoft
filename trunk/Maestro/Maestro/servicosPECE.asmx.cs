@@ -9,7 +9,7 @@ using System.Web.Services.Protocols;
 namespace Maestro
 {
     /// <summary>
-    /// Summary description for Service1
+    /// Summary description for Servicos
     /// </summary>
     [WebService(Namespace = "http://www.pece.org.br/")]
     public class Servicos : System.Web.Services.WebService
@@ -18,6 +18,10 @@ namespace Maestro
         public string ObtemEnderecoServico(string _NomeServico)
         {
             string _endereco = string.Empty;
+            //TODO:
+            //FAZER ESSA FUNCAO DIREITO !
+            //
+
             switch (_NomeServico)
             {
                 case "CriarAtributo":
