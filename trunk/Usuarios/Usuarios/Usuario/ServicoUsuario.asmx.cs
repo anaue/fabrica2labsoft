@@ -25,8 +25,8 @@ namespace Usuarios.Usuario
                 {
                     _response.StatusCode = 200;
 
-                    DAOUsuario daoUsuario = new DAOUsuario();
-                    _response.BoolUsuario = daoUsuario.CriarUsuario(_request.Usuario);  
+                    //DAOUsuario daoUsuario = new DAOUsuario();
+                    //_response.BoolUsuario = daoUsuario.CriarUsuario(_request.Usuario);  
                     //devolve uma variavel dizendo se foi cadastrado corretamente ou naum         
                 }
             }
@@ -47,8 +47,8 @@ namespace Usuarios.Usuario
                 {
                     _response.StatusCode = 200;
 
-                    DAOUsuario daoUsuario = new DAOUsuario();
-                    _response.BoolUsuario = daoUsuario.DeletarUsuario(_request.idUsuario);    
+                    //DAOUsuario daoUsuario = new DAOUsuario();
+                    //_response.BoolUsuario = daoUsuario.DeletarUsuario(_request.idUsuario);    
 
                 }
             }
@@ -69,9 +69,9 @@ namespace Usuarios.Usuario
                 {
                     _response.StatusCode = 200;
 
-                    DAOUsuario daoUsuario = new DAOUsuario();
+                    //DAOUsuario daoUsuario = new DAOUsuario();
 
-                    _response.BoolUsuario = daoUsuario.AlterarUsuario(_request.Usuario); 
+                    //_response.BoolUsuario = daoUsuario.AlterarUsuario(_request.Usuario); 
                 }
             }
             catch (Exception ex)
@@ -92,9 +92,9 @@ namespace Usuarios.Usuario
 
                     _response.StatusCode = 200;
 
-                    DAOUsuario daoUsuario = new DAOUsuario();
+                    //DAOUsuario daoUsuario = new DAOUsuario();
 
-                    _response.Usuario = daoUsuario.ConsultarUsuario(_request.idUsuario);
+                    //_response.Usuario = daoUsuario.ConsultarUsuario(_request.idUsuario);
                 }
             }
             catch (Exception ex)
@@ -116,9 +116,9 @@ namespace Usuarios.Usuario
 
                     _response.StatusCode = 200;
 
-                    DAOUsuario daoUsuario = new DAOUsuario();
+                    //DAOUsuario daoUsuario = new DAOUsuario();
 
-                    _response.ListaUsuarios = daoUsuario.BuscaUsuarios(_request.Usuario.Nome, _request.Usuario.Descricao);
+                    //_response.ListaUsuarios = daoUsuario.BuscaUsuarios(_request.Usuario.Nome, _request.Usuario.Descricao);
                 }
             }
             catch (Exception ex)

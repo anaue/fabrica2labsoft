@@ -12,8 +12,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceUsuario", "Interfa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maestro", "Maestro\Maestro\Maestro.csproj", "{AA08DC28-59FC-4244-834B-77CE4D11C5B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Relatorios", "Relatorios\Relatorios\Relatorios.csproj", "{90622893-55EC-464A-A697-BF7B6CC3A688}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Usuarios", "Usuarios\Usuarios\Usuarios.csproj", "{6551CA3A-9C68-4165-9B37-3FC9135CC865}"
 EndProject
 Global
@@ -34,10 +32,6 @@ Global
 		{AA08DC28-59FC-4244-834B-77CE4D11C5B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA08DC28-59FC-4244-834B-77CE4D11C5B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA08DC28-59FC-4244-834B-77CE4D11C5B6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{90622893-55EC-464A-A697-BF7B6CC3A688}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{90622893-55EC-464A-A697-BF7B6CC3A688}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{90622893-55EC-464A-A697-BF7B6CC3A688}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{90622893-55EC-464A-A697-BF7B6CC3A688}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6551CA3A-9C68-4165-9B37-3FC9135CC865}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6551CA3A-9C68-4165-9B37-3FC9135CC865}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6551CA3A-9C68-4165-9B37-3FC9135CC865}.Release|Any CPU.ActiveCfg = Release|Any CPU

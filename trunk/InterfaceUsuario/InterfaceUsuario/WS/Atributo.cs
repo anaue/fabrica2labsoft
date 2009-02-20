@@ -164,7 +164,13 @@ namespace InterfaceUsuario.WS
                 wsAtributo.Url = _url;
 
                 request.Atributo = new InterfaceUsuario.ServicoAtributo.Atributo();
-                request.Atributo.Id = Id;
+                request.Atributo.Id = atributo.Id;
+                request.Atributo.Nome = atributo.Nome;
+                request.Atributo.Descricao = atributo.Descricao;
+                request.Atributo.Nulo = atributo.Nulo;
+                request.Atributo.Tipo = atributo.Tipo;
+
+                
                 try
                 {
                     response = wsAtributo.AlterarAtributo(request);

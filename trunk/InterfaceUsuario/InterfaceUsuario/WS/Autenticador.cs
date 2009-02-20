@@ -25,8 +25,8 @@ namespace InterfaceUsuario.WS
         {
             bool retorno = false;
             ServicoAutenticador.ServicoAutenticador wsAutenticador = new InterfaceUsuario.ServicoAutenticador.ServicoAutenticador();
-            ServicoAutenticador.ServicoAutenticador request = new InterfaceUsuario.ServicoAutenticador.ServicoAutenticador();
-            ServicoAutenticador.ServicoAutenticador response = new InterfaceUsuario.ServicoAutenticador.ServicoAutenticador();
+            ServicoAutenticador.RequestAutenticador request = new InterfaceUsuario.ServicoAutenticador.RequestAutenticador();
+            ServicoAutenticador.ResponseAutenticador response = new InterfaceUsuario.ServicoAutenticador.ResponseAutenticador();
 
             #region Acesso WS Diretorio
             Diretorio dir = new Diretorio();
@@ -76,8 +76,8 @@ namespace InterfaceUsuario.WS
         {
             bool retorno = false;
             ServicoAutenticador.ServicoAutenticador wsAutenticador = new InterfaceUsuario.ServicoAutenticador.ServicoAutenticador();
-            ServicoAutenticador.ServicoAutenticador request = new InterfaceUsuario.ServicoAutenticador.ServicoAutenticador();
-            ServicoAutenticador.ServicoAutenticador response = new InterfaceUsuario.ServicoAutenticador.ServicoAutenticador();
+            ServicoAutenticador.RequestAutenticador request = new InterfaceUsuario.ServicoAutenticador.RequestAutenticador();
+            ServicoAutenticador.ResponseAutenticador response = new InterfaceUsuario.ServicoAutenticador.ResponseAutenticador();
 
             #region Acesso WS Diretorio
             Diretorio dir = new Diretorio();
