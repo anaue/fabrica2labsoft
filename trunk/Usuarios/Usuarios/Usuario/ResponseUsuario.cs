@@ -30,8 +30,8 @@ namespace Usuarios.Usuario
         [XmlElement(ElementName = "Usuario", IsNullable = true)]
         public Usuario Usuario
         {
-            get { return _Usuario; }
-            set { _Usuario = value; }
+            get { return _usuario; }
+            set { _usuario = value; }
         }
 
         private bool _boolUsuario;

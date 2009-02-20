@@ -26,7 +26,7 @@ namespace Usuarios.Usuario
                     _response.StatusCode = 200;
 
                     DAOUsuario daoUsuario = new DAOUsuario();
-                    _response.boolUsuario = daoUsuario.CriarUsuario(_request.Usuario);  
+                    _response.BoolUsuario = daoUsuario.CriarUsuario(_request.Usuario);  
                     //devolve uma variavel dizendo se foi cadastrado corretamente ou naum         
                 }
             }
