@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Autenticador\Autenticador.cs" />
+    <Compile Include="Autenticador\DAOAutenticador.cs" />
     <Compile Include="Autenticador\RequestAutenticador.cs" />
     <Compile Include="Autenticador\ResponseAutenticador.cs" />
     <Compile Include="Autenticador\ServicoAutenticador.asmx.cs">
@@ -58,6 +59,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Usuario\DAOUsuario.cs" />
     <Compile Include="Usuario\RequestUsuario.cs" />
     <Compile Include="Usuario\ResponseUsuario.cs" />
     <Compile Include="Usuario\ServicoUsuario.asmx.cs">
