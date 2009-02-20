@@ -23,7 +23,7 @@ namespace Usuarios.Usuario
             {
                 if (_request != null)
                 {
-                    _response.StatusCode = 200;
+                    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
 
                     //DAOUsuario daoUsuario = new DAOUsuario();
                     //_response.BoolUsuario = daoUsuario.CriarUsuario(_request.Usuario);  
@@ -32,7 +32,7 @@ namespace Usuarios.Usuario
             }
             catch (Exception ex)
             {
-                _response.StatusCode = 500;
+                _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.InternalServerError;
                 _response.Message = string.Format("Erro na criação do registro: {0}", ex.Message);
             }
             return _response;
@@ -45,7 +45,7 @@ namespace Usuarios.Usuario
             {
                 if (_request != null)
                 {
-                    _response.StatusCode = 200;
+                    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
 
                     //DAOUsuario daoUsuario = new DAOUsuario();
                     //_response.BoolUsuario = daoUsuario.DeletarUsuario(_request.idUsuario);    
@@ -54,7 +54,7 @@ namespace Usuarios.Usuario
             }
             catch (Exception ex)
             {
-                _response.StatusCode = 500;
+                _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.InternalServerError;
                 _response.Message = string.Format("Erro na exclusão do registro: {0}", ex.Message);
             }
             return _response;
@@ -67,7 +67,7 @@ namespace Usuarios.Usuario
             {
                 if (_request != null)
                 {
-                    _response.StatusCode = 200;
+                    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
 
                     //DAOUsuario daoUsuario = new DAOUsuario();
 
@@ -76,7 +76,7 @@ namespace Usuarios.Usuario
             }
             catch (Exception ex)
             {
-                _response.StatusCode = 500;
+                _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.InternalServerError;
                 _response.Message = string.Format("Erro na alteração do registro: {0}", ex.Message);
             }
             return _response;
@@ -90,7 +90,7 @@ namespace Usuarios.Usuario
                 if (_request != null)
                 {
 
-                    _response.StatusCode = 200;
+                    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
 
                     //DAOUsuario daoUsuario = new DAOUsuario();
 
@@ -99,7 +99,7 @@ namespace Usuarios.Usuario
             }
             catch (Exception ex)
             {
-                _response.StatusCode = 500;
+                _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.InternalServerError;
                 _response.Message = string.Format("Erro na consulta do registro: {0}", ex.Message);
             }
             return _response;
@@ -114,7 +114,7 @@ namespace Usuarios.Usuario
                 if (_request != null)
                 {
 
-                    _response.StatusCode = 200;
+                    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
 
                     //DAOUsuario daoUsuario = new DAOUsuario();
 
@@ -123,7 +123,7 @@ namespace Usuarios.Usuario
             }
             catch (Exception ex)
             {
-                _response.StatusCode = 500;
+                _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.InternalServerError;
                 _response.Message = string.Format("Erro na consulta do registro: {0}", ex.Message);
             }
             return _response;

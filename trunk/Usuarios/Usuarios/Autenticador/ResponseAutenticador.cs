@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using Arv.Common;
 
 namespace Usuarios.Autenticador
 {
     [XmlRoot(ElementName = "ResponseAutenticador")]
-    public class ResponseAutenticador
+    public class ResponseAutenticador : BaseResponse
     {
         public ResponseAutenticador()
         {
