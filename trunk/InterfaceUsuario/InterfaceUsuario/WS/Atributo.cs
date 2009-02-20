@@ -36,7 +36,7 @@ namespace InterfaceUsuario.WS
                 try
                 {
                     response = wsAtributo.CriarAtributo(request);
-                    if (response != null && response.StatusCode == 200 && response.ListaAtributos !=null)
+                    if (response != null && response.StatusCode == InterfaceUsuario.ServicoAtributo.ResponseStatus.OK && response.ListaAtributos != null)
                         retorno = response.ListaAtributos[0].Id;
 
                 }
@@ -82,7 +82,7 @@ namespace InterfaceUsuario.WS
                 try
                 {
                     response = wsAtributo.DeletarAtributo(request);
-                    if (response != null && response.StatusCode == 200)
+                    if (response != null && response.StatusCode == InterfaceUsuario.ServicoAtributo.ResponseStatus.OK)
                         // falta implementar a função aqui     
                         
                         retorno = false; //true;
@@ -125,7 +125,7 @@ namespace InterfaceUsuario.WS
                 try
                 {
                     response = wsAtributo.ConsultarAtributo(request);
-                    if (response != null && response.StatusCode == 200)
+                    if (response != null && response.StatusCode == InterfaceUsuario.ServicoAtributo.ResponseStatus.OK)
                         // falta implementar a função aqui     
 
                         retorno = false; //true;
@@ -174,7 +174,7 @@ namespace InterfaceUsuario.WS
                 try
                 {
                     response = wsAtributo.AlterarAtributo(request);
-                    if (response != null && response.StatusCode == 200)
+                    if (response != null && response.StatusCode == InterfaceUsuario.ServicoAtributo.ResponseStatus.OK)
                         // falta implementar a função aqui     
 
                         retorno = false; //true;
