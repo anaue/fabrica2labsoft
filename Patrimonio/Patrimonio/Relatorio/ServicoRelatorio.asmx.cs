@@ -24,7 +24,7 @@ namespace Patrimonio.Relatorio
             {
                 if (_request != null)
                 {
-                    _response.StatusCode = 200;
+                    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
 
 
 
@@ -34,7 +34,7 @@ namespace Patrimonio.Relatorio
             }
             catch (Exception ex)
             {
-                _response.StatusCode = 500;
+                _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.InternalServerError;
                 _response.Message = string.Format("Erro na geração do relatorio: {0}", ex.Message);
             }
             return _response;

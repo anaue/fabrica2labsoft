@@ -89,6 +89,10 @@
     <Compile Include="TipoPatrimonio\TipoPatrimonio.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Arv.Common\Arv.Common.csproj">
+      <Project>{A2C13FAA-F75D-4899-B375-EBA633738E2A}</Project>
+      <Name>Arv.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\ARVDatabase\ArvDatabase.csproj">
       <Project>{E7B07057-EEBB-414D-A04E-C360AC72B547}</Project>
       <Name>ArvDatabase</Name>

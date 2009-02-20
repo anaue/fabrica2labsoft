@@ -1,21 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using Arv.Common;
 
 namespace Patrimonio.Relatorio
 {
     [XmlRoot(ElementName = "ResponseRelatorio")]
-    public class ResponseRelatorio
+    public class ResponseRelatorio : BaseResponse
     {
         public ResponseRelatorio()
         {
-        }
-        private int _statusCode;
-        [XmlElement(ElementName = "StatusCode")]
-        public int StatusCode
-        {
-            get { return _statusCode; }
-            set { _statusCode = value; }
         }
 
         private string _Message;

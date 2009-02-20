@@ -1,21 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using Arv.Common;
 
 namespace Usuarios.Usuario
 {
     [XmlRoot(ElementName = "ResponseUsuario")]
-    public class ResponseUsuario
+    public class ResponseUsuario : BaseResponse
     {
         public ResponseUsuario()
         {
-        }
-        private int _statusCode;
-        [XmlElement(ElementName = "StatusCode")]
-        public int StatusCode
-        {
-            get { return _statusCode; }
-            set { _statusCode = value; }
         }
 
         private string _Message;
