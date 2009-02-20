@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.pece.org.br/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.pece.org.br/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.pece.org.br/">
+      <s:element name="CriaTipoPatrimonio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestTipoPatrimonio" nillable="true" type="tns:RequestTipoPatrimonio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RequestTipoPatrimonio">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TipoPatrimonio" nillable="true" type="tns:TipoPatrimonio" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoPatrimonio" />
+      <s:element name="CriaTipoPatrimonioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ResponseTipoPatrimonio" nillable="true" type="tns:ResponseTipoPatrimonio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseTipoPatrimonio">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Message" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeletaTipoPatrimonio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestTipoPatrimonio" nillable="true" type="tns:RequestTipoPatrimonio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletaTipoPatrimonioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ResponseTipoPatrimonio" nillable="true" type="tns:ResponseTipoPatrimonio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlteraTipoPatrimonio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestTipoPatrimonio" nillable="true" type="tns:RequestTipoPatrimonio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlteraTipoPatrimonioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ResponseTipoPatrimonio" nillable="true" type="tns:ResponseTipoPatrimonio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaTipoPatrimonio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestTipoPatrimonio" nillable="true" type="tns:RequestTipoPatrimonio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaTipoPatrimonioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ResponseTipoPatrimonio" nillable="true" type="tns:ResponseTipoPatrimonio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CriaTipoPatrimonioSoapIn">
+    <wsdl:part name="parameters" element="tns:CriaTipoPatrimonio" />
+  </wsdl:message>
+  <wsdl:message name="CriaTipoPatrimonioSoapOut">
+    <wsdl:part name="parameters" element="tns:CriaTipoPatrimonioResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletaTipoPatrimonioSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletaTipoPatrimonio" />
+  </wsdl:message>
+  <wsdl:message name="DeletaTipoPatrimonioSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletaTipoPatrimonioResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlteraTipoPatrimonioSoapIn">
+    <wsdl:part name="parameters" element="tns:AlteraTipoPatrimonio" />
+  </wsdl:message>
+  <wsdl:message name="AlteraTipoPatrimonioSoapOut">
+    <wsdl:part name="parameters" element="tns:AlteraTipoPatrimonioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaTipoPatrimonioSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaTipoPatrimonio" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaTipoPatrimonioSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaTipoPatrimonioResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServicoTipoPatrimonioSoap">
+    <wsdl:operation name="CriarTipoPatrimonio">
+      <wsdl:input name="CriaTipoPatrimonio" message="tns:CriaTipoPatrimonioSoapIn" />
+      <wsdl:output name="CriaTipoPatrimonio" message="tns:CriaTipoPatrimonioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarTipoPatrimonio">
+      <wsdl:input name="DeletaTipoPatrimonio" message="tns:DeletaTipoPatrimonioSoapIn" />
+      <wsdl:output name="DeletaTipoPatrimonio" message="tns:DeletaTipoPatrimonioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarTipoPatrimonio">
+      <wsdl:input name="AlteraTipoPatrimonio" message="tns:AlteraTipoPatrimonioSoapIn" />
+      <wsdl:output name="AlteraTipoPatrimonio" message="tns:AlteraTipoPatrimonioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarTipoPatrimonio">
+      <wsdl:input name="ConsultaTipoPatrimonio" message="tns:ConsultaTipoPatrimonioSoapIn" />
+      <wsdl:output name="ConsultaTipoPatrimonio" message="tns:ConsultaTipoPatrimonioSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServicoTipoPatrimonioSoap" type="tns:ServicoTipoPatrimonioSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CriarTipoPatrimonio">
+      <soap:operation soapAction="http://www.pece.org.br/CriaTipoPatrimonio" style="document" />
+      <wsdl:input name="CriaTipoPatrimonio">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CriaTipoPatrimonio">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarTipoPatrimonio">
+      <soap:operation soapAction="http://www.pece.org.br/DeletaTipoPatrimonio" style="document" />
+      <wsdl:input name="DeletaTipoPatrimonio">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DeletaTipoPatrimonio">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarTipoPatrimonio">
+      <soap:operation soapAction="http://www.pece.org.br/AlteraTipoPatrimonio" style="document" />
+      <wsdl:input name="AlteraTipoPatrimonio">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AlteraTipoPatrimonio">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarTipoPatrimonio">
+      <soap:operation soapAction="http://www.pece.org.br/ConsultaTipoPatrimonio" style="document" />
+      <wsdl:input name="ConsultaTipoPatrimonio">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ConsultaTipoPatrimonio">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServicoTipoPatrimonioSoap12" type="tns:ServicoTipoPatrimonioSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CriarTipoPatrimonio">
+      <soap12:operation soapAction="http://www.pece.org.br/CriaTipoPatrimonio" style="document" />
+      <wsdl:input name="CriaTipoPatrimonio">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CriaTipoPatrimonio">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarTipoPatrimonio">
+      <soap12:operation soapAction="http://www.pece.org.br/DeletaTipoPatrimonio" style="document" />
+      <wsdl:input name="DeletaTipoPatrimonio">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DeletaTipoPatrimonio">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarTipoPatrimonio">
+      <soap12:operation soapAction="http://www.pece.org.br/AlteraTipoPatrimonio" style="document" />
+      <wsdl:input name="AlteraTipoPatrimonio">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AlteraTipoPatrimonio">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarTipoPatrimonio">
+      <soap12:operation soapAction="http://www.pece.org.br/ConsultaTipoPatrimonio" style="document" />
+      <wsdl:input name="ConsultaTipoPatrimonio">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ConsultaTipoPatrimonio">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoTipoPatrimonio">
+    <wsdl:port name="ServicoTipoPatrimonioSoap" binding="tns:ServicoTipoPatrimonioSoap">
+      <soap:address location="http://localhost:1165/TipoPatrimonio/ServicoTipoPatrimonio.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServicoTipoPatrimonioSoap12" binding="tns:ServicoTipoPatrimonioSoap12">
+      <soap12:address location="http://localhost:1165/TipoPatrimonio/ServicoTipoPatrimonio.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
