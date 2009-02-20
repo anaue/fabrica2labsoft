@@ -19,9 +19,10 @@ namespace Patrimonio.Atributo
         {
             int linhasafetadas = 0;
             int idGerado = 0;
+            ArvDatabase db = new ArvDatabase(_connString);
             try
             {
-                ArvDatabase db = new ArvDatabase(_connString);
+                
                 List<SqlParameter> parameters = new List<SqlParameter>();
                 parameters.Add(new SqlParameter("@nome", atributo.Nome));
                 parameters.Add(new SqlParameter("@tipo", atributo.Tipo));
