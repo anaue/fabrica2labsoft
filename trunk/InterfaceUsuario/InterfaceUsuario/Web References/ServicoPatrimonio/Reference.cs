@@ -39,7 +39,7 @@ namespace InterfaceUsuario.ServicoPatrimonio {
         
         private System.Threading.SendOrPostCallback ConsultarPatrimonioOperationCompleted;
         
-        private System.Threading.SendOrPostCallback ColocarEmManutencaoOperationCompleted;
+        private System.Threading.SendOrPostCallback RegistrarManutencaoOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -95,7 +95,7 @@ namespace InterfaceUsuario.ServicoPatrimonio {
         public event ConsultarPatrimonioCompletedEventHandler ConsultarPatrimonioCompleted;
         
         /// <remarks/>
-        public event ColocarEmManutencaoCompletedEventHandler ColocarEmManutencaoCompleted;
+        public event RegistrarManutencaoCompletedEventHandler RegistrarManutencaoCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.pece.org.br/CriaPatrimonio", RequestElementName="CriaPatrimonio", RequestNamespace="http://www.pece.org.br/", ResponseElementName="CriaPatrimonioResponse", ResponseNamespace="http://www.pece.org.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -248,32 +248,32 @@ namespace InterfaceUsuario.ServicoPatrimonio {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.pece.org.br/ColocaEmManutencao", RequestElementName="ColocaEmManutencao", RequestNamespace="http://www.pece.org.br/", ResponseElementName="ColocaEmManutencaoResponse", ResponseNamespace="http://www.pece.org.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.pece.org.br/RegistraManutencao", RequestElementName="RegistraManutencao", RequestNamespace="http://www.pece.org.br/", ResponseElementName="RegistraManutencaoResponse", ResponseNamespace="http://www.pece.org.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("ResponsePatrimonio", IsNullable=true)]
-        public ResponsePatrimonio ColocarEmManutencao([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] RequestPatrimonio RequestPatrimonio) {
-            object[] results = this.Invoke("ColocarEmManutencao", new object[] {
+        public ResponsePatrimonio RegistrarManutencao([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] RequestPatrimonio RequestPatrimonio) {
+            object[] results = this.Invoke("RegistrarManutencao", new object[] {
                         RequestPatrimonio});
             return ((ResponsePatrimonio)(results[0]));
         }
         
         /// <remarks/>
-        public void ColocarEmManutencaoAsync(RequestPatrimonio RequestPatrimonio) {
-            this.ColocarEmManutencaoAsync(RequestPatrimonio, null);
+        public void RegistrarManutencaoAsync(RequestPatrimonio RequestPatrimonio) {
+            this.RegistrarManutencaoAsync(RequestPatrimonio, null);
         }
         
         /// <remarks/>
-        public void ColocarEmManutencaoAsync(RequestPatrimonio RequestPatrimonio, object userState) {
-            if ((this.ColocarEmManutencaoOperationCompleted == null)) {
-                this.ColocarEmManutencaoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnColocarEmManutencaoOperationCompleted);
+        public void RegistrarManutencaoAsync(RequestPatrimonio RequestPatrimonio, object userState) {
+            if ((this.RegistrarManutencaoOperationCompleted == null)) {
+                this.RegistrarManutencaoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRegistrarManutencaoOperationCompleted);
             }
-            this.InvokeAsync("ColocarEmManutencao", new object[] {
-                        RequestPatrimonio}, this.ColocarEmManutencaoOperationCompleted, userState);
+            this.InvokeAsync("RegistrarManutencao", new object[] {
+                        RequestPatrimonio}, this.RegistrarManutencaoOperationCompleted, userState);
         }
         
-        private void OnColocarEmManutencaoOperationCompleted(object arg) {
-            if ((this.ColocarEmManutencaoCompleted != null)) {
+        private void OnRegistrarManutencaoOperationCompleted(object arg) {
+            if ((this.RegistrarManutencaoCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.ColocarEmManutencaoCompleted(this, new ColocarEmManutencaoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.RegistrarManutencaoCompleted(this, new RegistrarManutencaoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -306,6 +306,10 @@ namespace InterfaceUsuario.ServicoPatrimonio {
         
         private Patrimonio patrimonioField;
         
+        private Manutencao manutencaoPatrimonioField;
+        
+        private Baixa baixaPatrimonioField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public Patrimonio Patrimonio {
@@ -314,6 +318,28 @@ namespace InterfaceUsuario.ServicoPatrimonio {
             }
             set {
                 this.patrimonioField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Manutencao ManutencaoPatrimonio {
+            get {
+                return this.manutencaoPatrimonioField;
+            }
+            set {
+                this.manutencaoPatrimonioField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Baixa BaixaPatrimonio {
+            get {
+                return this.baixaPatrimonioField;
+            }
+            set {
+                this.baixaPatrimonioField = value;
             }
         }
     }
@@ -326,6 +352,8 @@ namespace InterfaceUsuario.ServicoPatrimonio {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.pece.org.br/")]
     public partial class Patrimonio {
         
+        private int idEquipamentoField;
+        
         private int numeroPECEField;
         
         private System.DateTime dataCompraField;
@@ -333,6 +361,16 @@ namespace InterfaceUsuario.ServicoPatrimonio {
         private int numeroNotaFiscalField;
         
         private System.DateTime dataExpGarantiaField;
+        
+        /// <remarks/>
+        public int IdEquipamento {
+            get {
+                return this.idEquipamentoField;
+            }
+            set {
+                this.idEquipamentoField = value;
+            }
+        }
         
         /// <remarks/>
         public int NumeroPECE {
@@ -405,6 +443,144 @@ namespace InterfaceUsuario.ServicoPatrimonio {
             }
             set {
                 this.messageField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.3082")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.pece.org.br/")]
+    public partial class Baixa {
+        
+        private int idBaixaField;
+        
+        private System.DateTime dataManutencaoField;
+        
+        private string destinoBaixaField;
+        
+        private string observacoesBaixaField;
+        
+        private int idUsuarioField;
+        
+        /// <remarks/>
+        public int IdBaixa {
+            get {
+                return this.idBaixaField;
+            }
+            set {
+                this.idBaixaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime DataManutencao {
+            get {
+                return this.dataManutencaoField;
+            }
+            set {
+                this.dataManutencaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DestinoBaixa {
+            get {
+                return this.destinoBaixaField;
+            }
+            set {
+                this.destinoBaixaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ObservacoesBaixa {
+            get {
+                return this.observacoesBaixaField;
+            }
+            set {
+                this.observacoesBaixaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int IdUsuario {
+            get {
+                return this.idUsuarioField;
+            }
+            set {
+                this.idUsuarioField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.3082")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.pece.org.br/")]
+    public partial class Manutencao {
+        
+        private int idManutencaoField;
+        
+        private System.DateTime dataManutencaoField;
+        
+        private string motivoField;
+        
+        private string observacaoField;
+        
+        private int idUsuarioField;
+        
+        /// <remarks/>
+        public int IdManutencao {
+            get {
+                return this.idManutencaoField;
+            }
+            set {
+                this.idManutencaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime DataManutencao {
+            get {
+                return this.dataManutencaoField;
+            }
+            set {
+                this.dataManutencaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Motivo {
+            get {
+                return this.motivoField;
+            }
+            set {
+                this.motivoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Observacao {
+            get {
+                return this.observacaoField;
+            }
+            set {
+                this.observacaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int IdUsuario {
+            get {
+                return this.idUsuarioField;
+            }
+            set {
+                this.idUsuarioField = value;
             }
         }
     }
@@ -541,17 +717,17 @@ namespace InterfaceUsuario.ServicoPatrimonio {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053")]
-    public delegate void ColocarEmManutencaoCompletedEventHandler(object sender, ColocarEmManutencaoCompletedEventArgs e);
+    public delegate void RegistrarManutencaoCompletedEventHandler(object sender, RegistrarManutencaoCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class ColocarEmManutencaoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class RegistrarManutencaoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal ColocarEmManutencaoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal RegistrarManutencaoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
