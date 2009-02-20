@@ -326,6 +326,12 @@
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Arv.Common\Arv.Common.csproj">
+      <Project>{A2C13FAA-F75D-4899-B375-EBA633738E2A}</Project>
+      <Name>Arv.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_GlobalResources\" />
     <Folder Include="bin\" />
