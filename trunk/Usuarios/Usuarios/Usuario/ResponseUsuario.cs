@@ -35,7 +35,7 @@ namespace Usuarios.Usuario
         }
 
         private bool _boolUsuario;
-        [XmlElement(ElementName = "BoolUsuario", IsNullable = true)]
+        [XmlElement(ElementName = "BoolUsuario")]
         public bool BoolUsuario
         {
             get { return _boolUsuario; }
