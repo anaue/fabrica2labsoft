@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.pece.org.br/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.pece.org.br/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.pece.org.br/">
+      <s:element name="CriaUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestUsuario" nillable="true" type="tns:RequestUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RequestUsuario" />
+      <s:element name="CriaUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ResponseUsuario" nillable="true" type="tns:ResponseUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseUsuario">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Message" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeletaUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestUsuario" nillable="true" type="tns:RequestUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletaUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ResponseUsuario" nillable="true" type="tns:ResponseUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlteraUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestUsuario" nillable="true" type="tns:RequestUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlteraUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ResponseUsuario" nillable="true" type="tns:ResponseUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestUsuario" nillable="true" type="tns:RequestUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ResponseUsuario" nillable="true" type="tns:ResponseUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CriaUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:CriaUsuario" />
+  </wsdl:message>
+  <wsdl:message name="CriaUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:CriaUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletaUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletaUsuario" />
+  </wsdl:message>
+  <wsdl:message name="DeletaUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletaUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlteraUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:AlteraUsuario" />
+  </wsdl:message>
+  <wsdl:message name="AlteraUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:AlteraUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServicoUsuarioSoap">
+    <wsdl:operation name="CriarUsuario">
+      <wsdl:input name="CriaUsuario" message="tns:CriaUsuarioSoapIn" />
+      <wsdl:output name="CriaUsuario" message="tns:CriaUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarUsuario">
+      <wsdl:input name="DeletaUsuario" message="tns:DeletaUsuarioSoapIn" />
+      <wsdl:output name="DeletaUsuario" message="tns:DeletaUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarUsuario">
+      <wsdl:input name="AlteraUsuario" message="tns:AlteraUsuarioSoapIn" />
+      <wsdl:output name="AlteraUsuario" message="tns:AlteraUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarUsuario">
+      <wsdl:input name="ConsultaUsuario" message="tns:ConsultaUsuarioSoapIn" />
+      <wsdl:output name="ConsultaUsuario" message="tns:ConsultaUsuarioSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServicoUsuarioSoap" type="tns:ServicoUsuarioSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CriarUsuario">
+      <soap:operation soapAction="http://www.pece.org.br/CriaUsuario" style="document" />
+      <wsdl:input name="CriaUsuario">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CriaUsuario">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarUsuario">
+      <soap:operation soapAction="http://www.pece.org.br/DeletaUsuario" style="document" />
+      <wsdl:input name="DeletaUsuario">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DeletaUsuario">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarUsuario">
+      <soap:operation soapAction="http://www.pece.org.br/AlteraUsuario" style="document" />
+      <wsdl:input name="AlteraUsuario">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AlteraUsuario">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarUsuario">
+      <soap:operation soapAction="http://www.pece.org.br/ConsultaUsuario" style="document" />
+      <wsdl:input name="ConsultaUsuario">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ConsultaUsuario">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServicoUsuarioSoap12" type="tns:ServicoUsuarioSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CriarUsuario">
+      <soap12:operation soapAction="http://www.pece.org.br/CriaUsuario" style="document" />
+      <wsdl:input name="CriaUsuario">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CriaUsuario">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarUsuario">
+      <soap12:operation soapAction="http://www.pece.org.br/DeletaUsuario" style="document" />
+      <wsdl:input name="DeletaUsuario">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DeletaUsuario">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarUsuario">
+      <soap12:operation soapAction="http://www.pece.org.br/AlteraUsuario" style="document" />
+      <wsdl:input name="AlteraUsuario">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AlteraUsuario">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarUsuario">
+      <soap12:operation soapAction="http://www.pece.org.br/ConsultaUsuario" style="document" />
+      <wsdl:input name="ConsultaUsuario">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ConsultaUsuario">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoUsuario">
+    <wsdl:port name="ServicoUsuarioSoap" binding="tns:ServicoUsuarioSoap">
+      <soap:address location="http://localhost:1180/Usuario/ServicoUsuario.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServicoUsuarioSoap12" binding="tns:ServicoUsuarioSoap12">
+      <soap12:address location="http://localhost:1180/Usuario/ServicoUsuario.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
