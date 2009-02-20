@@ -11,14 +11,7 @@ namespace Usuarios.Autenticador
         public ResponseAutenticador()
         {
         }
-        private int _statusCode;
-        [XmlElement(ElementName = "StatusCode")]
-        public int StatusCode
-        {
-            get { return _statusCode; }
-            set { _statusCode = value; }
-        }
-
+        
         private string _Message;
         [XmlElement(ElementName = "Message", IsNullable = true)]
         public string Message
