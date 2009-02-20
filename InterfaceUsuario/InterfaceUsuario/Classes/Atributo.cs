@@ -75,7 +75,8 @@ namespace InterfaceUsuario.Classes
         public int CriaAtributo()
         {
             int retorno;
-            retorno = WS.Atributo.CriaAtributo(this);
+            WS.Atributo ws = new InterfaceUsuario.WS.Atributo();
+            retorno = ws.CriaAtributo(this);
             _id = retorno;
 
             return retorno;

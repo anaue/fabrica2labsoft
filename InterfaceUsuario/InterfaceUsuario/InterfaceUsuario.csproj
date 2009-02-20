@@ -51,6 +51,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Atributo.cs" />
+    <Compile Include="Classes\Autenticador.cs" />
+    <Compile Include="Classes\Baixa.cs" />
+    <Compile Include="Classes\Manutencao.cs" />
+    <Compile Include="Classes\Patrimonio.cs" />
+    <Compile Include="Classes\Relatorio.cs" />
+    <Compile Include="Classes\TipoPatrimonio.cs" />
+    <Compile Include="Classes\Usuario.cs" />
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
@@ -109,12 +116,27 @@
     <Compile Include="teste.aspx.designer.cs">
       <DependentUpon>teste.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web References\ServicoAtributo\Reference.cs">
+    <Compile Include="Web References\ServicoAutenticador\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
-    <Compile Include="Web References\ServicoDiretorio\Reference.cs">
+    <Compile Include="Web References\ServicoPatrimonio\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ServicoRelatorio\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ServicoTipoPatrimonio\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ServicoUsuario\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -141,51 +163,114 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Relatorios.Master" />
-    <None Include="Web References\ServicoAtributo\Reference.map">
+    <None Include="Web References\ServicoPatrimonio\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Web References\ServicoAtributo\ResponseAtributo.datasource">
+    <None Include="Web References\ServicoPatrimonio\ResponsePatrimonio.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\ServicoAtributo\ServicoAtributo.disco" />
+    <None Include="Web References\ServicoPatrimonio\ServicoPatrimonio.disco" />
+    <None Include="Web References\ServicoPatrimonio\ServicoPatrimonio.wsdl" />
+    <None Include="Web References\ServicoUsuario\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\ServicoUsuario\ResponseUsuario.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ServicoUsuario\ServicoUsuario.disco" />
+    <None Include="Web References\ServicoRelatorio\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\ServicoRelatorio\ResponseRelatorio.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ServicoRelatorio\ServicoRelatorio.disco" />
+    <None Include="Web References\ServicoAutenticador\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\ServicoAutenticador\ResponseAutenticador.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ServicoAutenticador\ServicoAutenticador.disco" />
+    <None Include="Web References\ServicoAutenticador\ServicoAutenticador.wsdl" />
+    <None Include="Web References\ServicoRelatorio\ServicoRelatorio.wsdl" />
+    <None Include="Web References\ServicoTipoPatrimonio\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\ServicoTipoPatrimonio\ResponseTipoPatrimonio.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ServicoTipoPatrimonio\ServicoTipoPatrimonio.disco" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Web References\ServicoAtributo\ServicoAtributo.wsdl" />
-    <None Include="Web References\ServicoDiretorio\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\ServicoDiretorio\servicosPECE.disco" />
-    <None Include="Web References\ServicoDiretorio\servicosPECE.wsdl" />
+    <None Include="Web References\ServicoTipoPatrimonio\ServicoTipoPatrimonio.wsdl" />
+    <None Include="Web References\ServicoUsuario\ServicoUsuario.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:1165/Atributo/ServicoAtributo.asmx">
+    <WebReferenceUrl Include="http://localhost:1165/Patrimonio/ServicoPatrimonio.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\ServicoAtributo\</RelPath>
-      <UpdateFromURL>http://localhost:1165/Atributo/ServicoAtributo.asmx</UpdateFromURL>
+      <RelPath>Web References\ServicoPatrimonio\</RelPath>
+      <UpdateFromURL>http://localhost:1165/Patrimonio/ServicoPatrimonio.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>InterfaceUsuario_ServicoAtributo_ServicoAtributo</CachedSettingsPropName>
+      <CachedSettingsPropName>InterfaceUsuario_ServicoPatrimonio_ServicoPatrimonio</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:1212/servicosPECE.asmx">
+    <WebReferenceUrl Include="http://localhost:1165/Relatorio/ServicoRelatorio.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\ServicoDiretorio\</RelPath>
-      <UpdateFromURL>http://localhost:1212/servicosPECE.asmx</UpdateFromURL>
+      <RelPath>Web References\ServicoRelatorio\</RelPath>
+      <UpdateFromURL>http://localhost:1165/Relatorio/ServicoRelatorio.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>InterfaceUsuario_ServicoDiretorio_Servicos</CachedSettingsPropName>
+      <CachedSettingsPropName>InterfaceUsuario_ServicoRelatorio_ServicoRelatorio</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:1165/TipoPatrimonio/ServicoTipoPatrimonio.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ServicoTipoPatrimonio\</RelPath>
+      <UpdateFromURL>http://localhost:1165/TipoPatrimonio/ServicoTipoPatrimonio.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>InterfaceUsuario_ServicoTipoPatrimonio_ServicoTipoPatrimonio</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:1180/Autenticador/ServicoAutenticador.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ServicoAutenticador\</RelPath>
+      <UpdateFromURL>http://localhost:1180/Autenticador/ServicoAutenticador.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>InterfaceUsuario_ServicoAutenticador_ServicoAutenticador</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:1180/Usuario/ServicoUsuario.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ServicoUsuario\</RelPath>
+      <UpdateFromURL>http://localhost:1180/Usuario/ServicoUsuario.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>InterfaceUsuario_ServicoUsuario_ServicoUsuario</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
@@ -209,7 +294,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1232</DevelopmentServerPort>
+          <DevelopmentServerPort>4840</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
