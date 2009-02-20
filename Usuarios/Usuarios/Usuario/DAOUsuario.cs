@@ -1,32 +1,86 @@
 ﻿using System;
 using System.Data;
-using System.Configuration;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
+using System.Data.SqlClient;
+using DAL.ARVDatabase;
+using System.Collections.Generic;
 
 namespace Usuarios.Usuario
 {
     public class DAOUsuario
     {
+        private string _connString;
+
+        public DAOUsuario()
+        {
+            _connString = Properties.Settings.Default.ConnectionString;
+        }
+
 
         internal bool CriarUsuario(Usuario usuario)
         {
             //Recebe: objeto Usuario
             //Devolve: bool dizendo se cadastro ocorreu com sucesso (true) ou não (false)
-            
-            throw new NotImplementedException();
+
+            int linhasafetadas = 0;
+
+            ArvDatabase db = new ArvDatabase(_connString);
+            try
+            {
+
+                List<SqlParameter> parameters = new List<SqlParameter>();
+
+                parameters.Add(new SqlParameter("@nomeUsuario", usuario.Nome));
+                parameters.Add(new SqlParameter("@senhaUsuario", usuario.Senha));
+                parameters.Add(new SqlParameter("@descUsuario", usuario.Descricao));                
+
+                db.AbreConexao();
+                linhasafetadas = db.ExecuteProcedureNonQuery("sp_usuario_inserir", parameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                db.FechaConexao();
+            }
+
+            if (linhasafetadas == 0) { return false; }
+            else { return true; }
         }
 
         internal bool AlterarUsuario(Usuario usuario)
         {
             //Recebe: objeto Usuario
             //Devolve: bool dizendo se alteração ocorreu com sucesso (true) ou não (false)
-            
-            throw new NotImplementedException();
+
+            int linhasafetadas = 0;
+
+            ArvDatabase db = new ArvDatabase(_connString);
+            try
+            {
+
+                List<SqlParameter> parameters = new List<SqlParameter>();
+
+                parameters.Add(new SqlParameter("@idUsuario", usuario.Id));
+                parameters.Add(new SqlParameter("@nomeUsuario", usuario.Nome));
+                parameters.Add(new SqlParameter("@senhaUsuario", usuario.Senha));
+                parameters.Add(new SqlParameter("@descUsuario", usuario.Descricao));
+
+                db.AbreConexao();
+                linhasafetadas = db.ExecuteProcedureNonQuery("sp_usuario_alterar", parameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                db.FechaConexao();
+            }
+
+            if (linhasafetadas == 0) { return false; }
+            else { return true; }
         }
 
         internal bool DeletarUsuario(int idUsuario)
@@ -34,23 +88,108 @@ namespace Usuarios.Usuario
             //Recebe: identificao do usuario
             //Devolve: bool dizendo se remoção ocorreu com sucesso (true) ou não (false)
 
-            throw new NotImplementedException();
+            int linhasafetadas = 0;
+
+            ArvDatabase db = new ArvDatabase(_connString);
+            try
+            {
+
+                List<SqlParameter> parameters = new List<SqlParameter>();
+
+                parameters.Add(new SqlParameter("@idUsuario", idUsuario));
+
+                db.AbreConexao();
+                linhasafetadas = db.ExecuteProcedureNonQuery("sp_usuario_remover", parameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                db.FechaConexao();
+            }
+
+            if (linhasafetadas == 0) { return false; }
+            else { return true; }
         }
 
         internal Usuario ConsultarUsuario(int idUsuario)
         {
             //Recebe: identificao do usuario
             //Devolve: objeto populado com os dados do usuario
-            
-            throw new NotImplementedException();
+
+            Usuario usuario = new Usuario();
+            SqlDataReader rd;
+
+            ArvDatabase db = new ArvDatabase(_connString);
+            try
+            {
+                List<SqlParameter> parameters = new List<SqlParameter>();
+
+                parameters.Add(new SqlParameter("@idUsuario", idUsuario));
+
+                db.AbreConexao();
+                rd = db.ExecuteProcedureReader("sp_usuario_consultar", parameters);
+
+                if (rd.Read())
+                {
+                    usuario.Id = idUsuario;
+                    usuario.Nome = rd["nomeUsuario"].ToString();
+                    usuario.Senha = rd["senhaUsuario"].ToString();
+                    usuario.Descricao = rd["descUsuario"].ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                db.FechaConexao();
+            }
+
+            return usuario;
         }
 
-        internal System.Collections.Generic.List<Usuario> BuscaUsuarios(string nome, string descricao)
+        internal List<Usuario> BuscaUsuarios(string nome, string descricao)
         {
             //Recebe: nome e descricao do usuario
             //Devolve: devolve uma lista de usuarios que tenham nome e/ou descricao iguais as passadas
-            
-            throw new NotImplementedException();
+
+            List<Usuario> usuarios = new List<Usuario>();
+            SqlDataReader rd;
+
+            ArvDatabase db = new ArvDatabase(_connString);
+            try
+            {
+                List<SqlParameter> parameters = new List<SqlParameter>();
+
+                db.AbreConexao();
+                rd = db.ExecuteProcedureReader("sp_usuario_consultar");
+
+                while (rd.Read())
+                {
+                    Usuario usuario = new Usuario();
+                    usuario.Id = Convert.ToInt32(rd["idUsuario"].ToString());
+                    usuario.Nome = rd["nomeUsuario"].ToString();
+                    usuario.Senha = rd["senhaUsuario"].ToString();
+                    usuario.Descricao = rd["descUsuario"].ToString();
+
+                    usuarios.Add(usuario);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                db.FechaConexao();
+            }
+
+            return usuarios;
         }
     }
 }

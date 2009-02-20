@@ -80,6 +80,10 @@
       <Project>{A2C13FAA-F75D-4899-B375-EBA633738E2A}</Project>
       <Name>Arv.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\ARVDatabase\ArvDatabase.csproj">
+      <Project>{E7B07057-EEBB-414D-A04E-C360AC72B547}</Project>
+      <Name>ArvDatabase</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -99,7 +103,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1180</DevelopmentServerPort>
+          <DevelopmentServerPort>1765</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
