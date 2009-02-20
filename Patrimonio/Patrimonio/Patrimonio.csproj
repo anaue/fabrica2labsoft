@@ -58,6 +58,7 @@
     </Compile>
     <Compile Include="ConectorSQL.cs" />
     <Compile Include="Patrimonio\Baixa.cs" />
+    <Compile Include="Patrimonio\DAOPatrimonio.cs" />
     <Compile Include="Patrimonio\Manutencao.cs" />
     <Compile Include="Patrimonio\Patrimonio.cs" />
     <Compile Include="Patrimonio\RequestPatrimonio.cs" />

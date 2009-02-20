@@ -17,5 +17,20 @@ namespace Patrimonio.Patrimonio
             get { return _patrimonio; }
             set { _patrimonio = value; }
         }
+        private Manutencao _manutencao;
+        [XmlElement(ElementName = "ManutencaoPatrimonio", IsNullable = true)]
+        public Manutencao Manutencao
+        {
+            get { return _manutencao; }
+            set { _manutencao = value; }
+        }
+        private Baixa _baixa;
+        [XmlElement(ElementName = "BaixaPatrimonio", IsNullable = true)]
+        public Baixa Baixa
+        {
+            get { return _baixa; }
+            set { _baixa = value; }
+        }
+
     }
 }

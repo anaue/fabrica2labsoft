@@ -133,14 +133,21 @@ namespace Patrimonio.Patrimonio
         public ResponsePatrimonio ColocarEmManutencao(RequestPatrimonio _request)
         {
             ResponsePatrimonio _response = new ResponsePatrimonio();
+            DAOPatrimonio daopatrimonio = new DAOPatrimonio();
             try
             {
                 if (_request != null)
                 {
-                    ////implementacao da função vai aqui
+                    int idGerado = daopatrimonio.InsereManutencao(_request.Manutencao);
+                    if (idGerado > 0)
+                    {
+                        _request.Manutencao.IdManutencao = idGerado;
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
 
-
-                    /////
                     _response.StatusCode = 200;
                 }
             }
