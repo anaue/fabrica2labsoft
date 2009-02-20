@@ -30,7 +30,7 @@ namespace Patrimonio.Atributo
                 parameters.Add(new SqlParameter("@nulo", atributo.Nulo));
                 
                 db.AbreConexao();
-                linhasafetadas = db.ExecuteTextNonQuery(" INSERT INTO tb_Atributo (idAtributo, nomeAtributo, descAtributo, tipoAtributo, nuloAtributo) VALUES( 3, @nome, @descricao, @tipo, @nulo)", parameters);
+                linhasafetadas = db.ExecuteTextNonQuery("sp_insere_atributo", parameters);
             }
             catch (Exception ex)
             {
