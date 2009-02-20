@@ -12,6 +12,15 @@ namespace InterfaceUsuario.WS
 {
     public class Autenticador
     {
+
+        //TODO:  tratar as exceptions
+
+
+        /// <summary>
+        /// Metodo Incompleto
+        /// </summary>
+        /// <param name="_user"></param>
+        /// <returns></returns>
         public bool Login(Classes.Usuario _user)
         {
             bool retorno = false;
@@ -58,6 +67,11 @@ namespace InterfaceUsuario.WS
             return retorno;
         }
         
+        /// <summary>
+        /// Metodo Incompleto
+        /// </summary>
+        /// <param name="_user"></param>
+        /// <returns></returns>
         public bool VerificaPermissoes(Classes.Usuario _user)
         {
             bool retorno = false;

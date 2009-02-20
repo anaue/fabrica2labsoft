@@ -12,6 +12,12 @@ namespace InterfaceUsuario.WS
 {
     public class Relatorio
     {
+        //TODO:  tratar as exceptions
+
+        /// <summary>
+        /// Metodo incompleto
+        /// </summary>
+        /// <returns></returns>
         public bool GerarRelatorio()
         {
             bool retorno = false;
