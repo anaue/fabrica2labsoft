@@ -26,7 +26,8 @@ namespace Patrimonio.Atributo
             set { _Message = value; }
         }
         private List<Atributo> _ListaAtributos;
-        [XmlElement(ElementName = "ListaAtributos", IsNullable = true)]
+
+        [XmlArray(ElementName = "ListaAtributos", IsNullable = true)]
 
         public List<Atributo> ListaAtributos
         {
