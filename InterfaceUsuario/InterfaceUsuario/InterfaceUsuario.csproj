@@ -152,7 +152,12 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="WS\Atributo.cs" />
+    <Compile Include="WS\Autenticador.cs" />
     <Compile Include="WS\Diretorio.cs" />
+    <Compile Include="WS\Patrimonio.cs" />
+    <Compile Include="WS\Relatorio.cs" />
+    <Compile Include="WS\TipoRelatorio.cs" />
+    <Compile Include="WS\Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="imagens\dialog_header.gif" />
