@@ -116,6 +116,11 @@
     <Compile Include="teste.aspx.designer.cs">
       <DependentUpon>teste.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web References\ServicoAtributo\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\ServicoAutenticador\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -168,6 +173,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Relatorios.Master" />
+    <None Include="Web References\ServicoAtributo\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\ServicoAtributo\ResponseAtributo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ServicoAtributo\ServicoAtributo.disco" />
+    <None Include="Web References\ServicoAtributo\ServicoAtributo.wsdl" />
     <None Include="Web References\ServicoDiretorio\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -228,6 +242,17 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:1165/Atributo/ServicoAtributo.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ServicoAtributo\</RelPath>
+      <UpdateFromURL>http://localhost:1165/Atributo/ServicoAtributo.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>InterfaceUsuario_ServicoAtributo_ServicoAtributo</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:1165/Patrimonio/ServicoPatrimonio.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\ServicoPatrimonio\</RelPath>
