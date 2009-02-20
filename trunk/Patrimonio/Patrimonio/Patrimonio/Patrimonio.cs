@@ -10,6 +10,14 @@ namespace Patrimonio.Patrimonio
         public Patrimonio()
         { 
         }
+        private int _idEquipamento;
+        [XmlElement(ElementName = "IdEquipamento")] 
+        public int IdEquipamento
+        {
+            get { return _idEquipamento; }
+            set { _idEquipamento = value; }
+        }
+
         private int _numeroPECE;
         [XmlElement(ElementName = "NumeroPECE")]
         public int NumeroPECE
