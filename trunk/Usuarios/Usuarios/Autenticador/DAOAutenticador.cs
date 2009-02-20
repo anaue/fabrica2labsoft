@@ -25,7 +25,7 @@ namespace Usuarios.Autenticador
         /// <returns></returns>
         public Autenticador VerificaPermissoes(int idUsuario, int idTela)
         {
-            
+            return null; //essa linha foi adicionada só para o codigo compilar!!!
         }
     }    
 }
