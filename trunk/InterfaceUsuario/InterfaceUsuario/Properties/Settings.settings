@@ -8,5 +8,20 @@
     <Setting Name="InterfaceUsuario_ServicoAtributo_ServicoAtributo" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:1165/Atributo/ServicoAtributo.asmx</Value>
     </Setting>
+    <Setting Name="InterfaceUsuario_ServicoTipoPatrimonio_ServicoTipoPatrimonio" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:1165/TipoPatrimonio/ServicoTipoPatrimonio.asmx</Value>
+    </Setting>
+    <Setting Name="InterfaceUsuario_ServicoAutenticador_ServicoAutenticador" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:1180/Autenticador/ServicoAutenticador.asmx</Value>
+    </Setting>
+    <Setting Name="InterfaceUsuario_ServicoRelatorio_ServicoRelatorio" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:1165/Relatorio/ServicoRelatorio.asmx</Value>
+    </Setting>
+    <Setting Name="InterfaceUsuario_ServicoUsuario_ServicoUsuario" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:1180/Usuario/ServicoUsuario.asmx</Value>
+    </Setting>
+    <Setting Name="InterfaceUsuario_ServicoPatrimonio_ServicoPatrimonio" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:1165/Patrimonio/ServicoPatrimonio.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

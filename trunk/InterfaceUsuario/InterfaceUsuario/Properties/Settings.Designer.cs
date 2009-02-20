@@ -42,5 +42,55 @@ namespace InterfaceUsuario.Properties {
                 return ((string)(this["InterfaceUsuario_ServicoAtributo_ServicoAtributo"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1165/TipoPatrimonio/ServicoTipoPatrimonio.asmx")]
+        public string InterfaceUsuario_ServicoTipoPatrimonio_ServicoTipoPatrimonio {
+            get {
+                return ((string)(this["InterfaceUsuario_ServicoTipoPatrimonio_ServicoTipoPatrimonio"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1180/Autenticador/ServicoAutenticador.asmx")]
+        public string InterfaceUsuario_ServicoAutenticador_ServicoAutenticador {
+            get {
+                return ((string)(this["InterfaceUsuario_ServicoAutenticador_ServicoAutenticador"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1165/Relatorio/ServicoRelatorio.asmx")]
+        public string InterfaceUsuario_ServicoRelatorio_ServicoRelatorio {
+            get {
+                return ((string)(this["InterfaceUsuario_ServicoRelatorio_ServicoRelatorio"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1180/Usuario/ServicoUsuario.asmx")]
+        public string InterfaceUsuario_ServicoUsuario_ServicoUsuario {
+            get {
+                return ((string)(this["InterfaceUsuario_ServicoUsuario_ServicoUsuario"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1165/Patrimonio/ServicoPatrimonio.asmx")]
+        public string InterfaceUsuario_ServicoPatrimonio_ServicoPatrimonio {
+            get {
+                return ((string)(this["InterfaceUsuario_ServicoPatrimonio_ServicoPatrimonio"]));
+            }
+        }
     }
 }
