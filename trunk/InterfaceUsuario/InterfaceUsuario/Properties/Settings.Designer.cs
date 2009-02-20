@@ -72,5 +72,15 @@ namespace InterfaceUsuario.Properties {
                 return ((string)(this["InterfaceUsuario_ServicoPatrimonio_ServicoPatrimonio"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1212/servicosPECE.asmx")]
+        public string InterfaceUsuario_ServicoDiretorio_Servicos {
+            get {
+                return ((string)(this["InterfaceUsuario_ServicoDiretorio_Servicos"]));
+            }
+        }
     }
 }
