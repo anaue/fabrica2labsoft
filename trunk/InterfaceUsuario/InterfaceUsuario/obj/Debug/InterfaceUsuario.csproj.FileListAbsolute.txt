@@ -4,3 +4,8 @@ C:\Documents and Settings\TEMP.POLI.USP.BR\Desktop\Nova pasta\InterfaceUsuario\I
 C:\Documents and Settings\TEMP.POLI.USP.BR\Desktop\Nova pasta\InterfaceUsuario\InterfaceUsuario\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\TEMP.POLI.USP.BR\Desktop\Nova pasta\InterfaceUsuario\InterfaceUsuario\obj\Debug\InterfaceUsuario.dll
 C:\Documents and Settings\TEMP.POLI.USP.BR\Desktop\Nova pasta\InterfaceUsuario\InterfaceUsuario\obj\Debug\InterfaceUsuario.pdb
+F:\ProjetosVS2008\erp\InterfaceUsuario\InterfaceUsuario\obj\Debug\ResolveAssemblyReference.cache
+F:\ProjetosVS2008\erp\InterfaceUsuario\InterfaceUsuario\bin\InterfaceUsuario.dll
+F:\ProjetosVS2008\erp\InterfaceUsuario\InterfaceUsuario\bin\InterfaceUsuario.pdb
+F:\ProjetosVS2008\erp\InterfaceUsuario\InterfaceUsuario\obj\Debug\InterfaceUsuario.dll
+F:\ProjetosVS2008\erp\InterfaceUsuario\InterfaceUsuario\obj\Debug\InterfaceUsuario.pdb

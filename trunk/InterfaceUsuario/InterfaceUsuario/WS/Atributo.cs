@@ -10,19 +10,20 @@ using System.Web.UI.WebControls.WebParts;
 
 namespace InterfaceUsuario.WS
 {
-    public static class Atributo
+    public class Atributo
     {//TODO tratar as exceptions
 
-        public static int CriaAtributo(Classes.Atributo atributo)
+        public int CriaAtributo(Classes.Atributo atributo)
         {
             int retorno = -1;
             ServicoAtributo.ServicoAtributo wsAtributo = new InterfaceUsuario.ServicoAtributo.ServicoAtributo();
             ServicoAtributo.RequestAtributo request = new InterfaceUsuario.ServicoAtributo.RequestAtributo();
             ServicoAtributo.ResponseAtributo response = new InterfaceUsuario.ServicoAtributo.ResponseAtributo();
 
+            Diretorio dir = new Diretorio();
             // A nome do serviço é definido no banco de dados, pelo serviço diretório
-            string _url = Diretorio.ObtemEnderecoServico("CriarAtributo");
-
+            string _url = dir.ObtemEnderecoServico("CriarAtributo");
+            dir = null;
             if (_url != string.Empty)
             {
                 wsAtributo.Url = _url;
@@ -50,15 +51,18 @@ namespace InterfaceUsuario.WS
             return retorno;
         }
             //metodo incompleto
-        public static bool DeletaAtributo(int Id)
+        public bool DeletaAtributo(int Id)
         {
             bool retorno = false;
             ServicoAtributo.ServicoAtributo wsAtributo = new InterfaceUsuario.ServicoAtributo.ServicoAtributo();
             ServicoAtributo.RequestAtributo request = new InterfaceUsuario.ServicoAtributo.RequestAtributo();
             ServicoAtributo.ResponseAtributo response = new InterfaceUsuario.ServicoAtributo.ResponseAtributo();
 
+            Diretorio dir = new Diretorio();
             // A nome do serviço é definido no banco de dados, pelo serviço diretório
-            string _url = Diretorio.ObtemEnderecoServico("DeletarAtributo");
+            string _url = dir.ObtemEnderecoServico("DeletarAtributo");
+            dir = null;
+
 
             if (_url != string.Empty)
             {

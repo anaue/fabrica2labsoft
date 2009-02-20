@@ -10,14 +10,14 @@ using System.Web.UI.WebControls.WebParts;
 
 namespace InterfaceUsuario.WS
 {
-    public static class Diretorio
+    public class Diretorio
     {
         /// <summary>
         /// Utiliza o serviço diretório de WSs, que basicamente retorna o endereço de localizado do serviço pedido
         /// </summary>
         /// <param name="nomeServico">O nome do serviço está definido no BD</param>
         /// <returns></returns>
-        public static string ObtemEnderecoServico(string nomeServico)
+        public string ObtemEnderecoServico(string nomeServico)
         {
             ServicoDiretorio.Servicos wsServico = new InterfaceUsuario.ServicoDiretorio.Servicos();
             string endereco = string.Empty;

@@ -26,26 +26,6 @@ namespace InterfaceUsuario.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1212/servicosPECE.asmx")]
-        public string InterfaceUsuario_ServicoDiretorio_Servicos {
-            get {
-                return ((string)(this["InterfaceUsuario_ServicoDiretorio_Servicos"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1165/Atributo/ServicoAtributo.asmx")]
-        public string InterfaceUsuario_ServicoAtributo_ServicoAtributo {
-            get {
-                return ((string)(this["InterfaceUsuario_ServicoAtributo_ServicoAtributo"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1165/TipoPatrimonio/ServicoTipoPatrimonio.asmx")]
         public string InterfaceUsuario_ServicoTipoPatrimonio_ServicoTipoPatrimonio {
             get {
