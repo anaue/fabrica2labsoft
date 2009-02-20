@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patrimonio", "Patrimonio\Patrimonio\Patrimonio.csproj", "{282EFC4F-F455-40E0-A697-D0783B92503D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceUsuario", "InterfaceUsuario\InterfaceUsuario\InterfaceUsuario.csproj", "{0850ECC8-45DE-4DF2-843B-4401F75A41DB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AA08DC28-59FC-4244-834B-77CE4D11C5B6} = {AA08DC28-59FC-4244-834B-77CE4D11C5B6}
+		{6551CA3A-9C68-4165-9B37-3FC9135CC865} = {6551CA3A-9C68-4165-9B37-3FC9135CC865}
+		{282EFC4F-F455-40E0-A697-D0783B92503D} = {282EFC4F-F455-40E0-A697-D0783B92503D}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maestro", "Maestro\Maestro\Maestro.csproj", "{AA08DC28-59FC-4244-834B-77CE4D11C5B6}"
 EndProject
