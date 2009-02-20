@@ -18,8 +18,10 @@ namespace Patrimonio.Atributo
        
          public DAOAtributo()
         {
-            
+            _connString = Properties.Settings.Default.ConnectionString;
         }
+         private string _connString;
+
         public int InsereAtributo(Atributo atributo)
         {
             int linhasafetadas = 0;
@@ -27,7 +29,7 @@ namespace Patrimonio.Atributo
             SqlConnection conn = null;
             try
             {
-                ArvDatabase db = new ArvDatabase(new ConectorSQL().StringConexao);
+                ArvDatabase db = new ArvDatabase(_connString);
                 List<SqlParameter> parameters = new List<SqlParameter>();
                 parameters.Add(new SqlParameter("@nome", atributo.Nome));
                 parameters.Add(new SqlParameter("@tipo", atributo.Tipo));
