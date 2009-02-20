@@ -17,7 +17,15 @@ namespace Usuarios.Autenticador
         {
             get { return _idUsuario; }
             set { _idUsuario = value; }
-        }        
+        }
+
+        private bool _senha;
+        [XmlElement(ElementName = "Senha", IsNullable = true)]
+        public bool Senha
+        {
+            get { return _senha; }
+            set { _senha = value; }
+        }
 
         private int _idTela;
         [XmlElement(ElementName = "IdTela", IsNullable = true)]

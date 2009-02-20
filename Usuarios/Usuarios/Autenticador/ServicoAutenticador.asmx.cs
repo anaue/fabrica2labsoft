@@ -29,15 +29,15 @@ namespace Usuarios.Autenticador
                     //DAOUsuario uDAO = new DAOUsuario();
                     ServicoUsuario sU = new ServicoUsuario();
                     //Usuario.Usuario u = sU.ConsultarUsuario(_request.IdUsuario);
-
-                    //if (u == null)
+                    
+                    //_response.RegistroCorreto = false;
+                    //if (u != null)
                     //{
-                    //    _response.EstaRegistrado = false;   
-                    //}
-                    //else
-                    //{
-                    //    _response.EstaRegistrado = true;
-                    //}                    
+                    //    if(u.Senha.Equals(_request.Senha))
+                    //    {
+                    //        _response.RegistroCorreto = true;
+                    //    }
+                    //}                                       
                 }
             }
             catch (Exception ex)

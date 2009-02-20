@@ -27,12 +27,12 @@ namespace Usuarios.Autenticador
             set { _Message = value; }
         }
 
-        private bool _estaRegistrado;
-        [XmlElement(ElementName = "EstaRegistrado", IsNullable = true)]
-        public bool EstaRegistrado
+        private bool _registroCorreto;
+        [XmlElement(ElementName = "RegistroCorreto", IsNullable = true)]
+        public bool RegistroCorreto
         {
-            get { return _estaRegistrado; }
-            set { _estaRegistrado = value; }
+            get { return _registroCorreto; }
+            set { _registroCorreto = value; }
         }
 
         private Autenticador _autenticador;
