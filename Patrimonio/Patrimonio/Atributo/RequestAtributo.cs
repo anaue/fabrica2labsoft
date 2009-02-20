@@ -17,7 +17,13 @@ namespace Patrimonio.Atributo
             get { return _atributo; }
             set { _atributo = value; }
         }
-
+        private int _idAtributo;
+        [XmlElement(ElementName = "IdAtributo", IsNullable = true)]
+        public int IdAtributo
+        {
+            get { return _idAtributo; }
+            set { _idAtributo = value; }
+        }
 
     }
 }

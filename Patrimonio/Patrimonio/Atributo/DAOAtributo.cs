@@ -42,5 +42,24 @@ namespace Patrimonio.Atributo
             }
             return linhasafetadas;
         }
+
+        public int deletaAtributo(int atributoId)
+        { 
+         //remover atributo do banco
+        }
+
+        public Atributo alteraAtributo(Atributo atributo)
+        {
+            //alterar valor do atributo e retorna o atributo
+        }
+        public Atributo consultaAtributo(int atributoId)
+        { 
+           //retorna um atributo com seus valores
+        }
+        public List<Atributo> buscaAtributos( atributoId)
+        {
+            //retorna um atributo com seus valores
+        }
+
     }
 }
