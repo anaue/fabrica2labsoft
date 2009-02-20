@@ -44,7 +44,6 @@ namespace InterfaceUsuario.WS
                 {
                     //necessario mostrar uma mensagem ao usuario
                 }
-
             }
 
             return retorno;
