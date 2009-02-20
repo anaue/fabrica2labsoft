@@ -111,6 +111,7 @@ namespace Patrimonio.Patrimonio
         public ResponsePatrimonio ConsultarPatrimonio(RequestPatrimonio _request)
         {
             ResponsePatrimonio _response = new ResponsePatrimonio();
+            DAOPatrimonio daopatrimonio = new DAOPatrimonio();
             try
             {
                 if (_request != null)
@@ -129,8 +130,8 @@ namespace Patrimonio.Patrimonio
             }
             return _response;
         }
-        [WebMethod(MessageName = "ColocaEmManutencao")]
-        public ResponsePatrimonio ColocarEmManutencao(RequestPatrimonio _request)
+        [WebMethod(MessageName = "RegistraManutencao")]
+        public ResponsePatrimonio RegistrarManutencao(RequestPatrimonio _request)
         {
             ResponsePatrimonio _response = new ResponsePatrimonio();
             DAOPatrimonio daopatrimonio = new DAOPatrimonio();
@@ -158,5 +159,8 @@ namespace Patrimonio.Patrimonio
             }
             return _response;
         }
+        
+         
+
     }
 }

@@ -12,14 +12,35 @@
       <s:complexType name="RequestPatrimonio">
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="Patrimonio" nillable="true" type="tns:Patrimonio" />
+          <s:element minOccurs="1" maxOccurs="1" name="ManutencaoPatrimonio" nillable="true" type="tns:Manutencao" />
+          <s:element minOccurs="1" maxOccurs="1" name="BaixaPatrimonio" nillable="true" type="tns:Baixa" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="Patrimonio">
         <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdEquipamento" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="NumeroPECE" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="DataCompra" type="s:dateTime" />
           <s:element minOccurs="1" maxOccurs="1" name="NumeroNotaFiscal" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="DataExpGarantia" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Manutencao">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdManutencao" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataManutencao" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Motivo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observacao" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdUsuario" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Baixa">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdBaixa" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataManutencao" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DestinoBaixa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ObservacoesBaixa" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdUsuario" type="s:int" />
         </s:sequence>
       </s:complexType>
       <s:element name="CriaPatrimonioResponse">
@@ -91,14 +112,14 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="ColocaEmManutencao">
+      <s:element name="RegistraManutencao">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="RequestPatrimonio" nillable="true" type="tns:RequestPatrimonio" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="ColocaEmManutencaoResponse">
+      <s:element name="RegistraManutencaoResponse">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="ResponsePatrimonio" nillable="true" type="tns:ResponsePatrimonio" />
@@ -137,11 +158,11 @@
   <wsdl:message name="ConsultaPatrimonioSoapOut">
     <wsdl:part name="parameters" element="tns:ConsultaPatrimonioResponse" />
   </wsdl:message>
-  <wsdl:message name="ColocaEmManutencaoSoapIn">
-    <wsdl:part name="parameters" element="tns:ColocaEmManutencao" />
+  <wsdl:message name="RegistraManutencaoSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistraManutencao" />
   </wsdl:message>
-  <wsdl:message name="ColocaEmManutencaoSoapOut">
-    <wsdl:part name="parameters" element="tns:ColocaEmManutencaoResponse" />
+  <wsdl:message name="RegistraManutencaoSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistraManutencaoResponse" />
   </wsdl:message>
   <wsdl:portType name="ServicoPatrimonioSoap">
     <wsdl:operation name="CriarPatrimonio">
@@ -164,9 +185,9 @@
       <wsdl:input name="ConsultaPatrimonio" message="tns:ConsultaPatrimonioSoapIn" />
       <wsdl:output name="ConsultaPatrimonio" message="tns:ConsultaPatrimonioSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="ColocarEmManutencao">
-      <wsdl:input name="ColocaEmManutencao" message="tns:ColocaEmManutencaoSoapIn" />
-      <wsdl:output name="ColocaEmManutencao" message="tns:ColocaEmManutencaoSoapOut" />
+    <wsdl:operation name="RegistrarManutencao">
+      <wsdl:input name="RegistraManutencao" message="tns:RegistraManutencaoSoapIn" />
+      <wsdl:output name="RegistraManutencao" message="tns:RegistraManutencaoSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ServicoPatrimonioSoap" type="tns:ServicoPatrimonioSoap">
@@ -216,12 +237,12 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ColocarEmManutencao">
-      <soap:operation soapAction="http://www.pece.org.br/ColocaEmManutencao" style="document" />
-      <wsdl:input name="ColocaEmManutencao">
+    <wsdl:operation name="RegistrarManutencao">
+      <soap:operation soapAction="http://www.pece.org.br/RegistraManutencao" style="document" />
+      <wsdl:input name="RegistraManutencao">
         <soap:body use="literal" />
       </wsdl:input>
-      <wsdl:output name="ColocaEmManutencao">
+      <wsdl:output name="RegistraManutencao">
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -273,12 +294,12 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ColocarEmManutencao">
-      <soap12:operation soapAction="http://www.pece.org.br/ColocaEmManutencao" style="document" />
-      <wsdl:input name="ColocaEmManutencao">
+    <wsdl:operation name="RegistrarManutencao">
+      <soap12:operation soapAction="http://www.pece.org.br/RegistraManutencao" style="document" />
+      <wsdl:input name="RegistraManutencao">
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output name="ColocaEmManutencao">
+      <wsdl:output name="RegistraManutencao">
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
