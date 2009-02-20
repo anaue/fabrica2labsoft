@@ -56,7 +56,7 @@ namespace Maestro
 
                     //_response.ServiceAddress = servicoDiretorio.ObtemServico(_NomeServico);
 
-            //        _response.StatusCode = 200; //200 significa recebido com sucesso
+            //        _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK; //200 significa recebido com sucesso
             //    }
             //    else
             //    {
@@ -67,7 +67,7 @@ namespace Maestro
             //}
             //catch (Exception ex)
             //{
-            //    _response.StatusCode = 500;//internal server error
+            //    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.InternalServerError;//internal server error
             //    _response.Message = string.Format("Erro no serviço: {0}", ex.Message);
             //}
             //return _response;

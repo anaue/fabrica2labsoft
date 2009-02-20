@@ -24,7 +24,7 @@ namespace Usuarios.Autenticador
             {
                 if (_request != null)
                 {
-                    _response.StatusCode = 200;
+                    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
 
                     //DAOUsuario uDAO = new DAOUsuario();
                     ServicoUsuario sU = new ServicoUsuario();
@@ -42,7 +42,7 @@ namespace Usuarios.Autenticador
             }
             catch (Exception ex)
             {
-                _response.StatusCode = 500;
+                _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.InternalServerError;
                 _response.Message = string.Format("Erro na criação do registro: {0}", ex.Message);
             }
             return _response;
@@ -56,7 +56,7 @@ namespace Usuarios.Autenticador
             {
                 if (_request != null)
                 {
-                    _response.StatusCode = 200;
+                    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
 
                     //DAOAutenticador aDAO = new DAOAutenticador();
                     //_response.Autenticador = aDAO.VerificaPermissoes(_request.IdUsuario, _request.IdTela);                    
@@ -65,7 +65,7 @@ namespace Usuarios.Autenticador
             }
             catch (Exception ex)
             {
-                _response.StatusCode = 500;
+                _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.InternalServerError;
                 _response.Message = string.Format("Erro na criação do registro: {0}", ex.Message);
             }
             return _response;

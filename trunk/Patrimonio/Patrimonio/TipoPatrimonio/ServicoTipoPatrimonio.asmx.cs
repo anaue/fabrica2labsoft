@@ -24,7 +24,7 @@ namespace Patrimonio.TipoPatrimonio
             {
                 if (_request != null)
                 {
-                    _response.StatusCode = 200;
+                    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
                     //_response.ListaAtributos = new System.Collections.Generic.List<Atributo>();
                     ////implementacao da função vai aqui
 
@@ -37,7 +37,7 @@ namespace Patrimonio.TipoPatrimonio
             }
             catch (Exception ex)
             {
-                _response.StatusCode = 500;
+                _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.InternalServerError;
                 _response.Message = string.Format("Erro na criação do registro: {0}", ex.Message);
             }
             return _response;
@@ -54,12 +54,12 @@ namespace Patrimonio.TipoPatrimonio
 
 
                     /////
-                    _response.StatusCode = 200;
+                    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
                 }
             }
             catch (Exception ex)
             {
-                _response.StatusCode = 500;
+                _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.InternalServerError;
                 _response.Message = string.Format("Erro na exclusão do registro: {0}", ex.Message);
             }
             return _response;
@@ -76,12 +76,12 @@ namespace Patrimonio.TipoPatrimonio
 
 
                     /////
-                    _response.StatusCode = 200;
+                    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
                 }
             }
             catch (Exception ex)
             {
-                _response.StatusCode = 500;
+                _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.InternalServerError;
                 _response.Message = string.Format("Erro na alteração do registro: {0}", ex.Message);
             }
             return _response;
@@ -98,12 +98,12 @@ namespace Patrimonio.TipoPatrimonio
 
 
                     /////
-                    _response.StatusCode = 200;
+                    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
                 }
             }
             catch (Exception ex)
             {
-                _response.StatusCode = 500;
+                _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.InternalServerError;
                 _response.Message = string.Format("Erro na consulta do registro: {0}", ex.Message);
             }
             return _response;

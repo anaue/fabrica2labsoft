@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using DAL.ARVDatabase;
+using Arv.Database;
 using System.Collections.Generic;
 
 namespace Patrimonio.Atributo
@@ -30,11 +30,7 @@ namespace Patrimonio.Atributo
                 parameters.Add(new SqlParameter("@nulo", atributo.Nulo));
                 
                 db.AbreConexao();
-                linhasafetadas = db.ExecuteTextNonQuery(" INSERT INTO tb_Atributo (nomeAtributo, descAtributo, tipoAtributo, nuloAtributo) VALUES( @nome, @descricao, @tipo, @nulo)", parameters);
-                
-                idGerado = Int32.Parse(db.ExecuteScalar(" SELECT SCOPE_IDENTITY() AS ID").ToString());
-
-
+                linhasafetadas = db.ExecuteTextNonQuery(" INSERT INTO tb_Atributo (idAtributo, nomeAtributo, descAtributo, tipoAtributo, nuloAtributo) VALUES( 3, @nome, @descricao, @tipo, @nulo)", parameters);
             }
             catch (Exception ex)
             {
@@ -44,8 +40,7 @@ namespace Patrimonio.Atributo
             {
                 db.FechaConexao();
             }
-            if (linhasafetadas == 0) { return linhasafetadas; }
-            else {return idGerado;}
+            return linhasafetadas;
         }
     }
 }
