@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data;
-using System.Collections.Generic
+using System.Collections.Generic;
 
 namespace InterfaceUsuario.WS
 {
@@ -14,7 +14,7 @@ namespace InterfaceUsuario.WS
         /// <returns></returns>
         public List<Patrimonio> GerarRelatorio()
         {
-            bool retorno = false;
+            List<Patrimonio> retorno = new List<Patrimonio>();
             ServicoRelatorio.ServicoRelatorio wsRelatorio = new InterfaceUsuario.ServicoRelatorio.ServicoRelatorio();
             ServicoRelatorio.RequestRelatorio request = new InterfaceUsuario.ServicoRelatorio.RequestRelatorio();
             ServicoRelatorio.ResponseRelatorio response = new InterfaceUsuario.ServicoRelatorio.ResponseRelatorio();
@@ -42,7 +42,6 @@ namespace InterfaceUsuario.WS
                         //
                         //
                         //*************************************************
-                        retorno = false; //true;
                     }
 
                 }
@@ -61,7 +60,7 @@ namespace InterfaceUsuario.WS
         /// <returns></returns>
         public List<Patrimonio> GerarRelatorio(int _IdTipoAtributo)
         {
-            bool retorno = false;
+            List<Patrimonio> retorno = new List<Patrimonio>();
             ServicoRelatorio.ServicoRelatorio wsRelatorio = new InterfaceUsuario.ServicoRelatorio.ServicoRelatorio();
             ServicoRelatorio.RequestRelatorio request = new InterfaceUsuario.ServicoRelatorio.RequestRelatorio();
             ServicoRelatorio.ResponseRelatorio response = new InterfaceUsuario.ServicoRelatorio.ResponseRelatorio();
@@ -89,7 +88,6 @@ namespace InterfaceUsuario.WS
                         //
                         //
                         //*************************************************
-                        retorno = false; //true;
                     }
 
                 }
@@ -108,7 +106,7 @@ namespace InterfaceUsuario.WS
         /// <returns></returns>
         public List<Patrimonio> GerarRelatorio(int _IdTipoAtributo, int _IdAtributo)
         {
-            bool retorno = false;
+            List<Patrimonio> retorno = new List<Patrimonio>();
             ServicoRelatorio.ServicoRelatorio wsRelatorio = new InterfaceUsuario.ServicoRelatorio.ServicoRelatorio();
             ServicoRelatorio.RequestRelatorio request = new InterfaceUsuario.ServicoRelatorio.RequestRelatorio();
             ServicoRelatorio.ResponseRelatorio response = new InterfaceUsuario.ServicoRelatorio.ResponseRelatorio();
@@ -136,7 +134,6 @@ namespace InterfaceUsuario.WS
                         //
                         //
                         //*************************************************
-                        retorno = false; //true;
                     }
 
                 }
@@ -155,7 +152,7 @@ namespace InterfaceUsuario.WS
         /// <returns></returns>
         public List<Patrimonio> GerarRelatorio(DateTime DataInicial, DateTime DataFinal)
         {
-            bool retorno = false;
+            List<Patrimonio> retorno = new List<Patrimonio>();
             ServicoRelatorio.ServicoRelatorio wsRelatorio = new InterfaceUsuario.ServicoRelatorio.ServicoRelatorio();
             ServicoRelatorio.RequestRelatorio request = new InterfaceUsuario.ServicoRelatorio.RequestRelatorio();
             ServicoRelatorio.ResponseRelatorio response = new InterfaceUsuario.ServicoRelatorio.ResponseRelatorio();
@@ -183,7 +180,6 @@ namespace InterfaceUsuario.WS
                         //
                         //
                         //*************************************************
-                        retorno = false; //true;
                     }
 
                 }

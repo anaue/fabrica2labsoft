@@ -82,7 +82,7 @@ namespace Patrimonio.Atributo
                 {
                     ////implementacao da função vai aqui
 
-                    _response.ListaAtributos.Add(daoatributo.alteraAtributo(_request.IdAtributo));
+                    _response.ListaAtributos.Add(daoatributo.alteraAtributo(_request.Atributo));
 
                     /////
                     _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
@@ -117,27 +117,27 @@ namespace Patrimonio.Atributo
             }
             return _response;
         }
-        [WebMethod(MessageName = "BuscaAtributos")]
-        public ResponseAtributo ConsultarAtributo(RequestAtributo _request)
-        {
-            ResponseAtributo _response = new ResponseAtributo();
-            DAOAtributo daoatributo = new DAOAtributo();
-            try
-            {
-                if (_request != null)
-                {
-                    ////implementacao da função vai aqui
-                    _response.ListaAtributos.Add(daoatributo.consultaAtributo(_request.IdAtributo));
-                    /////
-                    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
-                }
-            }
-            catch (Exception ex)
-            {
-                _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.InternalServerError;
-                _response.Message = string.Format("Erro na consulta do registro: {0}", ex.Message);
-            }
-            return _response;
-        }
+        //[WebMethod(MessageName = "BuscaAtributos")]
+        //public ResponseAtributo ConsultarAtributo(RequestAtributo _request)
+        //{
+        //    ResponseAtributo _response = new ResponseAtributo();
+        //    DAOAtributo daoatributo = new DAOAtributo();
+        //    try
+        //    {
+        //        if (_request != null)
+        //        {
+        //            ////implementacao da função vai aqui
+        //            _response.ListaAtributos.Add(daoatributo.consultaAtributo(_request.IdAtributo));
+        //            /////
+        //            _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.InternalServerError;
+        //        _response.Message = string.Format("Erro na consulta do registro: {0}", ex.Message);
+        //    }
+        //    return _response;
+        //}
     }
 }

@@ -46,19 +46,23 @@ namespace Patrimonio.Atributo
         public int deletaAtributo(int atributoId)
         { 
          //remover atributo do banco
+            return 0;
         }
 
         public Atributo alteraAtributo(Atributo atributo)
         {
             //alterar valor do atributo e retorna o atributo
+            return null;
         }
         public Atributo consultaAtributo(int atributoId)
         { 
            //retorna um atributo com seus valores
+            return null;
         }
-        public List<Atributo> buscaAtributos( atributoId)
+        public List<Atributo> buscaAtributos(int atributoId)
         {
             //retorna um atributo com seus valores
+            return null;
         }
 
     }
