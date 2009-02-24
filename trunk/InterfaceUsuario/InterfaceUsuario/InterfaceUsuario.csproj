@@ -59,8 +59,8 @@
     <Compile Include="Classes\TipoPatrimonio.cs" />
     <Compile Include="Classes\Usuario.cs" />
     <Compile Include="Default.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -80,6 +80,13 @@
     <Compile Include="Default5.aspx.cs">
       <DependentUpon>Default5.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GerarRelatorioGerencial.aspx.cs">
+      <DependentUpon>GerarRelatorioGerencial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GerarRelatorioGerencial.aspx.designer.cs">
+      <DependentUpon>GerarRelatorioGerencial.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.master.cs">
       <DependentUpon>MasterPage.master</DependentUpon>
@@ -156,7 +163,7 @@
     <Compile Include="WS\Diretorio.cs" />
     <Compile Include="WS\Patrimonio.cs" />
     <Compile Include="WS\Relatorio.cs" />
-    <Compile Include="WS\TipoRelatorio.cs" />
+    <Compile Include="WS\TipoPatrimonio.cs" />
     <Compile Include="WS\Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -177,6 +184,9 @@
     <Content Include="teste.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Arv.Common.dll" />
+    <Content Include="bin\Arv.Common.pdb" />
+    <Content Include="GerarRelatorioGerencial.aspx" />
     <Content Include="Relatorios.Master" />
     <None Include="Web References\ServicoAtributo\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -334,7 +344,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_GlobalResources\" />
-    <Folder Include="bin\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
