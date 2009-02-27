@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using DAL.ARVDatabase;
 using System.Collections.Generic;
+using Arv.Database;
 
 namespace Usuarios.Usuario
 {
@@ -16,7 +16,7 @@ namespace Usuarios.Usuario
         }
 
 
-        internal bool CriarUsuario(Usuario usuario)
+        internal int CriarUsuario(Usuario usuario)
         {
             //Recebe: objeto Usuario
             //Devolve: bool dizendo se cadastro ocorreu com sucesso (true) ou não (false)
@@ -45,8 +45,8 @@ namespace Usuarios.Usuario
                 db.FechaConexao();
             }
 
-            if (linhasafetadas == 0) { return false; }
-            else { return true; }
+            if (linhasafetadas == 0) { return -1; }//false; }
+            else { return 0; }//true; }
         }
 
         internal bool AlterarUsuario(Usuario usuario)
