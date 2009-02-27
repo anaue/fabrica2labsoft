@@ -15,7 +15,7 @@ create procedure sp_usuario_inserir
 	(
 	  @nomeUsuario		varchar(50)
 	 ,@senhaUsuario		varchar(20)
-	 ,@descUsuario		varchar(255)
+	 ,@descUsuario		varchar(255)	 
 	 )
 as	
 
@@ -36,6 +36,8 @@ set nocount on
 			,@senhaUsuario
 			,@descUsuario
 			,0)
+
+return @idUsuario
 
 set nocount off
 go
