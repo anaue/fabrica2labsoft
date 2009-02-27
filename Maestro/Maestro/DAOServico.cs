@@ -43,5 +43,38 @@ namespace Maestro
 
             return _endereco;
         }
+        internal List<Servico> ConsultarServicos()
+        {
+            //Recebe: objeto lista de nomeServico
+            //Devolve: 
+            List<Servico> listaServico = new List<Servico>();
+            ArvDatabase db = new ArvDatabase(_connString);
+            SqlDataReader reader;
+            try
+            {
+                List<SqlParameter> parameters = new List<SqlParameter>();
+                db.AbreConexao();
+                reader =db.ExecuteProcedureReader("sp_servico_consultar_todos", parameters);
+
+                while (reader.Read())
+                {
+                    Servico _srv = new Servico();
+                    _srv.IdServico = reader.GetInt32(reader.GetOrdinal("id"));
+                    _srv.NomeServico = reader["nome"].ToString();
+                    _srv.EnderecoServico = reader["endereco"].ToString();
+                    listaServico.Add(_srv);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                db.FechaConexao();
+            }
+
+            return listaServico;
+        }
     }
 }
