@@ -19,10 +19,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StoredProcedures", "StoredProcedures", "{89CCAD74-BF2E-41B7-AE65-D89F120AF3DE}"
 	ProjectSection(SolutionItems) = preProject
 		StoredProcedures\sp_insere_atributo.sql = StoredProcedures\sp_insere_atributo.sql
-		..\..\sp_usuario_alterar.sql = ..\..\sp_usuario_alterar.sql
-		..\..\sp_usuario_consultar.sql = ..\..\sp_usuario_consultar.sql
-		..\..\sp_usuario_inserir.sql = ..\..\sp_usuario_inserir.sql
-		..\..\sp_usuario_remover.sql = ..\..\sp_usuario_remover.sql
+		StoredProcedures\sp_usuario_alterar.sql = StoredProcedures\sp_usuario_alterar.sql
+		StoredProcedures\sp_usuario_consultar.sql = StoredProcedures\sp_usuario_consultar.sql
+		StoredProcedures\sp_usuario_inserir.sql = StoredProcedures\sp_usuario_inserir.sql
+		StoredProcedures\sp_usuario_remover.sql = StoredProcedures\sp_usuario_remover.sql
 	EndProjectSection
 EndProject
 Global
