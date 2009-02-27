@@ -38,6 +38,8 @@ namespace InterfaceUsuario.ServicoAtributo {
         
         private System.Threading.SendOrPostCallback ConsultarAtributoOperationCompleted;
         
+        private System.Threading.SendOrPostCallback BuscaAtributosOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -87,6 +89,9 @@ namespace InterfaceUsuario.ServicoAtributo {
         
         /// <remarks/>
         public event ConsultarAtributoCompletedEventHandler ConsultarAtributoCompleted;
+        
+        /// <remarks/>
+        public event BuscaAtributosCompletedEventHandler BuscaAtributosCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.pece.org.br/CriaAtributo", RequestElementName="CriaAtributo", RequestNamespace="http://www.pece.org.br/", ResponseElementName="CriaAtributoResponse", ResponseNamespace="http://www.pece.org.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -205,6 +210,36 @@ namespace InterfaceUsuario.ServicoAtributo {
             if ((this.ConsultarAtributoCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.ConsultarAtributoCompleted(this, new ConsultarAtributoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.pece.org.br/BuscaAtributos", RequestNamespace="http://www.pece.org.br/", ResponseNamespace="http://www.pece.org.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("ResponseAtributo", IsNullable=true)]
+        public ResponseAtributo BuscaAtributos([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] RequestAtributo RequestAtributo) {
+            object[] results = this.Invoke("BuscaAtributos", new object[] {
+                        RequestAtributo});
+            return ((ResponseAtributo)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void BuscaAtributosAsync(RequestAtributo RequestAtributo) {
+            this.BuscaAtributosAsync(RequestAtributo, null);
+        }
+        
+        /// <remarks/>
+        public void BuscaAtributosAsync(RequestAtributo RequestAtributo, object userState) {
+            if ((this.BuscaAtributosOperationCompleted == null)) {
+                this.BuscaAtributosOperationCompleted = new System.Threading.SendOrPostCallback(this.OnBuscaAtributosOperationCompleted);
+            }
+            this.InvokeAsync("BuscaAtributos", new object[] {
+                        RequestAtributo}, this.BuscaAtributosOperationCompleted, userState);
+        }
+        
+        private void OnBuscaAtributosOperationCompleted(object arg) {
+            if ((this.BuscaAtributosCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.BuscaAtributosCompleted(this, new BuscaAtributosCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -536,6 +571,32 @@ namespace InterfaceUsuario.ServicoAtributo {
         private object[] results;
         
         internal ConsultarAtributoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public ResponseAtributo Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((ResponseAtributo)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.1433")]
+    public delegate void BuscaAtributosCompletedEventHandler(object sender, BuscaAtributosCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.1433")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class BuscaAtributosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal BuscaAtributosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

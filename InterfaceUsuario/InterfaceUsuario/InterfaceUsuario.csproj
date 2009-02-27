@@ -196,14 +196,14 @@
     <Content Include="GerarRelatorioGerencial.aspx" />
     <Content Include="Page2.aspx" />
     <Content Include="Relatorios.Master" />
-    <None Include="Web References\ServicoAtributo\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <None Include="Web References\ServicoAtributo\ResponseAtributo.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\ServicoAtributo\ServicoAtributo.disco" />
+    <None Include="Web References\ServicoAtributo\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <None Include="Web References\ServicoAtributo\ServicoAtributo.wsdl" />
     <None Include="Web References\ServicoDiretorio\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -265,10 +265,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:1165/Atributo/ServicoAtributo.asmx">
+    <WebReferenceUrl Include="http://localhost:1717/Atributo/ServicoAtributo.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\ServicoAtributo\</RelPath>
-      <UpdateFromURL>http://localhost:1165/Atributo/ServicoAtributo.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:1717/Atributo/ServicoAtributo.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -309,10 +309,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>InterfaceUsuario_ServicoTipoPatrimonio_ServicoTipoPatrimonio</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:1180/Autenticador/ServicoAutenticador.asmx">
+    <WebReferenceUrl Include="http://localhost:1765/Autenticador/ServicoAutenticador.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\ServicoAutenticador\</RelPath>
-      <UpdateFromURL>http://localhost:1180/Autenticador/ServicoAutenticador.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:1765/Autenticador/ServicoAutenticador.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

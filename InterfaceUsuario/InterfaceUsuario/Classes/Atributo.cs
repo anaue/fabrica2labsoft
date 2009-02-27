@@ -130,6 +130,14 @@ namespace InterfaceUsuario.Classes
 
             return atributos;
         }
+        public List<Atributo> BuscaAtributos()
+        {
+            List<Atributo> atributos = new List<Atributo>();
+
+
+            return atributos;
+        }
+
         #endregion
 
 
