@@ -23,6 +23,15 @@ namespace InterfaceUsuario {
         protected global::System.Web.UI.WebControls.TextBox txtNome;
         
         /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
         /// txtDescricao control.
         /// </summary>
         /// <remarks>
@@ -30,6 +39,24 @@ namespace InterfaceUsuario {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDescricao;
+        
+        /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        
+        /// <summary>
+        /// cbNulo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox cbNulo;
         
         /// <summary>
         /// ddlTipo control.
@@ -50,13 +77,22 @@ namespace InterfaceUsuario {
         protected global::System.Web.UI.WebControls.Panel panLista;
         
         /// <summary>
-        /// TextBox1 control.
+        /// txtValorLista control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtValorLista;
+        
+        /// <summary>
+        /// RequiredFieldValidator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
         /// btnAdicionar control.
@@ -77,22 +113,22 @@ namespace InterfaceUsuario {
         protected global::System.Web.UI.WebControls.Button Button2;
         
         /// <summary>
-        /// ListBox1 control.
+        /// lbValores control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListBox1;
+        protected global::System.Web.UI.WebControls.ListBox lbValores;
         
         /// <summary>
-        /// cbNulo control.
+        /// ValidationSummary2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbNulo;
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary2;
         
         /// <summary>
         /// Button1 control.
@@ -104,12 +140,12 @@ namespace InterfaceUsuario {
         protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// lblError control.
+        /// ValidationSummary1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
     }
 }

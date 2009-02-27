@@ -13,13 +13,15 @@ namespace InterfaceUsuario.Classes
 {
     public class Atributo
     {
-        public Atributo(int id, string nome, string descricao,string tipo,bool nulo)
+        public Atributo(int id, string nome, string descricao, string tipo, bool nulo, List<string> lista)
         {
             _id = id;
             _nome = nome;
             _descricao = descricao;
             _tipo = tipo;
             _nulo = nulo;
+            _lista = lista;
+            
         }
         public Atributo()
         {
@@ -27,6 +29,7 @@ namespace InterfaceUsuario.Classes
             _descricao = string.Empty;
             _tipo = string.Empty;
             _nulo = false;
+            _lista = null;
         }
 
         #region Accessors
@@ -64,6 +67,13 @@ namespace InterfaceUsuario.Classes
         {
             get { return _nulo; }
             set { _nulo = value; }
+        }
+        private List<string> _lista;
+
+        public List<string> Lista
+        {
+            get { return _lista; }
+            set { _lista = value; }
         }
         #endregion
 
