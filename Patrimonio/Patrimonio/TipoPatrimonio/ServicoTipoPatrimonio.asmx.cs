@@ -5,6 +5,8 @@ using System.Data;
 using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
+using Patrimonio.Patrimonio;
+using System.Collections.Generic;
 
 namespace Patrimonio.TipoPatrimonio
 {
@@ -15,6 +17,8 @@ namespace Patrimonio.TipoPatrimonio
 
     public class ServicoTipoPatrimonio : System.Web.Services.WebService
     {
+
+        #region web-methods
 
         [WebMethod(MessageName = "CriaTipoPatrimonio")]
         public ResponseTipoPatrimonio CriarTipoPatrimonio(RequestTipoPatrimonio _request)
@@ -59,8 +63,11 @@ namespace Patrimonio.TipoPatrimonio
                 if (_request != null)
                 {
                     ////implementacao da função vai aqui
-                    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
-
+                    //Verifica se o tipo de patrimonio pode ser excluído
+                    if (!TipoPatrimonioEmUso(_request.TipoPatrimonio.Id))
+                    {
+                        daotipopatrimonio.deletaTipoPatrimonio(_request.TipoPatrimonio.Id);
+                    }
 
                     /////
                     _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
@@ -73,6 +80,8 @@ namespace Patrimonio.TipoPatrimonio
             }
             return _response;
         }
+
+        
         [WebMethod(MessageName = "AlteraTipoPatrimonio")]
         public ResponseTipoPatrimonio AlterarTipoPatrimonio(RequestTipoPatrimonio _request)
         {
@@ -109,6 +118,7 @@ namespace Patrimonio.TipoPatrimonio
                     ////implementacao da função vai aqui
                     TipoPatrimonio tipoPatrimonioConsultado = new TipoPatrimonio();
                     _response.ListaTipoPatrimonio = new System.Collections.Generic.List<TipoPatrimonio>();
+                    
                     tipoPatrimonioConsultado = daotipopatrimonio.consultaAtributo(_request.TipoPatrimonio.Id);
                     if (tipoPatrimonioConsultado != null)
                     {
@@ -128,5 +138,27 @@ namespace Patrimonio.TipoPatrimonio
             }
             return _response;
         }
+        #endregion web-methods
+
+        #region metodos Nao-Web
+
+        private bool TipoPatrimonioEmUso(int idTipoPatrimonio)
+        {
+         
+            Patrimonio.DAOPatrimonio daopatrimonio = new DAOPatrimonio();
+            List<Patrimonio.Patrimonio> ListaPatrimonio = new System.Collections.Generic.List<Patrimonio.Patrimonio>();
+            ListaPatrimonio = daopatrimonio.BuscaPatrimonioPeloIdTipoPatrimonio(idTipoPatrimonio);
+            if (ListaPatrimonio.Count() == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
+
+        #endregion metodos auxiliares
     }
 }
