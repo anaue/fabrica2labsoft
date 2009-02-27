@@ -46,5 +46,14 @@ namespace Patrimonio.Patrimonio
              else { return idGerado; }
          }
 
+
+
+
+         public List<Patrimonio> BuscaPatrimonioPeloIdTipoPatrimonio(int idTipoPatrimonio)
+         {
+             //busca os patrimonios do tipo indicado pelo idTipoPatrimonio
+             // Select * from PATRIMONIO where idIipoEquipamento = { idTipoPatrimonio }
+             throw new NotImplementedException();
+         }
     }
 }
