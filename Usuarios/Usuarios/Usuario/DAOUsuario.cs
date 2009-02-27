@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-<<<<<<< .mine
 using Arv.Database;
-=======
->>>>>>> .r115
 using System.Collections.Generic;
 using Arv.Database;
 
@@ -35,7 +32,7 @@ namespace Usuarios.Usuario
 
                 parameters.Add(new SqlParameter("@nomeUsuario", usuario.Nome));
                 parameters.Add(new SqlParameter("@senhaUsuario", usuario.Senha));
-                parameters.Add(new SqlParameter("@descUsuario", usuario.Descricao));                
+                parameters.Add(new SqlParameter("@descUsuario", usuario.Descricao));
 
                 db.AbreConexao();
                 idUsuario = db.ExecuteProcedureNonQuery("sp_usuario_inserir", parameters);
