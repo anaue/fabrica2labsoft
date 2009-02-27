@@ -141,8 +141,10 @@
             </tr>
             <tr>
                 <td class="style44" valign="bottom">
-                    <asp:LinkButton ID="LinkButton1" runat="server" Font-Underline="False" 
-                        style="font-family: Verdana; color: #3F3F3F; font-size: 10pt; font-weight: 700; text-align: center">| 
+                    <asp:LinkButton ID="LinkLogOff" runat="server" Font-Underline="False" 
+                        
+                        style="font-family: Verdana; color: #3F3F3F; font-size: 10pt; font-weight: 700; text-align: center" 
+                        onclick="LinkLogOff_Click">| 
                     Log off |</asp:LinkButton>
                     <br />
                     </td>
