@@ -44,6 +44,26 @@ namespace Maestro
                         _endereco = "http://localhost:1165/Atributo/ServicoAtributo.asmx";
                         break;
                     }
+                case "CriarUsuario":
+                    {
+                        _endereco = "http://localhost:1765/Atributo/ServicoUsuario.asmx";
+                        break;
+                    }
+                case "DeletarUsuario":
+                    {
+                        _endereco = "http://localhost:1765/Atributo/ServicoUsuario.asmx";
+                        break;
+                    }
+                case "AlterarUsuario":
+                    {
+                        _endereco = "http://localhost:1765/Atributo/ServicoUsuario.asmx";
+                        break;
+                    }
+                case "ConsultarUsuario":
+                    {
+                        _endereco = "http://localhost:1765/Atributo/ServicoUsuario.asmx";
+                        break;
+                    }
             }
             return _endereco;
 
