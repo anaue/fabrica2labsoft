@@ -63,7 +63,7 @@ namespace Patrimonio.TipoPatrimonio
                 if (_request != null)
                 {
                     ////implementacao da função vai aqui
-                    //Verifica se o tipo de patrimonio pode ser excluído
+                   
                     if (!TipoPatrimonioEmUso(_request.TipoPatrimonio.Id))
                     {
                         daotipopatrimonio.deletaTipoPatrimonio(_request.TipoPatrimonio.Id);
@@ -148,13 +148,13 @@ namespace Patrimonio.TipoPatrimonio
             Patrimonio.DAOPatrimonio daopatrimonio = new DAOPatrimonio();
             List<Patrimonio.Patrimonio> ListaPatrimonio = new System.Collections.Generic.List<Patrimonio.Patrimonio>();
             ListaPatrimonio = daopatrimonio.BuscaPatrimonioPeloIdTipoPatrimonio(idTipoPatrimonio);
-            if (ListaPatrimonio.Count() == 0)
+            if (ListaPatrimonio.Count() > 0)
             {
-                return false;
+                return true;
             }
             else
             {
-                return true;
+                return false;
             }
 
         }
