@@ -9,7 +9,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="RequestUsuario" />
+      <s:complexType name="RequestUsuario">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idUsuario" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Usuario" nillable="true" type="tns:Usuario" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Usuario">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Senha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descricao" type="s:string" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="CriaUsuarioResponse">
         <s:complexType>
           <s:sequence>
@@ -18,11 +31,48 @@
         </s:complexType>
       </s:element>
       <s:complexType name="ResponseUsuario">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseResponse">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Message" nillable="true" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Usuario" nillable="true" type="tns:Usuario" />
+              <s:element minOccurs="1" maxOccurs="1" name="BoolUsuario" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="unbounded" name="ListaUsuario" nillable="true" type="tns:Usuario" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BaseResponse">
         <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="Message" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="tns:ResponseStatus" />
         </s:sequence>
       </s:complexType>
+      <s:simpleType name="ResponseStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Continue" />
+          <s:enumeration value="OK" />
+          <s:enumeration value="Created" />
+          <s:enumeration value="Accepted" />
+          <s:enumeration value="NoContent" />
+          <s:enumeration value="MovedPermanently" />
+          <s:enumeration value="Found" />
+          <s:enumeration value="SeeOther" />
+          <s:enumeration value="NotModified" />
+          <s:enumeration value="BadRequest" />
+          <s:enumeration value="Unauthorized" />
+          <s:enumeration value="Forbidden" />
+          <s:enumeration value="NotFound" />
+          <s:enumeration value="MethodNotAllowed" />
+          <s:enumeration value="RequestTimeout" />
+          <s:enumeration value="Conflict" />
+          <s:enumeration value="NotImplemented" />
+          <s:enumeration value="ServiceUnavailable" />
+          <s:enumeration value="BadVersion" />
+          <s:enumeration value="InternalServerError" />
+        </s:restriction>
+      </s:simpleType>
       <s:element name="DeletaUsuario">
         <s:complexType>
           <s:sequence>
@@ -65,6 +115,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="BuscaUsuarios">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestUsuario" nillable="true" type="tns:RequestUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaUsuariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ResponseUsuario" nillable="true" type="tns:ResponseUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="CriaUsuarioSoapIn">
@@ -91,6 +155,12 @@
   <wsdl:message name="ConsultaUsuarioSoapOut">
     <wsdl:part name="parameters" element="tns:ConsultaUsuarioResponse" />
   </wsdl:message>
+  <wsdl:message name="BuscaUsuariosSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscaUsuarios" />
+  </wsdl:message>
+  <wsdl:message name="BuscaUsuariosSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscaUsuariosResponse" />
+  </wsdl:message>
   <wsdl:portType name="ServicoUsuarioSoap">
     <wsdl:operation name="CriarUsuario">
       <wsdl:input name="CriaUsuario" message="tns:CriaUsuarioSoapIn" />
@@ -107,6 +177,10 @@
     <wsdl:operation name="ConsultarUsuario">
       <wsdl:input name="ConsultaUsuario" message="tns:ConsultaUsuarioSoapIn" />
       <wsdl:output name="ConsultaUsuario" message="tns:ConsultaUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscaUsuarios">
+      <wsdl:input message="tns:BuscaUsuariosSoapIn" />
+      <wsdl:output message="tns:BuscaUsuariosSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ServicoUsuarioSoap" type="tns:ServicoUsuarioSoap">
@@ -144,6 +218,15 @@
         <soap:body use="literal" />
       </wsdl:input>
       <wsdl:output name="ConsultaUsuario">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaUsuarios">
+      <soap:operation soapAction="http://www.pece.org.br/BuscaUsuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -186,13 +269,22 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="BuscaUsuarios">
+      <soap12:operation soapAction="http://www.pece.org.br/BuscaUsuarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ServicoUsuario">
     <wsdl:port name="ServicoUsuarioSoap" binding="tns:ServicoUsuarioSoap">
-      <soap:address location="http://localhost:1180/Usuario/ServicoUsuario.asmx" />
+      <soap:address location="http://localhost:1765/Usuario/ServicoUsuario.asmx" />
     </wsdl:port>
     <wsdl:port name="ServicoUsuarioSoap12" binding="tns:ServicoUsuarioSoap12">
-      <soap12:address location="http://localhost:1180/Usuario/ServicoUsuario.asmx" />
+      <soap12:address location="http://localhost:1765/Usuario/ServicoUsuario.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
