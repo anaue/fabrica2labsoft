@@ -17,6 +17,15 @@ namespace Usuarios.Usuario
             get { return _id; }
             set { _id = value; }
         }
+
+        private int _tipoUsuario;
+        [XmlElement(ElementName = "TipoUsuario")]
+        public int TipoUsuario
+        {
+            get { return _tipoUsuario; }
+            set { _tipoUsuario = value; }
+        }
+
         private string _nome;
         [XmlElement(ElementName = "Nome")]
         public string Nome
