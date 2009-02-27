@@ -19,5 +19,14 @@ namespace Patrimonio.Patrimonio
             get { return _Message; }
             set { _Message = value; }
         }
+
+        private List<Patrimonio> _listaPatrimonio;
+
+        public List<Patrimonio> ListaPatrimonio
+        {
+            get { return _listaPatrimonio; }
+            set { _listaPatrimonio = value; }
+        }
+
     }
 }
