@@ -11,24 +11,24 @@ namespace Usuarios.Autenticador
         {
         }
 
-        private bool _idUsuario;
-        [XmlElement(ElementName = "IdUsuario", IsNullable = true)]
-        public bool IdUsuario
+        private int _idUsuario;
+        [XmlElement(ElementName = "IdUsuario")]
+        public int IdUsuario
         {
             get { return _idUsuario; }
             set { _idUsuario = value; }
         }
 
-        private bool _senha;
+        private string _senha;
         [XmlElement(ElementName = "Senha", IsNullable = true)]
-        public bool Senha
+        public string Senha
         {
             get { return _senha; }
             set { _senha = value; }
         }
 
         private int _idTela;
-        [XmlElement(ElementName = "IdTela", IsNullable = true)]
+        [XmlElement(ElementName = "IdTela")]
         public int IdTela
         {
             get { return _idTela; }
