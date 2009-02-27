@@ -26,9 +26,8 @@ namespace Patrimonio.TipoPatrimonio
             get { return _Message; }
             set { _Message = value; }
         }
-
+        private List<TipoPatrimonio> _ListaTipoPatrimonio;
         [XmlArray(ElementName = "ListaTipoPatrimonio", IsNullable = true)]
-
         public List<TipoPatrimonio> ListaTipoPatrimonio
         {
             get { return _ListaTipoPatrimonio; }

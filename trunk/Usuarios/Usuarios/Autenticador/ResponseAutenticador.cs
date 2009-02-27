@@ -11,14 +11,6 @@ namespace Usuarios.Autenticador
         public ResponseAutenticador()
         {
         }
-        
-        private string _Message;
-        [XmlElement(ElementName = "Message", IsNullable = true)]
-        public string Message
-        {
-            get { return _Message; }
-            set { _Message = value; }
-        }
 
         private bool _registroCorreto;
         [XmlElement(ElementName = "RegistroCorreto", IsNullable = true)]
