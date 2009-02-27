@@ -36,6 +36,14 @@ namespace Usuarios.Usuario
             set { _boolUsuario = value; }
         }
 
+        private int _Id;
+        [XmlElement(ElementName = "Id")]
+        public int Id
+        {
+            get { return _Id; }
+            set { _Id = value; }
+        }
+
         private List<Usuario> _listaUsuarios;
         [XmlElement(ElementName = "ListaUsuario", IsNullable = true)]
         public List<Usuario> ListaUsuarios
