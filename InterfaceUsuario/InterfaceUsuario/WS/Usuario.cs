@@ -220,6 +220,7 @@ namespace InterfaceUsuario.WS
                             usuario.Id = u.Id;
                             usuario.Nome = u.Nome;
                             usuario.Senha = u.Senha;
+                            usuario.TipoUsuario = u.TipoUsuario;
 
                             retorno.Add(usuario);
                         }
