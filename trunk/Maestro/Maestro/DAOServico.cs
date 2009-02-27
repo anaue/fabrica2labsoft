@@ -21,8 +21,7 @@ namespace Maestro
             //Recebe: objeto nomeServico
             //Devolve: 
 
-            int linhasafetadas = 0;
-
+            string _endereco = string.Empty;
             ArvDatabase db = new ArvDatabase(_connString);
             try
             {
@@ -31,7 +30,7 @@ namespace Maestro
                 parameters.Add(new SqlParameter("@nomeServico", _nomeServico));
 
                 db.AbreConexao();
-                linhasafetadas = db.ExecuteProcedureNonQuery("sp_servico_consultar", parameters);
+                _endereco = (string)db.ExecuteScalar("sp_servico_consultar", parameters);
             }
             catch (Exception ex)
             {
@@ -42,8 +41,7 @@ namespace Maestro
                 db.FechaConexao();
             }
 
-            if (linhasafetadas == 0) { return false; }
-            else { return true; }
+            return _endereco;
         }
     }
 }
