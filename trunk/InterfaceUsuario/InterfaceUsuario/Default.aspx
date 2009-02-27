@@ -14,20 +14,20 @@
         {
             height: 237px;
         }
-        .style3
-        {
-            height: 108px;
-            width: 259px;
-        }
         .style4
         {
             height: 237px;
-            width: 259px;
+            width: 289px;
             text-align: center;
         }
         .style5
         {
-            width: 259px;
+            height: 108px;
+            width: 289px;
+        }
+        .style6
+        {
+            width: 289px;
         }
     </style>
 </head>
@@ -39,7 +39,7 @@
             <tr>
                 <td class="style1">
                 </td>
-                <td class="style3">
+                <td class="style5">
                 </td>
                 <td class="style1">
                 </td>
@@ -59,7 +59,7 @@
                                 style="border-collapse:collapse;">
                                 <tr>
                                     <td>
-                                        <table border="0" cellpadding="0" style="width:236px;">
+                                        <table border="0" cellpadding="0" style="width:277px; height: 128px;">
                                             <tr>
                                                 <td align="center" colspan="2" 
                                                     style="color:White;background-color:#5D7B9D;font-size:0.9em;font-weight:bold;">
@@ -104,7 +104,8 @@
                                                     <asp:Button ID="LoginButton" runat="server" BackColor="#FFFBFF" 
                                                         BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CommandName="Login" 
                                                         Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284775" SkinID="btnPadrao" 
-                                                        Text="Log In" ValidationGroup="Login1" Width="60px" />
+                                                        Text="Log In" ValidationGroup="Login1" Width="60px" 
+                                                        onclick="LoginButton_Click" />
                                                 </td>
                                             </tr>
                                         </table>
@@ -123,7 +124,7 @@
             <tr>
                 <td>
                     &nbsp;</td>
-                <td class="style5">
+                <td class="style6">
                     &nbsp;</td>
                 <td>
                     &nbsp;</td>

@@ -31,4 +31,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
         Response.Redirect("Default5.aspx");
     }
+    protected void LinkLogOff_Click(object sender, EventArgs e)
+    {
+
+    }
 }

@@ -37,7 +37,7 @@ namespace InterfaceUsuario.Classes
         #endregion Accessors
 
         #region Methods
-        public bool Login()
+        public bool Login(String Login,String Password)
         {
             return false;
         }
