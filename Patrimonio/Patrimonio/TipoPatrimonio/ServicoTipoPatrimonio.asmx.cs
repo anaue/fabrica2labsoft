@@ -20,19 +20,26 @@ namespace Patrimonio.TipoPatrimonio
         public ResponseTipoPatrimonio CriarTipoPatrimonio(RequestTipoPatrimonio _request)
         {
             ResponseTipoPatrimonio _response = new ResponseTipoPatrimonio();
+            DAOTipoPatrimonio daotipopatrimonio = new DAOTipoPatrimonio();
             try
             {
                 if (_request != null)
                 {
                     _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
-                    //_response.ListaAtributos = new System.Collections.Generic.List<Atributo>();
+                    _response.ListaTipoPatrimonio = new System.Collections.Generic.List<TipoPatrimonio>();
                     ////implementacao da função vai aqui
 
-
+                    int idGerado = daotipopatrimonio.InsereTipoPatrimonio(_request.TipoPatrimonio);
+                    if (idGerado > 0)
+                    {
+                        _request.TipoPatrimonio.Id = idGerado;
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
                     /////
-
-                    // _request.Atributo.Id = 1;
-                    //_response.ListaAtributos.Add(_request.Atributo);
+                    _response.ListaTipoPatrimonio.Add(_request.TipoPatrimonio);
                 }
             }
             catch (Exception ex)
