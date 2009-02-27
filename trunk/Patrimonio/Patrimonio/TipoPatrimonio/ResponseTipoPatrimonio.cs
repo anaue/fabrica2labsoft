@@ -11,13 +11,13 @@ namespace Patrimonio.TipoPatrimonio
         public ResponseTipoPatrimonio()
         {
         }
-        //private int _statusCode;
-        //[XmlElement(ElementName = "StatusCode")]
-        //public int StatusCode
-        //{
-        //    get { return _statusCode; }
-        //    set { _statusCode = value; }
-        //}
+        private int _statusCode;
+        [XmlElement(ElementName = "StatusCode")]
+        public int StatusCode
+        {
+            get { return _statusCode; }
+            set { _statusCode = value; }
+        }
 
         private string _Message;
         [XmlElement(ElementName = "Message", IsNullable = true)]
@@ -25,6 +25,14 @@ namespace Patrimonio.TipoPatrimonio
         {
             get { return _Message; }
             set { _Message = value; }
+        }
+
+        [XmlArray(ElementName = "ListaTipoPatrimonio", IsNullable = true)]
+
+        public List<TipoPatrimonio> ListaTipoPatrimonio
+        {
+            get { return _ListaTipoPatrimonio; }
+            set { _ListaTipoPatrimonio = value; }
         }
     }
 }
