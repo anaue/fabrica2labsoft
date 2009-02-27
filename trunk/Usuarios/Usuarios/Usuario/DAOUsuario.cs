@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+<<<<<<< .mine
+using Arv.Database;
+=======
+>>>>>>> .r115
 using System.Collections.Generic;
 using Arv.Database;
 
@@ -19,9 +23,9 @@ namespace Usuarios.Usuario
         internal int CriarUsuario(Usuario usuario)
         {
             //Recebe: objeto Usuario
-            //Devolve: bool dizendo se cadastro ocorreu com sucesso (true) ou não (false)
+            //Devolve: id do usuario inserido
 
-            int linhasafetadas = 0;
+            int idUsuario = 0;
 
             ArvDatabase db = new ArvDatabase(_connString);
             try
@@ -34,7 +38,7 @@ namespace Usuarios.Usuario
                 parameters.Add(new SqlParameter("@descUsuario", usuario.Descricao));                
 
                 db.AbreConexao();
-                linhasafetadas = db.ExecuteProcedureNonQuery("sp_usuario_inserir", parameters);
+                idUsuario = db.ExecuteProcedureNonQuery("sp_usuario_inserir", parameters);
             }
             catch (Exception ex)
             {
@@ -45,8 +49,11 @@ namespace Usuarios.Usuario
                 db.FechaConexao();
             }
 
-            if (linhasafetadas == 0) { return -1; }//false; }
-            else { return 0; }//true; }
+
+            if (idUsuario != 0)
+                return idUsuario;
+            else
+                return -1;
         }
 
         internal bool AlterarUsuario(Usuario usuario)
