@@ -41,6 +41,12 @@ namespace InterfaceUsuario.Classes
             get { return _descricao; }
             set { _descricao = value; }
         }
+        private int _tipoUsuario;
+        public int TipoUsuario
+        {
+            get { return _tipoUsuario; }
+            set { _tipoUsuario = value; }
+        }
 
         public int CriaUsuario(Usuario usuario)
         {
