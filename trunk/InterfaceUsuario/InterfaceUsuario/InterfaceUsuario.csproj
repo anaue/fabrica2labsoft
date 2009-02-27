@@ -312,10 +312,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>InterfaceUsuario_ServicoAutenticador_ServicoAutenticador</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:1180/Usuario/ServicoUsuario.asmx">
+    <WebReferenceUrl Include="http://localhost:1765/Usuario/ServicoUsuario.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\ServicoUsuario\</RelPath>
-      <UpdateFromURL>http://localhost:1180/Usuario/ServicoUsuario.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:1765/Usuario/ServicoUsuario.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -361,7 +361,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1733</DevelopmentServerPort>
+          <DevelopmentServerPort>1268</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
