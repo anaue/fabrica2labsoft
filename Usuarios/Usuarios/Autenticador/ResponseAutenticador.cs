@@ -13,7 +13,7 @@ namespace Usuarios.Autenticador
         }
 
         private bool _registroCorreto;
-        [XmlElement(ElementName = "RegistroCorreto", IsNullable = true)]
+        [XmlElement(ElementName = "RegistroCorreto")]
         public bool RegistroCorreto
         {
             get { return _registroCorreto; }

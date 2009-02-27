@@ -16,7 +16,7 @@ namespace Usuarios.Autenticador
     public class ServicoAutenticador : System.Web.Services.WebService
     {
 
-        [WebMethod(MessageName = "Login")]
+        [WebMethod(MessageName="Login")]
         public ResponseAutenticador Login(RequestAutenticador _request)
         {
             ResponseAutenticador _response = new ResponseAutenticador();
