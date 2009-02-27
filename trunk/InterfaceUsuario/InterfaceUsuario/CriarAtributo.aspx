@@ -58,7 +58,36 @@
                                                         Tipo:</td>
                                                     <td>
                                                         <asp:DropDownList ID="ddlTipo" runat="server" Width="125px">
+                                                            <asp:ListItem></asp:ListItem>
+                                                            <asp:ListItem>Texto</asp:ListItem>
+                                                            <asp:ListItem Value="Decimal">Decimal</asp:ListItem>
+                                                            <asp:ListItem>Lista</asp:ListItem>
                                                         </asp:DropDownList>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 12px">
+                                                        &nbsp;</td>
+                                                    <td colspan="2" valign="middle">
+                                                        <asp:Panel ID="panLista" runat="server">
+                                                            <table>
+                                                                <tr>
+                                                                    <td class="style48" style="width: 82px" valign="middle">
+                                                                        Lista:</td>
+                                                                    <td class="style48" valign="middle">
+                                                                        <asp:TextBox ID="TextBox1" runat="server" Width="109px"></asp:TextBox>
+                                                                    </td>
+                                                                    <td style="width: 59px; text-align: center">
+                                                                        <asp:Button ID="btnAdicionar" runat="server" Text="&gt;&gt;" />
+                                                                        <br />
+                                                                        <asp:Button ID="Button2" runat="server" Text="X" Width="30px" />
+                                                                    </td>
+                                                                    <td>
+                                                                        <asp:ListBox ID="ListBox1" runat="server" Width="127px"></asp:ListBox>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </asp:Panel>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -67,8 +96,7 @@
                                                     <td style="width: 82px">
                                                         Lista:</td>
                                                     <td>
-                                                        <asp:ListBox ID="ListBox1" runat="server" Width="127px"></asp:ListBox>
-                                                    </td>
+                                                        &nbsp;</td>
                                                 </tr>
                                                 <tr>
                                                     <td style="width: 12px">
