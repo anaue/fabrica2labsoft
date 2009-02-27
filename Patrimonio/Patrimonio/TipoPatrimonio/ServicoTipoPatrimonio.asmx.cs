@@ -53,11 +53,13 @@ namespace Patrimonio.TipoPatrimonio
         public ResponseTipoPatrimonio DeletarTipoPatrimonio(RequestTipoPatrimonio _request)
         {
             ResponseTipoPatrimonio _response = new ResponseTipoPatrimonio();
+            DAOTipoPatrimonio daotipopatrimonio = new DAOTipoPatrimonio();
             try
             {
                 if (_request != null)
                 {
                     ////implementacao da função vai aqui
+                    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
 
 
                     /////
@@ -75,14 +77,16 @@ namespace Patrimonio.TipoPatrimonio
         public ResponseTipoPatrimonio AlterarTipoPatrimonio(RequestTipoPatrimonio _request)
         {
             ResponseTipoPatrimonio _response = new ResponseTipoPatrimonio();
+            DAOTipoPatrimonio daotipopatrimonio = new DAOTipoPatrimonio();
             try
             {
                 if (_request != null)
                 {
                     ////implementacao da função vai aqui
-
-
-                    /////
+                    daotipopatrimonio.alteraTipoPatrimonio(_request.TipoPatrimonio);
+                    _response.ListaTipoPatrimonio = new System.Collections.Generic.List<TipoPatrimonio>();
+                    _response.ListaTipoPatrimonio.Add(_request.TipoPatrimonio);
+                    ///
                     _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
                 }
             }
@@ -97,13 +101,22 @@ namespace Patrimonio.TipoPatrimonio
         public ResponseTipoPatrimonio ConsultarTipoPatrimonio(RequestTipoPatrimonio _request)
         {
             ResponseTipoPatrimonio _response = new ResponseTipoPatrimonio();
+            DAOTipoPatrimonio daotipopatrimonio = new DAOTipoPatrimonio();
             try
             {
                 if (_request != null)
                 {
                     ////implementacao da função vai aqui
-
-
+                    TipoPatrimonio tipoPatrimonioConsultado = new TipoPatrimonio();
+                    _response.ListaTipoPatrimonio = new System.Collections.Generic.List<TipoPatrimonio>();
+                    tipoPatrimonioConsultado = daotipopatrimonio.consultaAtributo(_request.TipoPatrimonio.Id);
+                    if (tipoPatrimonioConsultado != null)
+                    {
+                        _response.ListaTipoPatrimonio.Add(tipoPatrimonioConsultado);
+                    }
+                    else
+                    {
+                    }
                     /////
                     _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
                 }
