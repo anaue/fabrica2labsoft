@@ -23,7 +23,10 @@ namespace Maestro
                 DAOServico _servico = new DAOServico();
                 if (_request != null)
                 {//se tudo ocorrer bem executa o serviço
-                    _response.ServiceAddress = _servico.ConsultarEndereco(_request.NomeServico);
+                    _response.ListaServicos = new System.Collections.Generic.List<Servico>();
+                    Servico _srv = new Servico();
+                    _srv.NomeServico = _servico.ConsultarEndereco(_request.NomeServico);
+                    _response.ListaServicos.Add(_srv);
                     _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK; //200 significa recebido com sucesso
                 }
                 else
@@ -43,7 +46,7 @@ namespace Maestro
 
 
         }
-        [WebMethod]
+        [WebMethod(MessageName="ObterServicos")]
         public Response ObtemServicos(Request _request)
         {
             Response _response = new Response();
@@ -52,7 +55,9 @@ namespace Maestro
                 DAOServico _servico = new DAOServico();
                 if (_request != null)
                 {//se tudo ocorrer bem executa o serviço
-                    _response.ServiceAddress = _servico.ConsultarServicos();
+                    _response.ListaServicos = new System.Collections.Generic.List<Servico>();
+                    _response.ListaServicos = _servico.ConsultarServicos();
+                    
                     _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK; //200 significa recebido com sucesso
                 }
                 else
