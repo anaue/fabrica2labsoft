@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections;
 using System.Configuration;
 using System.Data;
@@ -20,22 +21,48 @@ namespace InterfaceUsuario
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Classes.Atributo atributo = new InterfaceUsuario.Classes.Atributo();
-            atributo.Nome = txtNome.Text;
-            atributo.Descricao = txtDescricao.Text;
-            atributo.Tipo = ddlTipo.SelectedValue.ToString();
-            atributo.Nulo = cbNulo.Checked;
-            if (atributo.CriaAtributo() < 0)
+            //Classes.Atributo atributo = new InterfaceUsuario.Classes.Atributo();
+            //atributo.Nome = txtNome.Text;
+            //atributo.Descricao = txtDescricao.Text;
+            //atributo.Tipo = ddlTipo.SelectedValue.ToString();
+            //atributo.Nulo = cbNulo.Checked;
+
+            if (ddlTipo.SelectedValue == "Lista")
             {
-                lblError.Visible = true;
+                List<string> str = new List<string>(lbValores.Items.Count);
+
+                foreach (ListItem item in lbValores.Items)
+                {
+                    str.Add(item.Text);
+                }
+            }
+        }
+
+        protected void ddlTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlTipo.SelectedValue == "Lista")
+            {
+                panLista.Visible = true;
             }
             else
             {
-                lblError.Visible = false;
+                panLista.Visible = false;
             }
-  
         }
 
+        protected void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            lbValores.Items.Add(txtValorLista.Text);
+            txtValorLista.Text = "";
+            txtValorLista.Focus();
+        }
 
-    }
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            if (lbValores.SelectedIndex > -1)
+            {
+                lbValores.Items.RemoveAt(lbValores.SelectedIndex);
+            }
+        }
+}
 }
