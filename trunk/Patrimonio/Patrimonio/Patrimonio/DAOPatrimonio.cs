@@ -47,6 +47,31 @@ namespace Patrimonio.Patrimonio
          }
 
 
+         internal int InserePatrimonio(Patrimonio patrimonio)
+         {
+             throw new NotImplementedException();
+         }
+
+         internal int ExecutaBaixaPatrimonio(Patrimonio patrimonio, Baixa baixa)
+         {
+             throw new NotImplementedException();
+         }
+
+         internal int DeletaPatrimonio(Patrimonio patrimonio)
+         {
+             throw new NotImplementedException();
+         }
+
+         internal bool AlteraPatrimonio(Patrimonio patrimonio)
+         {
+             throw new NotImplementedException();
+         }
+
+         internal List<Patrimonio> ObterPatrimonios(Patrimonio patrimonio)
+         {
+             throw new NotImplementedException();
+         }
+
 
 
          public List<Patrimonio> BuscaPatrimonioPeloIdTipoPatrimonio(int idTipoPatrimonio)

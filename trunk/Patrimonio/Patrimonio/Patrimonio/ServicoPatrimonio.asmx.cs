@@ -5,6 +5,8 @@ using System.Data;
 using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
+using Arv.Common;
+using System.Collections.Generic;
 
 namespace Patrimonio.Patrimonio
 {
@@ -23,15 +25,19 @@ namespace Patrimonio.Patrimonio
             {
                 if (_request != null)
                 {
-                    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
-                    //_response.ListaAtributos = new System.Collections.Generic.List<Atributo>();
-                    ////implementacao da função vai aqui
-
-
-                    /////
-
-                    // _request.Atributo.Id = 1;
-                    //_response.ListaAtributos.Add(_request.Atributo);
+                    DAOPatrimonio daoPatrimonio = new DAOPatrimonio();
+                    int idGerado = daoPatrimonio.InserePatrimonio(_request.Patrimonio);
+                    
+                    if (idGerado > 0)
+                    {
+                        _request.Patrimonio.IdEquipamento = idGerado;
+                        _response.ListaPatrimonio.Add(_request.Patrimonio);
+                    }
+                    else
+                    {
+                        throw new Exception("Erro ao tentar inserir Patrimonio: idGerado <= 0");
+                    }
+                    _response.StatusCode = BaseResponse.ResponseStatus.OK;
                 }
             }
             catch (Exception ex)
@@ -49,11 +55,19 @@ namespace Patrimonio.Patrimonio
             {
                 if (_request != null)
                 {
-                    ////implementacao da função vai aqui
+                    DAOPatrimonio daoPatrimonio = new DAOPatrimonio();
+                    int idGerado = daoPatrimonio.ExecutaBaixaPatrimonio(_request.Patrimonio, _request.Baixa);
 
-
-                    /////
-                    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
+                    if (idGerado > 0)
+                    {
+                        _request.Baixa.IdBaixa = idGerado;
+                        _response.Message = "Baixa de patrimonio executada com sucesso.";
+                    }
+                    else
+                    {
+                        throw new Exception("Erro ao tentar executar baixa de Patrimonio: idGerado <= 0");
+                    }
+                    _response.StatusCode = BaseResponse.ResponseStatus.OK;
                 }
             }
             catch (Exception ex)
@@ -71,11 +85,19 @@ namespace Patrimonio.Patrimonio
             {
                 if (_request != null)
                 {
-                    ////implementacao da função vai aqui
+                    DAOPatrimonio daoPatrimonio = new DAOPatrimonio();
+                    int idGerado = daoPatrimonio.DeletaPatrimonio(_request.Patrimonio);
 
-
-                    /////
-                    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
+                    if (idGerado > 0)
+                    {
+                        _request.Baixa.IdBaixa = idGerado;
+                        _response.Message = "Remocao de Patrimonio executada com sucesso.";
+                    }
+                    else
+                    {
+                        throw new Exception("Erro ao tentar remover Patrimonio: idGerado <= 0");
+                    }
+                    _response.StatusCode = BaseResponse.ResponseStatus.OK;
                 }
             }
             catch (Exception ex)
@@ -93,11 +115,19 @@ namespace Patrimonio.Patrimonio
             {
                 if (_request != null)
                 {
-                    ////implementacao da função vai aqui
+                    DAOPatrimonio daoPatrimonio = new DAOPatrimonio();
+                    bool sucesso = daoPatrimonio.AlteraPatrimonio(_request.Patrimonio);
 
-
-                    /////
-                    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
+                    if (idGerado > 0)
+                    {
+                        _request.Baixa.IdBaixa = idGerado;
+                        _response.Message = "Remocao de Patrimonio executada com sucesso.";
+                    }
+                    else
+                    {
+                        throw new Exception("Erro ao tentar remover Patrimonio: idGerado <= 0");
+                    }
+                    _response.StatusCode = BaseResponse.ResponseStatus.OK;
                 }
             }
             catch (Exception ex)
@@ -116,10 +146,20 @@ namespace Patrimonio.Patrimonio
             {
                 if (_request != null)
                 {
-                    ////implementacao da função vai aqui
+                    _response.ListaPatrimonio = new System.Collections.Generic.List<Patrimonio>();
 
+                    DAOPatrimonio daoPatrimonio = new DAOPatrimonio();
 
-                    /////
+                    List<Patrimonio> listPatrimonio = daoPatrimonio.ObterPatrimonios(_request.Patrimonio);
+
+                    if (listPatrimonio.Count > 0)
+                    {
+                        _response.ListaPatrimonio = listPatrimonio;
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
                     _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
                 }
             }
