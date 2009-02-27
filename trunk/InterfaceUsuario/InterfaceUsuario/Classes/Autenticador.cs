@@ -37,17 +37,21 @@ namespace InterfaceUsuario.Classes
         #endregion Accessors
 
         #region Methods
-        public bool Login(String Login,String Password)
+        public bool Login(int idUsuario, string senha)
         {
-            return false;
-        }
-        public bool Logout()
+            bool retorno;
+            WS.Autenticador ws = new InterfaceUsuario.WS.Autenticador();
+            retorno = ws.Login(idUsuario, senha);            
+
+            return retorno;
+        }        
+        public Autenticador VerificaPermissoes(int idUsuario, int idTela)
         {
-            return false;
-        }
-        public bool VerificaPermissoes()
-        {
-            return false;
+            Autenticador retorno;
+            WS.Autenticador ws = new InterfaceUsuario.WS.Autenticador();
+            retorno = ws.VerificaPermissoes(idUsuario, idTela);
+
+            return retorno;
         }
         #endregion Methods
 

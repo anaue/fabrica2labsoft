@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
+using Arv.Common;
 
 namespace InterfaceUsuario.WS
 {
@@ -21,13 +22,13 @@ namespace InterfaceUsuario.WS
         /// </summary>
         /// <param name="_user"></param>
         /// <returns></returns>
-        public bool Login(Classes.Usuario _user)
+        public bool Login(int idUsuario, string senha)
         {
             bool retorno = false;
             ServicoAutenticador.ServicoAutenticador wsAutenticador = new InterfaceUsuario.ServicoAutenticador.ServicoAutenticador();
             ServicoAutenticador.RequestAutenticador request = new InterfaceUsuario.ServicoAutenticador.RequestAutenticador();
             ServicoAutenticador.ResponseAutenticador response = new InterfaceUsuario.ServicoAutenticador.ResponseAutenticador();
-
+            
             #region Acesso WS Diretorio
             Diretorio dir = new Diretorio();
             // A nome do serviço é definido no banco de dados, pelo serviço diretório
@@ -41,19 +42,15 @@ namespace InterfaceUsuario.WS
                 // atualiza o endereco do WS
                 wsAutenticador.Url = _url;
 
+                request.IdUsuario = idUsuario;
+                request.Senha = senha;
+
                 try
                 {
                     response = wsAutenticador.Login(request);
-                    if (response != null && response.StatusCode == 200)
+                    if (response != null && response.StatusCode == InterfaceUsuario.ServicoAutenticador.ResponseStatus.OK)
                     {
-                        // falta implementar a função aqui     
-                        //*************************************************
-                        //
-                        //
-                        //
-                        //
-                        //*************************************************
-                        retorno = false; //true;
+                        retorno = response.RegistroCorreto;
                     }
 
                 }
@@ -72,9 +69,9 @@ namespace InterfaceUsuario.WS
         /// </summary>
         /// <param name="_user"></param>
         /// <returns></returns>
-        public bool VerificaPermissoes(Classes.Usuario _user)
+        public Classes.Autenticador VerificaPermissoes(int idUsuario, int idTela)
         {
-            bool retorno = false;
+            Classes.Autenticador retorno = new Classes.Autenticador();
             ServicoAutenticador.ServicoAutenticador wsAutenticador = new InterfaceUsuario.ServicoAutenticador.ServicoAutenticador();
             ServicoAutenticador.RequestAutenticador request = new InterfaceUsuario.ServicoAutenticador.RequestAutenticador();
             ServicoAutenticador.ResponseAutenticador response = new InterfaceUsuario.ServicoAutenticador.ResponseAutenticador();
@@ -92,19 +89,18 @@ namespace InterfaceUsuario.WS
                 // atualiza o endereco do WS
                 wsAutenticador.Url = _url;
 
+                request.IdUsuario = idUsuario;
+                request.IdTela = idTela;
+
                 try
                 {
                     response = wsAutenticador.VerificarPermissoes(request);
-                    if (response != null && response.StatusCode == 200)
+                    if (response != null && response.StatusCode == InterfaceUsuario.ServicoAutenticador.ResponseStatus.OK)
                     {
-                        // falta implementar a função aqui     
-                        //*************************************************
-                        //
-                        //
-                        //
-                        //
-                        //*************************************************
-                        retorno = false; //true;
+                        retorno.PermissaoIncluir = response.Autenticador.PermissaoIncluir;
+                        retorno.PermissaoExcluir = response.Autenticador.PermissaoExcluir;
+                        retorno.PermissaoConsultar = response.Autenticador.PermissaoConsultar;
+                        retorno.PermissaoEditar = response.Autenticador.PermissaoEditar;
                     }
 
                 }

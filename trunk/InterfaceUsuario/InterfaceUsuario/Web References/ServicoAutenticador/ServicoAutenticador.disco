@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
-  <contractRef ref="http://localhost:1180/Autenticador/ServicoAutenticador.asmx?wsdl" docRef="http://localhost:1180/Autenticador/ServicoAutenticador.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
-  <soap address="http://localhost:1180/Autenticador/ServicoAutenticador.asmx" xmlns:q1="http://www.pece.org.br/" binding="q1:ServicoAutenticadorSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
-  <soap address="http://localhost:1180/Autenticador/ServicoAutenticador.asmx" xmlns:q2="http://www.pece.org.br/" binding="q2:ServicoAutenticadorSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <contractRef ref="http://localhost:1765/Autenticador/ServicoAutenticador.asmx?wsdl" docRef="http://localhost:1765/Autenticador/ServicoAutenticador.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://localhost:1765/Autenticador/ServicoAutenticador.asmx" xmlns:q1="http://www.pece.org.br/" binding="q1:ServicoAutenticadorSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://localhost:1765/Autenticador/ServicoAutenticador.asmx" xmlns:q2="http://www.pece.org.br/" binding="q2:ServicoAutenticadorSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
 </discovery>

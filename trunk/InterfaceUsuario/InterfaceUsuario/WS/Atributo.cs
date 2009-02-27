@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Collections.Generic;
 
 namespace InterfaceUsuario.WS
 {
@@ -8,8 +9,7 @@ namespace InterfaceUsuario.WS
         
         //TODO:  tratar as exceptions
 
-        public int CriaAtributo(Classes.Atributo atributo)
-        {
+        public int CriaAtributo(Classes.Atributo atributo) {
             int retorno = -1;
             ServicoAtributo.ServicoAtributo wsAtributo = new InterfaceUsuario.ServicoAtributo.ServicoAtributo();
             ServicoAtributo.RequestAtributo request = new InterfaceUsuario.ServicoAtributo.RequestAtributo();
@@ -43,13 +43,14 @@ namespace InterfaceUsuario.WS
                 catch (Exception ex)
                 {
                     //necessario mostrar uma mensagem ao usuario
+                    throw ex;
                 }
             }
 
             return retorno;
         }
         /// <summary>
-        /// Metodo incompleto
+        
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
@@ -82,28 +83,29 @@ namespace InterfaceUsuario.WS
                 {
                     response = wsAtributo.DeletarAtributo(request);
                     if (response != null && response.StatusCode == InterfaceUsuario.ServicoAtributo.ResponseStatus.OK)
-                        // falta implementar a função aqui     
-                        
-                        retorno = false; //true;
+                      
+                        retorno = true;
+
+                        //retorno = false; //true;
 
                 }
                 catch (Exception ex)
                 {
                     //necessario mostrar uma mensagem ao usuario
+                    throw ex;
                 }
 
             }
-
             return retorno;
         }
         /// <summary>
-        /// Metodo incompleto
+       
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public bool ConsultaAtributo(int Id)
+        public List<Classes.Atributo> ConsultaAtributo(int Id)
         {
-            bool retorno = false;
+            List<Classes.Atributo> retorno = null;
             ServicoAtributo.ServicoAtributo wsAtributo = new InterfaceUsuario.ServicoAtributo.ServicoAtributo();
             ServicoAtributo.RequestAtributo request = new InterfaceUsuario.ServicoAtributo.RequestAtributo();
             ServicoAtributo.ResponseAtributo response = new InterfaceUsuario.ServicoAtributo.ResponseAtributo();
@@ -121,18 +123,20 @@ namespace InterfaceUsuario.WS
 
                 request.Atributo = new InterfaceUsuario.ServicoAtributo.Atributo();
                 request.Atributo.Id = Id;
+                Classes.Atributo atrib = null;
                 try
                 {
                     response = wsAtributo.ConsultarAtributo(request);
                     if (response != null && response.StatusCode == InterfaceUsuario.ServicoAtributo.ResponseStatus.OK)
-                        // falta implementar a função aqui     
 
-                        retorno = false; //true;
-
+                        atrib = new Classes.Atributo(response.ListaAtributos[0].Id,response.ListaAtributos[0].Nome,response.ListaAtributos[0].Descricao,response.ListaAtributos[0].Tipo,response.ListaAtributos[0].Nulo);
+                        retorno.Add(atrib);
+                        
                 }
                 catch (Exception ex)
                 {
                     //necessario mostrar uma mensagem ao usuario
+                    throw ex;
                 }
 
             }
@@ -174,14 +178,15 @@ namespace InterfaceUsuario.WS
                 {
                     response = wsAtributo.AlterarAtributo(request);
                     if (response != null && response.StatusCode == InterfaceUsuario.ServicoAtributo.ResponseStatus.OK)
-                        // falta implementar a função aqui     
+                       
 
-                        retorno = false; //true;
+                        retorno = true; 
 
                 }
                 catch (Exception ex)
                 {
-                    //necessario mostrar uma mensagem ao usuario
+                    
+                    throw ex;
                 }
 
             }
@@ -189,7 +194,53 @@ namespace InterfaceUsuario.WS
             return retorno;
         }
 
+        /// <summary>
+
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public List<Classes.Atributo> BuscaAtributos(int Id)
+        {
+            List<Classes.Atributo> retorno = null;
+            ServicoAtributo.ServicoAtributo wsAtributo = new InterfaceUsuario.ServicoAtributo.ServicoAtributo();
+            ServicoAtributo.RequestAtributo request = new InterfaceUsuario.ServicoAtributo.RequestAtributo();
+            ServicoAtributo.ResponseAtributo response = new InterfaceUsuario.ServicoAtributo.ResponseAtributo();
+
+            Diretorio dir = new Diretorio();
+            // A nome do serviço é definido no banco de dados, pelo serviço diretório
+            string _url = dir.ObtemEnderecoServico("BuscaAtributos");
+            dir = null;
 
 
+            if (_url != string.Empty)
+            {
+                // atualiza o endereco do WS
+                wsAtributo.Url = _url;
+
+                request.Atributo = new InterfaceUsuario.ServicoAtributo.Atributo();
+                request.Atributo.Id = Id;
+                try
+                {
+                    //response = wsAtributo.(request);
+                    if (response != null && response.StatusCode == InterfaceUsuario.ServicoAtributo.ResponseStatus.OK)
+
+                        for (int i = 0; i < response.ListaAtributos.Length; i++)
+                        {
+                          
+                            Classes.Atributo atrib = new Classes.Atributo(response.ListaAtributos[i].Id, response.ListaAtributos[i].Nome, response.ListaAtributos[i].Descricao, response.ListaAtributos[i].Tipo, response.ListaAtributos[i].Nulo);
+                            retorno.Add(atrib);
+                        }
+
+                }
+                catch (Exception ex)
+                {
+                    //necessario mostrar uma mensagem ao usuario
+                    throw ex;
+                }
+
+            }
+
+            return retorno;
+        }
     }
 }

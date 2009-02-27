@@ -36,7 +36,7 @@ namespace InterfaceUsuario.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1180/Autenticador/ServicoAutenticador.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1765/Autenticador/ServicoAutenticador.asmx")]
         public string InterfaceUsuario_ServicoAutenticador_ServicoAutenticador {
             get {
                 return ((string)(this["InterfaceUsuario_ServicoAutenticador_ServicoAutenticador"]));
@@ -86,7 +86,7 @@ namespace InterfaceUsuario.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1165/Atributo/ServicoAtributo.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1717/Atributo/ServicoAtributo.asmx")]
         public string InterfaceUsuario_ServicoAtributo_ServicoAtributo {
             get {
                 return ((string)(this["InterfaceUsuario_ServicoAtributo_ServicoAtributo"]));
