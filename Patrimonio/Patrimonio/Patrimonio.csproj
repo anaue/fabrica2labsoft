@@ -80,6 +80,7 @@
       <DependentUpon>ServicoRelatorio.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="TipoPatrimonio\DAOTipoPatrimonio.cs" />
     <Compile Include="TipoPatrimonio\RequestTipoPatrimonio.cs" />
     <Compile Include="TipoPatrimonio\ResponseTipoPatrimonio.cs" />
     <Compile Include="TipoPatrimonio\ServicoTipoPatrimonio.asmx.cs">
@@ -118,7 +119,7 @@
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
-          <AutoAssignPort>False</AutoAssignPort>
+          <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1717</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>

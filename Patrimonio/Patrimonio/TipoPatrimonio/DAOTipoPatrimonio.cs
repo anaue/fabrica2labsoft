@@ -7,6 +7,8 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
+using System.Collections.Generic;
+using Arv.Database;
 
 namespace Patrimonio.TipoPatrimonio
 {
@@ -49,12 +51,12 @@ namespace Patrimonio.TipoPatrimonio
             //alterar valor do tipo de atribuyo e retorna o tipo de atributo
             return null;
         }
-        public Atributo consultaAtributo(int atributoId)
+        public TipoPatrimonio consultaTipoPatrimonio(int tipoPatrimonioId)
         {
             //retorna um atributo com seus valores
             return null;
         }
-        public List<Atributo> buscaAtributos(int atributoId)
+        public List<TipoPatrimonio> buscaTipoPatrimonio(int tipoPatrimonioId)
         {
             //retorna um atributo com seus valores
             return null;
