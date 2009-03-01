@@ -104,9 +104,9 @@ namespace Patrimonio.Atributo
             {
                 if (_request != null)
                 {
-                    ////implementacao da função vai aqui
+                    
                     _response.ListaAtributos.Add(daoatributo.consultaAtributo(_request.IdAtributo));
-                    /////
+                  
                     _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
                 }
             }
@@ -117,27 +117,26 @@ namespace Patrimonio.Atributo
             }
             return _response;
         }
-        //[WebMethod(MessageName = "BuscaAtributos")]
-        //public ResponseAtributo ConsultarAtributo(RequestAtributo _request)
-        //{
-        //    ResponseAtributo _response = new ResponseAtributo();
-        //    DAOAtributo daoatributo = new DAOAtributo();
-        //    try
-        //    {
-        //        if (_request != null)
-        //        {
-        //            ////implementacao da função vai aqui
-        //            _response.ListaAtributos.Add(daoatributo.consultaAtributo(_request.IdAtributo));
-        //            /////
-        //            _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.InternalServerError;
-        //        _response.Message = string.Format("Erro na consulta do registro: {0}", ex.Message);
-        //    }
-        //    return _response;
-        //}
+        [WebMethod(MessageName = "BuscaAtributos")]
+        public ResponseAtributo BuscarAtributos(RequestAtributo _request)
+        {
+            ResponseAtributo _response = new ResponseAtributo();
+            DAOAtributo daoatributo = new DAOAtributo();
+            try
+            {
+                if (_request != null)
+                {
+                    _response.ListaAtributos = daoatributo.buscaAtributos(_request.Atributo.Nome,_request.Atributo.Descricao,_request.Atributo.Tipo,_request.Atributo.Nulo);
+                    
+                    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
+                }
+            }
+            catch (Exception ex)
+            {
+                _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.InternalServerError;
+                _response.Message = string.Format("Erro na consulta do registro: {0}", ex.Message);
+            }
+            return _response;
+        }
     }
 }

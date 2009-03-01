@@ -45,7 +45,7 @@ namespace Patrimonio.Atributo
 
         public int deletaAtributo(int atributoId)
         { 
-         //remover atributo do banco
+         //remover atributo do banco e retornar status de deleção
             return 0;
         }
 
@@ -59,9 +59,9 @@ namespace Patrimonio.Atributo
            //retorna um atributo com seus valores
             return null;
         }
-        public List<Atributo> buscaAtributos(int atributoId)
+        public List<Atributo> buscaAtributos(string atributoNome,string atributoDescricao,string atributoTipo,bool atributoNulo)
         {
-            //retorna um atributo com seus valores
+            //retorna atributos com o mesmo nome e/ou descricao e/ou tipo e/ou se é nulo ou nao
             return null;
         }
 
