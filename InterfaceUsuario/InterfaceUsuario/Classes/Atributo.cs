@@ -97,8 +97,12 @@ namespace InterfaceUsuario.Classes
         /// <returns>True ou False se foi bem sucessido</returns>
         public bool DeletaAtributo(int id)
         {
-            bool retorno = true;
 
+
+            bool retorno = false;
+            WS.Atributo ws = new InterfaceUsuario.WS.Atributo();
+            retorno = ws.DeletaAtributo(id);
+            
             return retorno;
         }
         /// <summary>
@@ -108,32 +112,37 @@ namespace InterfaceUsuario.Classes
         /// <returns>True ou False se foi bem sucessido </returns>
         public bool AlteraAtributo(Atributo atributo)
         {
-            bool retorno = true;
+            bool retorno = false;
             if (atributo.Id > -1)
             {
-
+                WS.Atributo ws = new InterfaceUsuario.WS.Atributo();
+                retorno = ws.AlteraAtributo(atributo);
             }
-            else
-            {
-                retorno = false;
-            }
+         
             return retorno;
         }
         /// <summary>
         /// Realiza a consulta de atributos.
         /// </summary>
-        /// <returns>Retorna lista de atributos do sistema</returns>
-        public List<Atributo> ConsultaAtributo()
+        /// <returns>Retorna lista com um atributo</returns>
+        public List<Atributo> ConsultaAtributo(int id)
         {
-            List<Atributo> atributos = new List<Atributo>();
+            List<Atributo> atributo = new List<Atributo>();
+            WS.Atributo ws = new InterfaceUsuario.WS.Atributo();
+            atributo = ws.ConsultaAtributo(id);
 
-
-            return atributos;
+            return atributo;
         }
-        public List<Atributo> BuscaAtributos()
+
+        /// <summary>
+        /// Realiza a consulta de atributos.
+        /// </summary>
+        /// <returns>Retorna lista com atributos</returns>
+        public List<Atributo> BuscaAtributos(string nome, string descricao, string tipo, bool nulo)
         {
             List<Atributo> atributos = new List<Atributo>();
-
+            WS.Atributo ws = new InterfaceUsuario.WS.Atributo();
+            atributos = ws.BuscaAtributos(nome,descricao,tipo,nulo);
 
             return atributos;
         }

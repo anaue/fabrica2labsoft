@@ -50,7 +50,7 @@ namespace InterfaceUsuario.WS
             return retorno;
         }
         /// <summary>
-        
+        ///
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
@@ -70,8 +70,6 @@ namespace InterfaceUsuario.WS
 
             //Properties.Settings.Default.InterfaceUsuario_ServicoAtributo_ServicoAtributo;
            
-
-
             if (_url != string.Empty)
             {
                 // atualiza o endereco do WS
@@ -86,8 +84,6 @@ namespace InterfaceUsuario.WS
                       
                         retorno = true;
 
-                        //retorno = false; //true;
-
                 }
                 catch (Exception ex)
                 {
@@ -99,7 +95,7 @@ namespace InterfaceUsuario.WS
             return retorno;
         }
         /// <summary>
-       
+        ///
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
@@ -144,7 +140,7 @@ namespace InterfaceUsuario.WS
             return retorno;
         }
         /// <summary>
-        /// Metodo incompleto
+        /// 
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
@@ -179,7 +175,6 @@ namespace InterfaceUsuario.WS
                     response = wsAtributo.AlterarAtributo(request);
                     if (response != null && response.StatusCode == InterfaceUsuario.ServicoAtributo.ResponseStatus.OK)
                        
-
                         retorno = true; 
 
                 }
@@ -195,11 +190,11 @@ namespace InterfaceUsuario.WS
         }
 
         /// <summary>
-
+        ///
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public List<Classes.Atributo> BuscaAtributos(int Id)
+        public List<Classes.Atributo> BuscaAtributos(string nome, string descricao, string tipo, bool nulo)
         {
             List<Classes.Atributo> retorno = null;
             ServicoAtributo.ServicoAtributo wsAtributo = new InterfaceUsuario.ServicoAtributo.ServicoAtributo();
@@ -218,19 +213,21 @@ namespace InterfaceUsuario.WS
                 wsAtributo.Url = _url;
 
                 request.Atributo = new InterfaceUsuario.ServicoAtributo.Atributo();
-                request.Atributo.Id = Id;
+                request.Atributo.Nome = nome;
+                request.Atributo.Descricao = descricao;
+                request.Atributo.Tipo = tipo;
+                request.Atributo.Nulo = nulo;
                 try
                 {
-                    //response = wsAtributo.(request);
+                    response = wsAtributo.BuscaAtributos(request);
                     if (response != null && response.StatusCode == InterfaceUsuario.ServicoAtributo.ResponseStatus.OK)
-
+                    {
                         for (int i = 0; i < response.ListaAtributos.Length; i++)
                         {
-                          
                             Classes.Atributo atrib = new Classes.Atributo(response.ListaAtributos[i].Id, response.ListaAtributos[i].Nome, response.ListaAtributos[i].Descricao, response.ListaAtributos[i].Tipo, response.ListaAtributos[i].Nulo);
                             retorno.Add(atrib);
                         }
-
+                    }
                 }
                 catch (Exception ex)
                 {
