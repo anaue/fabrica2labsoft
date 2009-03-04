@@ -167,7 +167,7 @@ namespace InterfaceUsuario.WS
                 request.Usuario.Nome = usuario.Nome;
                 request.Usuario.Descricao = usuario.Descricao;
                 request.Usuario.Senha = usuario.Senha;
-                request.Usuario.TipoUsuario = _usuario.TipoUsuario;
+                request.Usuario.TipoUsuario = usuario.TipoUsuario;
 
                 try
                 {

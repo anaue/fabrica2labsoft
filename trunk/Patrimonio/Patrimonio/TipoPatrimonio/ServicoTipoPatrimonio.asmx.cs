@@ -119,7 +119,7 @@ namespace Patrimonio.TipoPatrimonio
                     TipoPatrimonio tipoPatrimonioConsultado = new TipoPatrimonio();
                     _response.ListaTipoPatrimonio = new System.Collections.Generic.List<TipoPatrimonio>();
                     
-                    tipoPatrimonioConsultado = daotipopatrimonio.consultaAtributo(_request.TipoPatrimonio.Id);
+                    tipoPatrimonioConsultado = daotipopatrimonio.consultaTipoPatrimonio(_request.TipoPatrimonio.Id);
                     if (tipoPatrimonioConsultado != null)
                     {
                         _response.ListaTipoPatrimonio.Add(tipoPatrimonioConsultado);
@@ -148,7 +148,7 @@ namespace Patrimonio.TipoPatrimonio
             Patrimonio.DAOPatrimonio daopatrimonio = new DAOPatrimonio();
             List<Patrimonio.Patrimonio> ListaPatrimonio = new System.Collections.Generic.List<Patrimonio.Patrimonio>();
             ListaPatrimonio = daopatrimonio.BuscaPatrimonioPeloIdTipoPatrimonio(idTipoPatrimonio);
-            if (ListaPatrimonio.Count() > 0)
+            if (ListaPatrimonio.Count > 0)
             {
                 return true;
             }
