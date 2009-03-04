@@ -10,9 +10,15 @@ namespace Maestro
         public Request()
         {
         }
+        private int _VersaoServico;
+        [XmlElement(ElementName = "ServiceVersion")]
+        public int VersaoServico
+        {
+            get { return _VersaoServico; }
+            set { _VersaoServico = value; }
+        }
 
         private string _NomeServico;
-
         [XmlElement(ElementName = "ServiceName")]
         public string NomeServico
         {
@@ -20,23 +26,6 @@ namespace Maestro
             set { _NomeServico = value; }
         }
 
-        //private string _TipoClasseObj;
-        //[XmlElement(ElementName = "TipoClasseObjeto", IsNullable = true)]
-        //public string TipoClasseObj
-        //{
-        //    get { return _TipoClasseObj; }
-        //    set { _TipoClasseObj = value; }
-        //}
-
-
-        //private List<Objeto> _Objetos;
-
-        //[XmlArray(ElementName = "ColecaoObjetos")]
-        //public List<Objeto> Objetos
-        //{
-        //    get { return _Objetos; }
-        //    set { _Objetos = value; }
-        //}
     
 
     }
