@@ -12,7 +12,7 @@ namespace Maestro
         {
         }
 
-        public List<Servico> _listaServicos;
+        private List<Servico> _listaServicos;
         [XmlArray(ElementName = "ListaServicos",IsNullable=true)]
         public List<Servico> ListaServicos
         {
