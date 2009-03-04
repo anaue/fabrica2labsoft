@@ -118,9 +118,9 @@ namespace Patrimonio.Patrimonio
                     DAOPatrimonio daoPatrimonio = new DAOPatrimonio();
                     bool sucesso = daoPatrimonio.AlteraPatrimonio(_request.Patrimonio);
 
-                    if (idGerado > 0)
+                    if (sucesso)
                     {
-                        _request.Baixa.IdBaixa = idGerado;
+                    //    _request.Baixa.IdBaixa = idGerado;
                         _response.Message = "Remocao de Patrimonio executada com sucesso.";
                     }
                     else
