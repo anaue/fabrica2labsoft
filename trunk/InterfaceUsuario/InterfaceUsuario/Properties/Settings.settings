@@ -18,7 +18,7 @@
       <Value Profile="(Default)">http://localhost:1165/Patrimonio/ServicoPatrimonio.asmx</Value>
     </Setting>
     <Setting Name="InterfaceUsuario_ServicoDiretorio_Servicos" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://localhost:1212/servicosPECE.asmx</Value>
+      <Value Profile="(Default)">http://localhost:1749/servicosPECE.asmx</Value>
     </Setting>
     <Setting Name="InterfaceUsuario_ServicoAtributo_ServicoAtributo" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:1717/Atributo/ServicoAtributo.asmx</Value>
