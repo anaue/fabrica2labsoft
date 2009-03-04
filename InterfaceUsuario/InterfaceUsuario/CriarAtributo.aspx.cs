@@ -16,26 +16,34 @@ namespace InterfaceUsuario
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            //Classes.Atributo atributo = new InterfaceUsuario.Classes.Atributo();
-            //atributo.Nome = txtNome.Text;
-            //atributo.Descricao = txtDescricao.Text;
-            //atributo.Tipo = ddlTipo.SelectedValue.ToString();
-            //atributo.Nulo = cbNulo.Checked;
+            Classes.Atributo atributo = new InterfaceUsuario.Classes.Atributo();
+            atributo.Nome = txtNome.Text;
+            atributo.Descricao = txtDescricao.Text;
+            atributo.Tipo = ddlTipo.SelectedValue.ToString();
+            atributo.Nulo = cbNulo.Checked;
 
             if (ddlTipo.SelectedValue == "Lista")
             {
-                List<string> str = new List<string>(lbValores.Items.Count);
-
                 foreach (ListItem item in lbValores.Items)
                 {
-                    str.Add(item.Text);
+                    atributo.Lista.Add(item.Text);
                 }
             }
+            //Rotina de Efetivacao de dados
+            try
+            {
+                //atributo.CriaAtributo
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("PaginaDeErro.aspx?Acao=Cadastrar Atributo&Msg=" + ex.Message);
+            }
+            Response.Redirect("PaginaDeSucesso.aspx?Acao=Cadastrar Atributo&Msg=Atributo" + txtNome.Text);
         }
 
         protected void ddlTipo_SelectedIndexChanged(object sender, EventArgs e)
@@ -64,5 +72,5 @@ namespace InterfaceUsuario
                 lbValores.Items.RemoveAt(lbValores.SelectedIndex);
             }
         }
-}
+    }
 }
