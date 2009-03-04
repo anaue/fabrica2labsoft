@@ -18,7 +18,6 @@ GO
 -- Create date: 27/02/2009
 -- Description:	Insere um novo tipo de patrimonio no BD
 -- =============================================
-use fabrica2db
 
 IF EXISTS (SELECT name FROM sysobjects WHERE name = 'sp_tipopatrimonio_inserir' AND type = 'P')
 BEGIN
