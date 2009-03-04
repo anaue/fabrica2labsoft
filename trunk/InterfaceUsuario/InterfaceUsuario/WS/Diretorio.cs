@@ -14,10 +14,16 @@ namespace InterfaceUsuario.WS
         public string ObtemEnderecoServico(string nomeServico)
         {
             ServicoDiretorio.Servicos wsServico = new InterfaceUsuario.ServicoDiretorio.Servicos();
+            ServicoDiretorio.Request request = new InterfaceUsuario.ServicoDiretorio.Request();
+            ServicoDiretorio.Response response = new InterfaceUsuario.ServicoDiretorio.Response();
+
+            request.ServiceName = nomeServico;
+
             string endereco = string.Empty;
             try
             {
-                endereco = wsServico.ObtemEnderecoServico(nomeServico);
+                response = wsServico.ObtemEnderecoServico(request);
+                endereco = response.ListaServicos[0].EnderecoServico;
             }
             catch (Exception ex)
             {
