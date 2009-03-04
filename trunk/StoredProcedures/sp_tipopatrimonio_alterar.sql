@@ -28,7 +28,7 @@ GO
 
 CREATE PROCEDURE sp_tipopatrimonio_alterar 
 	-- Add the parameters for the stored procedure here
-	@id				INT
+	@id				INT,
 	@nome			VARCHAR(50), 
 	@desc			VARCHAR(255),
 	@tipo			INT,
@@ -40,6 +40,12 @@ BEGIN
 	SET NOCOUNT ON;
 
 	-- Validação
+	IF NOT EXISTS(SELECT idTipoPatrimonio FROM tb_TipoPatrimonio WHERE idTipoPatrimonio = @id)
+	BEGIN
+		RAISERROR 90001 'Tipo de patrimonio inexistente'
+		SET @RetSt = @@ERROR
+		GOTO FIM
+	END	
 	IF EXISTS(SELECT nomeTipoPatrimonio FROM tb_TipoPatrimonio WHERE nomeTipoPatrimonio = @nome AND idTipoPatrimonio <> @id)
 	BEGIN
 		RAISERROR 60001 'Tipo de patrimonio com nome duplicado'
