@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0850ECC8-45DE-4DF2-843B-4401F75A41DB}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -48,12 +48,37 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="alteraUsuario.aspx.cs">
+      <DependentUpon>alteraUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="alteraUsuario.aspx.designer.cs">
+      <DependentUpon>alteraUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CadastrarPatrimonio.aspx.cs">
       <DependentUpon>CadastrarPatrimonio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CadastrarPatrimonio.aspx.designer.cs">
       <DependentUpon>CadastrarPatrimonio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CadastrarTipoPatrimonio.aspx.cs">
+      <DependentUpon>CadastrarTipoPatrimonio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CadastrarTipoPatrimonio.aspx.designer.cs">
+      <DependentUpon>CadastrarTipoPatrimonio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cadastraUsuario.aspx.cs">
+      <DependentUpon>cadastraUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cadastraUsuario.aspx.designer.cs">
+      <DependentUpon>cadastraUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CadastroPatrimonio.aspx.cs">
+      <DependentUpon>CadastroPatrimonio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Classes\Atributo.cs" />
     <Compile Include="Classes\Autenticador.cs" />
@@ -63,12 +88,33 @@
     <Compile Include="Classes\Relatorio.cs" />
     <Compile Include="Classes\TipoPatrimonio.cs" />
     <Compile Include="Classes\Usuario.cs" />
+    <Compile Include="ConsultarAtributo.aspx.cs">
+      <DependentUpon>ConsultarAtributo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarAtributo.aspx.designer.cs">
+      <DependentUpon>ConsultarAtributo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ConsultarPatrimonio.aspx.cs">
       <DependentUpon>ConsultarPatrimonio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ConsultarPatrimonio.aspx.designer.cs">
       <DependentUpon>ConsultarPatrimonio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarTipoPatrimonio.aspx.cs">
+      <DependentUpon>ConsultarTipoPatrimonio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarTipoPatrimonio.aspx.designer.cs">
+      <DependentUpon>ConsultarTipoPatrimonio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="consultaUsuario.aspx.cs">
+      <DependentUpon>consultaUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="consultaUsuario.aspx.designer.cs">
+      <DependentUpon>consultaUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -141,6 +187,13 @@
     <Compile Include="teste.aspx.designer.cs">
       <DependentUpon>teste.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TesteEstilos.aspx.cs">
+      <DependentUpon>TesteEstilos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TesteEstilos.aspx.designer.cs">
+      <DependentUpon>TesteEstilos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Web References\ServicoAtributo\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -196,14 +249,23 @@
     <Content Include="teste.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="alteraUsuario.aspx" />
     <Content Include="bin\Arv.Common.dll" />
     <Content Include="bin\Arv.Common.pdb" />
     <Content Include="CadastrarPatrimonio.aspx" />
+    <Content Include="CadastrarTipoPatrimonio.aspx" />
+    <Content Include="cadastraUsuario.aspx" />
+    <Content Include="CadastroPatrimonio.aspx" />
+    <Content Include="ConsultarAtributo.aspx" />
     <Content Include="ConsultarPatrimonio.aspx" />
+    <Content Include="ConsultarTipoPatrimonio.aspx" />
+    <Content Include="consultaUsuario.aspx" />
     <Content Include="GerarRelatorioGerencial.aspx" />
     <Content Include="PaginaDeErro.aspx" />
     <Content Include="PaginaDeSucesso.aspx" />
     <Content Include="Relatorios.Master" />
+    <Content Include="TesteEstilos.aspx" />
+    <Content Include="relatorio.master" />
     <None Include="Web References\ServicoAtributo\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -365,9 +427,6 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

@@ -92,15 +92,16 @@ namespace InterfaceUsuario.Classes
             //}
             return retorno;
         }
-        public bool ConsultaTiposPatrimonio(int id)
+        
+        public TipoPatrimonio ConsultaTiposPatrimonio(int id)
         {
-            return false;
+            return new TipoPatrimonio();
         }
         /// <summary>
         /// Lista os Tipos de Patrimonio
         /// </summary>
         /// <returns>Retorna lista de atributos do sistema</returns>
-        public List<TipoPatrimonio> ListaTipoPatrimonio()
+        public static List<TipoPatrimonio> ListaTipoPatrimonio()
         {
             List<TipoPatrimonio> retorno = new List<TipoPatrimonio>();
 
@@ -111,7 +112,7 @@ namespace InterfaceUsuario.Classes
         }
 
 
-        // Função deve ser implementada....   (Busca lista de todos os atributos)
+       
         public List<Atributo> ListaAtributos(int IdPatrimonio)
         {
             List<Atributo> retorno = new List<Atributo>();
@@ -123,7 +124,7 @@ namespace InterfaceUsuario.Classes
         }
         #endregion
 
-
+        // Função deve ser implementada....   (Busca lista de todos os atributos)
         public static List<Atributo> ListaAtributosDisponiveis()
         {
             //throw new NotImplementedException();

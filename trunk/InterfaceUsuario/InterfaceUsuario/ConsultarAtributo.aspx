@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="CriarAtributo.aspx.cs" Inherits="InterfaceUsuario.CriarAtributo" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ConsultarAtributo.aspx.cs" Inherits="InterfaceUsuario.ConsultarAtributo" Title="Untitled Page" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="formulario">
      <table style="width:100%;">
@@ -14,7 +14,7 @@
              <td style="width: 12px">
                  &nbsp;</td>
              <td class="texto_titulo">
-                 Criar Atributos</td>
+                 Consultar Atributos</td>
              <td>
                  &nbsp;</td>
          </tr>

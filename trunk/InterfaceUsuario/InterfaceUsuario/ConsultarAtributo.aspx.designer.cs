@@ -11,7 +11,7 @@
 namespace InterfaceUsuario {
     
     
-    public partial class CriarAtributo {
+    public partial class ConsultarAtributo {
         
         /// <summary>
         /// txtNome control.
