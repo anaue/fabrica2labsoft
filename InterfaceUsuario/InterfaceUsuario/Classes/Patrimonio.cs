@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Collections.Generic;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace InterfaceUsuario.Classes
     {
         public Patrimonio()
         {
+
         }
         #region Acessors
         private int _idEquipamento;

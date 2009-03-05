@@ -14,13 +14,13 @@ namespace InterfaceUsuario {
     public partial class ConsultarPatrimonio {
         
         /// <summary>
-        /// txtValor0 control.
+        /// panFiltros control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtValor0;
+        protected global::System.Web.UI.WebControls.Panel panFiltros;
         
         /// <summary>
         /// ddlTipoPatrimonio control.
@@ -32,22 +32,76 @@ namespace InterfaceUsuario {
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoPatrimonio;
         
         /// <summary>
-        /// txtValor1 control.
+        /// ddlAtributos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtValor1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAtributos;
         
         /// <summary>
-        /// txtValor2 control.
+        /// ddlValores control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtValor2;
+        protected global::System.Web.UI.WebControls.DropDownList ddlValores;
+        
+        /// <summary>
+        /// txtDe control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDe;
+        
+        /// <summary>
+        /// lblA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblA;
+        
+        /// <summary>
+        /// txtA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtA;
+        
+        /// <summary>
+        /// btnBuscar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBuscar;
+        
+        /// <summary>
+        /// panResultados control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panResultados;
+        
+        /// <summary>
+        /// grvResultados control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grvResultados;
         
         /// <summary>
         /// panAtributos control.
@@ -57,15 +111,6 @@ namespace InterfaceUsuario {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel panAtributos;
-        
-        /// <summary>
-        /// grvAtributos control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grvAtributos;
         
         /// <summary>
         /// btnCadastrar control.
