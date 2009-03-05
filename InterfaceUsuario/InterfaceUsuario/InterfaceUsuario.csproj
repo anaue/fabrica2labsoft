@@ -76,10 +76,6 @@
     <Compile Include="cadastraUsuario.aspx.designer.cs">
       <DependentUpon>cadastraUsuario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CadastroPatrimonio.aspx.cs">
-      <DependentUpon>CadastroPatrimonio.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Classes\Atributo.cs" />
     <Compile Include="Classes\Autenticador.cs" />
     <Compile Include="Classes\Baixa.cs" />
@@ -130,13 +126,6 @@
     <Compile Include="Default5.aspx.cs">
       <DependentUpon>Default5.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GerarRelatorioGerencial.aspx.cs">
-      <DependentUpon>GerarRelatorioGerencial.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GerarRelatorioGerencial.aspx.designer.cs">
-      <DependentUpon>GerarRelatorioGerencial.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.master.cs">
       <DependentUpon>MasterPage.master</DependentUpon>
@@ -255,12 +244,10 @@
     <Content Include="CadastrarPatrimonio.aspx" />
     <Content Include="CadastrarTipoPatrimonio.aspx" />
     <Content Include="cadastraUsuario.aspx" />
-    <Content Include="CadastroPatrimonio.aspx" />
     <Content Include="ConsultarAtributo.aspx" />
     <Content Include="ConsultarPatrimonio.aspx" />
     <Content Include="ConsultarTipoPatrimonio.aspx" />
     <Content Include="consultaUsuario.aspx" />
-    <Content Include="GerarRelatorioGerencial.aspx" />
     <Content Include="PaginaDeErro.aspx" />
     <Content Include="PaginaDeSucesso.aspx" />
     <Content Include="Relatorios.Master" />
