@@ -30,7 +30,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StoredProcedures", "StoredP
 		StoredProcedures\sp_tipopatrimonio_remover.sql = StoredProcedures\sp_tipopatrimonio_remover.sql
 		StoredProcedures\sp_usuario_alterar.sql = StoredProcedures\sp_usuario_alterar.sql
 		sp_usuario_consultar.sql = sp_usuario_consultar.sql
-		StoredProcedures\sp_usuario_consultar.sql = StoredProcedures\sp_usuario_consultar.sql
 		StoredProcedures\sp_usuario_inserir.sql = StoredProcedures\sp_usuario_inserir.sql
 		StoredProcedures\sp_usuario_remover.sql = StoredProcedures\sp_usuario_remover.sql
 	EndProjectSection
