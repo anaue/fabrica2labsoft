@@ -1,7 +1,7 @@
 -- =============================================
 -- Author: Bruno Kohn
 -- Create date: 2009-02-19
--- Description: Insere um usuario
+-- Description: Insere um usuario e retorna o id do usuario inserido
 -- =============================================
 
 if exists (select * from sysobjects where type = 'p' and name = 'sp_usuario_inserir')
@@ -15,7 +15,8 @@ create procedure sp_usuario_inserir
 	(
 	  @nomeUsuario		varchar(50)
 	 ,@senhaUsuario		varchar(20)
-	 ,@descUsuario		varchar(255)	 
+	 ,@descUsuario		varchar(255)
+	 ,@idTipoAcesso		varchar(255)
 	 )
 as	
 
@@ -35,7 +36,7 @@ set nocount on
 			,@nomeUsuario
 			,@senhaUsuario
 			,@descUsuario
-			,0)
+			,@idTipoAcesso)
 
 return @idUsuario
 

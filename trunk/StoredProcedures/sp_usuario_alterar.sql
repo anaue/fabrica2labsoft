@@ -17,6 +17,7 @@ create procedure sp_usuario_alterar
 	 ,@nomeUsuario		varchar(50)
 	 ,@senhaUsuario		varchar(20)
 	 ,@descUsuario		varchar(255)
+	 ,@idTipoAcesso		varchar(255)
 	 )
 as	
 
@@ -27,7 +28,7 @@ set nocount on
 			nomeUsuario=@nomeUsuario
 			,senhaUsuario=@senhaUsuario
 			,descUsuario=@descUsuario
-			,idTipoAcesso=0
+			,idTipoAcesso=@idTipoAcesso
 	where
 		idUsuario=@idUsuario
 

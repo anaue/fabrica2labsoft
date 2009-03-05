@@ -3,7 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using Arv.Database;
 using System.Collections.Generic;
-using Arv.Database;
+
 
 namespace Usuarios.Usuario
 {
@@ -33,6 +33,7 @@ namespace Usuarios.Usuario
                 parameters.Add(new SqlParameter("@nomeUsuario", usuario.Nome));
                 parameters.Add(new SqlParameter("@senhaUsuario", usuario.Senha));
                 parameters.Add(new SqlParameter("@descUsuario", usuario.Descricao));
+                parameters.Add(new SqlParameter("@idTipoAcesso", usuario.TipoAcesso.Id));
 
                 db.AbreConexao();
                 idUsuario = db.ExecuteProcedureNonQuery("sp_usuario_inserir", parameters);
@@ -70,6 +71,7 @@ namespace Usuarios.Usuario
                 parameters.Add(new SqlParameter("@nomeUsuario", usuario.Nome));
                 parameters.Add(new SqlParameter("@senhaUsuario", usuario.Senha));
                 parameters.Add(new SqlParameter("@descUsuario", usuario.Descricao));
+                parameters.Add(new SqlParameter("@idTipoAcesso", usuario.TipoAcesso.Id));
 
                 db.AbreConexao();
                 linhasafetadas = db.ExecuteProcedureNonQuery("sp_usuario_alterar", parameters);
@@ -142,6 +144,8 @@ namespace Usuarios.Usuario
                     usuario.Nome = rd["nomeUsuario"].ToString();
                     usuario.Senha = rd["senhaUsuario"].ToString();
                     usuario.Descricao = rd["descUsuario"].ToString();
+                    usuario.TipoAcesso.Id = Convert.ToInt32(rd["idTipoAcesso"]);
+                    usuario.TipoAcesso.Nome = rd["nomeTipoAcesso"].ToString();
                 }
 
             }
@@ -180,6 +184,8 @@ namespace Usuarios.Usuario
                     usuario.Nome = rd["nomeUsuario"].ToString();
                     usuario.Senha = rd["senhaUsuario"].ToString();
                     usuario.Descricao = rd["descUsuario"].ToString();
+                    usuario.TipoAcesso.Id = Convert.ToInt32(rd["idTipoAcesso"]);
+                    usuario.TipoAcesso.Nome = rd["nomeTipoAcesso"].ToString();
 
                     usuarios.Add(usuario);
                 }
