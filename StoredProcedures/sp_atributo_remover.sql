@@ -42,8 +42,6 @@ BEGIN
     -- Insert statements for procedure here
 	DELETE FROM tb_TipoPatrimonioAtributo WHERE idAtributo IN 
 	        (SELECT idAtributo FROM tb_Atributo WHERE idAtributo = @id)
-	DELETE FROM tb_TipoPatrimonioAtributo WHERE idAtributo IN 
-	        (SELECT idAtributo FROM tb_Atributo WHERE idAtributo = @id)
 	DELETE FROM tb_ValorAtributo WHERE idAtributo IN 
 	        (SELECT idAtributo FROM tb_Atributo WHERE idAtributo = @id)
 	DELETE FROM tb_PatrimonioAtributo WHERE idAtributo IN 
