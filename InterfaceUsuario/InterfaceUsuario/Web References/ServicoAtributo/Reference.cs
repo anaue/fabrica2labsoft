@@ -38,7 +38,7 @@ namespace InterfaceUsuario.ServicoAtributo {
         
         private System.Threading.SendOrPostCallback ConsultarAtributoOperationCompleted;
         
-        private System.Threading.SendOrPostCallback BuscaAtributosOperationCompleted;
+        private System.Threading.SendOrPostCallback BuscarAtributosOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -91,7 +91,7 @@ namespace InterfaceUsuario.ServicoAtributo {
         public event ConsultarAtributoCompletedEventHandler ConsultarAtributoCompleted;
         
         /// <remarks/>
-        public event BuscaAtributosCompletedEventHandler BuscaAtributosCompleted;
+        public event BuscarAtributosCompletedEventHandler BuscarAtributosCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.pece.org.br/CriaAtributo", RequestElementName="CriaAtributo", RequestNamespace="http://www.pece.org.br/", ResponseElementName="CriaAtributoResponse", ResponseNamespace="http://www.pece.org.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -214,32 +214,32 @@ namespace InterfaceUsuario.ServicoAtributo {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.pece.org.br/BuscaAtributos", RequestNamespace="http://www.pece.org.br/", ResponseNamespace="http://www.pece.org.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.pece.org.br/BuscaAtributos", RequestElementName="BuscaAtributos", RequestNamespace="http://www.pece.org.br/", ResponseElementName="BuscaAtributosResponse", ResponseNamespace="http://www.pece.org.br/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("ResponseAtributo", IsNullable=true)]
-        public ResponseAtributo BuscaAtributos([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] RequestAtributo RequestAtributo) {
-            object[] results = this.Invoke("BuscaAtributos", new object[] {
+        public ResponseAtributo BuscarAtributos([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] RequestAtributo RequestAtributo) {
+            object[] results = this.Invoke("BuscarAtributos", new object[] {
                         RequestAtributo});
             return ((ResponseAtributo)(results[0]));
         }
         
         /// <remarks/>
-        public void BuscaAtributosAsync(RequestAtributo RequestAtributo) {
-            this.BuscaAtributosAsync(RequestAtributo, null);
+        public void BuscarAtributosAsync(RequestAtributo RequestAtributo) {
+            this.BuscarAtributosAsync(RequestAtributo, null);
         }
         
         /// <remarks/>
-        public void BuscaAtributosAsync(RequestAtributo RequestAtributo, object userState) {
-            if ((this.BuscaAtributosOperationCompleted == null)) {
-                this.BuscaAtributosOperationCompleted = new System.Threading.SendOrPostCallback(this.OnBuscaAtributosOperationCompleted);
+        public void BuscarAtributosAsync(RequestAtributo RequestAtributo, object userState) {
+            if ((this.BuscarAtributosOperationCompleted == null)) {
+                this.BuscarAtributosOperationCompleted = new System.Threading.SendOrPostCallback(this.OnBuscarAtributosOperationCompleted);
             }
-            this.InvokeAsync("BuscaAtributos", new object[] {
-                        RequestAtributo}, this.BuscaAtributosOperationCompleted, userState);
+            this.InvokeAsync("BuscarAtributos", new object[] {
+                        RequestAtributo}, this.BuscarAtributosOperationCompleted, userState);
         }
         
-        private void OnBuscaAtributosOperationCompleted(object arg) {
-            if ((this.BuscaAtributosCompleted != null)) {
+        private void OnBuscarAtributosOperationCompleted(object arg) {
+            if ((this.BuscarAtributosCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.BuscaAtributosCompleted(this, new BuscaAtributosCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.BuscarAtributosCompleted(this, new BuscarAtributosCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -272,6 +272,8 @@ namespace InterfaceUsuario.ServicoAtributo {
         
         private Atributo atributoField;
         
+        private int idAtributoField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public Atributo Atributo {
@@ -280,6 +282,16 @@ namespace InterfaceUsuario.ServicoAtributo {
             }
             set {
                 this.atributoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int IdAtributo {
+            get {
+                return this.idAtributoField;
+            }
+            set {
+                this.idAtributoField = value;
             }
         }
     }
@@ -301,6 +313,8 @@ namespace InterfaceUsuario.ServicoAtributo {
         private string tipoField;
         
         private bool nuloField;
+        
+        private string[] listaValoresField;
         
         /// <remarks/>
         public int Id {
@@ -351,6 +365,17 @@ namespace InterfaceUsuario.ServicoAtributo {
                 this.nuloField = value;
             }
         }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("ListaValores")]
+        public string[] ListaValores {
+            get {
+                return this.listaValoresField;
+            }
+            set {
+                this.listaValoresField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -364,6 +389,8 @@ namespace InterfaceUsuario.ServicoAtributo {
         
         private ResponseStatus statusCodeField;
         
+        private string messageField;
+        
         /// <remarks/>
         public ResponseStatus StatusCode {
             get {
@@ -371,6 +398,17 @@ namespace InterfaceUsuario.ServicoAtributo {
             }
             set {
                 this.statusCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
             }
         }
     }
@@ -453,20 +491,7 @@ namespace InterfaceUsuario.ServicoAtributo {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.pece.org.br/")]
     public partial class ResponseAtributo : BaseResponse {
         
-        private string messageField;
-        
         private Atributo[] listaAtributosField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string Message {
-            get {
-                return this.messageField;
-            }
-            set {
-                this.messageField = value;
-            }
-        }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
@@ -586,17 +611,17 @@ namespace InterfaceUsuario.ServicoAtributo {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.1433")]
-    public delegate void BuscaAtributosCompletedEventHandler(object sender, BuscaAtributosCompletedEventArgs e);
+    public delegate void BuscarAtributosCompletedEventHandler(object sender, BuscarAtributosCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.1433")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class BuscaAtributosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class BuscarAtributosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal BuscaAtributosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal BuscarAtributosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
