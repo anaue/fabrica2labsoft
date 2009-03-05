@@ -53,6 +53,45 @@ namespace InterfaceUsuario.Classes
             get { return _dtExpGarantia; }
             set { _dtExpGarantia = value; }
         }
+        private List<Atributo.Atributo> _listAtributos;
+        [XmlElement(ElementName = "ListAtributos")]
+        public List<Atributo.Atributo> ListAtributos
+        {
+            get { return _listAtributos; }
+            set { _listAtributos = value; }
+        }
+
+        private string _caminhoFotoNotaFiscal;
+        [XmlElement(ElementName = "CaminhoFotoNotaFiscal")]
+        public string CaminhoFotoNotaFiscal
+        {
+            get { return _caminhoFotoNotaFiscal; }
+            set { _caminhoFotoNotaFiscal = value; }
+        }
+
+        private string _caminhoFotoPatrimonio;
+        [XmlElement(ElementName = "CaminhoFotoPatrimonio")]
+        public string CaminhoFotoPatrimonio
+        {
+            get { return _caminhoFotoPatrimonio; }
+            set { _caminhoFotoPatrimonio = value; }
+        }
+
+        private string _localPatrimonio;
+        [XmlElement(ElementName = "LocalPatrimonio")]
+        public string LocalPatrimonio
+        {
+            get { return _localPatrimonio; }
+            set { _localPatrimonio = value; }
+        }
+
+        private string _numeroPedido;
+        [XmlElement(ElementName = "NumeroPedido")]
+        public string NumeroPedido
+        {
+            get { return _numeroPedido; }
+            set { _numeroPedido = value; }
+        }
         #endregion Acessors
 
 
