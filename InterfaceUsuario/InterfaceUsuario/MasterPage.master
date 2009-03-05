@@ -95,11 +95,6 @@
         {
             width: 751px;
         }
-        .style46
-        {
-            width: 800px;
-            height: 527px;
-        }
         .style47
         {
             width: 751px;
@@ -112,6 +107,15 @@
         .style49
         {
             width: 48px;
+        }
+        .style50
+        {
+            height: 550px;
+        }
+        .style51
+        {
+            width: 21px;
+            height: 550px;
         }
         </style>
 </head>
@@ -226,13 +230,13 @@
                                 &nbsp;</td>
                         </tr>
                         <tr>
-                            <td class="style46" style="background-color: #FFFFFF" valign="top">
+                            <td  style="background-color: #FFFFFF" valign="top" class="style50">
                    
                                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                                 </asp:ContentPlaceHolder>
                             </td>
-                            <td valign="top" class="style48">
-                                &nbsp;</td>
+                            <td valign="top" class="style51">
+                                </td>
                         </tr>
                         <tr>
                             <td class="style47">

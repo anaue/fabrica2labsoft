@@ -37,7 +37,7 @@ namespace InterfaceUsuario
             //Rotina de Efetivacao de dados
             try
             {
-                //atributo.CriaAtributo
+                atributo.CriaAtributo();
             }
             catch (Exception ex)
             {
