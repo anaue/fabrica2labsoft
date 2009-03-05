@@ -26,11 +26,9 @@ namespace InterfaceUsuario
             usuario.Descricao = TextBoxDescricao.Text;
 
             usuario.CriaUsuario(usuario);
+
         }
 
-        protected void Button_limpa(object sender, EventArgs e)
-        {
-        }
     }
 
 }
