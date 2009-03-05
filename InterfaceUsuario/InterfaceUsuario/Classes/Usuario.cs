@@ -54,7 +54,7 @@ namespace InterfaceUsuario.Classes
             return user.CriarUsuario(usuario);
         }
 
-        public bool DeletaAtributo(int id) {
+        public bool DeletaUsuario(int id) {
             InterfaceUsuario.WS.Usuario user = new InterfaceUsuario.WS.Usuario();
             return user.DeletaUsuario(id);
         }
