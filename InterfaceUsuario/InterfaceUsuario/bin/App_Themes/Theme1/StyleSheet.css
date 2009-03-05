@@ -1,0 +1,82 @@
+﻿body {
+}
+
+.subtitulo
+{
+    color: #4D7F9A;
+    font-family: verdana;
+    font-size: 14pt;
+}
+
+.header_titulo_fundo 
+{
+	background-image: url('../../imagens/header_bg.jpg'); 
+	text-align: right;
+}
+
+.header_titulo_texto
+{
+	font-family: Verdana;
+    font-size: 18pt;
+    color: #FFFFFF;
+}
+
+.menu_fundo {
+	background-image: url('../../imagens/menu_bg2.gif');
+	background-repeat: no-repeat;
+	margin: 0px;
+}
+
+.menu_dialog_aba 
+{
+	background-image: url('../../imagens/dialog_header.gif'); 
+	background-repeat: no-repeat; 
+	text-align: center;
+	font-family: Verdana;
+    font-size: 11pt;
+    font-weight: bold;
+    color: #4D7F9A;
+}
+.menu_dialog_fundo
+{
+	background-image: url('../../imagens/janela01.gif'); 
+	background-repeat: repeat-y; 
+	text-align: center;
+}
+
+.principal_fundo
+{
+	vertical-align: top;
+	background-image: url('../../imagens/principal_bg.gif'); 
+	background-repeat: repeat-x;
+}
+
+.texto_titulo
+{
+    font-family: Verdana;
+    color: #4D7F9A;
+    font-size: medium;
+    font-weight: bold;
+}
+.texto_padrao
+{ 
+    color: #666666;   
+    font-size: 8pt; font-family: Verdana;       
+}
+
+/* FORMULARIOS */
+.formulario
+{ 
+    color: #666666;   
+    width: 800px;  
+    font-size: 8pt; font-family: Verdana;
+	font-weight: 700;
+	height: 341px;
+}
+
+.relatorio
+{ 
+    color: #000000;   
+    width: 800px;  
+    font-size: 8pt; font-family: Verdana;       
+}

@@ -47,6 +47,7 @@ namespace Patrimonio.Patrimonio
             }
             return _response;
         }
+
         [WebMethod(MessageName = "BaixaPatrimonio")]
         public ResponsePatrimonio BaixarPatrimonio(RequestPatrimonio _request)
         {
@@ -77,6 +78,7 @@ namespace Patrimonio.Patrimonio
             }
             return _response;
         }
+
         [WebMethod(MessageName = "DeletaPatrimonio")]
         public ResponsePatrimonio DeletarPatrimonio(RequestPatrimonio _request)
         {
@@ -107,6 +109,7 @@ namespace Patrimonio.Patrimonio
             }
             return _response;
         }
+
         [WebMethod(MessageName = "AlteraPatrimonio")]
         public ResponsePatrimonio AlterarPatrimonio(RequestPatrimonio _request)
         {
@@ -137,6 +140,7 @@ namespace Patrimonio.Patrimonio
             }
             return _response;
         }
+
         [WebMethod(MessageName = "ConsultaPatrimonio")]
         public ResponsePatrimonio ConsultarPatrimonio(RequestPatrimonio _request)
         {
@@ -170,6 +174,13 @@ namespace Patrimonio.Patrimonio
             }
             return _response;
         }
+
+        public ResponsePatrimonio ObterPatrimonio(RequestPatrimonio _request)
+        {
+            ResponsePatrimonio _response = new ResponsePatrimonio();
+            throw new NotImplementedException();
+        }
+
         [WebMethod(MessageName = "RegistraManutencao")]
         public ResponsePatrimonio RegistrarManutencao(RequestPatrimonio _request)
         {
