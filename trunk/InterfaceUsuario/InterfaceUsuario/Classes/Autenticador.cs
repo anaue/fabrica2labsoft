@@ -56,5 +56,10 @@ namespace InterfaceUsuario.Classes
         #endregion Methods
 
 
+
+        internal bool Login(string p, string p_2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

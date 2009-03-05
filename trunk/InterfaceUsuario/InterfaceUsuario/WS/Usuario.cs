@@ -37,8 +37,7 @@ namespace InterfaceUsuario.WS
                 request.Usuario.Nome = _usuario.Nome;
                 request.Usuario.Descricao = _usuario.Descricao;
                 request.Usuario.Senha = _usuario.Senha;
-                request.Usuario.TipoAcesso = new InterfaceUsuario.ServicoUsuario.TipoAcesso();
-                request.Usuario.TipoAcesso.Id = _usuario.TipoUsuario;
+                request.Usuario.TipoUsuario = _usuario.TipoUsuario;
 
                 try
                 {
@@ -168,8 +167,7 @@ namespace InterfaceUsuario.WS
                 request.Usuario.Nome = usuario.Nome;
                 request.Usuario.Descricao = usuario.Descricao;
                 request.Usuario.Senha = usuario.Senha;
-                request.Usuario.TipoAcesso = new InterfaceUsuario.ServicoUsuario.TipoAcesso();
-                request.Usuario.TipoAcesso.Id = usuario.TipoUsuario;
+                request.Usuario.TipoUsuario = usuario.TipoUsuario;
 
                 try
                 {
@@ -222,7 +220,7 @@ namespace InterfaceUsuario.WS
                             usuario.Id = u.Id;
                             usuario.Nome = u.Nome;
                             usuario.Senha = u.Senha;
-                            usuario.TipoUsuario = u.TipoAcesso.Id;
+                            usuario.TipoUsuario = u.TipoUsuario;
 
                             retorno.Add(usuario);
                         }
