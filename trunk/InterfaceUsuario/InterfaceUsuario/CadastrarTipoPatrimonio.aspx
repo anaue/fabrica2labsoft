@@ -38,7 +38,8 @@
                  <asp:TextBox ID="txtNome" runat="server" 
                      Width="141px"></asp:TextBox>
                  <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                     ErrorMessage="Nome é Necessário." ValidationGroup="Atributo">*</asp:RequiredFieldValidator>
+                     ErrorMessage="Nome é Necessário." ValidationGroup="Atributo" 
+                     ControlToValidate="txtNome">*</asp:RequiredFieldValidator>
              </td>
              <td>
                  &nbsp;</td>
@@ -50,7 +51,8 @@
                  Descrição&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                  <asp:TextBox ID="txtDescricao" runat="server" Width="285px"></asp:TextBox>
                  <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
-                     ErrorMessage="Descrição é necessária" ValidationGroup="Atributo">*</asp:RequiredFieldValidator>
+                     ErrorMessage="Descrição é necessária" ValidationGroup="Atributo" 
+                     ControlToValidate="txtDescricao">*</asp:RequiredFieldValidator>
              </td>
              <td>
                  &nbsp;</td>
