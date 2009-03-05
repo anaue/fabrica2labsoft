@@ -33,33 +33,22 @@ namespace InterfaceUsuario
         protected void ddlTipoPatrimonio_SelectedIndexChanged(object sender, EventArgs e)
         {
             Classes.TipoPatrimonio tipoPatrimonio = new InterfaceUsuario.Classes.TipoPatrimonio();
-            //lstAtributos = tipoPatrimonio.ListaAtributos();
-            lstAtributos = new List<InterfaceUsuario.Classes.Atributo>();
+            lstAtributos = tipoPatrimonio.ListaAtributos(Convert.ToInt32(ddlTipoPatrimonio.SelectedValue));
 
             Session["lstAtributos"] = lstAtributos;
 
-
-            List<string> str = new List<string>();
-            str.Add("P4");
-            str.Add("Core2Duo");
-
-            lstAtributos.Add(new Classes.Atributo(-1, "NPECE", "", "Decimal", false, new List<string>()));
-            lstAtributos.Add(new Classes.Atributo(-2, "Data de Compra", "", "Data", false, new List<string>()));
-            lstAtributos.Add(new Classes.Atributo(-3, "Nota Fiscal", "", "Texto", true, new List<string>()));
-            lstAtributos.Add(new Classes.Atributo(-4, "Exp. Garantia", "", "Data", true, new List<string>()));
-            lstAtributos.Add(new Classes.Atributo(-5, "Foto Nota Fiscal", "", "Texto", true, new List<string>()));
-            lstAtributos.Add(new Classes.Atributo(-6, "Foto Patrimonio", "", "Texto", true, new List<string>()));
-            lstAtributos.Add(new Classes.Atributo(-7, "Local", "", "Texto", false, new List<string>()));
-            lstAtributos.Add(new Classes.Atributo(-8, "Id Solicitacao", "", "Decimal", true, new List<string>()));
-
-
-            lstAtributos.Add(new Classes.Atributo(3, "Fonte", "em Watts", "Lista", false, str));
-            lstAtributos.Add(new Classes.Atributo(4, "Data da Explosao", "Isso mesmo, o dia q fez BUM", "Data", false, str));
-            lstAtributos.Add(new Classes.Atributo(5, "Cor", "", "Texto", true, str));
-
+            lstAtributos.Add(new Classes.Atributo(-1, "NPECE", "", "Decimal", false, new List<string>(), ""));
+            lstAtributos.Add(new Classes.Atributo(-2, "Data de Compra", "", "Data", false, new List<string>(), ""));
+            lstAtributos.Add(new Classes.Atributo(-3, "Nota Fiscal", "", "Texto", true, new List<string>(), ""));
+            lstAtributos.Add(new Classes.Atributo(-4, "Exp. Garantia", "", "Data", true, new List<string>(), ""));
+            lstAtributos.Add(new Classes.Atributo(-5, "Foto Nota Fiscal", "", "Texto", true, new List<string>(), ""));
+            lstAtributos.Add(new Classes.Atributo(-6, "Foto Patrimonio", "", "Texto", true, new List<string>(), ""));
+            lstAtributos.Add(new Classes.Atributo(-7, "Local", "", "Texto", false, new List<string>(), ""));
+            lstAtributos.Add(new Classes.Atributo(-8, "Id Solicitacao", "", "Decimal", true, new List<string>(), ""));
 
             grvAtributos.DataSource = lstAtributos;
             grvAtributos.DataBind();
+            panAtributos.Visible = true;
         }
 
         protected void grvAtributos_DataBound(object sender, EventArgs e)
@@ -90,7 +79,6 @@ namespace InterfaceUsuario
 
                         txtValor.Visible = true;
                         ddlValor.Visible = false;
-                        //txtValor.Text =
                         break;
                     case "Decimal":
                         if (!lstAtributos[i].Nulo)
@@ -110,7 +98,6 @@ namespace InterfaceUsuario
 
                         txtValor.Visible = true;
                         ddlValor.Visible = false;
-                        //txtValor.Text =
                         break;
                     case "Data":
                         if (!lstAtributos[i].Nulo)
@@ -130,12 +117,10 @@ namespace InterfaceUsuario
 
                         txtValor.Visible = true;
                         ddlValor.Visible = false;
-                        //txtValor.Text =
                         break;
                     case "Lista":
                         txtValor.Visible = false;
                         ddlValor.Visible = true;
-                        //ddlValor.SelectedValue = 
                         break;
                     default:
                         break;
@@ -159,36 +144,35 @@ namespace InterfaceUsuario
                     case "Texto":
                         if ((lstAtributos[i].Nulo) && (txtValor.Text == ""))
                         {
-                            //lstAtributos[i].Valor = "";
+                            lstAtributos[i].Valor = "";
                         }
                         else
                         {
-                            //lstAtributos[i].Valor = txtValor.Text;
+                            lstAtributos[i].Valor = txtValor.Text;
                         }
                         break;
                     case "Decimal":
                         if ((lstAtributos[i].Nulo) && (txtValor.Text == ""))
                         {
-                            //lstAtributos[i].Valor = 0;
+                            lstAtributos[i].Valor = (0).ToString();
                         }
                         else
                         {
-                            //lstAtributos[i].Valor = Convert.ToDecimal(txtValor.Text.Replace(',', '.'));
+                            lstAtributos[i].Valor = (Convert.ToDecimal(txtValor.Text.Replace(',', '.'))).ToString();
                         }
-                        //txtValor.Text =
                         break;
                     case "Data":
                         if ((!lstAtributos[i].Nulo) && (txtValor.Text == ""))
                         {
-                            //lstAtributos[i].Valor = new DateTime()
+                            lstAtributos[i].Valor = (new DateTime()).ToString();
                         }
                         else
                         {
-                            //lstAtributos[i].Valor = new DateTime(Convert.ToInt32(txtValor.Text.Split('/')[2]), Convert.ToInt32(txtValor.Text.Split('/')[1]), Convert.ToInt32(txtValor.Text.Split('/')[0]));
+                            lstAtributos[i].Valor = (new DateTime(Convert.ToInt32(txtValor.Text.Split('/')[2]), Convert.ToInt32(txtValor.Text.Split('/')[1]), Convert.ToInt32(txtValor.Text.Split('/')[0]))).ToString();
                         }
                         break;
                     case "Lista":
-                        //lstAtributos[i].Valor = 
+                        lstAtributos[i].Valor = ddlValor.SelectedItem.Text;
                         break;
                     default:
                         break;
@@ -201,36 +185,35 @@ namespace InterfaceUsuario
                 switch (lstAtributos[i].Nome)
                 {
                     case "NPECE": 
-                        //patrimonio.NumeroPECE = lstAtributos[i].Valor;
+                        patrimonio.NumeroPECE = Convert.ToInt32(lstAtributos[i].Valor);
                         break;
                     case "Data de Compra": 
-                        //patrimonio.DtCompra = lstAtributos[i].Valor;
+                        patrimonio.DtCompra = Convert.ToDateTime(lstAtributos[i].Valor);
                         break;
                     case "Nota Fiscal": 
-                        //patrimonio.NumeroNotaFiscal = lstAtributos[i].Valor;
+                        patrimonio.NumeroNotaFiscal = Convert.ToInt32(lstAtributos[i].Valor);
                         break;
                     case "Exp. Garantia":
-                        //patrimonio.DtExpGarantia = lstAtributos[i].Valor;
+                        patrimonio.DtExpGarantia = Convert.ToDateTime(lstAtributos[i].Valor);
                         break;
-                    case "Foto Nota Fiscal": 
-                        
+                    case "Foto Nota Fiscal":
+                        patrimonio.CaminhoFotoNotaFiscal = lstAtributos[i].Valor;
                         break;
-                    case "Foto Patrimonio": 
-                        
+                    case "Foto Patrimonio":
+                        patrimonio.CaminhoFotoPatrimonio = lstAtributos[i].Valor;
                         break;
                     case "Local": 
-                        
+                        patrimonio.LocalPatrimonio = lstAtributos[i].Valor;
                         break;
-                    case "Id Solicitacao": 
-                        
+                    case "Id Solicitacao":
+                        patrimonio.NumeroPedido = lstAtributos[i].Valor;
                         break;
                     default:
                         break;
                 }
                 lstAtributos.RemoveAt(i);
             }
-            //patrimonio.Atributos = lstAtributos;
-
+            patrimonio.ListAtributos = lstAtributos;
             try
             {
                 patrimonio.CadastraPatrimonio();

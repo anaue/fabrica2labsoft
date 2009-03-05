@@ -46,8 +46,7 @@
             </tr>
             </table>
         <br />
-     <br />
-        <asp:Panel ID="panAtributos" runat="server">
+        <asp:Panel ID="panAtributos" runat="server" Visible="False">
             <table>
                 <tr>
                     <td style="width: 12px">
@@ -132,6 +131,7 @@
                 </tr>
             </table>
         </asp:Panel>
+     <br />
 </div>
 </asp:Content>
 
