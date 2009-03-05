@@ -10,21 +10,14 @@ namespace Usuarios.Usuario
         public Usuario()
         {
         }
+
         private int _id;
         [XmlElement(ElementName = "Id")]
         public int Id
         {
             get { return _id; }
             set { _id = value; }
-        }
-
-        private int _tipoUsuario;
-        [XmlElement(ElementName = "TipoUsuario")]
-        public int TipoUsuario
-        {
-            get { return _tipoUsuario; }
-            set { _tipoUsuario = value; }
-        }
+        }        
 
         private string _nome;
         [XmlElement(ElementName = "Nome")]
@@ -33,6 +26,7 @@ namespace Usuarios.Usuario
             get { return _nome; }
             set { _nome = value; }
         }
+
         private string _senha;
         [XmlElement(ElementName = "Senha")]
         public string Senha
@@ -40,6 +34,7 @@ namespace Usuarios.Usuario
             get { return _senha; }
             set { _senha = value; }
         }
+
         private string _descricao;
         [XmlElement(ElementName = "Descricao")]
         public string Descricao
@@ -48,5 +43,12 @@ namespace Usuarios.Usuario
             set { _descricao = value; }
         }
 
+        private TipoAcesso _tipoAcesso;
+        [XmlElement(ElementName = "TipoAcesso")]
+        public TipoAcesso TipoAcesso
+        {
+            get { return _tipoAcesso; }
+            set { _tipoAcesso = value; }
+        }
     }
 }
