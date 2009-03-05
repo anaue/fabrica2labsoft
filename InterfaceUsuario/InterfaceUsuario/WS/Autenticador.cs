@@ -7,7 +7,7 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
-using Arv.Common;
+using Arv.Common; 
 
 namespace InterfaceUsuario.WS
 {
@@ -22,7 +22,7 @@ namespace InterfaceUsuario.WS
         /// </summary>
         /// <param name="_user"></param>
         /// <returns></returns>
-        public bool Login(int idUsuario, string senha)
+        public bool Login(string nomeUsuario, string senha)
         {
             bool retorno = false;
             ServicoAutenticador.ServicoAutenticador wsAutenticador = new InterfaceUsuario.ServicoAutenticador.ServicoAutenticador();
@@ -42,7 +42,7 @@ namespace InterfaceUsuario.WS
                 // atualiza o endereco do WS
                 wsAutenticador.Url = _url;
 
-                request.IdUsuario = idUsuario;
+                request.NomeUsuario = nomeUsuario;
                 request.Senha = senha;
 
                 try
