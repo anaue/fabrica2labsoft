@@ -113,9 +113,9 @@ namespace InterfaceUsuario.WS
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public List<Classes.Atributo> ConsultaAtributo(int Id)
+        public Classes.Atributo ConsultaAtributo(int Id)
         {
-            List<Classes.Atributo> retorno = null;
+            Classes.Atributo retorno = null;
             ServicoAtributo.ServicoAtributo wsAtributo = new InterfaceUsuario.ServicoAtributo.ServicoAtributo();
             ServicoAtributo.RequestAtributo request = new InterfaceUsuario.ServicoAtributo.RequestAtributo();
             ServicoAtributo.ResponseAtributo response = new InterfaceUsuario.ServicoAtributo.ResponseAtributo();
@@ -133,7 +133,6 @@ namespace InterfaceUsuario.WS
 
                 request.Atributo = new InterfaceUsuario.ServicoAtributo.Atributo();
                 request.Atributo.Id = Id;
-                Classes.Atributo atrib = null;
                 try
                 {
                     response = wsAtributo.ConsultarAtributo(request);
@@ -145,9 +144,8 @@ namespace InterfaceUsuario.WS
                             {
                                 lValores.Add(valor);
                             }
-                            atrib = new Classes.Atributo(response.ListaAtributos[0].Id, response.ListaAtributos[0].Nome, response.ListaAtributos[0].Descricao, response.ListaAtributos[0].Tipo, response.ListaAtributos[0].Nulo, lValores,response.ListaAtributos[0].Valor);
-                            retorno.Add(atrib);
-                        
+                            WS.Atributo att = new Atributo();
+                            retorno = new Classes.Atributo(response.ListaAtributos[0].Id, response.ListaAtributos[0].Nome, response.ListaAtributos[0].Descricao, response.ListaAtributos[0].Tipo, response.ListaAtributos[0].Nulo, lValores,response.ListaAtributos[0].Valor);
                     }
                 }
                 catch (Exception ex)

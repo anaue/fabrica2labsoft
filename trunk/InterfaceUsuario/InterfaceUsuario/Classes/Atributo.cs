@@ -136,9 +136,9 @@ namespace InterfaceUsuario.Classes
         /// Realiza a consulta de atributos.
         /// </summary>
         /// <returns>Retorna lista com um atributo</returns>
-        public List<Atributo> ConsultaAtributo(int id)
+        public Atributo ConsultaAtributo(int id)
         {
-            List<Atributo> atributo = new List<Atributo>();
+            Atributo atributo = new Atributo();
             WS.Atributo ws = new InterfaceUsuario.WS.Atributo();
             atributo = ws.ConsultaAtributo(id);
 

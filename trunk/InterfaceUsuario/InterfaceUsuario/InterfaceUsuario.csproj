@@ -44,7 +44,6 @@
     <Content Include="Default.aspx" />
     <Content Include="Default3.aspx" />
     <Content Include="Default4.aspx" />
-    <Content Include="CadastrarTipoEquipamento.aspx" />
     <Content Include="relatorio_exemplo.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -77,10 +76,6 @@
     </Compile>
     <Compile Include="Default4.aspx.cs">
       <DependentUpon>Default4.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CadastrarTipoEquipamento.aspx.cs">
-      <DependentUpon>CadastrarTipoEquipamento.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="GerarRelatorioGerencial.aspx.cs">

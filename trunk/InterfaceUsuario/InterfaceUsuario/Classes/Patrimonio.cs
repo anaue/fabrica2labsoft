@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
 using System.Collections.Generic;
+using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace InterfaceUsuario.Classes
 {
@@ -42,6 +44,7 @@ namespace InterfaceUsuario.Classes
             set { _dtExpGarantia = value; }
         }
         private List<Atributo> _listAtributos;
+        [XmlElement(ElementName = "ListAtributos")]
         public List<Atributo> ListAtributos
         {
             get { return _listAtributos; }
