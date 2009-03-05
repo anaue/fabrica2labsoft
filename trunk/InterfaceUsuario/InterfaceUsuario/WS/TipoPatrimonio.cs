@@ -27,7 +27,7 @@ namespace InterfaceUsuario.WS
             #region Acesso WS Diretorio
             Diretorio dir = new Diretorio();
             // A nome do serviço é definido no banco de dados, pelo serviço diretório
-            //string _url = dir.ObtemEnderecoServico("CriarAtributo");
+            string _url = dir.ObtemEnderecoServico(Arv.Common.WSServicesNames.TIPO_PATRIMONIO_CRIAR);
             dir = null;
 
             #endregion Acesso WS Diretorio
@@ -73,7 +73,7 @@ namespace InterfaceUsuario.WS
             #region Acesso WS Diretorio
             Diretorio dir = new Diretorio();
             // A nome do serviço é definido no banco de dados, pelo serviço diretório
-            //string _url = dir.ObtemEnderecoServico("DeletarAtributo");
+            string _url = dir.ObtemEnderecoServico(Arv.Common.WSServicesNames.TIPO_PATRIMONIO_DELETAR);
             dir = null;
             #endregion           
 
@@ -120,7 +120,7 @@ namespace InterfaceUsuario.WS
 
             Diretorio dir = new Diretorio();
             // A nome do serviço é definido no banco de dados, pelo serviço diretório
-            //string _url = dir.ObtemEnderecoServico("ConsultaAtributo");
+            string _url = dir.ObtemEnderecoServico(Arv.Common.WSServicesNames.TIPO_PATRIMONIO_CONSULTAR);
             dir = null;
 
 
@@ -163,7 +163,7 @@ namespace InterfaceUsuario.WS
 
             Diretorio dir = new Diretorio();
             // A nome do serviço é definido no banco de dados, pelo serviço diretório
-            //string _url = dir.ObtemEnderecoServico("AlterarAtributo");
+            string _url = dir.ObtemEnderecoServico(Arv.Common.WSServicesNames.TIPO_PATRIMONIO_ALTERAR);
             dir = null;
 
 
@@ -211,12 +211,12 @@ namespace InterfaceUsuario.WS
 
             Diretorio dir = new Diretorio();
             // A nome do serviço é definido no banco de dados, pelo serviço diretório
-            //string _url = dir.ObtemEnderecoServico("ConsultaAtributo");
+            string _url = dir.ObtemEnderecoServico(Arv.Common.WSServicesNames.TIPO_PATRIMONIO_LISTAR);
             dir = null;
 
             return new List<InterfaceUsuario.Classes.TipoPatrimonio>();
         }
-
+        //esse cara esta no lugar certo???? nao deveria ser da Atributos mesmo??
         public List<Classes.Atributo> ListaAtributos(int IdPatrimonio)
         {
             ServicoTipoPatrimonio.ServicoTipoPatrimonio wsAtributo = new InterfaceUsuario.ServicoTipoPatrimonio.ServicoTipoPatrimonio();
@@ -225,7 +225,7 @@ namespace InterfaceUsuario.WS
 
             Diretorio dir = new Diretorio();
             // A nome do serviço é definido no banco de dados, pelo serviço diretório
-            //string _url = dir.ObtemEnderecoServico("ConsultaAtributo");
+            string _url = dir.ObtemEnderecoServico(Arv.Common.WSServicesNames.ATRIBUTO_CONSULTAR);
             dir = null;
 
             return new List<InterfaceUsuario.Classes.Atributo>();

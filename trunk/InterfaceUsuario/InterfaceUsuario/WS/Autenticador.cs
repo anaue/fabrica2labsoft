@@ -32,7 +32,7 @@ namespace InterfaceUsuario.WS
             #region Acesso WS Diretorio
             Diretorio dir = new Diretorio();
             // A nome do serviço é definido no banco de dados, pelo serviço diretório
-            string _url = dir.ObtemEnderecoServico("Login");
+            string _url = dir.ObtemEnderecoServico(Arv.Common.WSServicesNames.AUTENTICADOR_LOGIN);
             dir = null;
 
             #endregion Acesso WS Diretorio
@@ -79,7 +79,7 @@ namespace InterfaceUsuario.WS
             #region Acesso WS Diretorio
             Diretorio dir = new Diretorio();
             // A nome do serviço é definido no banco de dados, pelo serviço diretório
-            string _url = dir.ObtemEnderecoServico("Login");
+            string _url = dir.ObtemEnderecoServico(Arv.Common.WSServicesNames.AUTENTICADOR_VERIFICA_PERMISSOES);
             dir = null;
 
             #endregion Acesso WS Diretorio

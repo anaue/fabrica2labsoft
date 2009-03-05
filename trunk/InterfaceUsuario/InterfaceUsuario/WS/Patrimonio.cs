@@ -19,7 +19,7 @@ namespace InterfaceUsuario.WS
 
             Diretorio dir = new Diretorio();
             // A nome do serviço é definido no banco de dados, pelo serviço diretório
-            string _url = dir.ObtemEnderecoServico("ConsultarPatrimonio");
+            string _url = dir.ObtemEnderecoServico(Arv.Common.WSServicesNames.PATRIMONIO_CONSULTAR);
             dir = null;
             
 
@@ -31,7 +31,7 @@ namespace InterfaceUsuario.WS
                 try
                 {
                     response = wsPatrimonio.ConsultarPatrimonio(request);
-                    if (response != null && response.StatusCode ==(int)Arv.Common.BaseResponse.ResponseStatus.OK)
+                    if (response != null && response.StatusCode == InterfaceUsuario.ServicoPatrimonio.ResponseStatus.OK)
                     {
                         // falta implementar a função aqui     
                         //*************************************************

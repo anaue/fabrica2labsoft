@@ -20,11 +20,11 @@ namespace InterfaceUsuario.WS
             ServicoUsuario.ServicoUsuario wsUsuario = new InterfaceUsuario.ServicoUsuario.ServicoUsuario();
             ServicoUsuario.RequestUsuario request = new InterfaceUsuario.ServicoUsuario.RequestUsuario();
             ServicoUsuario.ResponseUsuario response = new InterfaceUsuario.ServicoUsuario.ResponseUsuario();
-
+            
             #region Acesso WS Diretorio
             Diretorio dir = new Diretorio();
             // A nome do serviço é definido no banco de dados, pelo serviço diretório
-            string _url = dir.ObtemEnderecoServico("CriarAtributo");
+            string _url = dir.ObtemEnderecoServico(Arv.Common.WSServicesNames.USUARIO_CRIAR);
             dir = null;
 
             #endregion Acesso WS Diretorio
@@ -37,7 +37,8 @@ namespace InterfaceUsuario.WS
                 request.Usuario.Nome = _usuario.Nome;
                 request.Usuario.Descricao = _usuario.Descricao;
                 request.Usuario.Senha = _usuario.Senha;
-                request.Usuario.TipoUsuario = _usuario.TipoUsuario;
+                request.Usuario.TipoAcesso = new InterfaceUsuario.ServicoUsuario.TipoAcesso();
+                request.Usuario.TipoAcesso.Id = _usuario.TipoUsuario;
 
                 try
                 {
@@ -66,7 +67,7 @@ namespace InterfaceUsuario.WS
             #region Acesso WS Diretorio
             Diretorio dir = new Diretorio();
             // A nome do serviço é definido no banco de dados, pelo serviço diretório
-            string _url = dir.ObtemEnderecoServico("DeletarUsuario");
+            string _url = dir.ObtemEnderecoServico(Arv.Common.WSServicesNames.USUARIO_DELETAR);
             dir = null;
             #endregion
 
@@ -110,7 +111,7 @@ namespace InterfaceUsuario.WS
 
             Diretorio dir = new Diretorio();
             // A nome do serviço é definido no banco de dados, pelo serviço diretório
-            string _url = dir.ObtemEnderecoServico("ConsultaUsuario");
+            string _url = dir.ObtemEnderecoServico(Arv.Common.WSServicesNames.USUARIO_CONSULTAR);
             dir = null;
 
 
@@ -153,7 +154,7 @@ namespace InterfaceUsuario.WS
 
             Diretorio dir = new Diretorio();
             // A nome do serviço é definido no banco de dados, pelo serviço diretório
-            string _url = dir.ObtemEnderecoServico("AlterarUsuario");
+            string _url = dir.ObtemEnderecoServico(Arv.Common.WSServicesNames.USUARIO_ALTERAR);
             dir = null;
 
 
@@ -167,7 +168,8 @@ namespace InterfaceUsuario.WS
                 request.Usuario.Nome = usuario.Nome;
                 request.Usuario.Descricao = usuario.Descricao;
                 request.Usuario.Senha = usuario.Senha;
-                request.Usuario.TipoUsuario = usuario.TipoUsuario;
+                request.Usuario.TipoAcesso = new InterfaceUsuario.ServicoUsuario.TipoAcesso();
+                request.Usuario.TipoAcesso.Id = usuario.TipoUsuario;
 
                 try
                 {
@@ -196,7 +198,7 @@ namespace InterfaceUsuario.WS
 
             Diretorio dir = new Diretorio();
             // A nome do serviço é definido no banco de dados, pelo serviço diretório
-            string _url = dir.ObtemEnderecoServico("ConsultaUsuario");
+            string _url = dir.ObtemEnderecoServico(Arv.Common.WSServicesNames.USUARIO_BUSCAR);
             dir = null;
 
 
@@ -220,7 +222,7 @@ namespace InterfaceUsuario.WS
                             usuario.Id = u.Id;
                             usuario.Nome = u.Nome;
                             usuario.Senha = u.Senha;
-                            usuario.TipoUsuario = u.TipoUsuario;
+                            usuario.TipoUsuario = u.TipoAcesso.Id;
 
                             retorno.Add(usuario);
                         }
