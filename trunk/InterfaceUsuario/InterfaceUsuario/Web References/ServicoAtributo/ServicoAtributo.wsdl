@@ -12,6 +12,7 @@
       <s:complexType name="RequestAtributo">
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="Atributo" nillable="true" type="tns:Atributo" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdAtributo" type="s:int" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="Atributo">
@@ -21,6 +22,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="Descricao" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Tipo" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="Nulo" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ListaValores" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="CriaAtributoResponse">
@@ -34,7 +36,6 @@
         <s:complexContent mixed="false">
           <s:extension base="tns:BaseResponse">
             <s:sequence>
-              <s:element minOccurs="1" maxOccurs="1" name="Message" nillable="true" type="s:string" />
               <s:element minOccurs="1" maxOccurs="1" name="ListaAtributos" nillable="true" type="tns:ArrayOfAtributo" />
             </s:sequence>
           </s:extension>
@@ -43,6 +44,7 @@
       <s:complexType name="BaseResponse">
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="tns:ResponseStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="Message" nillable="true" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:simpleType name="ResponseStatus">
@@ -117,6 +119,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="BuscaAtributos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestAtributo" nillable="true" type="tns:RequestAtributo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaAtributosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ResponseAtributo" nillable="true" type="tns:ResponseAtributo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="CriaAtributoSoapIn">
@@ -143,6 +159,12 @@
   <wsdl:message name="ConsultaAtributoSoapOut">
     <wsdl:part name="parameters" element="tns:ConsultaAtributoResponse" />
   </wsdl:message>
+  <wsdl:message name="BuscaAtributosSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscaAtributos" />
+  </wsdl:message>
+  <wsdl:message name="BuscaAtributosSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscaAtributosResponse" />
+  </wsdl:message>
   <wsdl:portType name="ServicoAtributoSoap">
     <wsdl:operation name="CriarAtributo">
       <wsdl:input name="CriaAtributo" message="tns:CriaAtributoSoapIn" />
@@ -159,6 +181,10 @@
     <wsdl:operation name="ConsultarAtributo">
       <wsdl:input name="ConsultaAtributo" message="tns:ConsultaAtributoSoapIn" />
       <wsdl:output name="ConsultaAtributo" message="tns:ConsultaAtributoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarAtributos">
+      <wsdl:input name="BuscaAtributos" message="tns:BuscaAtributosSoapIn" />
+      <wsdl:output name="BuscaAtributos" message="tns:BuscaAtributosSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ServicoAtributoSoap" type="tns:ServicoAtributoSoap">
@@ -196,6 +222,15 @@
         <soap:body use="literal" />
       </wsdl:input>
       <wsdl:output name="ConsultaAtributo">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarAtributos">
+      <soap:operation soapAction="http://www.pece.org.br/BuscaAtributos" style="document" />
+      <wsdl:input name="BuscaAtributos">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="BuscaAtributos">
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -238,13 +273,22 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="BuscarAtributos">
+      <soap12:operation soapAction="http://www.pece.org.br/BuscaAtributos" style="document" />
+      <wsdl:input name="BuscaAtributos">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="BuscaAtributos">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ServicoAtributo">
     <wsdl:port name="ServicoAtributoSoap" binding="tns:ServicoAtributoSoap">
-      <soap:address location="http://localhost:1165/Atributo/ServicoAtributo.asmx" />
+      <soap:address location="http://localhost:1717/Atributo/ServicoAtributo.asmx" />
     </wsdl:port>
     <wsdl:port name="ServicoAtributoSoap12" binding="tns:ServicoAtributoSoap12">
-      <soap12:address location="http://localhost:1165/Atributo/ServicoAtributo.asmx" />
+      <soap12:address location="http://localhost:1717/Atributo/ServicoAtributo.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

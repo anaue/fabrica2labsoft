@@ -168,6 +168,8 @@ namespace InterfaceUsuario.WS
                 request.Atributo.Descricao = atributo.Descricao;
                 request.Atributo.Nulo = atributo.Nulo;
                 request.Atributo.Tipo = atributo.Tipo;
+               
+          
 
                 
                 try
@@ -194,7 +196,7 @@ namespace InterfaceUsuario.WS
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public List<Classes.Atributo> BuscaAtributos(string nome, string descricao, string tipo, bool nulo)
+        public List<Classes.Atributo> BuscaAtributos(string nome, string descricao, string tipo, bool nulo,List<string> listaValores)
         {
             List<Classes.Atributo> retorno = null;
             ServicoAtributo.ServicoAtributo wsAtributo = new InterfaceUsuario.ServicoAtributo.ServicoAtributo();
@@ -217,6 +219,7 @@ namespace InterfaceUsuario.WS
                 request.Atributo.Descricao = descricao;
                 request.Atributo.Tipo = tipo;
                 request.Atributo.Nulo = nulo;
+                request.Atributo.ListaValores = listaValores;
                 try
                 {
                     response = wsAtributo.BuscaAtributos(request);
@@ -224,7 +227,7 @@ namespace InterfaceUsuario.WS
                     {
                         for (int i = 0; i < response.ListaAtributos.Length; i++)
                         {
-                            Classes.Atributo atrib = new Classes.Atributo(response.ListaAtributos[i].Id, response.ListaAtributos[i].Nome, response.ListaAtributos[i].Descricao, response.ListaAtributos[i].Tipo, response.ListaAtributos[i].Nulo);
+                            Classes.Atributo atrib = new Classes.Atributo(response.ListaAtributos[i].Id, response.ListaAtributos[i].Nome, response.ListaAtributos[i].Descricao, response.ListaAtributos[i].Tipo, response.ListaAtributos[i].Nulo,response.ListaAtributos[i].ListaValores);
                             retorno.Add(atrib);
                         }
                     }

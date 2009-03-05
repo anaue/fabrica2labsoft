@@ -8,12 +8,13 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
+using System.Collections;
 
 namespace InterfaceUsuario.Classes
 {
     public class Atributo
     {
-        public Atributo(int id, string nome, string descricao, string tipo, bool nulo, List<string> lista)
+        public Atributo(int id, string nome, string descricao, string tipo, bool nulo, List<string> listaValores)
         {
             _id = id;
             _nome = nome;
@@ -29,7 +30,7 @@ namespace InterfaceUsuario.Classes
             _descricao = string.Empty;
             _tipo = string.Empty;
             _nulo = false;
-            _lista = null;
+            _listaValores = null;
         }
 
         #region Accessors
@@ -68,12 +69,12 @@ namespace InterfaceUsuario.Classes
             get { return _nulo; }
             set { _nulo = value; }
         }
-        private List<string> _lista;
+        private List<string> _listaValores;
 
-        public List<string> Lista
+        public List<string> ListaValores
         {
-            get { return _lista; }
-            set { _lista = value; }
+            get { return _listaValores; }
+            set { _listaValores = value; }
         }
         #endregion
 
@@ -138,11 +139,11 @@ namespace InterfaceUsuario.Classes
         /// Realiza a consulta de atributos.
         /// </summary>
         /// <returns>Retorna lista com atributos</returns>
-        public List<Atributo> BuscaAtributos(string nome, string descricao, string tipo, bool nulo)
+        public List<Atributo> BuscaAtributos(string nome, string descricao, string tipo, bool nulo,List<string> listaValores)
         {
             List<Atributo> atributos = new List<Atributo>();
             WS.Atributo ws = new InterfaceUsuario.WS.Atributo();
-            atributos = ws.BuscaAtributos(nome,descricao,tipo,nulo);
+            atributos = ws.BuscaAtributos(nome,descricao,tipo,nulo,listaValores);
 
             return atributos;
         }
