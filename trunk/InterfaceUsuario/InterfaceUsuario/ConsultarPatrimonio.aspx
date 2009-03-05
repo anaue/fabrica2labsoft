@@ -95,7 +95,8 @@
                         &nbsp;</td>
                     <td>
                         <asp:GridView ID="grvResultados" runat="server" 
-                            onrowediting="grvResultados_RowEditing">
+                            onrowediting="grvResultados_RowEditing" DataKeyNames="NPece" 
+                            SkinID="grvPadrao">
                             <Columns>
                                 <asp:CommandField EditText="Visualizar" ShowEditButton="True" />
                             </Columns>
@@ -110,13 +111,60 @@
                     <td style="width: 12px">
                         &nbsp;</td>
                     <td>
-                        &nbsp;</td>
+                        <asp:Button ID="btnEditar" runat="server" onclick="btnEditar_Click" 
+                            SkinID="btnPadrao" Text="Editar" Width="83px" />
+                        &nbsp;<asp:Button ID="btnBaixa" runat="server" onclick="btnBaixa_Click" 
+                            SkinID="btnPadrao" Text="Baixa" Width="83px" />
+                        &nbsp;<asp:Button ID="btnManutencao" runat="server" onclick="btnManutencao_Click" 
+                            SkinID="btnPadrao" Text="Manutenção" Width="83px" />
+                    </td>
                 </tr>
                 <tr>
                     <td style="width: 12px;">
                     </td>
                     <td>
-                        &nbsp;</td>
+                        <asp:GridView ID="grvAtributos" runat="server" AutoGenerateColumns="False" 
+                            DataKeyNames="Id" ondatabound="grvAtributos_DataBound" ShowHeader="False" 
+                            SkinID="grvPadrao">
+                            <Columns>
+                                <asp:TemplateField>
+                                    <EditItemTemplate>
+                                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Nome") %>'></asp:TextBox>
+                                    </EditItemTemplate>
+                                    <ItemTemplate>
+                                        <table style="width: 100%; height: 100%; background-color: #ECF1F4;">
+                                            <tr>
+                                                <td>
+                                                    <asp:Label ID="Label2" runat="server" SkinID="lblPadraoMedio" 
+                                                        Text='<%# Bind("Nome") %>'></asp:Label>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </ItemTemplate>
+                                    <ItemStyle Width="125px" />
+                                </asp:TemplateField>
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblValor" runat="server"></asp:Label>
+                                        <asp:TextBox ID="txtValor" runat="server" Width="200px"></asp:TextBox>
+                                        <asp:DropDownList ID="ddlValor" runat="server" 
+                                            DataSource='<%# Bind("Lista") %>' Width="200px">
+                                        </asp:DropDownList>
+                                        <asp:PlaceHolder ID="phValidators" runat="server"></asp:PlaceHolder>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField>
+                                    <EditItemTemplate>
+                                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Descricao") %>'></asp:TextBox>
+                                    </EditItemTemplate>
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label1" runat="server" SkinID="lblPadraoPequeno" 
+                                            Text='<%# Bind("Descricao") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
+                    </td>
                 </tr>
                 <tr>
                     <td style="width: 12px">
