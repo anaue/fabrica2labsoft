@@ -26,7 +26,7 @@ namespace InterfaceUsuario.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1165/TipoPatrimonio/ServicoTipoPatrimonio.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1717/TipoPatrimonio/ServicoTipoPatrimonio.asmx")]
         public string InterfaceUsuario_ServicoTipoPatrimonio_ServicoTipoPatrimonio {
             get {
                 return ((string)(this["InterfaceUsuario_ServicoTipoPatrimonio_ServicoTipoPatrimonio"]));
@@ -46,16 +46,6 @@ namespace InterfaceUsuario.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1165/Relatorio/ServicoRelatorio.asmx")]
-        public string InterfaceUsuario_ServicoRelatorio_ServicoRelatorio {
-            get {
-                return ((string)(this["InterfaceUsuario_ServicoRelatorio_ServicoRelatorio"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1765/Usuario/ServicoUsuario.asmx")]
         public string InterfaceUsuario_ServicoUsuario_ServicoUsuario {
             get {
@@ -66,7 +56,7 @@ namespace InterfaceUsuario.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1165/Patrimonio/ServicoPatrimonio.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1717/Patrimonio/ServicoPatrimonio.asmx")]
         public string InterfaceUsuario_ServicoPatrimonio_ServicoPatrimonio {
             get {
                 return ((string)(this["InterfaceUsuario_ServicoPatrimonio_ServicoPatrimonio"]));
