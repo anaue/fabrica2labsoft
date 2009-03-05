@@ -27,6 +27,8 @@ namespace InterfaceUsuario
 
             usuario.CriaUsuario(usuario);
 
+            Response.Redirect("PaginaDeSucesso.aspx?Acao=Cadastrar Usuário&Msg=Cadastrado com sucesso");
+
         }
 
     }
