@@ -45,5 +45,13 @@ namespace Patrimonio.Atributo
             get { return _nulo; }
             set { _nulo = value; }
         }
+        private List<string> _listaValores;
+        [XmlElement(ElementName = "ListaValores")]
+        public List<string> ListaValores
+        {
+            get { return _listaValores; }
+            set { _listaValores = value; }
+        }
+
     }
 }
