@@ -104,12 +104,14 @@ namespace InterfaceUsuario.Classes
         {
             List<TipoPatrimonio> retorno = new List<TipoPatrimonio>();
 
-            WS.TipoPatrimonio ws = new InterfaceUsuario.WS.TipoPatrimonio();
-            retorno = ws.ListaTipoPatrimonio();
-
+            //WS.TipoPatrimonio ws = new InterfaceUsuario.WS.TipoPatrimonio();
+            //retorno = ws.ListaTipoPatrimonio();
+            
             return retorno;
         }
 
+
+        // Função deve ser implementada....   (Busca lista de todos os atributos)
         public List<Atributo> ListaAtributos(int IdPatrimonio)
         {
             List<Atributo> retorno = new List<Atributo>();
@@ -121,5 +123,21 @@ namespace InterfaceUsuario.Classes
         }
         #endregion
 
+
+        public static List<Atributo> ListaAtributosDisponiveis()
+        {
+            //throw new NotImplementedException();
+            List<Atributo> listAtributos = new List<Atributo>();
+            Atributo atributo = new Atributo();
+            atributo.Id = 1;
+            atributo.Nome = "teste";
+            Atributo atributo1 = new Atributo();
+            atributo1.Nome = "teste1";
+            atributo1.Id = 2;
+            listAtributos.Add(atributo);
+            listAtributos.Add(atributo1);
+
+            return listAtributos;
+        }
     }
 }
