@@ -11,6 +11,14 @@ namespace Usuarios.Autenticador
         {
         }
 
+        private string _nomeUsuario;
+
+        public string NomeUsuario
+        {
+            get { return _nomeUsuario; }
+            set { _nomeUsuario = value; }
+        }
+
         private int _idUsuario;
         [XmlElement(ElementName = "IdUsuario")]
         public int IdUsuario

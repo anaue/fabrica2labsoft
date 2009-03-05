@@ -8,6 +8,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Serialization;
+using System.Collections.Generic;
 
 namespace InterfaceUsuario.Classes
 {
@@ -53,9 +54,9 @@ namespace InterfaceUsuario.Classes
             get { return _dtExpGarantia; }
             set { _dtExpGarantia = value; }
         }
-        private List<Atributo.Atributo> _listAtributos;
+        private List<Atributo> _listAtributos;
         [XmlElement(ElementName = "ListAtributos")]
-        public List<Atributo.Atributo> ListAtributos
+        public List<Atributo> ListAtributos
         {
             get { return _listAtributos; }
             set { _listAtributos = value; }

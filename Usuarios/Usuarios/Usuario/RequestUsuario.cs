@@ -10,6 +10,15 @@ namespace Usuarios.Usuario
         public RequestUsuario()
         {
         }
+
+        private string _nomeUsuario;
+
+        public string NomeUsuario
+        {
+            get { return _nomeUsuario; }
+            set { _nomeUsuario = value; }
+        }
+
         private int _idUsuario;
         [XmlElement(ElementName = "idUsuario", IsNullable = false)]
         public int idUsuario
