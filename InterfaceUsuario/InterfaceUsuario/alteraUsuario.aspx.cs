@@ -21,7 +21,7 @@ namespace InterfaceUsuario
         protected void Button_altera(object sender, EventArgs e)
         {
             Usuario usuario = new Usuario();
-            usuario.Nome = TextBoxNome;
+            usuario.Nome = TextBoxNome.Text;
             usuario.Senha = TextBoxSenhaConf.Text;
             usuario.Descricao = TextBoxDescricao.Text;
 
