@@ -27,7 +27,6 @@
         <s:complexContent mixed="false">
           <s:extension base="tns:BaseResponse">
             <s:sequence>
-              <s:element minOccurs="1" maxOccurs="1" name="Message" nillable="true" type="s:string" />
               <s:element minOccurs="1" maxOccurs="1" name="RegistroCorreto" type="s:boolean" />
               <s:element minOccurs="1" maxOccurs="1" name="Autenticador" nillable="true" type="tns:Autenticador" />
             </s:sequence>
@@ -37,6 +36,7 @@
       <s:complexType name="BaseResponse">
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="tns:ResponseStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="Message" nillable="true" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:simpleType name="ResponseStatus">

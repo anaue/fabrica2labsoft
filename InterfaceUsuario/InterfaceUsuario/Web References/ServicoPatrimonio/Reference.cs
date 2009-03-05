@@ -27,6 +27,7 @@ namespace InterfaceUsuario.ServicoPatrimonio {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="ServicoPatrimonioSoap", Namespace="http://www.pece.org.br/")]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseResponse))]
     public partial class ServicoPatrimonio : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback CriarPatrimonioOperationCompleted;
@@ -362,6 +363,16 @@ namespace InterfaceUsuario.ServicoPatrimonio {
         
         private System.DateTime dataExpGarantiaField;
         
+        private Atributo[] listAtributosField;
+        
+        private string caminhoFotoNotaFiscalField;
+        
+        private string caminhoFotoPatrimonioField;
+        
+        private string localPatrimonioField;
+        
+        private string numeroPedidoField;
+        
         /// <remarks/>
         public int IdEquipamento {
             get {
@@ -411,6 +422,57 @@ namespace InterfaceUsuario.ServicoPatrimonio {
                 this.dataExpGarantiaField = value;
             }
         }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("ListAtributos")]
+        public Atributo[] ListAtributos {
+            get {
+                return this.listAtributosField;
+            }
+            set {
+                this.listAtributosField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string CaminhoFotoNotaFiscal {
+            get {
+                return this.caminhoFotoNotaFiscalField;
+            }
+            set {
+                this.caminhoFotoNotaFiscalField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string CaminhoFotoPatrimonio {
+            get {
+                return this.caminhoFotoPatrimonioField;
+            }
+            set {
+                this.caminhoFotoPatrimonioField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string LocalPatrimonio {
+            get {
+                return this.localPatrimonioField;
+            }
+            set {
+                this.localPatrimonioField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string NumeroPedido {
+            get {
+                return this.numeroPedidoField;
+            }
+            set {
+                this.numeroPedidoField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -419,14 +481,97 @@ namespace InterfaceUsuario.ServicoPatrimonio {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.pece.org.br/")]
-    public partial class ResponsePatrimonio {
+    public partial class Atributo {
         
-        private int statusCodeField;
+        private int idField;
+        
+        private string nomeField;
+        
+        private string descricaoField;
+        
+        private string tipoField;
+        
+        private bool nuloField;
+        
+        private string[] listaValoresField;
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Nome {
+            get {
+                return this.nomeField;
+            }
+            set {
+                this.nomeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Descricao {
+            get {
+                return this.descricaoField;
+            }
+            set {
+                this.descricaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Tipo {
+            get {
+                return this.tipoField;
+            }
+            set {
+                this.tipoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool Nulo {
+            get {
+                return this.nuloField;
+            }
+            set {
+                this.nuloField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("ListaValores")]
+        public string[] ListaValores {
+            get {
+                return this.listaValoresField;
+            }
+            set {
+                this.listaValoresField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResponsePatrimonio))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.3082")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.pece.org.br/")]
+    public partial class BaseResponse {
+        
+        private ResponseStatus statusCodeField;
         
         private string messageField;
         
         /// <remarks/>
-        public int StatusCode {
+        public ResponseStatus StatusCode {
             get {
                 return this.statusCodeField;
             }
@@ -443,6 +588,97 @@ namespace InterfaceUsuario.ServicoPatrimonio {
             }
             set {
                 this.messageField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.3082")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.pece.org.br/")]
+    public enum ResponseStatus {
+        
+        /// <remarks/>
+        None,
+        
+        /// <remarks/>
+        Continue,
+        
+        /// <remarks/>
+        OK,
+        
+        /// <remarks/>
+        Created,
+        
+        /// <remarks/>
+        Accepted,
+        
+        /// <remarks/>
+        NoContent,
+        
+        /// <remarks/>
+        MovedPermanently,
+        
+        /// <remarks/>
+        Found,
+        
+        /// <remarks/>
+        SeeOther,
+        
+        /// <remarks/>
+        NotModified,
+        
+        /// <remarks/>
+        BadRequest,
+        
+        /// <remarks/>
+        Unauthorized,
+        
+        /// <remarks/>
+        Forbidden,
+        
+        /// <remarks/>
+        NotFound,
+        
+        /// <remarks/>
+        MethodNotAllowed,
+        
+        /// <remarks/>
+        RequestTimeout,
+        
+        /// <remarks/>
+        Conflict,
+        
+        /// <remarks/>
+        NotImplemented,
+        
+        /// <remarks/>
+        ServiceUnavailable,
+        
+        /// <remarks/>
+        BadVersion,
+        
+        /// <remarks/>
+        InternalServerError,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.3082")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.pece.org.br/")]
+    public partial class ResponsePatrimonio : BaseResponse {
+        
+        private Patrimonio[] listaPatrimonioField;
+        
+        /// <remarks/>
+        public Patrimonio[] ListaPatrimonio {
+            get {
+                return this.listaPatrimonioField;
+            }
+            set {
+                this.listaPatrimonioField = value;
             }
         }
     }

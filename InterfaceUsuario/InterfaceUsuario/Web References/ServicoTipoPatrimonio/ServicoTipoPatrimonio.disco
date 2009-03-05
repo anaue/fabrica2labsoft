@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
-  <contractRef ref="http://localhost:1165/TipoPatrimonio/ServicoTipoPatrimonio.asmx?wsdl" docRef="http://localhost:1165/TipoPatrimonio/ServicoTipoPatrimonio.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
-  <soap address="http://localhost:1165/TipoPatrimonio/ServicoTipoPatrimonio.asmx" xmlns:q1="http://www.pece.org.br/" binding="q1:ServicoTipoPatrimonioSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
-  <soap address="http://localhost:1165/TipoPatrimonio/ServicoTipoPatrimonio.asmx" xmlns:q2="http://www.pece.org.br/" binding="q2:ServicoTipoPatrimonioSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <contractRef ref="http://localhost:1717/TipoPatrimonio/ServicoTipoPatrimonio.asmx?wsdl" docRef="http://localhost:1717/TipoPatrimonio/ServicoTipoPatrimonio.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://localhost:1717/TipoPatrimonio/ServicoTipoPatrimonio.asmx" xmlns:q1="http://www.pece.org.br/" binding="q1:ServicoTipoPatrimonioSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://localhost:1717/TipoPatrimonio/ServicoTipoPatrimonio.asmx" xmlns:q2="http://www.pece.org.br/" binding="q2:ServicoTipoPatrimonioSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
 </discovery>

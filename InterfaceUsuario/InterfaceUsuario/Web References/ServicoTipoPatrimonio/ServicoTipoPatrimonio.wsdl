@@ -14,7 +14,13 @@
           <s:element minOccurs="1" maxOccurs="1" name="TipoPatrimonio" nillable="true" type="tns:TipoPatrimonio" />
         </s:sequence>
       </s:complexType>
-      <s:complexType name="TipoPatrimonio" />
+      <s:complexType name="TipoPatrimonio">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descricao" type="s:string" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="CriaTipoPatrimonioResponse">
         <s:complexType>
           <s:sequence>
@@ -23,9 +29,48 @@
         </s:complexType>
       </s:element>
       <s:complexType name="ResponseTipoPatrimonio">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseResponse">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ListaTipoPatrimonio" nillable="true" type="tns:ArrayOfTipoPatrimonio" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BaseResponse">
         <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="tns:ResponseStatus" />
           <s:element minOccurs="1" maxOccurs="1" name="Message" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ResponseStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Continue" />
+          <s:enumeration value="OK" />
+          <s:enumeration value="Created" />
+          <s:enumeration value="Accepted" />
+          <s:enumeration value="NoContent" />
+          <s:enumeration value="MovedPermanently" />
+          <s:enumeration value="Found" />
+          <s:enumeration value="SeeOther" />
+          <s:enumeration value="NotModified" />
+          <s:enumeration value="BadRequest" />
+          <s:enumeration value="Unauthorized" />
+          <s:enumeration value="Forbidden" />
+          <s:enumeration value="NotFound" />
+          <s:enumeration value="MethodNotAllowed" />
+          <s:enumeration value="RequestTimeout" />
+          <s:enumeration value="Conflict" />
+          <s:enumeration value="NotImplemented" />
+          <s:enumeration value="ServiceUnavailable" />
+          <s:enumeration value="BadVersion" />
+          <s:enumeration value="InternalServerError" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfTipoPatrimonio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TipoPatrimonio" nillable="true" type="tns:TipoPatrimonio" />
         </s:sequence>
       </s:complexType>
       <s:element name="DeletaTipoPatrimonio">
@@ -194,10 +239,10 @@
   </wsdl:binding>
   <wsdl:service name="ServicoTipoPatrimonio">
     <wsdl:port name="ServicoTipoPatrimonioSoap" binding="tns:ServicoTipoPatrimonioSoap">
-      <soap:address location="http://localhost:1165/TipoPatrimonio/ServicoTipoPatrimonio.asmx" />
+      <soap:address location="http://localhost:1717/TipoPatrimonio/ServicoTipoPatrimonio.asmx" />
     </wsdl:port>
     <wsdl:port name="ServicoTipoPatrimonioSoap12" binding="tns:ServicoTipoPatrimonioSoap12">
-      <soap12:address location="http://localhost:1165/TipoPatrimonio/ServicoTipoPatrimonio.asmx" />
+      <soap12:address location="http://localhost:1717/TipoPatrimonio/ServicoTipoPatrimonio.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
