@@ -59,7 +59,7 @@ namespace Patrimonio.Atributo
            //retorna um atributo com seus valores
             return null;
         }
-        public List<Atributo> buscaAtributos(string atributoNome,string atributoDescricao,string atributoTipo,bool atributoNulo, List<string> listaValores)
+        public List<Atributo> buscaAtributos(string atributoNome,string atributoDescricao,string atributoTipo,bool atributoNulo, List<string> listaValores, string valor)
         {
             //retorna atributos com o mesmo nome e/ou descricao e/ou tipo e/ou se é nulo ou nao e também a lista de valores
             return null;

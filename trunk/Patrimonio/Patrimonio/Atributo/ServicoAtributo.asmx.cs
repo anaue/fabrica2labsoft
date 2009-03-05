@@ -126,7 +126,7 @@ namespace Patrimonio.Atributo
             {
                 if (_request != null)
                 {
-                    _response.ListaAtributos = daoatributo.buscaAtributos(_request.Atributo.Nome,_request.Atributo.Descricao,_request.Atributo.Tipo,_request.Atributo.Nulo,_request.Atributo.ListaValores);
+                    _response.ListaAtributos = daoatributo.buscaAtributos(_request.Atributo.Nome,_request.Atributo.Descricao,_request.Atributo.Tipo,_request.Atributo.Nulo,_request.Atributo.ListaValores,_request.Atributo.Valor);
                     
                     _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
                 }
