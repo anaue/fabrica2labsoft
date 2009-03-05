@@ -37,11 +37,11 @@ namespace InterfaceUsuario.Classes
         #endregion Accessors
 
         #region Methods
-        public bool Login(int idUsuario, string senha)
+        public bool Login(string nomeUsuario, string senha)
         {
             bool retorno;
             WS.Autenticador ws = new InterfaceUsuario.WS.Autenticador();
-            retorno = ws.Login(idUsuario, senha);            
+            retorno = ws.Login(nomeUsuario, senha);            
 
             return retorno;
         }        
