@@ -84,7 +84,7 @@
             <td>
                 <asp:Button ID="Button1" runat="server" Text="Cadastrar" onclick="Button_cadastra" /></td>
             <td>
-                <asp:Button ID="Button2" runat="server" Text="Limpar" onclick="Button_limpa" /></td>
+                &nbsp;</td>
         </tr>
 
     </table>

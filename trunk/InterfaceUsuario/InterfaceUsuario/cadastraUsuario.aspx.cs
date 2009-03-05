@@ -30,8 +30,6 @@ namespace InterfaceUsuario
 
         protected void Button_limpa(object sender, EventArgs e)
         {
-            TextBoxNome.Text = "";
-            TextBoxSenhaConf.Text = "";
         }
     }
 
