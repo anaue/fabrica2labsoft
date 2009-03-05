@@ -14,7 +14,7 @@ namespace InterfaceUsuario.Classes
 {
     public class Atributo
     {
-        public Atributo(int id, string nome, string descricao, string tipo, bool nulo, List<string> listaValores)
+        public Atributo(int id, string nome, string descricao, string tipo, bool nulo, List<string> listaValores, string valor)
         {
             _id = id;
             _nome = nome;
@@ -22,6 +22,7 @@ namespace InterfaceUsuario.Classes
             _tipo = tipo;
             _nulo = nulo;
             _listaValores = listaValores;
+            _valor = valor;
             
         }
         public Atributo()
@@ -31,6 +32,7 @@ namespace InterfaceUsuario.Classes
             _tipo = string.Empty;
             _nulo = false;
             _listaValores = null;
+            _valor = string.Empty;
         }
 
         #region Accessors
@@ -75,6 +77,14 @@ namespace InterfaceUsuario.Classes
         {
             get { return _listaValores; }
             set { _listaValores = value; }
+        }
+
+        private string _valor;
+
+        public string Valor
+        {
+            get { return _valor; }
+            set { _valor = value; }
         }
         #endregion
 
@@ -139,11 +149,11 @@ namespace InterfaceUsuario.Classes
         /// Realiza a consulta de atributos.
         /// </summary>
         /// <returns>Retorna lista com atributos</returns>
-        public List<Atributo> BuscaAtributos(string nome, string descricao, string tipo, bool nulo,List<string> listaValores)
+        public List<Atributo> BuscaAtributos(string nome, string descricao, string tipo, bool nulo,List<string> listaValores, string valor)
         {
             List<Atributo> atributos = new List<Atributo>();
             WS.Atributo ws = new InterfaceUsuario.WS.Atributo();
-            atributos = ws.BuscaAtributos(nome,descricao,tipo,nulo,listaValores);
+            atributos = ws.BuscaAtributos(nome,descricao,tipo,nulo,listaValores, valor);
 
             return atributos;
         }
