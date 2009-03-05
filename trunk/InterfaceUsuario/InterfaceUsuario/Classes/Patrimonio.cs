@@ -54,5 +54,11 @@ namespace InterfaceUsuario.Classes
             set { _dtExpGarantia = value; }
         }
         #endregion Acessors
+
+
+        internal void CadastraPatrimonio()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
