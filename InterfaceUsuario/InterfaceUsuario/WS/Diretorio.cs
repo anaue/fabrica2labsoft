@@ -18,6 +18,7 @@ namespace InterfaceUsuario.WS
             ServicoDiretorio.Response response = new InterfaceUsuario.ServicoDiretorio.Response();
 
             request.ServiceName = nomeServico;
+            request.ServiceVersion = 1;
 
             string endereco = string.Empty;
             try
