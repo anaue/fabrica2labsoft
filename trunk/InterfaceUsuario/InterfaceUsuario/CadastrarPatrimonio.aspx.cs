@@ -20,12 +20,10 @@ namespace InterfaceUsuario
         {
             if (!IsPostBack)
             {
-                Classes.TipoPatrimonio tipoPatrimonio = new InterfaceUsuario.Classes.TipoPatrimonio();
-
                 ddlTipoPatrimonio.DataTextField = "Nome";
                 ddlTipoPatrimonio.DataValueField = "Id";
 
-                ddlTipoPatrimonio.DataSource = tipoPatrimonio.ListaTipoPatrimonio();
+                ddlTipoPatrimonio.DataSource = Classes.TipoPatrimonio.ListaTipoPatrimonio();
                 ddlTipoPatrimonio.DataBind();
             }
         }
