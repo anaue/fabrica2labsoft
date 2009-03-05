@@ -27,6 +27,7 @@ namespace InterfaceUsuario.ServicoTipoPatrimonio {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="ServicoTipoPatrimonioSoap", Namespace="http://www.pece.org.br/")]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseResponse))]
     public partial class ServicoTipoPatrimonio : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback CriarTipoPatrimonioOperationCompleted;
@@ -255,22 +256,59 @@ namespace InterfaceUsuario.ServicoTipoPatrimonio {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.pece.org.br/")]
     public partial class TipoPatrimonio {
+        
+        private int idField;
+        
+        private string nomeField;
+        
+        private string descricaoField;
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Nome {
+            get {
+                return this.nomeField;
+            }
+            set {
+                this.nomeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Descricao {
+            get {
+                return this.descricaoField;
+            }
+            set {
+                this.descricaoField = value;
+            }
+        }
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResponseTipoPatrimonio))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.3082")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.pece.org.br/")]
-    public partial class ResponseTipoPatrimonio {
+    public partial class BaseResponse {
         
-        private int statusCodeField;
+        private ResponseStatus statusCodeField;
         
         private string messageField;
         
         /// <remarks/>
-        public int StatusCode {
+        public ResponseStatus StatusCode {
             get {
                 return this.statusCodeField;
             }
@@ -287,6 +325,98 @@ namespace InterfaceUsuario.ServicoTipoPatrimonio {
             }
             set {
                 this.messageField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.3082")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.pece.org.br/")]
+    public enum ResponseStatus {
+        
+        /// <remarks/>
+        None,
+        
+        /// <remarks/>
+        Continue,
+        
+        /// <remarks/>
+        OK,
+        
+        /// <remarks/>
+        Created,
+        
+        /// <remarks/>
+        Accepted,
+        
+        /// <remarks/>
+        NoContent,
+        
+        /// <remarks/>
+        MovedPermanently,
+        
+        /// <remarks/>
+        Found,
+        
+        /// <remarks/>
+        SeeOther,
+        
+        /// <remarks/>
+        NotModified,
+        
+        /// <remarks/>
+        BadRequest,
+        
+        /// <remarks/>
+        Unauthorized,
+        
+        /// <remarks/>
+        Forbidden,
+        
+        /// <remarks/>
+        NotFound,
+        
+        /// <remarks/>
+        MethodNotAllowed,
+        
+        /// <remarks/>
+        RequestTimeout,
+        
+        /// <remarks/>
+        Conflict,
+        
+        /// <remarks/>
+        NotImplemented,
+        
+        /// <remarks/>
+        ServiceUnavailable,
+        
+        /// <remarks/>
+        BadVersion,
+        
+        /// <remarks/>
+        InternalServerError,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.3082")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.pece.org.br/")]
+    public partial class ResponseTipoPatrimonio : BaseResponse {
+        
+        private TipoPatrimonio[] listaTipoPatrimonioField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        public TipoPatrimonio[] ListaTipoPatrimonio {
+            get {
+                return this.listaTipoPatrimonioField;
+            }
+            set {
+                this.listaTipoPatrimonioField = value;
             }
         }
     }

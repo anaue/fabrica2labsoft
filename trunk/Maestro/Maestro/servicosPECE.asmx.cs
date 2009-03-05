@@ -14,7 +14,7 @@ namespace Maestro
     [WebService(Namespace = "http://www.pece.org.br/")]
     public class Servicos : System.Web.Services.WebService
     {
-        [WebMethod]
+        [WebMethod(MessageName = "ObterEnderecoServico")]
         public Response ObtemEnderecoServico(Request _request)
         {
             Response _response = new Response();
