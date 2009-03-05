@@ -16,7 +16,7 @@ namespace InterfaceUsuario
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           // TextBoxSenhaConf.Text = 
         }
         protected void Button_altera(object sender, EventArgs e)
         {
@@ -25,14 +25,9 @@ namespace InterfaceUsuario
             usuario.Senha = TextBoxSenhaConf.Text;
             usuario.Descricao = TextBoxDescricao.Text;
 
-            usuario.AlteraUsuario();
+          //  List<Classes.Usuario> usuarios = usuario.BuscaUsuarios(usuario.Nome, usuario.Descricao);
 
             usuario.CriaUsuario(usuario);
-        }
-
-        protected void Button_limpa(object sender, EventArgs e)
-        {
-
         }
     }
 }
