@@ -31,7 +31,7 @@ namespace InterfaceUsuario
             {
                 foreach (ListItem item in lbValores.Items)
                 {
-                    atributo.Lista.Add(item.Text);
+                    atributo.ListaValores.Add(item.Text);
                 }
             }
             //Rotina de Efetivacao de dados

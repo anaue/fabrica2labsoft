@@ -123,11 +123,18 @@ namespace InterfaceUsuario.WS
                 try
                 {
                     response = wsAtributo.ConsultarAtributo(request);
-                    if (response != null && response.StatusCode == InterfaceUsuario.ServicoAtributo.ResponseStatus.OK)
 
-                        atrib = new Classes.Atributo(response.ListaAtributos[0].Id,response.ListaAtributos[0].Nome,response.ListaAtributos[0].Descricao,response.ListaAtributos[0].Tipo,response.ListaAtributos[0].Nulo);
-                        retorno.Add(atrib);
+                    if (response != null && response.StatusCode == InterfaceUsuario.ServicoAtributo.ResponseStatus.OK)
+                    {
+                            List<string> lValores = new List<string>();
+                            foreach (string valor in response.ListaAtributos[0].ListaValores)
+                            {
+                                lValores.Add(valor);
+                            }
+                            atrib = new Classes.Atributo(response.ListaAtributos[0].Id, response.ListaAtributos[0].Nome, response.ListaAtributos[0].Descricao, response.ListaAtributos[0].Tipo, response.ListaAtributos[0].Nulo, lValores);
+                            retorno.Add(atrib);
                         
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -196,7 +203,7 @@ namespace InterfaceUsuario.WS
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public List<Classes.Atributo> BuscaAtributos(string nome, string descricao, string tipo, bool nulo,List<string> listaValores)
+        public List<Classes.Atributo> BuscaAtributos(string nome, string descricao, string tipo, bool nulo, List<string> listaValores)
         {
             List<Classes.Atributo> retorno = null;
             ServicoAtributo.ServicoAtributo wsAtributo = new InterfaceUsuario.ServicoAtributo.ServicoAtributo();
@@ -219,15 +226,28 @@ namespace InterfaceUsuario.WS
                 request.Atributo.Descricao = descricao;
                 request.Atributo.Tipo = tipo;
                 request.Atributo.Nulo = nulo;
-                request.Atributo.ListaValores = listaValores;
+                string[] valores = new string[listaValores.Count];
+                int i = 0;
+                foreach (string valor in listaValores)
+                {
+                    valores.SetValue(valor, i);
+                    i++;
+                }
+                request.Atributo.ListaValores = valores;
                 try
                 {
-                    response = wsAtributo.BuscaAtributos(request);
+                    response = wsAtributo.BuscarAtributos(request);
+                    
                     if (response != null && response.StatusCode == InterfaceUsuario.ServicoAtributo.ResponseStatus.OK)
                     {
-                        for (int i = 0; i < response.ListaAtributos.Length; i++)
+                        for (int j = 0; j < response.ListaAtributos.Length; j++)
                         {
-                            Classes.Atributo atrib = new Classes.Atributo(response.ListaAtributos[i].Id, response.ListaAtributos[i].Nome, response.ListaAtributos[i].Descricao, response.ListaAtributos[i].Tipo, response.ListaAtributos[i].Nulo,response.ListaAtributos[i].ListaValores);
+                            List<string> lValores = new List<string>();
+                            foreach (string valor in response.ListaAtributos[j].ListaValores)
+                            {
+                                lValores.Add(valor);  
+                            }
+                            Classes.Atributo atrib = new Classes.Atributo(response.ListaAtributos[j].Id, response.ListaAtributos[j].Nome, response.ListaAtributos[j].Descricao, response.ListaAtributos[j].Tipo, response.ListaAtributos[j].Nulo,lValores);
                             retorno.Add(atrib);
                         }
                     }

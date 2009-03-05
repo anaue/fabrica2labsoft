@@ -21,7 +21,7 @@ namespace InterfaceUsuario.Classes
             _descricao = descricao;
             _tipo = tipo;
             _nulo = nulo;
-            _lista = lista;
+            _listaValores = listaValores;
             
         }
         public Atributo()
