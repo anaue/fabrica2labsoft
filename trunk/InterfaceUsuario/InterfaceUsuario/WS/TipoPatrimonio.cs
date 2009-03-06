@@ -135,7 +135,7 @@ namespace InterfaceUsuario.WS
                         _TipoPatrimonio.Id = response.ListaTipoPatrimonio[0].Id;
                         _TipoPatrimonio.Descricao = response.ListaTipoPatrimonio[0].Descricao;
                         _TipoPatrimonio.ListAtributos = new List<InterfaceUsuario.Classes.Atributo>();
-                        foreach (ServicoAtributo.Atributo atr in _TipoPatrimonio.ListAtributos)
+                        foreach(Classes.Atributo atr in _TipoPatrimonio.ListAtributos)
                         {
                             _TipoPatrimonio.ListAtributos.Add(atr);
 
@@ -168,7 +168,7 @@ namespace InterfaceUsuario.WS
             #region Acesso WS Diretorio
             Diretorio dir = new Diretorio();
             // A nome do serviço é definido no banco de dados, pelo serviço diretório
-            string _url = dir.ObtemEnderecoServico(Arv.Common.WSServicesNames.TIPO_PATRIMONIO_CRIAR);
+            string _url = dir.ObtemEnderecoServico(Arv.Common.WSServicesNames.TIPO_PATRIMONIO_ALTERAR);
             dir = null;
 
             #endregion Acesso WS Diretorio

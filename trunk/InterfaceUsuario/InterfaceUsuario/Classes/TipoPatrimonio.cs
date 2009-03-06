@@ -99,36 +99,16 @@ namespace InterfaceUsuario.Classes
             return retorno;
         }
 
-        public List<Atributo> ListaAtributos(int IdPatrimonio)
-        {
-            List<Atributo> retorno = new List<Atributo>();
 
-            WS.TipoPatrimonio ws = new InterfaceUsuario.WS.TipoPatrimonio();
-            retorno = ws.ListaAtributosTipoPatrimonio(IdPatrimonio);
-
-            return retorno;
-        }
-
-    
-        public List<Atributo> ListaAtributosDisponiveis()
-        {
-            List<Atributo> listAtributos = new List<Atributo>();
-
-            WS.TipoPatrimonio ws = new InterfaceUsuario.WS.TipoPatrimonio();
-            listAtributos = ws.ListaAtributosDisponiveis();
-
-            return listAtributos;
-        }
-
-        
+            
         public TipoPatrimonio ConsultaTipoPatrimonio(int id)
         {
-            TipoPatrimonio patrimonio = new TipoPatrimonio();
+            TipoPatrimonio tipopatrimonio = new TipoPatrimonio();
 
             WS.TipoPatrimonio ws = new InterfaceUsuario.WS.TipoPatrimonio();
-            tipoPatrimonio = ws.ConsultaTipoPatrimonio(id);
+            tipopatrimonio = ws.ConsultaTipoPatrimonio(id);
 
-            return patrimonio;
+            return tipopatrimonio;
         }
        
         /// <summary>

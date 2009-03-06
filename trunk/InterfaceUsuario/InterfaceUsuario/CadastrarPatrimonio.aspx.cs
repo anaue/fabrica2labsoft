@@ -30,8 +30,8 @@ namespace InterfaceUsuario
 
         protected void ddlTipoPatrimonio_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Classes.TipoPatrimonio tipoPatrimonio = new InterfaceUsuario.Classes.TipoPatrimonio();
-            lstAtributos = tipoPatrimonio.ListaAtributos(Convert.ToInt32(ddlTipoPatrimonio.SelectedValue));
+            Classes.Atributo atributo = new InterfaceUsuario.Classes.Atributo();
+            lstAtributos = atributo.ListaAtributosTipoPatrimonio(Convert.ToInt32(ddlTipoPatrimonio.SelectedValue));
 
             Session["lstAtributos"] = lstAtributos;
 

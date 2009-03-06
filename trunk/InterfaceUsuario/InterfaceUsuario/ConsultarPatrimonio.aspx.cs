@@ -40,8 +40,8 @@ namespace InterfaceUsuario
 
         protected void ddlTipoPatrimonio_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Classes.TipoPatrimonio tipoPatrimonio = new InterfaceUsuario.Classes.TipoPatrimonio();
-            List<Classes.Atributo> lstAtributos = tipoPatrimonio.ListaAtributos(Convert.ToInt32(ddlTipoPatrimonio.SelectedValue));
+            Classes.Atributo atributo = new InterfaceUsuario.Classes.Atributo();
+            List<Classes.Atributo> lstAtributos = atributo.ListaAtributosTipoPatrimonio(Convert.ToInt32(ddlTipoPatrimonio.SelectedValue));
 
             ddlAtributos.Items.Clear();
             ddlAtributos.Items.Add(new ListItem("NPece", "numeroPece"));
@@ -52,9 +52,9 @@ namespace InterfaceUsuario
             ddlAtributos.Items.Add(new ListItem("Id Solicitacao", "numeroPedido"));
             ddlAtributos.Items.Add(new ListItem("", ""));
 
-            foreach (Classes.Atributo atributo in lstAtributos)
+            foreach (Classes.Atributo atr in lstAtributos)
             {
-                ddlAtributos.Items.Add(new ListItem(atributo.Nome, atributo.Id.ToString()));
+                ddlAtributos.Items.Add(new ListItem(atr.Nome, atr.Id.ToString()));
             }
         }
 

@@ -160,6 +160,27 @@ namespace InterfaceUsuario.Classes
             return atributos;
         }
 
+        public List<Atributo> ListaAtributosTipoPatrimonio(int IdPatrimonio)
+        {
+            List<Atributo> retorno = new List<Atributo>();
+
+            WS.Atributo ws = new InterfaceUsuario.WS.Atributo();
+            retorno = ws.ListaAtributosTipoPatrimonio(IdPatrimonio);
+
+            return retorno;
+        }
+
+        public List<Atributo> ListaAtributosDisponiveis()
+        {
+            List<Atributo> listAtributos = new List<Atributo>();
+
+            WS.Atributo ws = new InterfaceUsuario.WS.Atributo();
+            listAtributos = ws.ListaAtributosDisponiveis();
+
+            return listAtributos;
+        }
+
+
         #endregion
 
 

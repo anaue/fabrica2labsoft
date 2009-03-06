@@ -37,7 +37,7 @@ namespace InterfaceUsuario
                     lstAtributosDoTipo.DataTextField = "Nome";
                     lstAtributosDoTipo.DataBind();
                     //Popula lista dos Atributos de todos os atributos disponiveis
-                    lstAtributosDisponiveis.DataSource = new InterfaceUsuario.Classes.TipoPatrimonio().ListaAtributosDisponiveis();
+                    lstAtributosDisponiveis.DataSource = new InterfaceUsuario.Classes.Atributo().ListaAtributosDisponiveis();
                     lstAtributosDisponiveis.DataValueField = "Id";
                     lstAtributosDisponiveis.DataTextField = "Nome";
                     // deleta todos os itens que estão sendo mostrados no atributos do tipo

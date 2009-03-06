@@ -19,7 +19,7 @@ namespace InterfaceUsuario
         {
             if (!IsPostBack)
             {
-                lstAtributosDisponiveis.DataSource = new InterfaceUsuario.Classes.TipoPatrimonio().ListaAtributosDisponiveis();
+                lstAtributosDisponiveis.DataSource = new InterfaceUsuario.Classes.Atributo().ListaAtributosDisponiveis();
                 lstAtributosDisponiveis.DataValueField = "Id";
                 lstAtributosDisponiveis.DataTextField = "Nome";
                 lstAtributosDisponiveis.DataBind();
