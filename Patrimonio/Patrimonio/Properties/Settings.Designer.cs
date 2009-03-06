@@ -25,8 +25,7 @@ namespace Patrimonio.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=RFIFA\\SQLEXPRESS;Initial Catalog=fabrica2db_local;Integrated Sec" +
-            "urity=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=201.13.192.72;Initial Catalog=fabrica2db;User ID=fabrica2db")]
         public string ConnectionString {
             get {
                 return ((string)(this["ConnectionString"]));
