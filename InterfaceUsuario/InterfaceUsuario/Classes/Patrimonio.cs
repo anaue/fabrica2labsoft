@@ -154,5 +154,11 @@ namespace InterfaceUsuario.Classes
             retorno = ws.RegistrarManutencao(manutencao);
             return retorno;
         }
+
+        public List<Patrimonio> BuscaPatrimonio(int IdPatrimonio, int IdTipoPatrimonio, int NPece, int IdSolicitacao, DateTime DtCompraMax, DateTime DtCompraMin, int NotaFiscal,
+            DateTime DtExpGarantiaMin, DateTime DtExpGarantiaMax)
+        {
+            return new List<Patrimonio>();
+        }
     }
 }
