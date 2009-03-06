@@ -223,14 +223,35 @@ namespace InterfaceUsuario.WS
 
                 try
                 {
-                    //response = wsTipoPatrimonio.(request);
+                    response = wsTipoPatrimonio.ListarTipoPatrimonio(request);
                     if (response != null && response.StatusCode == InterfaceUsuario.ServicoTipoPatrimonio.ResponseStatus.OK && response.ListaTipoPatrimonio != null)
+                        
                         foreach (ServicoTipoPatrimonio.TipoPatrimonio ltp in response.ListaTipoPatrimonio)
                         {
                             Classes.TipoPatrimonio tp = new InterfaceUsuario.Classes.TipoPatrimonio();
                             tp.Descricao = ltp.Descricao;
                             tp.Id = ltp.Id;
                             tp.Nome = ltp.Nome;
+                            foreach(ServicoTipoPatrimonio.Atributo atr in ltp.ListAtributos)
+                            {
+                                Classes.Atributo _atr = new InterfaceUsuario.Classes.Atributo();
+                                _atr.Descricao = atr.Descricao;
+                                _atr.Id = atr.Id;
+                                _atr.Nome = atr.Nome;
+                                _atr.Nulo = atr.Nulo;
+                                _atr.Tipo = atr.Tipo;
+                                _atr.Valor = atr.Valor;
+                                _atr.ListaValores = new List<string>();
+                                foreach (string str in atr.ListaValores)
+                                {
+                                    _atr.ListaValores.Add(str);
+                                }
+
+
+                                tp.ListAtributos.Add(_atr);
+
+                            }
+
                             retorno.Add(tp);
                         }
 

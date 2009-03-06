@@ -19,6 +19,18 @@
           <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Descricao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ListAtributos" type="tns:Atributo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Atributo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descricao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tipo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nulo" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ListaValores" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Valor" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="CriaTipoPatrimonioResponse">
@@ -33,6 +45,7 @@
           <s:extension base="tns:BaseResponse">
             <s:sequence>
               <s:element minOccurs="1" maxOccurs="1" name="ListaTipoPatrimonio" nillable="true" type="tns:ArrayOfTipoPatrimonio" />
+              <s:element minOccurs="1" maxOccurs="1" name="ListaAtributo" nillable="true" type="tns:ArrayOfAtributo" />
             </s:sequence>
           </s:extension>
         </s:complexContent>
@@ -71,6 +84,11 @@
       <s:complexType name="ArrayOfTipoPatrimonio">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="unbounded" name="TipoPatrimonio" nillable="true" type="tns:TipoPatrimonio" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAtributo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Atributo" nillable="true" type="tns:Atributo" />
         </s:sequence>
       </s:complexType>
       <s:element name="DeletaTipoPatrimonio">
@@ -115,6 +133,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="ListaTipoPatrimonio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestTipoPatrimonio" nillable="true" type="tns:RequestTipoPatrimonio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaTipoPatrimonioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ResponseTipoPatrimonio" nillable="true" type="tns:ResponseTipoPatrimonio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="CriaTipoPatrimonioSoapIn">
@@ -141,6 +173,12 @@
   <wsdl:message name="ConsultaTipoPatrimonioSoapOut">
     <wsdl:part name="parameters" element="tns:ConsultaTipoPatrimonioResponse" />
   </wsdl:message>
+  <wsdl:message name="ListaTipoPatrimonioSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaTipoPatrimonio" />
+  </wsdl:message>
+  <wsdl:message name="ListaTipoPatrimonioSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaTipoPatrimonioResponse" />
+  </wsdl:message>
   <wsdl:portType name="ServicoTipoPatrimonioSoap">
     <wsdl:operation name="CriarTipoPatrimonio">
       <wsdl:input name="CriaTipoPatrimonio" message="tns:CriaTipoPatrimonioSoapIn" />
@@ -157,6 +195,10 @@
     <wsdl:operation name="ConsultarTipoPatrimonio">
       <wsdl:input name="ConsultaTipoPatrimonio" message="tns:ConsultaTipoPatrimonioSoapIn" />
       <wsdl:output name="ConsultaTipoPatrimonio" message="tns:ConsultaTipoPatrimonioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTipoPatrimonio">
+      <wsdl:input name="ListaTipoPatrimonio" message="tns:ListaTipoPatrimonioSoapIn" />
+      <wsdl:output name="ListaTipoPatrimonio" message="tns:ListaTipoPatrimonioSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ServicoTipoPatrimonioSoap" type="tns:ServicoTipoPatrimonioSoap">
@@ -197,6 +239,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ListarTipoPatrimonio">
+      <soap:operation soapAction="http://www.pece.org.br/ListaTipoPatrimonio" style="document" />
+      <wsdl:input name="ListaTipoPatrimonio">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ListaTipoPatrimonio">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="ServicoTipoPatrimonioSoap12" type="tns:ServicoTipoPatrimonioSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -233,6 +284,15 @@
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output name="ConsultaTipoPatrimonio">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTipoPatrimonio">
+      <soap12:operation soapAction="http://www.pece.org.br/ListaTipoPatrimonio" style="document" />
+      <wsdl:input name="ListaTipoPatrimonio">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ListaTipoPatrimonio">
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
