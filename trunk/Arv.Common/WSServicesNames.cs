@@ -20,6 +20,8 @@ namespace Arv.Common
         public static string TIPO_PATRIMONIO_CONSULTAR = "ConsultarTipoPatrimonio";
         public static string TIPO_PATRIMONIO_ALTERAR = "AlterarTipoPatrimonio";
         public static string TIPO_PATRIMONIO_LISTAR = "BuscarTipoPatrimonio";
+        public static string TIPO_PATRIMONIO_LISTAR_ATRIBUTOS = "ListarAtributos";
+        public static string TIPO_PATRIMONIO_LISTAR_ATRIBUTOS_DISPONIVEIS = "ListarAtributosDisponiveis";
         #endregion TipoPatrimonio
 
         #region Patrimonio
@@ -28,8 +30,6 @@ namespace Arv.Common
         public static string PATRIMONIO_CONSULTAR = "ConsultarPatrimonio";
         public static string PATRIMONIO_ALTERAR = "AlterarPatrimonio";
         public static string PATRIMONIO_LISTAR = "BuscarPatrimonio";
-        public static string PATRIMONIO_LISTAR_ATRIBUTOS = "ListarAtributos";
-        public static string PATRIMONIO_LISTAR_ATRIBUTOS_DISPONIVEIS = "ListarAtributosDisponiveis";
         public static string PATRIMONIO_REGISTRAR_MANUTENCAO = "RegistrarManutencao";
         #endregion Patrimonio
 
