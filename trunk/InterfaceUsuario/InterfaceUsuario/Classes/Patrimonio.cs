@@ -107,7 +107,7 @@ namespace InterfaceUsuario.Classes
         /// Apaga os atributo do sistema, identificando pelo ID
         /// </summary>
         /// <returns>True ou False se foi bem sucessido</returns>
-        public bool BaixaPatrimonio(int id)
+        public bool BaixaPatrimonio(Classes.Baixa baixa)
         {
             bool retorno = false;
             WS.Patrimonio ws = new InterfaceUsuario.WS.Patrimonio();
