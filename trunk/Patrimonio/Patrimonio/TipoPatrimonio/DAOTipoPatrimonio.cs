@@ -138,17 +138,17 @@ namespace Patrimonio.TipoPatrimonio
             {
                 List<SqlParameter> parameters = new List<SqlParameter>();
 
-                parameters.Add(new SqlParameter("@id", tipoPatrimonioId));
+                parameters.Add(new SqlParameter("@id", tipoPatrimonio.Id));
 
                 db.AbreConexao();
                 rd = db.ExecuteProcedureReader("sp_tipopatrimonio_consultar");
 
                 if (rd.Read())
                 {
-                    TipoPatrimonio tipoPatrimonio = new TipoPatrimonio();
-                    tipoPatrimonio.Id = Convert.ToInt32(rd["idTipoPatrimonio"].ToString());
-                    tipoPatrimonio.Nome = rd["nomeTipoPatrimonio"].ToString();
-                    tipoPatrimonio.Descricao = rd["descTipoPatrimonio"].ToString();
+                    TipoPatrimonio _tipoPatrimonio = new TipoPatrimonio();
+                    _tipoPatrimonio.Id = Convert.ToInt32(rd["idTipoPatrimonio"].ToString());
+                    _tipoPatrimonio.Nome = rd["nomeTipoPatrimonio"].ToString();
+                    _tipoPatrimonio.Descricao = rd["descTipoPatrimonio"].ToString();
                     _listaTipoPatrimonio.Add(tipoPatrimonio);
                 }
             }
@@ -161,7 +161,7 @@ namespace Patrimonio.TipoPatrimonio
                 db.FechaConexao();
             }
 
-            return tipoPatrimonio;
+            return _listaTipoPatrimonio;
         }
 
         public List<TipoPatrimonio> buscaTipoPatrimonio(TipoPatrimonio tipoPatrimonio)
