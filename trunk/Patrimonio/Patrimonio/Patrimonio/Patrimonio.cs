@@ -8,10 +8,10 @@ namespace Patrimonio.Patrimonio
     public class Patrimonio
     {
         public Patrimonio()
-        { 
+        {
         }
         private int _idEquipamento;
-        [XmlElement(ElementName = "IdEquipamento")] 
+        [XmlElement(ElementName = "IdEquipamento")]
         public int IdEquipamento
         {
             get { return _idEquipamento; }
@@ -85,6 +85,14 @@ namespace Patrimonio.Patrimonio
         {
             get { return _numeroPedido; }
             set { _numeroPedido = value; }
+        }
+
+        private int _idTipoPatrimonio;
+        [XmlElement(ElementName = "IdTipoPatrimonio")]
+        public int IdTipoPatrimonio
+        {
+            get { return _idTipoPatrimonio}
+            set { _idTipoPatrimonio = value}
         }
 
     }
