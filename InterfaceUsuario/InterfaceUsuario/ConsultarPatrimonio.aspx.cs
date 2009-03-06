@@ -241,7 +241,6 @@ namespace InterfaceUsuario
                        object obj = grvResultados.Rows[e.NewEditIndex].DataItem;
 
             //patrimonio = patrimonio.buscaPatrimonio(obj)
-
             Session["patrimonio"] = patrimonio;
 
             grvAtributos.DataSource = patrimonio;
