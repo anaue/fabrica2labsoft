@@ -20,7 +20,7 @@ namespace InterfaceUsuario.WS
         public int CriaTipoPatrimonio(Classes.TipoPatrimonio tipopatrimonio)
         {
             int retorno = -1;
-            ServicoTipoPatrimonio.ServicoTipoPatrimonio wsAtributo = new InterfaceUsuario.ServicoTipoPatrimonio.ServicoTipoPatrimonio();
+            ServicoTipoPatrimonio.ServicoTipoPatrimonio wsTipoPatrimonio = new InterfaceUsuario.ServicoTipoPatrimonio.ServicoTipoPatrimonio();
             ServicoTipoPatrimonio.RequestTipoPatrimonio request = new InterfaceUsuario.ServicoTipoPatrimonio.RequestTipoPatrimonio();
             ServicoTipoPatrimonio.ResponseTipoPatrimonio response = new InterfaceUsuario.ServicoTipoPatrimonio.ResponseTipoPatrimonio();
 
@@ -32,29 +32,28 @@ namespace InterfaceUsuario.WS
 
             #endregion Acesso WS Diretorio
 
-            //if (_url != string.Empty)
-            //{
-            //    wsAtributo.Url = _url;
+            if (_url != string.Empty)
+            {
+                wsTipoPatrimonio.Url = _url;
 
-                //request.Atributo = new InterfaceUsuario.ServicoTipoPatrimonio.TipoPatrimonio()
-                //request.Atributo.Nome = atributo.Nome;
-                //request.Atributo.Descricao = atributo.Descricao;
-                //request.Atributo.Tipo = atributo.Tipo;
-                //request.Atributo.Nulo = atributo.Nulo;
+                request.TipoPatrimonio = new InterfaceUsuario.ServicoTipoPatrimonio.TipoPatrimonio();
+                request.TipoPatrimonio.Descricao = tipopatrimonio.Descricao;
+                request.TipoPatrimonio.Id = tipopatrimonio.Id;
+                request.TipoPatrimonio.Nome = tipopatrimonio.Nome;
                
-                //try
-                //{
-                //    response = wsAtributo.CriarAtributo(request);
-                //    if (response != null && response.StatusCode == 200 && response.ListaAtributos !=null)
-                //        retorno = response.ListaAtributos[0].Id;
+                try
+                {
+                    response = wsTipoPatrimonio.CriarTipoPatrimonio(request);
+                    if (response != null && response.StatusCode == InterfaceUsuario.ServicoTipoPatrimonio.ResponseStatus.OK && response.ListaTipoPatrimonio !=null)
+                        retorno = response.ListaTipoPatrimonio[0].Id;
 
-                //}
-                //catch (Exception ex)
-                //{
-                //    //necessario mostrar uma mensagem ao usuario
-                //}
+                }
+                catch (Exception ex)
+                {
+                    //necessario mostrar uma mensagem ao usuario
+                }
 
-            //}
+            }
 
             return retorno;
         }
@@ -66,7 +65,7 @@ namespace InterfaceUsuario.WS
         public bool DeletaTipoPatrimonio(int Id)
         {
             bool retorno = false;
-            ServicoTipoPatrimonio.ServicoTipoPatrimonio wsAtributo = new InterfaceUsuario.ServicoTipoPatrimonio.ServicoTipoPatrimonio();
+            ServicoTipoPatrimonio.ServicoTipoPatrimonio wsTipoPatrimonio = new InterfaceUsuario.ServicoTipoPatrimonio.ServicoTipoPatrimonio();
             ServicoTipoPatrimonio.RequestTipoPatrimonio request = new InterfaceUsuario.ServicoTipoPatrimonio.RequestTipoPatrimonio();
             ServicoTipoPatrimonio.ResponseTipoPatrimonio response = new InterfaceUsuario.ServicoTipoPatrimonio.ResponseTipoPatrimonio();
             
@@ -77,32 +76,27 @@ namespace InterfaceUsuario.WS
             dir = null;
             #endregion           
 
-            //Properties.Settings.Default.InterfaceUsuario_ServicoAtributo_ServicoAtributo;
-           
+            if (_url != string.Empty)
+            {
+                // atualiza o endereco do WS
+                wsTipoPatrimonio.Url = _url;
 
+                request.TipoPatrimonio = new InterfaceUsuario.ServicoTipoPatrimonio.TipoPatrimonio();
+                request.TipoPatrimonio.Id = Id;
 
-            //if (_url != string.Empty)
-            //{
-            //    // atualiza o endereco do WS
-            //    wsAtributo.Url = _url; 
+                try
+                {
+                    response = wsTipoPatrimonio.DeletarTipoPatrimonio(request);
+                    if (response != null && response.StatusCode == InterfaceUsuario.ServicoTipoPatrimonio.ResponseStatus.OK);  
+                        retorno = true;
 
-            //    request.Atributo = new InterfaceUsuario.ServicoAtributo.Atributo();
-            //    request.Atributo.Id = Id;
-            //    try
-            //    {
-            //        response = wsAtributo.DeletarAtributo(request);
-            //        if (response != null && response.StatusCode == 200)
-            //            // falta implementar a função aqui     
-                        
-            //            retorno = false; //true;
+                }
+                catch (Exception ex)
+                {
+                    //necessario mostrar uma mensagem ao usuario
+                }
 
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        //necessario mostrar uma mensagem ao usuario
-            //    }
-
-            //}
+            }
 
             return retorno;
         }
@@ -111,10 +105,10 @@ namespace InterfaceUsuario.WS
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public bool ConsultaTipoPatrimonio(int Id)
+        public Classes.TipoPatrimonio ConsultaTipoPatrimonio(int Id)
         {
-            bool retorno = false;
-            ServicoTipoPatrimonio.ServicoTipoPatrimonio wsAtributo = new InterfaceUsuario.ServicoTipoPatrimonio.ServicoTipoPatrimonio();
+            Classes.TipoPatrimonio _TipoPatrimonio = new Classes.TipoPatrimonio();
+            ServicoTipoPatrimonio.ServicoTipoPatrimonio wsTipoPatrimonio = new InterfaceUsuario.ServicoTipoPatrimonio.ServicoTipoPatrimonio();
             ServicoTipoPatrimonio.RequestTipoPatrimonio request = new InterfaceUsuario.ServicoTipoPatrimonio.RequestTipoPatrimonio();
             ServicoTipoPatrimonio.ResponseTipoPatrimonio response = new InterfaceUsuario.ServicoTipoPatrimonio.ResponseTipoPatrimonio();
 
@@ -123,31 +117,32 @@ namespace InterfaceUsuario.WS
             string _url = dir.ObtemEnderecoServico(Arv.Common.WSServicesNames.TIPO_PATRIMONIO_CONSULTAR);
             dir = null;
 
+            if (_url != string.Empty)
+            {
+                // atualiza o endereco do WS
+                wsTipoPatrimonio.Url = _url;
 
-            //if (_url != string.Empty)
-            //{
-            //    // atualiza o endereco do WS
-            //    wsAtributo.Url = _url;
+                request.TipoPatrimonio = new InterfaceUsuario.ServicoTipoPatrimonio.TipoPatrimonio();
+                request.TipoPatrimonio.Id = Id;
+                try
+                {
+                    response = wsTipoPatrimonio.ConsultarTipoPatrimonio(request);
+                    if (response != null && response.StatusCode == InterfaceUsuario.ServicoTipoPatrimonio.ResponseStatus.OK && response.ListaTipoPatrimonio != null)
+                    {
+                        _TipoPatrimonio.Nome =  response.ListaTipoPatrimonio[0].Nome;
+                        _TipoPatrimonio.Id = response.ListaTipoPatrimonio[0].Id;
+                        _TipoPatrimonio.Descricao = response.ListaTipoPatrimonio[0].Descricao;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //necessario mostrar uma mensagem ao usuario
+                }
+                return _TipoPatrimonio;
 
-            //    request.Atributo = new InterfaceUsuario.ServicoAtributo.Atributo();
-            //    request.Atributo.Id = Id;
-            //    try
-            //    {
-            //        response = wsAtributo.ConsultarAtributo(request);
-            //        if (response != null && response.StatusCode == 200)
-            //            // falta implementar a função aqui     
+            }
 
-            //            retorno = false; //true;
-
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        //necessario mostrar uma mensagem ao usuario
-            //    }
-
-            //}
-
-            return retorno;
+            return _TipoPatrimonio;
         }
         /// <summary>
         /// Metodo incompleto
@@ -216,8 +211,22 @@ namespace InterfaceUsuario.WS
 
             return new List<InterfaceUsuario.Classes.TipoPatrimonio>();
         }
-        //esse cara esta no lugar certo???? nao deveria ser da Atributos mesmo??
+        
         public List<Classes.Atributo> ListaAtributos(int IdPatrimonio)
+        {
+            ServicoTipoPatrimonio.ServicoTipoPatrimonio wsAtributo = new InterfaceUsuario.ServicoTipoPatrimonio.ServicoTipoPatrimonio();
+            ServicoTipoPatrimonio.RequestTipoPatrimonio request = new InterfaceUsuario.ServicoTipoPatrimonio.RequestTipoPatrimonio();
+            ServicoTipoPatrimonio.ResponseTipoPatrimonio response = new InterfaceUsuario.ServicoTipoPatrimonio.ResponseTipoPatrimonio();
+
+            Diretorio dir = new Diretorio();
+            // A nome do serviço é definido no banco de dados, pelo serviço diretório
+            string _url = dir.ObtemEnderecoServico(Arv.Common.WSServicesNames.ATRIBUTO_CONSULTAR);
+            dir = null;
+
+            return new List<InterfaceUsuario.Classes.Atributo>();
+        }
+
+        public List<Classes.Atributo> ListaAtributosDisponiveis()
         {
             ServicoTipoPatrimonio.ServicoTipoPatrimonio wsAtributo = new InterfaceUsuario.ServicoTipoPatrimonio.ServicoTipoPatrimonio();
             ServicoTipoPatrimonio.RequestTipoPatrimonio request = new InterfaceUsuario.ServicoTipoPatrimonio.RequestTipoPatrimonio();
