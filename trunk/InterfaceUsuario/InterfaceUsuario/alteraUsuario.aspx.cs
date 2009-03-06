@@ -16,8 +16,21 @@ namespace InterfaceUsuario
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           // TextBoxSenhaConf.Text = 
+            Usuario usuario = new Usuario();
+
+            usuario = usuario.ConsultaUsuario(Convert.ToInt32(Request.QueryString["Id"]));
+
+            
+            usuario.Nome = "João";
+            usuario.Senha = "aaa";
+            usuario.Descricao = "bbb";
+
+            TextBoxNome.Text = usuario.Nome;
+            TextBoxSenhaConf.Text = usuario.Senha;
+            TextBoxDescricao.Text = usuario.Descricao;
+
         }
+
         protected void Button_altera(object sender, EventArgs e)
         {
             Usuario usuario = new Usuario();
@@ -25,9 +38,9 @@ namespace InterfaceUsuario
             usuario.Senha = TextBoxSenhaConf.Text;
             usuario.Descricao = TextBoxDescricao.Text;
 
-          //  List<Classes.Usuario> usuarios = usuario.BuscaUsuarios(usuario.Nome, usuario.Descricao);
+            usuario.AlteraUsuario(usuario);
 
-            usuario.CriaUsuario(usuario);
+            Response.Redirect("PaginaDeSucesso.aspx?Acao=Cadastrar Usuário&Msg=Alterado com sucesso");
         }
     }
 }
