@@ -258,11 +258,11 @@ namespace InterfaceUsuario.WS
                     if (response != null && response.StatusCode == InterfaceUsuario.ServicoTipoPatrimonio.ResponseStatus.OK && response.ListaTipoPatrimonio != null)
                         foreach (ServicoTipoPatrimonio.TipoPatrimonio ltp in response.ListaTipoPatrimonio)
                         {
-                            Classes.TipoPatrimonio tp = new InterfaceUsuario.Classes.TipoPatrimonio();
-                            tp.Descricao = ltp.Descricao;
-                            tp.Id = ltp.Id;
-                            tp.Nome = ltp.Nome;
-                            retorno.Add(tp);
+                            //Classes.TipoPatrimonio tp = new InterfaceUsuario.Classes.TipoPatrimonio();
+                            //tp.Descricao = ltp.Descricao;
+                            //tp.Id = ltp.Id;
+                            //tp.Nome = ltp.Nome;
+                            //retorno.Add(tp);
                         }
 
                 }
@@ -271,6 +271,7 @@ namespace InterfaceUsuario.WS
                     //necessario mostrar uma mensagem ao usuario
                 }
             }
+            return retorno;
         }
 
         public List<Classes.Atributo> ListaAtributosDisponiveis()
