@@ -58,7 +58,7 @@ namespace InterfaceUsuario.WS
                 }
                 catch (Exception ex)
                 {
-                    throw ex;
+                    //throw ex;
                     //necessario mostrar uma mensagem ao usuario
                 }
 
