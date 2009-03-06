@@ -32,7 +32,6 @@ CREATE PROCEDURE sp_atributo_inserir
 	@desc			VARCHAR(255),
 	@tipo			VARCHAR(20),
 	@nulo			VARCHAR(20),
-	@tipoPatrimonio	INT,
 	@RetSt			INT = 0	OUTPUT
 AS
 BEGIN
@@ -61,12 +60,6 @@ BEGIN
 		SET @RetSt = @@ERROR
 		GOTO FIM
 	END	
-	IF NOT EXISTS(SELECT idTipoPatrimonio FROM tb_TipoPatrimonio WHERE idTipoPatrimonio = @tipoPatrimonio)
-	BEGIN
-		RAISERROR 70002 'Tipo de patrimonio inexistente'
-		SET @RetSt = @@ERROR
-		GOTO FIM
-	END
 	IF NOT(@tipo = 'combo' OR @tipo = 'text')
 	BEGIN
 		RAISERROR 80002 'Tipo de atributo desconhecido'
@@ -84,10 +77,8 @@ BEGIN
 	IF @RetSt <> 0 GOTO FIM
 
     -- Insert statements for procedure here
-	INSERT INTO tb_Atributo (idAtributo, nomeAtributo, descAtributo, tipoAtributo, nuloAtributo, idTipoPatrimonio) 
-	VALUES (@id, @nome, @desc, @tipo, @nulo, @tipoPatrimonio)
-	INSERT INTO tb_TipoPatrimonioAtributo (idAtributo, idTipoPatrimonio)
-	VALUES (@id, @tipoPatrimonio)
+	INSERT INTO tb_Atributo (idAtributo, nomeAtributo, descAtributo, tipoAtributo, nuloAtributo) 
+	VALUES (@id, @nome, @desc, @tipo, @nulo)
 	SET @RetSt = @@ERROR
 
 FIM:
