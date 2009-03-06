@@ -260,14 +260,15 @@ namespace InterfaceUsuario
 
         protected void btnBaixa_Click(object sender, EventArgs e)
         {
-            Classes.Baixa baixa = new InterfaceUsuario.Classes.Baixa();
-            Classes.Patrimonio patrimonio;
-            //patrimonio.BaixaPatrimonio(
+            Classes.Patrimonio patrimonio = (Classes.Patrimonio)Session["patrimonio"];
+            Response.Redirect("DarBaixa.aspx?IdEquipamento=" + patrimonio.IdEquipamento + "&NPece=" + patrimonio.NumeroPECE);
         }
 
         protected void btnManutencao_Click(object sender, EventArgs e)
         {
-
+            Classes.Patrimonio patrimonio = (Classes.Patrimonio)Session["patrimonio"];
+            Classes.Manutencao m;
+            Response.Redirect("DarManutencao.aspx?IdEquipamento=" + patrimonio.IdEquipamento + "&NPece=" + patrimonio.NumeroPECE);
         }
 
         void VisualizarParaConsulta(Classes.Patrimonio patrimonio)
@@ -434,7 +435,7 @@ namespace InterfaceUsuario
             patrimonio.ListAtributos = patrimonio.ListAtributos;
             try
             {
-                //patrimonio.AlterarPatrimonio();
+                patrimonio.AlteraPatrimonio(patrimonio);
             }
             catch (Exception ex)
             {
@@ -446,8 +447,7 @@ namespace InterfaceUsuario
         protected void btnDeletar_Click(object sender, EventArgs e)
         {
             Classes.Patrimonio patrimonio = (Classes.Patrimonio)Session["patrimonio"];
-
-            //patrimonio.Deletar(patrimonio.npece)
+            patrimonio.DeletaPatrimonio(patrimonio.IdEquipamento);
         }
 
         protected void grvAtributos_DataBound(object sender, EventArgs e)
