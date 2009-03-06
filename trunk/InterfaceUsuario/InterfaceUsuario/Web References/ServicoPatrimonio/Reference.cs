@@ -307,7 +307,7 @@ namespace InterfaceUsuario.ServicoPatrimonio {
         
         private Patrimonio patrimonioField;
         
-        private Manutencao manutencaoPatrimonioField;
+        private Manutencao manutencaoField;
         
         private Baixa baixaPatrimonioField;
         
@@ -324,12 +324,12 @@ namespace InterfaceUsuario.ServicoPatrimonio {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public Manutencao ManutencaoPatrimonio {
+        public Manutencao Manutencao {
             get {
-                return this.manutencaoPatrimonioField;
+                return this.manutencaoField;
             }
             set {
-                this.manutencaoPatrimonioField = value;
+                this.manutencaoField = value;
             }
         }
         
@@ -495,6 +495,8 @@ namespace InterfaceUsuario.ServicoPatrimonio {
         
         private string[] listaValoresField;
         
+        private string valorField;
+        
         /// <remarks/>
         public int Id {
             get {
@@ -553,6 +555,16 @@ namespace InterfaceUsuario.ServicoPatrimonio {
             }
             set {
                 this.listaValoresField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Valor {
+            get {
+                return this.valorField;
+            }
+            set {
+                this.valorField = value;
             }
         }
     }
@@ -670,84 +682,28 @@ namespace InterfaceUsuario.ServicoPatrimonio {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.pece.org.br/")]
     public partial class ResponsePatrimonio : BaseResponse {
         
+        private Manutencao manutencaoField;
+        
         private Patrimonio[] listaPatrimonioField;
         
         /// <remarks/>
+        public Manutencao Manutencao {
+            get {
+                return this.manutencaoField;
+            }
+            set {
+                this.manutencaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("ListaPatrimonio")]
         public Patrimonio[] ListaPatrimonio {
             get {
                 return this.listaPatrimonioField;
             }
             set {
                 this.listaPatrimonioField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.3082")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.pece.org.br/")]
-    public partial class Baixa {
-        
-        private int idBaixaField;
-        
-        private System.DateTime dataManutencaoField;
-        
-        private string destinoBaixaField;
-        
-        private string observacoesBaixaField;
-        
-        private int idUsuarioField;
-        
-        /// <remarks/>
-        public int IdBaixa {
-            get {
-                return this.idBaixaField;
-            }
-            set {
-                this.idBaixaField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime DataManutencao {
-            get {
-                return this.dataManutencaoField;
-            }
-            set {
-                this.dataManutencaoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DestinoBaixa {
-            get {
-                return this.destinoBaixaField;
-            }
-            set {
-                this.destinoBaixaField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ObservacoesBaixa {
-            get {
-                return this.observacoesBaixaField;
-            }
-            set {
-                this.observacoesBaixaField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int IdUsuario {
-            get {
-                return this.idUsuarioField;
-            }
-            set {
-                this.idUsuarioField = value;
             }
         }
     }
@@ -807,6 +763,75 @@ namespace InterfaceUsuario.ServicoPatrimonio {
             }
             set {
                 this.observacaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int IdUsuario {
+            get {
+                return this.idUsuarioField;
+            }
+            set {
+                this.idUsuarioField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.3082")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.pece.org.br/")]
+    public partial class Baixa {
+        
+        private int idBaixaField;
+        
+        private System.DateTime dataManutencaoField;
+        
+        private string destinoBaixaField;
+        
+        private string observacoesBaixaField;
+        
+        private int idUsuarioField;
+        
+        /// <remarks/>
+        public int IdBaixa {
+            get {
+                return this.idBaixaField;
+            }
+            set {
+                this.idBaixaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime DataManutencao {
+            get {
+                return this.dataManutencaoField;
+            }
+            set {
+                this.dataManutencaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DestinoBaixa {
+            get {
+                return this.destinoBaixaField;
+            }
+            set {
+                this.destinoBaixaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ObservacoesBaixa {
+            get {
+                return this.observacoesBaixaField;
+            }
+            set {
+                this.observacoesBaixaField = value;
             }
         }
         

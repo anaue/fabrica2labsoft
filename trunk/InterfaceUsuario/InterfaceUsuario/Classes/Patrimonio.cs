@@ -83,9 +83,76 @@ namespace InterfaceUsuario.Classes
         #endregion Acessors
 
 
-        internal void CadastraPatrimonio()
+        public int CriaPatrimonio()
         {
-            throw new NotImplementedException();
+            int retorno =0;
+            WS.Patrimonio ws = new InterfaceUsuario.WS.Patrimonio();
+            //retorno = ws.CriaAtributo(this);
+
+            return retorno;
+        }
+        /// <summary>
+        /// Apaga os atributo do sistema, identificando pelo ID
+        /// </summary>
+        /// <returns>True ou False se foi bem sucessido</returns>
+        public bool DeletaPatrimonio(int id)
+        {
+            bool retorno = false;
+            WS.Patrimonio ws = new InterfaceUsuario.WS.Patrimonio();
+           // retorno = ws.DeletaAtributo(id);
+
+            return retorno;
+        }
+        /// <summary>
+        /// Apaga os atributo do sistema, identificando pelo ID
+        /// </summary>
+        /// <returns>True ou False se foi bem sucessido</returns>
+        public bool BaixaPatrimonio(int id)
+        {
+            bool retorno = false;
+            WS.Patrimonio ws = new InterfaceUsuario.WS.Patrimonio();
+            // retorno = ws.DeletaAtributo(id);
+
+            return retorno;
+        }
+        /// <summary>
+        /// Atualiza os dados do Atributo em questão
+        /// </summary>
+        /// <param name="atributo">O objeto precisa ter o ID definido para fazer a busca</param>
+        /// <returns>True ou False se foi bem sucessido </returns>
+        public bool AlteraPatrimonio(Patrimonio patrimonio)
+        {
+            bool retorno = false;
+            if (patrimonio._idEquipamento > -1)
+            {
+                WS.Patrimonio ws = new InterfaceUsuario.WS.Patrimonio();
+                //retorno = ws.AlteraAtributo(atributo);
+            }
+
+            return retorno;
+        }
+        /// <summary>
+        /// Realiza a consulta de atributos.
+        /// </summary>
+        /// <returns>Retorna lista com um atributo</returns>
+        public Patrimonio ConsultaPatrimonio(int id)
+        {
+            Patrimonio patrimonio = new Patrimonio();
+            WS.Patrimonio ws = new InterfaceUsuario.WS.Patrimonio();
+            //patrimonio = ws.ConsultaAtributo(id);
+
+            return patrimonio;
+        }
+        /// <summary>
+        /// Registra manutencao.
+        /// </summary>
+        /// <returns>Retorna o id do patrimonio</returns>
+        public int ColocaManutencao(Manutencao manutencao)
+        {
+            int retorno = 0;
+            WS.Patrimonio ws = new InterfaceUsuario.WS.Patrimonio();
+            retorno = ws.RegistrarPatrimonio(this, manutencao);
+            return retorno;
         }
     }
 }

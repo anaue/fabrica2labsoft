@@ -214,7 +214,7 @@ namespace InterfaceUsuario
             patrimonio.ListAtributos = lstAtributos;
             try
             {
-                patrimonio.CadastraPatrimonio();
+                patrimonio.CriaPatrimonio();
             }
             catch (Exception ex)
             {

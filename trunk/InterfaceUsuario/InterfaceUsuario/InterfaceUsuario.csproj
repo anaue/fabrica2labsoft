@@ -239,8 +239,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="alteraUsuario.aspx" />
-    <Content Include="bin\Arv.Common.dll" />
-    <Content Include="bin\Arv.Common.pdb" />
     <Content Include="CadastrarPatrimonio.aspx" />
     <Content Include="CadastrarTipoPatrimonio.aspx" />
     <Content Include="cadastraUsuario.aspx" />
