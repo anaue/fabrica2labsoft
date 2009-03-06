@@ -15,7 +15,7 @@ namespace Patrimonio.TipoPatrimonio
             _connString = Properties.Settings.Default.ConnectionString;
         }
 
-		internal int InsereTipoPatrimonio(TipoPatrimonio tipopatrimonio)
+        public int InsereTipoPatrimonio(TipoPatrimonio tipopatrimonio)
         {
             int linhasafetadas = 0;
             ArvDatabase db = new ArvDatabase(_connString);
@@ -29,6 +29,37 @@ namespace Patrimonio.TipoPatrimonio
 
                 db.AbreConexao();
                 linhasafetadas = db.ExecuteProcedureNonQuery("sp_tipopatrimonio_inserir", parameters);
+                //Insere os relacionamentos na tabela TipoPatrimonioAtributo
+                foreach (Atributo.Atributo atributo in tipopatrimonio.ListAtributos)
+                {
+                    int linhasafetadas2=InsereTipoPatrimonioAtributo(tipopatrimonio.Id, atributo.Id);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                db.FechaConexao();
+            }
+            return linhasafetadas;
+        }
+
+        public int InsereTipoPatrimonioAtributo(int idTipoPatrimonio, int idAtributo)
+        {
+            int linhasafetadas = 0;
+            ArvDatabase db = new ArvDatabase(_connString);
+            try
+            {
+                List<SqlParameter> parameters = new List<SqlParameter>();
+
+                parameters.Add(new SqlParameter("@idTipoPatrimonio", idTipoPatrimonio));
+                parameters.Add(new SqlParameter("@idAtributo", idAtributo));
+                
+                db.AbreConexao();
+                linhasafetadas = db.ExecuteProcedureNonQuery("sp_tipopatrimonioatributo_inserir", parameters);
             }
             catch (Exception ex)
             {
@@ -94,10 +125,12 @@ namespace Patrimonio.TipoPatrimonio
 
             return tipopatrimonio;
         }
+       
         public TipoPatrimonio consultaTipoPatrimonio(int tipoPatrimonioId)
         {
             TipoPatrimonio tipoPatrimonio = null;
             SqlDataReader rd;
+            Atributo.DAOAtributo daoAtributo = new Atributo.DAOAtributo();
 
             ArvDatabase db = new ArvDatabase(_connString);
             try
@@ -115,6 +148,7 @@ namespace Patrimonio.TipoPatrimonio
                     tipoPatrimonio.Id = Convert.ToInt32(rd["idTipoPatrimonio"].ToString());
                     tipoPatrimonio.Nome = rd["nomeTipoPatrimonio"].ToString();
                     tipoPatrimonio.Descricao = rd["descTipoPatrimonio"].ToString();
+                    tipoPatrimonio.ListAtributos = daoAtributo.ListarAtributosTipoPatrimonio(tipoPatrimonioId);
                 }
             }
             catch (Exception ex)
@@ -130,6 +164,7 @@ namespace Patrimonio.TipoPatrimonio
         }
         public List<TipoPatrimonio> ListaTipoPatrimonio(TipoPatrimonio tipoPatrimonio)
         {
+            Atributo.DAOAtributo daoAtributo = new Atributo.DAOAtributo();
             List<TipoPatrimonio> _listaTipoPatrimonio = new List<TipoPatrimonio>();
             SqlDataReader rd;
 
@@ -149,7 +184,8 @@ namespace Patrimonio.TipoPatrimonio
                     _tipoPatrimonio.Id = Convert.ToInt32(rd["idTipoPatrimonio"].ToString());
                     _tipoPatrimonio.Nome = rd["nomeTipoPatrimonio"].ToString();
                     _tipoPatrimonio.Descricao = rd["descTipoPatrimonio"].ToString();
-                    _listaTipoPatrimonio.Add(tipoPatrimonio);
+                    _tipoPatrimonio.ListAtributos = daoAtributo.ListarAtributosTipoPatrimonio(_tipoPatrimonio.Id);
+                    _listaTipoPatrimonio.Add(_tipoPatrimonio);
                 }
             }
             catch (Exception ex)
