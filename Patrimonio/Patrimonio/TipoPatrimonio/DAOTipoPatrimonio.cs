@@ -1,33 +1,36 @@
 ﻿using System;
 using System.Data;
-using System.Configuration;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Collections.Generic;
+using System.Data.SqlClient;
 using Arv.Database;
+using System.Collections.Generic;
 
 namespace Patrimonio.TipoPatrimonio
 {
     public class DAOTipoPatrimonio
     {
-        public DAOTipoPatrimonio()
+        private string _connString;
+		
+		public DAOTipoPatrimonio()
         {
             _connString = Properties.Settings.Default.ConnectionString;
         }
-        private string _connString;
-        public int InsereTipoPatrimonio(TipoPatrimonio tipopatrimonio)
+
+		internal int InsereTipoPatrimonio(TipoPatrimonio tipopatrimonio)
         {
             int linhasafetadas = 0;
             int idGerado = 0;
+			
             ArvDatabase db = new ArvDatabase(_connString);
             try
             {
+                List<SqlParameter> parameters = new List<SqlParameter>();
 
+                //parameters.Add(new SqlParameter("@nome", usuario.Nome));
+                //parameters.Add(new SqlParameter("@desc", usuario.Senha));
+                //parameters.Add(new SqlParameter("@tipo", usuario.Descricao));
 
+                db.AbreConexao();
+                idUsuario = db.ExecuteProcedureNonQuery("sp_usuario_inserir", parameters);
             }
             catch (Exception ex)
             {
