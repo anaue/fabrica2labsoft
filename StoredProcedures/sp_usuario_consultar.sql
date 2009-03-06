@@ -1,7 +1,7 @@
 -- =============================================
 -- Author: Bruno Kohn
 -- Create date: 2009-02-19
--- Description: remove um usuario
+-- Description: consulta um usuario com com o id especificado ou retorna todos os usuarios se nao for passado o id
 -- =============================================
 
 if exists (select * from sysobjects where type = 'p' and name = 'sp_usuario_consultar')
