@@ -114,27 +114,10 @@ namespace InterfaceUsuario.Classes
         {
             //throw new NotImplementedException();
             List<Atributo> listAtributos = new List<Atributo>();
-<<<<<<< .mine
-=======
-            //Atributo atributo = new Atributo();
-            //atributo.Id = 1;
-            //atributo.Nome = "teste";
-            //Atributo atributo1 = new Atributo();
-            //atributo1.Nome = "teste1";
-            //atributo1.Id = 2;
-            //listAtributos.Add(atributo);
-            //listAtributos.Add(atributo1);
->>>>>>> .r257
 
-<<<<<<< .mine
             WS.TipoPatrimonio ws = new InterfaceUsuario.WS.TipoPatrimonio();
             listAtributos = ws.ListaAtributosDisponiveis();
 
-=======
-
-
-
->>>>>>> .r257
             return listAtributos;
         }
 
@@ -166,9 +149,10 @@ namespace InterfaceUsuario.Classes
         public bool AlteraTipoPatrimonio(TipoPatrimonio tipopatrimonio)
         {
             bool retorno = true;
+            WS.TipoPatrimonio ws = new InterfaceUsuario.WS.TipoPatrimonio();
             if (tipopatrimonio.Id > -1)
             {
-
+                retorno = ws.AlteraTipoPatrimonio(tipopatrimonio);
             }
             else
             {
