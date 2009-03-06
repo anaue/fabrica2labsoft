@@ -80,8 +80,6 @@ namespace Patrimonio.TipoPatrimonio
             }
             return _response;
         }
-
-        
         [WebMethod(MessageName = "AlteraTipoPatrimonio")]
         public ResponseTipoPatrimonio AlterarTipoPatrimonio(RequestTipoPatrimonio _request)
         {
@@ -124,10 +122,64 @@ namespace Patrimonio.TipoPatrimonio
                     {
                         _response.ListaTipoPatrimonio.Add(tipoPatrimonioConsultado);
                     }
-                    else
+                    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
+                }
+            }
+            catch (Exception ex)
+            {
+                _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.InternalServerError;
+                _response.Message = string.Format("Erro na consulta do registro: {0}", ex.Message);
+            }
+            return _response;
+        }
+        [WebMethod(MessageName = "ListaAtributos")]
+        public ResponseTipoPatrimonio ListarAtributos(RequestTipoPatrimonio _request)
+        {
+            ResponseTipoPatrimonio _response = new ResponseTipoPatrimonio();
+            DAOTipoPatrimonio daotipopatrimonio = new DAOTipoPatrimonio();
+            try
+            {
+                if (_request != null)
+                {
+                    ////implementacao da função vai aqui
+                    TipoPatrimonio tipoPatrimonioConsultado = new TipoPatrimonio();
+                    _response.ListaTipoPatrimonio = new System.Collections.Generic.List<TipoPatrimonio>();
+
+                    tipoPatrimonioConsultado = daotipopatrimonio.consultaTipoPatrimonio(_request.TipoPatrimonio.Id);
+                    if (tipoPatrimonioConsultado != null)
                     {
+                        _response.ListaTipoPatrimonio.Add(tipoPatrimonioConsultado);
                     }
+
                     /////
+                    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
+                }
+            }
+            catch (Exception ex)
+            {
+                _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.InternalServerError;
+                _response.Message = string.Format("Erro na consulta do registro: {0}", ex.Message);
+            }
+            return _response;
+        }
+        [WebMethod(MessageName = "ListaAtributosDisponivies")]
+        public ResponseTipoPatrimonio ListaAtributosDisponivies(RequestTipoPatrimonio _request)
+        {
+            ResponseTipoPatrimonio _response = new ResponseTipoPatrimonio();
+            DAOTipoPatrimonio daotipopatrimonio = new DAOTipoPatrimonio();
+            try
+            {
+                if (_request != null)
+                {
+                    ////implementacao da função vai aqui
+                    TipoPatrimonio tipoPatrimonioConsultado = new TipoPatrimonio();
+                    _response.ListaTipoPatrimonio = new System.Collections.Generic.List<TipoPatrimonio>();
+
+                    tipoPatrimonioConsultado = daotipopatrimonio.consultaTipoPatrimonio(_request.TipoPatrimonio.Id);
+                    if (tipoPatrimonioConsultado != null)
+                    {
+                        _response.ListaTipoPatrimonio.Add(tipoPatrimonioConsultado);
+                    }
                     _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
                 }
             }
