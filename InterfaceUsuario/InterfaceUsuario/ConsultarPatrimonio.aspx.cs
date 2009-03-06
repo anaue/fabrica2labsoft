@@ -201,37 +201,42 @@ namespace InterfaceUsuario
         {
             Classes.Patrimonio patrimonio = new InterfaceUsuario.Classes.Patrimonio();
             List<Classes.Patrimonio> lstPatrimonio = new List<InterfaceUsuario.Classes.Patrimonio>();
-
-            switch (ddlAtributos.SelectedValue.ToString())
+            if (ddlAtributos.SelectedValue != string.Empty)
             {
-                case "numeroPece":
+                switch (ddlAtributos.SelectedValue.ToString())
+                {
+                    case "numeroPece":
 
-                    break;
-                case "dtCompra":
+                        break;
+                    case "dtCompra":
 
-                    break;
-                case "numeroNotaFiscal":
+                        break;
+                    case "numeroNotaFiscal":
 
-                    break;
-                case "dtExpGarantia":
+                        break;
+                    case "dtExpGarantia":
 
-                    break;
-                case "local":
+                        break;
+                    case "local":
 
-                    break;
-                case "numeroPedido":
+                        break;
+                    case "numeroPedido":
 
-                    break;
-                default:
-                    Classes.Atributo atributo = new Classes.Atributo();
-                    atributo = atributo.ConsultaAtributo(Convert.ToInt32(ddlAtributos.SelectedValue));
+                        break;
+                    default:
+                        Classes.Atributo atributo = new Classes.Atributo();
+                        atributo = atributo.ConsultaAtributo(Convert.ToInt32(ddlAtributos.SelectedValue));
 
-                    break;
+                        break;
+                }
+
+                panFiltros.Visible = false;
+                panResultados.Visible = true;
             }
+            else
+            {
 
-            panFiltros.Visible = false;
-            panResultados.Visible = true;
-
+            }
             // FAZ A BUSCA
         }
 
