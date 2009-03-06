@@ -143,14 +143,12 @@ namespace Patrimonio.TipoPatrimonio
                 if (_request != null)
                 {
                     ////implementacao da função vai aqui
-                    TipoPatrimonio tipoPatrimonioConsultado = new TipoPatrimonio();
+                    List<TipoPatrimonio> listaTipoPatrimonioConsultado = new List<TipoPatrimonio>();
                     _response.ListaTipoPatrimonio = new System.Collections.Generic.List<TipoPatrimonio>();
 
-                    tipoPatrimonioConsultado = daotipopatrimonio.ListaTipoPatrimonio(_request.TipoPatrimonio)[0];
-                    if (tipoPatrimonioConsultado != null)
-                    {
-                        _response.ListaTipoPatrimonio.Add(tipoPatrimonioConsultado);
-                    }
+                    listaTipoPatrimonioConsultado = daotipopatrimonio.ListaTipoPatrimonio(_request.TipoPatrimonio);
+                    _response.ListaTipoPatrimonio = listaTipoPatrimonioConsultado;
+                    
 
                     /////
                     _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
@@ -159,7 +157,7 @@ namespace Patrimonio.TipoPatrimonio
             catch (Exception ex)
             {
                 _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.InternalServerError;
-                _response.Message = string.Format("Erro na consulta do registro: {0}", ex.Message);
+                _response.Message = string.Format("Erro na consulta dos registros em ListaTipoPatrimonio(): {0}", ex.Message);
             }
             return _response;
         }

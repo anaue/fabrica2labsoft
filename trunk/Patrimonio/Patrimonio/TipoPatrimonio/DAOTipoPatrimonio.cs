@@ -143,7 +143,7 @@ namespace Patrimonio.TipoPatrimonio
                 db.AbreConexao();
                 rd = db.ExecuteProcedureReader("sp_tipopatrimonio_consultar");
 
-                if (rd.Read())
+                while (rd.Read())
                 {
                     TipoPatrimonio _tipoPatrimonio = new TipoPatrimonio();
                     _tipoPatrimonio.Id = Convert.ToInt32(rd["idTipoPatrimonio"].ToString());

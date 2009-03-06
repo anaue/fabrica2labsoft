@@ -41,7 +41,8 @@ BEGIN
 
     -- Insert statements for procedure here
 	SELECT * FROM tb_TipoPatrimonio WHERE
-		idTipoPatrimonio = COALESCE(@id, idTipoPatrimonio) AND
+		idTipoPatrimonio = COALESCE(@id, 
+		) AND
 		nomeTipoPatrimonio LIKE '%' + COALESCE(@nome, nomeTipoPatrimonio) + '%' AND
 		descTipoPatrimonio LIKE '%' + COALESCE(@desc, descTipoPatrimonio) + '%' AND
 		idTipoAcesso = COALESCE(@tipo, idTipoAcesso)
