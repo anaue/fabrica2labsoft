@@ -32,6 +32,8 @@ namespace Usuarios.Autenticador
 
                     if (_response.Autenticador != null)
                         _response.RegistroCorreto = true;
+                    else
+                        throw new Exception("Login inválido");
                 }
             }
             catch (Exception ex)
