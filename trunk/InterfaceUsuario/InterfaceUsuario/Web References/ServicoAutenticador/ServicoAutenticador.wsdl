@@ -67,6 +67,9 @@
       </s:simpleType>
       <s:complexType name="Autenticador">
         <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idUsuario" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="idTela" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="idTipoAcesso" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="PermissaoIncluir" type="s:boolean" />
           <s:element minOccurs="1" maxOccurs="1" name="PermissaoExcluir" type="s:boolean" />
           <s:element minOccurs="1" maxOccurs="1" name="PermissaoConsultar" type="s:boolean" />

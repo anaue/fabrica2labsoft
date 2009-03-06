@@ -20,11 +20,19 @@ namespace Usuarios.Autenticador
         }
 
         private int _idTela;
-        [XmlElement(ElementName = "idUsuario")]
+        [XmlElement(ElementName = "idTela")]
         public int IdTela
         {
             get { return _idTela; }
             set { _idTela = value; }
+        }
+
+        private int _idTipoDeAcesso;
+        [XmlElement(ElementName = "idTipoAcesso")]
+        public int IdTipoDeAcesso
+        {
+            get { return _idTipoDeAcesso; }
+            set { _idTipoDeAcesso = value; }
         }
 
         private bool _permissaoIncluir;

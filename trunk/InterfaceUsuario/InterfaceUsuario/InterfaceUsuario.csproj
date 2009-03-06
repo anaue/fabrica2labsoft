@@ -41,7 +41,7 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Default.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Default3.aspx" />
     <Content Include="Default5.aspx" />
     <Content Include="relatorio_exemplo.aspx" />
@@ -126,12 +126,12 @@
     <Compile Include="DarManutencao.aspx.designer.cs">
       <DependentUpon>DarManutencao.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default3.aspx.cs">
       <DependentUpon>Default3.aspx</DependentUpon>

@@ -33,13 +33,25 @@ namespace InterfaceUsuario.Classes
         {
             get { return _permissaoEditar; }
             set { _permissaoEditar = value; }
+        }
+        private int _idUsuario;
+        public int IdUsuario
+        {
+            get { return _idUsuario; }
+            set { _idUsuario = value; }
+        }
+        private int _idTipoAcesso;
+        public int IdTipoAcesso
+        {
+            get { return _idTipoAcesso; }
+            set { _idTipoAcesso = value; }
         } 
         #endregion Accessors
 
         #region Methods
-        public bool Login(string nomeUsuario, string senha)
+        public Classes.Autenticador Login(string nomeUsuario, string senha)
         {
-            bool retorno;
+            Classes.Autenticador retorno;
             WS.Autenticador ws = new InterfaceUsuario.WS.Autenticador();
             retorno = ws.Login(nomeUsuario, senha);            
 

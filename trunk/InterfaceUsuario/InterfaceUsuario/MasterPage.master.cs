@@ -13,16 +13,15 @@ public partial class MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["IdUsuario"] != null)
+        if (Session["IdUsuario"] == null)
         {
-            int IdUsuario = (int)Session["IdUsuario"];
-            InterfaceUsuario.Classes.Usuario usuario = new InterfaceUsuario.Classes.Usuario();
-            usuario = usuario.ConsultaUsuario(IdUsuario);
+            Response.Redirect("Login.aspx");
         }
     }
     protected void LinkLogOff_Click(object sender, EventArgs e)
     {
-        Response.Close();
+        Session.Clear();
+        Response.Redirect("Login.aspx");
     }
     protected void lnkConsultaPatrimonio_Click(object sender, EventArgs e)
     {

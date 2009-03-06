@@ -20,24 +20,18 @@ namespace Usuarios.Autenticador
         public ResponseAutenticador Login(RequestAutenticador _request)
         {
             ResponseAutenticador _response = new ResponseAutenticador();
+            _response.RegistroCorreto = false;
             try
             {
                 if (_request != null)
                 {
                     _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
 
-                    //DAOUsuario uDAO = new DAOUsuario();
-                    ServicoUsuario sU = new ServicoUsuario();
-                    //Usuario.Usuario u = sU.ConsultarUsuario(_request.IdUsuario);
-                    
-                    //_response.RegistroCorreto = false;
-                    //if (u != null)
-                    //{
-                    //    if(u.Senha.Equals(_request.Senha))
-                    //    {
-                    //        _response.RegistroCorreto = true;
-                    //    }
-                    //}                                       
+                    DAOAutenticador aDAO = new DAOAutenticador();
+                    _response.Autenticador = aDAO.Login(_request.NomeUsuario, _request.Senha);
+
+                    if (_response.Autenticador != null)
+                        _response.RegistroCorreto = true;
                 }
             }
             catch (Exception ex)
@@ -58,8 +52,8 @@ namespace Usuarios.Autenticador
                 {
                     _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
 
-                    //DAOAutenticador aDAO = new DAOAutenticador();
-                    //_response.Autenticador = aDAO.VerificaPermissoes(_request.IdUsuario, _request.IdTela);                    
+                    DAOAutenticador aDAO = new DAOAutenticador();
+                    _response.Autenticador = aDAO.VerificaPermissoes(_request.IdUsuario, _request.IdTela);                    
 
                 }
             }
