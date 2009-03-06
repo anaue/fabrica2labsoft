@@ -169,14 +169,15 @@ AS
 	END
 
 	-- Verifica se usuario existe
-	IF NOT EXISTS(	SELECT IdUsuario 
-					FROM tb_Manutencao (NOLOCK) 
-					WHERE IdUsuario = @IdUsuario)
-	BEGIN
-		RAISERROR 70000 'Usuario nao encontrado'
-		SET @RetSt = @@ERROR
-		GOTO FIM
-	END
+	IF @IdUsuario IS NOT NULL
+		IF NOT EXISTS(	SELECT IdUsuario 
+						FROM tb_Manutencao (NOLOCK) 
+						WHERE IdUsuario = @IdUsuario)
+		BEGIN
+			RAISERROR 70000 'Usuario nao encontrado'
+			SET @RetSt = @@ERROR
+			GOTO FIM
+		END
 	--------------------------------------------------------
 
 
