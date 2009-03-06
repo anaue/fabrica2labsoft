@@ -31,6 +31,13 @@ namespace Patrimonio.TipoPatrimonio
             get { return _descricao; }
             set { _descricao = value; }
         }
+        private List<Atributo> listAtributos;
+        [XmlElement(ElementName = "ListAtributos")]
+        public List<Atributo> ListAtributos
+        {
+            get { return listAtributos; }
+            set { listAtributos = value; }
+        }
 
     }
 }
