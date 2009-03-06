@@ -30,7 +30,9 @@ namespace Maestro
                 parameters.Add(new SqlParameter("@nomeServico", _nomeServico));
 
                 db.AbreConexao();
-                _endereco = (string)db.ExecuteScalar("sp_servico_consultar", parameters);
+                SqlDataReader reader = db.ExecuteProcedureReader("sp_servico_consultar", parameters);
+                if (reader.Read())
+                    _endereco = reader["EnderecoServico"] != DBNull.Value ? Convert.ToString(reader["EnderecoServico"]) : String.Empty;
             }
             catch (Exception ex)
             {
