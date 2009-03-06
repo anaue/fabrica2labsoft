@@ -104,7 +104,7 @@ namespace InterfaceUsuario.Classes
             List<Atributo> retorno = new List<Atributo>();
 
             WS.TipoPatrimonio ws = new InterfaceUsuario.WS.TipoPatrimonio();
-            retorno = ws.ListaAtributos(IdPatrimonio);
+            retorno = ws.ListaAtributosTipoPatrimonio(IdPatrimonio);
 
             return retorno;
         }
@@ -120,22 +120,13 @@ namespace InterfaceUsuario.Classes
             return listAtributos;
         }
 
-        // Falta implementar.... retorna um objeto TipoPatrimonio
+        
         public TipoPatrimonio ConsultaTipoPatrimonio(int id)
-        {   
-            //
+        {
             TipoPatrimonio patrimonio = new TipoPatrimonio();
-            patrimonio.Id = 1;
-            patrimonio.Nome = "teste";
-            patrimonio.Descricao = "Teste";
-            List<Atributo> listAtributos = new List<Atributo>();
-            Atributo atributo = new Atributo();
-            atributo.Id = 1;
-            atributo.Nome = "teste";
-            listAtributos.Add(atributo);
-            patrimonio.ListAtributos = listAtributos;
-            
-            //
+
+            WS.TipoPatrimonio ws = new InterfaceUsuario.WS.TipoPatrimonio();
+            tipoPatrimonio = ws.ConsultaTipoPatrimonio(id);
 
             return patrimonio;
         }

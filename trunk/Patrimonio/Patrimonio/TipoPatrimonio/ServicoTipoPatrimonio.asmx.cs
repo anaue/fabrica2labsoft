@@ -113,11 +113,12 @@ namespace Patrimonio.TipoPatrimonio
             {
                 if (_request != null)
                 {
-                    ////implementacao da função vai aqui
                     TipoPatrimonio tipoPatrimonioConsultado = new TipoPatrimonio();
-                    _response.ListaTipoPatrimonio = new System.Collections.Generic.List<TipoPatrimonio>();
                     
                     tipoPatrimonioConsultado = daotipopatrimonio.consultaTipoPatrimonio(_request.TipoPatrimonio.Id);
+
+                    _response.ListaTipoPatrimonio = new List<TipoPatrimonio>(); 
+                    
                     if (tipoPatrimonioConsultado != null)
                     {
                         _response.ListaTipoPatrimonio.Add(tipoPatrimonioConsultado);
