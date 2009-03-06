@@ -137,14 +137,74 @@ namespace Patrimonio.Atributo
             throw new NotImplementedException();
         }
 
-        public List<Atributo> ListarAtributosTipoPatrimonio(int p)
+        public List<Atributo> ListarAtributosTipoPatrimonio(int idTipoPratimonio)
         {
-            throw new NotImplementedException();
+            List<Atributo> atributos = new List<Atributo>();
+            ArvDatabase db = new ArvDatabase(_connString);
+            try
+            {
+                List<SqlParameter> parameters = new List<SqlParameter>();
+                parameters.Add(new SqlParameter("@IdTipoPatrimonio", idTipoPratimonio));
+
+                db.AbreConexao();
+                SqlDataReader reader = db.ExecuteProcedureReader("sp_atributo_consultar_by_tipopatrimonio", parameters);
+                while (reader.Read())
+                {
+                   Atributo atributo = new Atributo();
+                    atributo.Descricao = (reader["descAtributo"] != DBNull.Value) ? Convert.ToString(reader["descAtributo"]) : String.Empty;
+                    atributo.Id = (reader["idAtributo"] != DBNull.Value) ? Convert.ToInt32(reader["idAtributo"]) : -1;
+                    atributo.Nome = (reader["nomeAtributo"] != DBNull.Value) ? Convert.ToString(reader["nomeAtributo"]) : String.Empty;
+                    atributo.Nulo = (reader["nuloAtributo"] != DBNull.Value) ?
+                        (Convert.ToString(reader["nuloAtributo"]) == "s") ? true : false
+                        : false;
+                    atributo.Tipo = (reader["tipoAtributo"] != DBNull.Value) ? Convert.ToString(reader["tipoAtributo"]) : String.Empty;
+                    atributos.Add(atributo);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                db.FechaConexao();
+            }
+            return atributo;
         }
 
-        public List<Atributo> ListarAtributosPorPatrimonio(int p)
+        public List<Atributo> ListarAtributosPorPatrimonio(int idPratimonio)
         {
-            throw new NotImplementedException();
+            List<Atributo> atributos = new List<Atributo>();
+            ArvDatabase db = new ArvDatabase(_connString);
+            try
+            {
+                List<SqlParameter> parameters = new List<SqlParameter>();
+                parameters.Add(new SqlParameter("@IdPatrimonio", idPratimonio));
+
+                db.AbreConexao();
+                SqlDataReader reader = db.ExecuteProcedureReader("sp_atributo_consultar_by_pratimonio", parameters);
+                while (reader.Read())
+                {
+                    Atributo atributo = new Atributo();
+                    atributo.Descricao = (reader["descAtributo"] != DBNull.Value) ? Convert.ToString(reader["descAtributo"]) : String.Empty;
+                    atributo.Id = (reader["idAtributo"] != DBNull.Value) ? Convert.ToInt32(reader["idAtributo"]) : -1;
+                    atributo.Nome = (reader["nomeAtributo"] != DBNull.Value) ? Convert.ToString(reader["nomeAtributo"]) : String.Empty;
+                    atributo.Nulo = (reader["nuloAtributo"] != DBNull.Value) ?
+                        (Convert.ToString(reader["nuloAtributo"]) == "s") ? true : false
+                        : false;
+                    atributo.Tipo = (reader["tipoAtributo"] != DBNull.Value) ? Convert.ToString(reader["tipoAtributo"]) : String.Empty;
+                    atributos.Add(atributo);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                db.FechaConexao();
+            }
+            return atributo;
         }
     }
 }
