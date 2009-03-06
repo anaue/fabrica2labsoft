@@ -22,7 +22,7 @@ namespace InterfaceUsuario
                 cboNomeTipoPatrimonio.DataTextField = "Nome";
                 cboNomeTipoPatrimonio.DataValueField = "Id";
 
-                cboNomeTipoPatrimonio.DataSource = new Classes.TipoPatrimonio().ListaTipoPatrimonio();
+               // cboNomeTipoPatrimonio.DataSource = new Classes.TipoPatrimonio().ListaTipoPatrimonio();
                 cboNomeTipoPatrimonio.DataBind();
             }
 

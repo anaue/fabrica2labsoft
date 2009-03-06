@@ -287,31 +287,44 @@ namespace InterfaceUsuario.WS
         public List<Classes.Atributo> ListaAtributosTipoPatrimonio(int IdPatrimonio)
         {
             List<Classes.Atributo> retorno = new List<Classes.Atributo>();
-            ServicoTipoPatrimonio.ServicoTipoPatrimonio wsTipoPatrimonio = new InterfaceUsuario.ServicoTipoPatrimonio.ServicoTipoPatrimonio();
-            ServicoTipoPatrimonio.RequestTipoPatrimonio request = new InterfaceUsuario.ServicoTipoPatrimonio.RequestTipoPatrimonio();
-            ServicoTipoPatrimonio.ResponseTipoPatrimonio response = new InterfaceUsuario.ServicoTipoPatrimonio.ResponseTipoPatrimonio();
+            ServicoAtributo.ServicoAtributo wsAtributo = new InterfaceUsuario.ServicoAtributo.ServicoAtributo();
+            ServicoAtributo.RequestTipoPatrimonio request = new InterfaceUsuario.ServicoAtributo.RequestTipoPatrimonio();
+            ServicoAtributo.ResponseAtributo response = new InterfaceUsuario.ServicoAtributo.ResponseAtributo();
 
             Diretorio dir = new Diretorio();
             // A nome do serviço é definido no banco de dados, pelo serviço diretório
-            string _url = dir.ObtemEnderecoServico(Arv.Common.WSServicesNames.TIPO_PATRIMONIO_LISTAR_ATRIBUTOS);
+            string _url = dir.ObtemEnderecoServico(Arv.Common.WSServicesNames.ATRIBUTOS_LISTAR_TIPO_PATRIMONIO);
             dir = null;
 
             if (_url != string.Empty)
             {
-                wsTipoPatrimonio.Url = _url;
-
+                wsAtributo.Url = _url;
 
                 try
                 {
-                    // response = wsTipoPatrimonio.AlterarTipoPatrimonio(request);
-                    if (response != null && response.StatusCode == InterfaceUsuario.ServicoTipoPatrimonio.ResponseStatus.OK && response.ListaTipoPatrimonio != null)
-                        foreach (ServicoTipoPatrimonio.TipoPatrimonio ltp in response.ListaTipoPatrimonio)
+                    ServicoAtributo.TipoPatrimonio tipoPatrimonio = new InterfaceUsuario.ServicoAtributo.TipoPatrimonio();
+                    request.TipoPatrimonio = tipoPatrimonio;
+
+                    response = wsAtributo.ListarAtributosTipoPatrimonio(request);
+                    
+                    if (response != null && response.StatusCode == InterfaceUsuario.ServicoAtributo.ResponseStatus.OK && response.ListaAtributos != null)
+                        foreach (ServicoAtributo.Atributo _atr in response.ListaAtributos)
                         {
-                            //Classes.TipoPatrimonio tp = new InterfaceUsuario.Classes.TipoPatrimonio();
-                            //tp.Descricao = ltp.Descricao;
-                            //tp.Id = ltp.Id;
-                            //tp.Nome = ltp.Nome;
-                            //retorno.Add(tp);
+                            Classes.Atributo atr = new InterfaceUsuario.Classes.Atributo();
+                            atr.Descricao = _atr.Descricao;
+                            atr.Id = _atr.Id;
+                            
+                            _atr.ListaValores = new string [atr.ListaValores.Count];
+                            for (int i = 0; i< atr.ListaValores.Count ; i++)
+                            {
+                                atr.ListaValores[i] = _atr.ListaValores[i];
+                            }
+                            atr.Nome = _atr.Nome;
+                            atr.Nulo = _atr.Nulo;
+                            atr.Tipo = _atr.Tipo;
+                            atr.Valor = _atr.Valor;
+
+                            retorno.Add(atr);
                         }
 
                 }
@@ -340,8 +353,8 @@ namespace InterfaceUsuario.WS
                 wsAtributo.Url = _url;
 
                 try
-                {
-                    // response = wsTipoPatrimonio.AlterarTipoPatrimonio(request);
+                {                  
+                    response = wsAtributo.ListarAtributosDisponiveis(request);
                     if (response != null && response.StatusCode == InterfaceUsuario.ServicoAtributo.ResponseStatus.OK && response.ListaAtributos != null)
                         foreach (ServicoAtributo.Atributo atr in response.ListaAtributos)
                         {
