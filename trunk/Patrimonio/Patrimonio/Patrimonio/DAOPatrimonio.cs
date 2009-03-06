@@ -233,9 +233,7 @@ namespace Patrimonio.Patrimonio
         /// <summary>
         /// Faz uma busca por todos os patrimonios pelos parametros opcionais não nulos.
         /// </summary>
-        internal List<Patrimonio> ObterPatrimonios(int idEquipamento, DateTime dtCompraMin, DateTime dtCompraMax,
-            int numeroNotaFiscal, DateTime dtExpGarantiaMin, DateTime dtExpGarantiaMax, int idTipoPatrimonio,
-            string caminhoFotoNotaFiscal, string caminhoFotoPatrimonio, int numeroPece, string numeroPedido, string local)
+        internal List<Patrimonio> ObterPatrimonios(Busca busca)
         {
             ArvDatabase db = new ArvDatabase(_connString);
             try
@@ -247,41 +245,41 @@ namespace Patrimonio.Patrimonio
 
                 parameters.Add(new SqlParameter("@RetSt", SqlDbType.Int));
 
-                if (idEquipamento != null)
-                    parameters.Add(new SqlParameter("@IdPatrimonio", idEquipamento));
+                if (busca.IdEquipamento != null)
+                    parameters.Add(new SqlParameter("@IdPatrimonio", busca.IdEquipamento));
 
-                if (dtCompraMin != null)
-                    parameters.Add(new SqlParameter("@DtCompra_Min", dtCompraMin));
+                if (busca.DtCompraMin != null)
+                    parameters.Add(new SqlParameter("@DtCompra_Min", busca.DtCompraMin));
 
-                if (dtCompraMax != null)
-                    parameters.Add(new SqlParameter("@DtCompra_Max", dtCompraMax));
+                if (busca.DtCompraMax != null)
+                    parameters.Add(new SqlParameter("@DtCompra_Max", busca.DtCompraMax));
 
-                if (numeroNotaFiscal!= null)
-                    parameters.Add(new SqlParameter("@NumeroNotaFiscal", numeroNotaFiscal));
+                if (busca.NumeroNotaFiscal != null)
+                    parameters.Add(new SqlParameter("@NumeroNotaFiscal", busca.NumeroNotaFiscal));
 
-                if (dtExpGarantiaMin != null)
-                    parameters.Add(new SqlParameter("@DtExpGarantia_Min", dtExpGarantiaMin));
+                if (busca.DtExpGarantiaMin!= null)
+                    parameters.Add(new SqlParameter("@DtExpGarantia_Min", busca.DtExpGarantiaMin));
 
-                if (dtExpGarantiaMax != null)
-                    parameters.Add(new SqlParameter("@DtExpGarantia_Max", dtExpGarantiaMax));
+                if (busca.DtExpGarantiaMax != null)
+                    parameters.Add(new SqlParameter("@DtExpGarantia_Max", busca.DtExpGarantiaMax));
 
-                if (idTipoPatrimonio != null)
-                    parameters.Add(new SqlParameter("@IdTipoPatrimonio", idTipoPatrimonio));
+                if (busca.IdTipoPatrimonio != null)
+                    parameters.Add(new SqlParameter("@IdTipoPatrimonio", busca.IdTipoPatrimonio));
 
-                if (caminhoFotoNotaFiscal != null && caminhoFotoNotaFiscal != "")
-                    parameters.Add(new SqlParameter("@CaminhoFotoNotaFiscal", caminhoFotoNotaFiscal));
+                if (busca.CaminhoFotoNotaFiscal != null || busca.CaminhoFotoNotaFiscal != "")
+                    parameters.Add(new SqlParameter("@CaminhoFotoNotaFiscal", busca.CaminhoFotoNotaFiscal));
 
-                if (caminhoFotoPatrimonio != null && caminhoFotoPatrimonio != "")
-                    parameters.Add(new SqlParameter("@CaminhoFotoPatrimonio", caminhoFotoPatrimonio));
+                if (busca.CaminhoFotoPatrimonio != null || busca.CaminhoFotoPatrimonio != "")
+                    parameters.Add(new SqlParameter("@CaminhoFotoPatrimonio", busca.CaminhoFotoPatrimonio));
 
-                if (numeroPece != null)
-                    parameters.Add(new SqlParameter("@NumeroPece", numeroPece));
+                if (busca.NumeroPece != null)
+                    parameters.Add(new SqlParameter("@NumeroPece", busca.NumeroPece));
 
-                if (numeroPedido != null && numeroPedido != "")
-                    parameters.Add(new SqlParameter("@NumeroPedido", numeroPedido));
+                if (busca.NumeroPedido != null || busca.NumeroPedido != "")
+                    parameters.Add(new SqlParameter("@NumeroPedido", busca.NumeroPedido));
 
-                if (local != null && local != "")
-                    parameters.Add(new SqlParameter("@Local", local));
+                if (busca.Local != null || busca.Local != "")
+                    parameters.Add(new SqlParameter("@Local", busca.Local));
 
 
                 parameters[0].Direction = ParameterDirection.Output;

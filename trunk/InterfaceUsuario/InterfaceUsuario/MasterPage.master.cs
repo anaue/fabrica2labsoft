@@ -37,7 +37,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
     }
     protected void lnkCadastraTipo_Click(object sender, EventArgs e)
     {
-        Response.Redirect("CadastraTipoPatrimonio.aspx");
+        Response.Redirect("CadastrarTipoPatrimonio.aspx");
     }
     protected void lnkConsultaAtributo_Click(object sender, EventArgs e)
     {
