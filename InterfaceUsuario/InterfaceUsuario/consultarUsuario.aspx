@@ -47,7 +47,7 @@
              </tr>
         </table>
      <table border="0px" style="width:100%; font-size: small; color: #3F3F3F;font-family: Verdana;">
-        
+        <tr>
        
             <td style="width: 171px">
                 <asp:GridView ID="gvUsuarios" runat="server" CellPadding="4" ForeColor="#333333" 
@@ -62,6 +62,8 @@
                 </asp:GridView>
             </td>
              </tr>
+             
+             </table>
         
            
    
