@@ -12,7 +12,7 @@
       <s:complexType name="RequestPatrimonio">
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="Patrimonio" nillable="true" type="tns:Patrimonio" />
-          <s:element minOccurs="1" maxOccurs="1" name="ManutencaoPatrimonio" nillable="true" type="tns:Manutencao" />
+          <s:element minOccurs="1" maxOccurs="1" name="Manutencao" nillable="true" type="tns:Manutencao" />
           <s:element minOccurs="1" maxOccurs="1" name="BaixaPatrimonio" nillable="true" type="tns:Baixa" />
         </s:sequence>
       </s:complexType>
@@ -38,6 +38,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="Tipo" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="Nulo" type="s:boolean" />
           <s:element minOccurs="0" maxOccurs="unbounded" name="ListaValores" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Valor" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="Manutencao">
@@ -69,7 +70,8 @@
         <s:complexContent mixed="false">
           <s:extension base="tns:BaseResponse">
             <s:sequence>
-              <s:element minOccurs="0" maxOccurs="1" name="ListaPatrimonio" type="tns:ArrayOfPatrimonio" />
+              <s:element minOccurs="0" maxOccurs="1" name="Manutencao" type="tns:Manutencao" />
+              <s:element minOccurs="0" maxOccurs="unbounded" name="ListaPatrimonio" type="tns:Patrimonio" />
             </s:sequence>
           </s:extension>
         </s:complexContent>
@@ -105,11 +107,6 @@
           <s:enumeration value="InternalServerError" />
         </s:restriction>
       </s:simpleType>
-      <s:complexType name="ArrayOfPatrimonio">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Patrimonio" nillable="true" type="tns:Patrimonio" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="BaixaPatrimonio">
         <s:complexType>
           <s:sequence>
