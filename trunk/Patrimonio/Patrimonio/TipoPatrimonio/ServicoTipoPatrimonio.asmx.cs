@@ -31,7 +31,7 @@ namespace Patrimonio.TipoPatrimonio
                 {
                     _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
                     _response.ListaTipoPatrimonio = new System.Collections.Generic.List<TipoPatrimonio>();
-                    ////implementacao da função vai aqui
+                    
 
                     int idGerado = daotipopatrimonio.InsereTipoPatrimonio(_request.TipoPatrimonio);
                     if (idGerado > 0)
@@ -132,8 +132,8 @@ namespace Patrimonio.TipoPatrimonio
             }
             return _response;
         }
-        [WebMethod(MessageName = "ListaAtributos")]
-        public ResponseTipoPatrimonio ListarAtributos(RequestTipoPatrimonio _request)
+        [WebMethod(MessageName = "ListaTipoPatrimonio")]
+        public ResponseTipoPatrimonio ListarTipoPatrimonio(RequestTipoPatrimonio _request)
         {
             ResponseTipoPatrimonio _response = new ResponseTipoPatrimonio();
             DAOTipoPatrimonio daotipopatrimonio = new DAOTipoPatrimonio();
@@ -145,7 +145,7 @@ namespace Patrimonio.TipoPatrimonio
                     TipoPatrimonio tipoPatrimonioConsultado = new TipoPatrimonio();
                     _response.ListaTipoPatrimonio = new System.Collections.Generic.List<TipoPatrimonio>();
 
-                    tipoPatrimonioConsultado = daotipopatrimonio.consultaTipoPatrimonio(_request.TipoPatrimonio.Id);
+                    tipoPatrimonioConsultado = daotipopatrimonio.ListaTipoPatrimonio(_request.TipoPatrimonio.Id);
                     if (tipoPatrimonioConsultado != null)
                     {
                         _response.ListaTipoPatrimonio.Add(tipoPatrimonioConsultado);
@@ -162,34 +162,7 @@ namespace Patrimonio.TipoPatrimonio
             }
             return _response;
         }
-        [WebMethod(MessageName = "ListaAtributosDisponivies")]
-        public ResponseTipoPatrimonio ListaAtributosDisponivies(RequestTipoPatrimonio _request)
-        {
-            ResponseTipoPatrimonio _response = new ResponseTipoPatrimonio();
-            DAOTipoPatrimonio daotipopatrimonio = new DAOTipoPatrimonio();
-            try
-            {
-                if (_request != null)
-                {
-                    ////implementacao da função vai aqui
-                    TipoPatrimonio tipoPatrimonioConsultado = new TipoPatrimonio();
-                    _response.ListaTipoPatrimonio = new System.Collections.Generic.List<TipoPatrimonio>();
 
-                    tipoPatrimonioConsultado = daotipopatrimonio.consultaTipoPatrimonio(_request.TipoPatrimonio.Id);
-                    if (tipoPatrimonioConsultado != null)
-                    {
-                        _response.ListaTipoPatrimonio.Add(tipoPatrimonioConsultado);
-                    }
-                    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
-                }
-            }
-            catch (Exception ex)
-            {
-                _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.InternalServerError;
-                _response.Message = string.Format("Erro na consulta do registro: {0}", ex.Message);
-            }
-            return _response;
-        }
         #endregion web-methods
 
         #region metodos Nao-Web
