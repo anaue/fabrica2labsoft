@@ -112,7 +112,6 @@ namespace InterfaceUsuario.Classes
     
         public List<Atributo> ListaAtributosDisponiveis()
         {
-            //throw new NotImplementedException();
             List<Atributo> listAtributos = new List<Atributo>();
 
             WS.TipoPatrimonio ws = new InterfaceUsuario.WS.TipoPatrimonio();
@@ -140,7 +139,7 @@ namespace InterfaceUsuario.Classes
 
             return patrimonio;
         }
-        //Falta Implementar
+       
         /// <summary>
         /// Atualiza os dados do Tipos de Patrimonio em questão
         /// </summary>

@@ -147,7 +147,7 @@ namespace Patrimonio.Atributo
             {
                 if (_request != null)
                 {
-                    _response.ListaAtributos = daoatributo.listaAtributosDisponiveis();
+                    //_response.ListaAtributos = daoatributo.listaAtributosDisponiveis();
 
                     _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
                 }

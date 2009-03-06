@@ -128,6 +128,41 @@ namespace Patrimonio.TipoPatrimonio
 
             return tipoPatrimonio;
         }
+        public List<TipoPatrimonio> ListaTipoPatrimonio(TipoPatrimonio tipoPatrimonio)
+        {
+            List<TipoPatrimonio> _listaTipoPatrimonio = new List<TipoPatrimonio>();
+            SqlDataReader rd;
+
+            ArvDatabase db = new ArvDatabase(_connString);
+            try
+            {
+                List<SqlParameter> parameters = new List<SqlParameter>();
+
+                parameters.Add(new SqlParameter("@id", tipoPatrimonioId));
+
+                db.AbreConexao();
+                rd = db.ExecuteProcedureReader("sp_tipopatrimonio_consultar");
+
+                if (rd.Read())
+                {
+                    TipoPatrimonio tipoPatrimonio = new TipoPatrimonio();
+                    tipoPatrimonio.Id = Convert.ToInt32(rd["idTipoPatrimonio"].ToString());
+                    tipoPatrimonio.Nome = rd["nomeTipoPatrimonio"].ToString();
+                    tipoPatrimonio.Descricao = rd["descTipoPatrimonio"].ToString();
+                    _listaTipoPatrimonio.Add(tipoPatrimonio);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                db.FechaConexao();
+            }
+
+            return tipoPatrimonio;
+        }
 
         public List<TipoPatrimonio> buscaTipoPatrimonio(TipoPatrimonio tipoPatrimonio)
         {

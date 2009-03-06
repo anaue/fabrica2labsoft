@@ -30,7 +30,6 @@ namespace InterfaceUsuario
         protected void CadastrarTipoPatrimonio_Click(object sender, EventArgs e)
         {
 
-
             Classes.TipoPatrimonio tipoPatrimonio = new InterfaceUsuario.Classes.TipoPatrimonio();
             tipoPatrimonio.Nome = txtNome.Text;
             tipoPatrimonio.Descricao = txtDescricao.Text;
@@ -40,19 +39,13 @@ namespace InterfaceUsuario
 	        {
 		        tipoPatrimonio.ListAtributos.Add(new Atributo(Convert.ToInt32(item.Value)));
 	        }
-
-            
-
             //Rotina de Efetivacao de dados
-            try
-            {
-                tipoPatrimonio.CriaTipoPatrimonio();
-            }
-            catch (Exception ex)
-            {
-                Response.Redirect("PaginaDeErro.aspx?Acao=Cadastrar TipoPatrimonio&Msg=" + ex.Message);
-            }
-            Response.Redirect("PaginaDeSucesso.aspx?Acao=Cadastrar TipoPatrimonio&Msg=TipoPatrimonio" + txtNome.Text);
+
+            if( tipoPatrimonio.CriaTipoPatrimonio() >0)
+                Response.Redirect("PaginaDeSucesso.aspx?Acao=Cadastrar TipoPatrimonio&Msg=TipoPatrimonio" + txtNome.Text);
+            else
+                Response.Redirect("PaginaDeErro.aspx?Acao=Cadastrar TipoPatrimonio&Msg=Ocorreu um erro na criação do tipo patrimonio");
+            
 
         }
 
