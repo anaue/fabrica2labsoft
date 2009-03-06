@@ -124,6 +124,8 @@ namespace InterfaceUsuario.WS
 
                 request.TipoPatrimonio = new InterfaceUsuario.ServicoTipoPatrimonio.TipoPatrimonio();
                 request.TipoPatrimonio.Id = Id;
+
+
                 try
                 {
                     response = wsTipoPatrimonio.ConsultarTipoPatrimonio(request);
@@ -132,6 +134,13 @@ namespace InterfaceUsuario.WS
                         _TipoPatrimonio.Nome =  response.ListaTipoPatrimonio[0].Nome;
                         _TipoPatrimonio.Id = response.ListaTipoPatrimonio[0].Id;
                         _TipoPatrimonio.Descricao = response.ListaTipoPatrimonio[0].Descricao;
+                        _TipoPatrimonio.ListAtributos = new List<InterfaceUsuario.Classes.Atributo>();
+                        foreach (ServicoAtributo.Atributo atr in _TipoPatrimonio.ListAtributos)
+                        {
+                            _TipoPatrimonio.ListAtributos.Add(atr);
+
+                        }
+
                     }
                 }
                 catch (Exception ex)
@@ -236,81 +245,5 @@ namespace InterfaceUsuario.WS
             return retorno;
         }
         
-        public List<Classes.Atributo> ListaAtributos(int IdPatrimonio)
-        {
-            List<Classes.Atributo> retorno = new List<Classes.Atributo>();
-            ServicoTipoPatrimonio.ServicoTipoPatrimonio wsTipoPatrimonio = new InterfaceUsuario.ServicoTipoPatrimonio.ServicoTipoPatrimonio();
-            ServicoTipoPatrimonio.RequestTipoPatrimonio request = new InterfaceUsuario.ServicoTipoPatrimonio.RequestTipoPatrimonio();
-            ServicoTipoPatrimonio.ResponseTipoPatrimonio response = new InterfaceUsuario.ServicoTipoPatrimonio.ResponseTipoPatrimonio();
-
-            Diretorio dir = new Diretorio();
-            // A nome do serviço é definido no banco de dados, pelo serviço diretório
-            string _url = dir.ObtemEnderecoServico(Arv.Common.WSServicesNames.TIPO_PATRIMONIO_LISTAR_ATRIBUTOS );
-            dir = null;
-
-            if (_url != string.Empty)
-            {
-                wsTipoPatrimonio.Url = _url;
-
-                
-                try
-                {
-                   // response = wsTipoPatrimonio.AlterarTipoPatrimonio(request);
-                    if (response != null && response.StatusCode == InterfaceUsuario.ServicoTipoPatrimonio.ResponseStatus.OK && response.ListaTipoPatrimonio != null)
-                        foreach (ServicoTipoPatrimonio.TipoPatrimonio ltp in response.ListaTipoPatrimonio)
-                        {
-                            //Classes.TipoPatrimonio tp = new InterfaceUsuario.Classes.TipoPatrimonio();
-                            //tp.Descricao = ltp.Descricao;
-                            //tp.Id = ltp.Id;
-                            //tp.Nome = ltp.Nome;
-                            //retorno.Add(tp);
-                        }
-
-                }
-                catch (Exception ex)
-                {
-                    //necessario mostrar uma mensagem ao usuario
-                }
-            }
-            return retorno;
-        }
-
-        public List<Classes.Atributo> ListaAtributosDisponiveis()
-        {
-            List<Classes.Atributo> retorno = new List<Classes.Atributo>();
-            ServicoAtributo.ServicoAtributo wsAtributo = new InterfaceUsuario.ServicoAtributo.ServicoAtributo();
-            ServicoAtributo.RequestAtributo request = new InterfaceUsuario.ServicoAtributo.RequestAtributo();
-            ServicoAtributo.ResponseAtributo response = new InterfaceUsuario.ServicoAtributo.ResponseAtributo();
-
-            Diretorio dir = new Diretorio();
-            // A nome do serviço é definido no banco de dados, pelo serviço diretório
-            string _url = dir.ObtemEnderecoServico(Arv.Common.WSServicesNames.TIPO_PATRIMONIO_LISTAR_ATRIBUTOS_DISPONIVEIS);
-            dir = null;
-
-            if (_url != string.Empty)
-            {
-                wsAtributo.Url = _url;
-
-                try
-                {
-                    // response = wsTipoPatrimonio.AlterarTipoPatrimonio(request);
-                    if (response != null && response.StatusCode == InterfaceUsuario.ServicoAtributo.ResponseStatus.OK && response.ListaAtributos != null)
-                        foreach (ServicoAtributo.Atributo atr in response.ListaAtributos)
-                        {
-                            Classes.Atributo _atr = new InterfaceUsuario.Classes.Atributo();
-                            _atr.Descricao = atr.Descricao;
-                            _atr.Id = atr.Id;
-                            _atr.Nome = atr.Nome;
-                            retorno.Add(_atr);
-                        }
-
-                }
-                catch (Exception ex)
-                {
-                    //necessario mostrar uma mensagem ao usuario
-                }
-            }
-            return retorno;
-        }
     }
 }
