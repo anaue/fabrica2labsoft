@@ -87,7 +87,7 @@ namespace InterfaceUsuario.Classes
         {
             int retorno =0;
             WS.Patrimonio ws = new InterfaceUsuario.WS.Patrimonio();
-            retorno = ws.CriaAtributo(this);
+            retorno = ws.CriaPatrimonio(this);
 
             return retorno;
         }
@@ -151,7 +151,7 @@ namespace InterfaceUsuario.Classes
         {
             int retorno = 0;
             WS.Patrimonio ws = new InterfaceUsuario.WS.Patrimonio();
-            retorno = ws.RegistrarPatrimonio(this, manutencao);
+            retorno = ws.RegistrarManutencao(manutencao);
             return retorno;
         }
     }
