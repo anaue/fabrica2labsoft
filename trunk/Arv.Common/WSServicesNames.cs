@@ -28,6 +28,7 @@ namespace Arv.Common
         public static string PATRIMONIO_CONSULTAR = "ConsultarPatrimonio";
         public static string PATRIMONIO_ALTERAR = "AlterarPatrimonio";
         public static string PATRIMONIO_LISTAR = "BuscarPatrimonio";
+        public static string PATRIMONIO_REGISTRAR_MANUTENCAO = "RegistrarManutencao";
         #endregion Patrimonio
 
         #region Autenticador
