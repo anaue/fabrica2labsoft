@@ -24,6 +24,7 @@ namespace InterfaceUsuario
                 ddlTipoPatrimonio.DataSource = new Classes.TipoPatrimonio().ListaTipoPatrimonio();
                 ddlTipoPatrimonio.DataBind();
 
+                ddlAtributos.Items.Add(new ListItem("Id Equipamento", "IdEquipamento"));
                 ddlAtributos.Items.Add(new ListItem("NPece", "numeroPece"));
                 ddlAtributos.Items.Add(new ListItem("Data de Compra", "dtCompra"));
                 ddlAtributos.Items.Add(new ListItem("Nota Fiscal", "numeroNotaFiscal"));
@@ -44,6 +45,7 @@ namespace InterfaceUsuario
             List<Classes.Atributo> lstAtributos = atributo.ListaAtributosTipoPatrimonio(Convert.ToInt32(ddlTipoPatrimonio.SelectedValue));
 
             ddlAtributos.Items.Clear();
+            ddlAtributos.Items.Add(new ListItem("Id Equipamento", "IdEquipamento"));
             ddlAtributos.Items.Add(new ListItem("NPece", "numeroPece"));
             ddlAtributos.Items.Add(new ListItem("Data de Compra", "dtCompra"));
             ddlAtributos.Items.Add(new ListItem("Nota Fiscal", "numeroNotaFiscal"));
@@ -62,6 +64,12 @@ namespace InterfaceUsuario
         {
             switch (ddlAtributos.SelectedValue.ToString())
             {
+                case "IdEquipamento":
+                    txtA.Visible = true;
+                    txtDe.Visible = false;
+                    lblA.Visible = false;
+                    ddlValores.Visible = false;
+                    break;
                 case "numeroPece":
                     txtA.Visible = true;
                     txtDe.Visible = false;
@@ -125,6 +133,7 @@ namespace InterfaceUsuario
             DataTable objDTResultado = new DataTable();
 
             //cria colunas de Atributos Comuns
+            objDTResultado.Columns.Add(new DataColumn("Id Equipamento", typeof(int)));
             objDTResultado.Columns.Add(new DataColumn("NPECE", typeof(int)));
             objDTResultado.Columns.Add(new DataColumn("Data de Compra", typeof(DateTime)));
             objDTResultado.Columns.Add(new DataColumn("Nota Fiscal", typeof(int)));
@@ -138,6 +147,7 @@ namespace InterfaceUsuario
             foreach (Classes.Patrimonio patrimonio in lstPatrimonio)
             {
                 DataRow objDR = objDTResultado.NewRow();
+                objDR["Id Equipamento"] = patrimonio.IdEquipamento;
                 objDR["NPECE"] = patrimonio.NumeroPECE;
                 objDR["Data de Compra"] = patrimonio.DtCompra;
                 objDR["Nota Fiscal"] = patrimonio.NumeroNotaFiscal;
@@ -148,9 +158,6 @@ namespace InterfaceUsuario
                 objDR["Id Solicitação"] = patrimonio.NumeroPedido;
                 objDTResultado.Rows.Add(objDR);
             }
-            ArrayList key = new ArrayList();
-            key.Add("NPECE");
-            //grvResultados.DataKeys = new DataKeyArray(key);
             grvResultados.DataSource = objDTResultado;
             grvResultados.DataBind();
         }
@@ -159,6 +166,7 @@ namespace InterfaceUsuario
             DataTable objDTResultado = new DataTable();
 
             //cria colunas de Atributos Comuns
+            objDTResultado.Columns.Add(new DataColumn("Id Equipamento", typeof(int)));
             objDTResultado.Columns.Add(new DataColumn("NPece", typeof(int)));
             objDTResultado.Columns.Add(new DataColumn("Data de Compra", typeof(DateTime)));
             objDTResultado.Columns.Add(new DataColumn("Nota Fiscal", typeof(int)));
@@ -178,6 +186,7 @@ namespace InterfaceUsuario
             foreach (Classes.Patrimonio patrimonio in lstPatrimonio)
             {
                 DataRow objDR = objDTResultado.NewRow();
+                objDR["Id Equipamento"] = patrimonio.IdEquipamento;
                 objDR["NPece"] = patrimonio.NumeroPECE;
                 objDR["Data de Compra"] = patrimonio.DtCompra;
                 objDR["Nota Fiscal"] = patrimonio.NumeroNotaFiscal;
@@ -205,8 +214,11 @@ namespace InterfaceUsuario
             {
                 switch (ddlAtributos.SelectedValue.ToString())
                 {
+                    case "IdEquipamento":
+                        
+                        break;
                     case "numeroPece":
-
+                        
                         break;
                     case "dtCompra":
 
