@@ -105,8 +105,7 @@
                         <span style="font-family: Verdana"><span style="font-size: x-small">
                         <span style="font-size: small"><span style="color: #3F3F3F">
                         <asp:ListBox ID="lstAtributosDoTipo" runat="server" Height="135px" 
-                            Width="233px" 
-                            onselectedindexchanged="lstAtributosDisponiveis_SelectedIndexChanged">
+                            Width="233px" >
                         </asp:ListBox>
                         </span></span></span></span>
                     </td>

@@ -220,7 +220,6 @@ namespace InterfaceUsuario.WS
             if (_url != string.Empty)
             {
                 wsTipoPatrimonio.Url = _url;
-
                 try
                 {
                     response = wsTipoPatrimonio.ListarTipoPatrimonio(request);

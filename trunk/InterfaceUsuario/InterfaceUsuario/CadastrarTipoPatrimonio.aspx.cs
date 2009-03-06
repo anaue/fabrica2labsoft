@@ -75,10 +75,6 @@ namespace InterfaceUsuario
 
         }
 
-        protected void lstAtributosDisponiveis_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
     }
 }
