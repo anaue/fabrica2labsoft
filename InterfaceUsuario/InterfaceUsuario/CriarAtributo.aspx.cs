@@ -37,6 +37,7 @@ namespace InterfaceUsuario
         protected void Button1_Click(object sender, EventArgs e)
         {
             Classes.Atributo atributo = new InterfaceUsuario.Classes.Atributo();
+            atributo.ListaValores = new List<string>();
             atributo.Nome = txtNome.Text;
             atributo.Descricao = txtDescricao.Text;
             atributo.Tipo = ddlTipo.SelectedValue.ToString();
