@@ -9,6 +9,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Collections.Generic;
+using InterfaceUsuario.Classes;
 
 namespace InterfaceUsuario
 {
@@ -33,12 +34,19 @@ namespace InterfaceUsuario
             Classes.TipoPatrimonio tipoPatrimonio = new InterfaceUsuario.Classes.TipoPatrimonio();
             tipoPatrimonio.Nome = txtNome.Text;
             tipoPatrimonio.Descricao = txtDescricao.Text;
+            List<Atributo> listaAtributos = new List<Atributo>();
 
+            foreach (ListItem item in lstTipoPatrimonioAtributo.Items)
+	        {
+		        tipoPatrimonio.ListAtributos.Add(new Atributo(Convert.ToInt32(item.Value)));
+	        }
+
+            
 
             //Rotina de Efetivacao de dados
             try
             {
-                tipoPatrimonio.CriaTipoPatrimonio();
+                Classes.TipoPatrimonio.AdicionarTipoPatrimonio(tipoPatrimonio);
             }
             catch (Exception ex)
             {

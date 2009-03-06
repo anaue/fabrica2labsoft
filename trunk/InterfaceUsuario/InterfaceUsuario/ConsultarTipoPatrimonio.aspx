@@ -14,7 +14,7 @@
              <td style="width: 12px">
                  &nbsp;</td>
              <td class="texto_titulo">
-                 Consultar Tipo Equipamento</td>
+                 Consultar Tipo Patrimonio</td>
              <td>
                  &nbsp;</td>
          </tr>
@@ -95,20 +95,62 @@
              <td>
                  &nbsp;</td>
          </tr>
-         <tr>
-             <td style="width: 12px">
-                 &nbsp;</td>
-             <td>
-                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         </table>
+         <table style="height: 19px; width: 828px;">
+     <tr>
+                    <td style="text-align: left; font-size: small; color: #3F3F3F; height: 155px; width: 117px;">
+                        <span style="font-family: Verdana; font-size: small; color: #3F3F3F">
+                        Atributos do Tipo</span><br 
+                            style="font-family: Verdana; font-size: small; color: #3F3F3F" />
+                        <span style="font-family: Verdana"><span style="font-size: x-small">
+                        <span style="font-size: small"><span style="color: #3F3F3F">
+                        <asp:ListBox ID="lstAtributosDoTipo" runat="server" Height="135px" 
+                            Width="233px" 
+                            onselectedindexchanged="lstAtributosDisponiveis_SelectedIndexChanged">
+                        </asp:ListBox>
+                        </span></span></span></span>
+                    </td>
+                    <td style="width: 208px; text-align: center; height: 155px;">
+                        <span style="font-family: Verdana"><span style="font-size: x-small">
+                        <span style="font-size: small"><span style="color: #3F3F3F">
+                        <asp:Button ID="btnAdicionarAtributos" runat="server" Text="<<" 
+                            onclick="btnAdicionarAtributos_Click" />
+                        </span></span></span></span>
+                        <br style="font-family: Verdana; font-size: small; color: #3F3F3F" />
+                        <span style="font-family: Verdana"><span style="font-size: x-small">
+                        <span style="font-size: small"><span style="color: #3F3F3F">
+                        <asp:Button ID="btnRemoverAtributos" runat="server" Text=">>" 
+                            onclick="btnRemoverAtributos_Click" />
+                        </span></span></span></span>
+                    </td>
+                    <td valign="top" style="height: 155px">
+                        <span style="font-family: Verdana; font-size: small; color: #3F3F3F">Atributos 
+                        Disponiveis</span><br 
+                            style="font-family: Verdana; font-size: small; color: #3F3F3F" />
+                        <span style="font-family: Verdana"><span style="font-size: x-small">
+                        <span style="font-size: small"><span style="color: #3F3F3F">
+                        <asp:ListBox ID="lstAtributosDisponiveis" runat="server" Height="135px" 
+                            Width="233px" style="margin-left: 0px">
+                        </asp:ListBox>
+                        </span></span></span></span></td>
+                </tr>
+     <tr>
+         <td style="width: 117px">
                  <asp:Button ID="btnAlterar" runat="server" onclick="btnAlterar_Click" 
-                     Text="Alterar" Width="137px" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     Text="Alterar" Width="230px" />
+         </td>
+         <td style="width: 208px">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         </td>
+         <td>
                  <asp:Button ID="btnDeletar" runat="server" onclick="btnDeletar_Click" 
-                     Text="Deletar" Width="137px" />
-             </td>
-             <td>
-                 &nbsp;</td>
-         </tr>
-     </table>
+                     Text="Deletar" Width="231px" style="margin-left: 0px" />
+         </td>
+     </tr>
+    </table>
+         <table style="width:100%;">
+            
+         </table>
+         
  </div>
 </asp:Content>
