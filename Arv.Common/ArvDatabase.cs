@@ -217,5 +217,25 @@ namespace Arv.Database
             }
             return result;
         }
+
+        public object ExecuteProcedureScalar(string comando, List<SqlParameter> parameters)
+        {
+            object result;
+            try
+            {
+                SqlCommand cmd = new SqlCommand(comando, conn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                foreach (SqlParameter parameter in parameters)
+                    cmd.Parameters.Add(parameter);
+
+                result = cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
     }
 }
