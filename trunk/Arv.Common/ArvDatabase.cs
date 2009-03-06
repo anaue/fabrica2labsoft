@@ -53,6 +53,9 @@ namespace Arv.Database
         /// <returns></returns>
         public int ExecuteProcedureNonQuery(string nomeProcedure, List<SqlParameter> parameters)
         {
+            if (conn.State != System.Data.ConnectionState.Open)
+                conn.Open();
+
             int linhasafetadas = 0;
             try
             {
@@ -68,11 +71,19 @@ namespace Arv.Database
             {
                 throw ex;
             }
+            finally
+            {
+                if (conn.State != System.Data.ConnectionState.Closed)
+                    conn.Close();
+            }
             return linhasafetadas;
         }
 
         public int ExecuteProcedureNonQuery(string nomeProcedure)
         {
+            if (conn.State != System.Data.ConnectionState.Open)
+                conn.Open();
+
             int linhasafetadas = 0;
             try
             {
@@ -84,6 +95,11 @@ namespace Arv.Database
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                if (conn.State != System.Data.ConnectionState.Closed)
+                    conn.Close();
             }
             return linhasafetadas;
         }
@@ -147,6 +163,9 @@ namespace Arv.Database
 
         public int ExecuteTextNonQuery(string comando, List<SqlParameter> parameters)
         {
+            if (conn.State != System.Data.ConnectionState.Open)
+                conn.Open();
+
             int linhasafetadas = 0;
             try
             {
@@ -161,12 +180,20 @@ namespace Arv.Database
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                if (conn.State != System.Data.ConnectionState.Closed)
+                    conn.Close();
             }
             return linhasafetadas;
         }
 
         public int ExecuteTextNonQuery(string comando)
         {
+            if (conn.State != System.Data.ConnectionState.Open)
+                conn.Open();
+
             int linhasafetadas = 0;
             try
             {
@@ -179,11 +206,19 @@ namespace Arv.Database
             {
                 throw ex;
             }
+            finally
+            {
+                if (conn.State != System.Data.ConnectionState.Closed)
+                    conn.Close();
+            }
             return linhasafetadas;
         }
 
         public object ExecuteScalar(string comando, List<SqlParameter> parameters)
         {
+            if (conn.State != System.Data.ConnectionState.Open)
+                conn.Open();
+
             object result;
             try
             {
@@ -199,11 +234,19 @@ namespace Arv.Database
             {
                 throw ex;
             }
+            finally
+            {
+                if (conn.State != System.Data.ConnectionState.Closed)
+                    conn.Close();
+            }
             return result;
         }
 
         public object ExecuteScalar(string comando)
         {
+            if (conn.State != System.Data.ConnectionState.Open)
+                conn.Open();
+
             object result;
             try
             {
@@ -215,11 +258,19 @@ namespace Arv.Database
             {
                 throw ex;
             }
+            finally
+            {
+                if (conn.State != System.Data.ConnectionState.Closed)
+                    conn.Close();
+            }
             return result;
         }
 
         public object ExecuteProcedureScalar(string comando, List<SqlParameter> parameters)
         {
+            if (conn.State != System.Data.ConnectionState.Open)
+                conn.Open();
+
             object result;
             try
             {
@@ -234,6 +285,11 @@ namespace Arv.Database
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                if (conn.State != System.Data.ConnectionState.Closed)
+                    conn.Close();
             }
             return result;
         }
