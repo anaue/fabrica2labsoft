@@ -22,20 +22,27 @@ namespace InterfaceUsuario
 
         protected void LoginButton_Click(object sender, EventArgs e)
         {
-            if (Login1.UserName != "" && Login1.Password != "")
+            try
             {
-                Autenticador autenticador = new Autenticador();
-                if (autenticador.Login(Login1.UserName, Login1.Password) != null)
+                if (Login1.UserName != "" && Login1.Password != "")
                 {
-                    Session["IdUsuario"] = autenticador.IdUsuario;
-                    Session["IdTipoAcesso"] = autenticador.IdTipoAcesso;
-                    Response.Redirect("ConsultarPatrimonio.aspx");
+                    Autenticador autenticador = new Autenticador();
+                    if (autenticador.Login(Login1.UserName, Login1.Password) != null)
+                    {
+                        Session["IdUsuario"] = autenticador.IdUsuario;
+                        Session["IdTipoAcesso"] = autenticador.IdTipoAcesso;
+                        Response.Redirect("ConsultarPatrimonio.aspx");
+                    }
+                    else
+                    {
+                        Login1.FailureText = "Usuário ou Senha estão inválidos";
+                    }
+
                 }
-                else
-                {
-                    Login1.FailureText = "Usuário ou Senha estão inválidos";
-                }
- 
+            }
+            catch
+            {
+                Login1.FailureText = "Usuário ou Senha estão inválidos";
             }
         }
 
