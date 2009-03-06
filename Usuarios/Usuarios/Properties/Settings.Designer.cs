@@ -25,7 +25,7 @@ namespace Usuarios.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=WINDOSXPVM\\\\SQLEXPRESS;Initial Catalog=fabrica2db_local;Integrated Se" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=RFIFA\\\\SQLEXPRESS;Initial Catalog=fabrica2db_local;Integrated Se" +
             "curity=True")]
         public string ConnectionString {
             get {

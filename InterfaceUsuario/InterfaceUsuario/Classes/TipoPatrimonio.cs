@@ -94,8 +94,8 @@ namespace InterfaceUsuario.Classes
         {
             List<TipoPatrimonio> retorno = new List<TipoPatrimonio>();
 
-            //WS.TipoPatrimonio ws = new InterfaceUsuario.WS.TipoPatrimonio();
-            //retorno = ws.ListaTipoPatrimonio();
+            WS.TipoPatrimonio ws = new InterfaceUsuario.WS.TipoPatrimonio();
+            retorno = ws.ListaTipoPatrimonio();
             
             return retorno;
         }

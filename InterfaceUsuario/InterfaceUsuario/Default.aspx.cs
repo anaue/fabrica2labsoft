@@ -24,16 +24,16 @@ namespace InterfaceUsuario
         {
             if (Login1.UserName != "" && Login1.Password != "")
             {
-                Autenticador autenticador = new Autenticador();
-                if (autenticador.Login(Login1.UserName, Login1.Password))
-                {   
+                //Autenticador autenticador = new Autenticador();
+                //if (autenticador.Login(Login1.UserName, Login1.Password))
+                //{   
                     
-                    Response.Redirect("Page2.aspx");
-                }
-                else
-                {
-                    Login1.FailureText = "Usuário ou Senha estão inválidos";
-                }
+                //    Response.Redirect("Page2.aspx");
+                //}
+                //else
+                //{
+                //    Login1.FailureText = "Usuário ou Senha estão inválidos";
+                //}
  
             }
         }
