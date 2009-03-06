@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="ConnectionString" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Data Source=WINDOSXPVM\SQLEXPRESS;Initial Catalog=fabrica2db_local;Integrated Security=True</Value>
+      <Value Profile="(Default)">Data Source=201.13.192.72;Initial Catalog=fabrica2db;User ID=fabrica2db</Value>
     </Setting>
   </Settings>
 </SettingsFile>

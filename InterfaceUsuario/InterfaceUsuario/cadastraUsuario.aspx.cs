@@ -25,9 +25,10 @@ namespace InterfaceUsuario
             usuario.Senha = TextBoxSenhaConf.Text;
             usuario.Descricao = TextBoxDescricao.Text;
 
-            usuario.CriaUsuario(usuario);
-
+            if (usuario.CriaUsuario(usuario) > 0)
             Response.Redirect("PaginaDeSucesso.aspx?Acao=Cadastrar Usuário&Msg=Cadastrado com sucesso");
+            else
+                Response.Redirect("PaginaDeErro.aspx?Acao=Cadastrar Usuário&Msg=Ocorreu um erro no cadastramento do usuário");
 
         }
 

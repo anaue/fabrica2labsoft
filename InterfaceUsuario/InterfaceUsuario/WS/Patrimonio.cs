@@ -78,7 +78,7 @@ namespace InterfaceUsuario.WS
                 request.Manutencao.IdUsuario= manutencao.IdUsuario;
                 request.Manutencao.Motivo= manutencao.Motivo;
                 request.Manutencao.Observacao = manutencao.Observacao;
-                request.Manutencao.IdEquipamento = manutencao.IdPatrimonio;
+                request.Manutencao.IdPatrimonio = manutencao.IdPatrimonio;
 
                 try
                 {

@@ -28,6 +28,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="CaminhoFotoPatrimonio" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="LocalPatrimonio" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="NumeroPedido" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoPatrimonio" type="s:int" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="Atributo">
@@ -48,6 +49,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="Motivo" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Observacao" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="IdUsuario" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdPatrimonio" type="s:int" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="Baixa">

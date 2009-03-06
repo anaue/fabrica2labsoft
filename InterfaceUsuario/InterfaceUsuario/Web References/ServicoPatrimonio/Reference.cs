@@ -373,6 +373,8 @@ namespace InterfaceUsuario.ServicoPatrimonio {
         
         private string numeroPedidoField;
         
+        private int idTipoPatrimonioField;
+        
         /// <remarks/>
         public int IdEquipamento {
             get {
@@ -471,6 +473,16 @@ namespace InterfaceUsuario.ServicoPatrimonio {
             }
             set {
                 this.numeroPedidoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int IdTipoPatrimonio {
+            get {
+                return this.idTipoPatrimonioField;
+            }
+            set {
+                this.idTipoPatrimonioField = value;
             }
         }
     }
@@ -726,6 +738,8 @@ namespace InterfaceUsuario.ServicoPatrimonio {
         
         private int idUsuarioField;
         
+        private int idPatrimonioField;
+        
         /// <remarks/>
         public int IdManutencao {
             get {
@@ -773,6 +787,16 @@ namespace InterfaceUsuario.ServicoPatrimonio {
             }
             set {
                 this.idUsuarioField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int IdPatrimonio {
+            get {
+                return this.idPatrimonioField;
+            }
+            set {
+                this.idPatrimonioField = value;
             }
         }
     }
