@@ -62,5 +62,42 @@ namespace Usuarios.Autenticador
 
             return autenticador;
         }
+
+        internal Autenticador Login(string nomeUsuario, string senhaUsuario)
+        {
+            Autenticador autenticador = null;
+
+            SqlDataReader rd;
+
+            ArvDatabase db = new ArvDatabase(_connString);
+            try
+            {
+                List<SqlParameter> parameters = new List<SqlParameter>();
+
+                parameters.Add(new SqlParameter("@nomeUsuario", nomeUsuario));
+                parameters.Add(new SqlParameter("@senhaUsuario", senhaUsuario));
+
+                db.AbreConexao();
+                rd = db.ExecuteProcedureReader("sp_usuario_login", parameters);
+
+                if (rd.Read())
+                {
+                    autenticador = new Autenticador();
+                    autenticador.IdUsuario = Convert.ToInt32(rd["IdUsuario"]);
+                    autenticador.IdTipoDeAcesso = Convert.ToInt32(rd["IdTipoAcesso"]);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                db.FechaConexao();
+            }
+
+            return autenticador;
+        }
     }
 }

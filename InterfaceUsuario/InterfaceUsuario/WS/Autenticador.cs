@@ -22,9 +22,9 @@ namespace InterfaceUsuario.WS
         /// </summary>
         /// <param name="_user"></param>
         /// <returns></returns>
-        public bool Login(string nomeUsuario, string senha)
+        public Classes.Autenticador Login(string nomeUsuario, string senha)
         {
-            bool retorno = false;
+            Classes.Autenticador retorno = null;
             ServicoAutenticador.ServicoAutenticador wsAutenticador = new InterfaceUsuario.ServicoAutenticador.ServicoAutenticador();
             ServicoAutenticador.RequestAutenticador request = new InterfaceUsuario.ServicoAutenticador.RequestAutenticador();
             ServicoAutenticador.ResponseAutenticador response = new InterfaceUsuario.ServicoAutenticador.ResponseAutenticador();
@@ -50,12 +50,15 @@ namespace InterfaceUsuario.WS
                     response = wsAutenticador.Login(request);
                     if (response != null && response.StatusCode == InterfaceUsuario.ServicoAutenticador.ResponseStatus.OK)
                     {
-                        retorno = response.RegistroCorreto;
+                        retorno = new Classes.Autenticador();
+                        retorno.IdUsuario = response.Autenticador.idUsuario;
+                        retorno.IdTipoAcesso = response.Autenticador.idTipoAcesso;
                     }
 
                 }
                 catch (Exception ex)
                 {
+                    throw ex;
                     //necessario mostrar uma mensagem ao usuario
                 }
 
