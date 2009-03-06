@@ -26,11 +26,11 @@ namespace Patrimonio.Atributo
                 List<SqlParameter> parameters = new List<SqlParameter>();
                 parameters.Add(new SqlParameter("@nome", atributo.Nome));
                 parameters.Add(new SqlParameter("@tipo", atributo.Tipo));
-                parameters.Add(new SqlParameter("@descricao" , atributo.Descricao));
-                parameters.Add(new SqlParameter("@nulo", atributo.Nulo));
+                parameters.Add(new SqlParameter("@desc" , atributo.Descricao));
+                parameters.Add(new SqlParameter("@nulo", atributo.Nulo? "s" : "n"));
                 
                 db.AbreConexao();
-                linhasafetadas = db.ExecuteTextNonQuery("sp_insere_atributo", parameters);
+                linhasafetadas = db.ExecuteProcedureNonQuery("sp_atributo_inserir", parameters);
             }
             catch (Exception ex)
             {

@@ -15,8 +15,8 @@ namespace InterfaceUsuario
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblAcao.Text = Request.QueryString["Acao"];
-            lblMsg.Text = Request.QueryString["Msg"];
+            //lblAcao.Text = Request.QueryString["Acao"];
+            //lblMsg.Text = Request.QueryString["Msg"];
         }
     }
 }

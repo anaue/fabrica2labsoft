@@ -25,7 +25,7 @@ namespace Maestro
                 {//se tudo ocorrer bem executa o serviço
                     _response.ListaServicos = new System.Collections.Generic.List<Servico>();
                     Servico _srv = new Servico();
-                    _srv.NomeServico = _servico.ConsultarEndereco(_request.NomeServico);
+                    _srv.EnderecoServico = _servico.ConsultarEndereco(_request.NomeServico);
                     _response.ListaServicos.Add(_srv);
                     _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK; //200 significa recebido com sucesso
                 }
