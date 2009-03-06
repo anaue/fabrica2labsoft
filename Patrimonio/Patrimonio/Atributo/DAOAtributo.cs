@@ -18,7 +18,6 @@ namespace Patrimonio.Atributo
         public int InsereAtributo(Atributo atributo)
         {
             int linhasafetadas = 0;
-            int idGerado = 0;
             ArvDatabase db = new ArvDatabase(_connString);
             try
             {
@@ -66,6 +65,7 @@ namespace Patrimonio.Atributo
         public Atributo alteraAtributo(Atributo atributo)
         {
             ArvDatabase db = new ArvDatabase(_connString);
+            int linhasafetadas = 0;
             try
             {
                 List<SqlParameter> parameters = new List<SqlParameter>();
@@ -73,7 +73,7 @@ namespace Patrimonio.Atributo
                 parameters.Add(new SqlParameter("@nome", atributo.Nome));
                 parameters.Add(new SqlParameter("@tipo", atributo.Tipo));
                 parameters.Add(new SqlParameter("@desc", atributo.Descricao));
-                parameters.Add(new SqlParameter("@tipoPatrimonio", atributo.IdTipoPatrimonio));
+                //parameters.Add(new SqlParameter("@tipoPatrimonio", atributo.IdTipoPatrimonio));
                 parameters.Add(new SqlParameter("@nulo", atributo.Nulo ? "s" : "n"));
 
                 db.AbreConexao();
@@ -87,6 +87,9 @@ namespace Patrimonio.Atributo
             {
                 db.FechaConexao();
             }
+            if (linhasafetadas <= 0)
+                throw new Exception("Atributo não atualizado corretamente.");
+
             return atributo;
         }
         public Atributo consultaAtributo(int atributoId)
@@ -104,8 +107,7 @@ namespace Patrimonio.Atributo
                 {
                     atributo = new Atributo();
                     atributo.Descricao = (reader["descAtributo"] != DBNull.Value) ? Convert.ToString(reader["descAtributo"]) : String.Empty;
-                    atributo.Id = (reader["idAtributo"] != DBNull.Value) ? Convert.ToString(reader["idAtributo"]) : String.Empty;
-                    atributo.IdTipoPatrimonio = (reader["idTipoPatrimonio"] != DBNull.Value) ? Convert.ToString(reader["idTipoPatrimonio"]) : String.Empty;
+                    atributo.Id = (reader["idAtributo"] != DBNull.Value) ? Convert.ToInt32(reader["idAtributo"]) : -1;
                     atributo.Nome = (reader["nomeAtributo"] != DBNull.Value) ? Convert.ToString(reader["nomeAtributo"]) : String.Empty;
                     atributo.Nulo = (reader["nuloAtributo"] != DBNull.Value) ?
                         (Convert.ToString(reader["nuloAtributo"]) == "s") ? true : false

@@ -7,7 +7,7 @@ namespace Patrimonio.Atributo
     [XmlRoot(ElementName = "Atributo")]
     public class Atributo
     {
-        Atributo()
+        public Atributo()
         {
         }
         private int _id;

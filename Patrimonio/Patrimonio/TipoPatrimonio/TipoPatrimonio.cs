@@ -31,5 +31,6 @@ namespace Patrimonio.TipoPatrimonio
             get { return _descricao; }
             set { _descricao = value; }
         }
+
     }
 }
