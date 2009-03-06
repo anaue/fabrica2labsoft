@@ -13,26 +13,47 @@ public partial class MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
-    }
-    protected void LinkButton6_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Default3.aspx");
-    }
-    protected void LinkButton2_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Default2.aspx");
-    }
-    protected void LinkButton4_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("CriarAtributo.aspx");
-    }
-    protected void LinkButton3_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Default5.aspx");
+        if (Session["IdUsuario"] != null)
+        {
+            int IdUsuario = (int)Session["IdUsuario"];
+            InterfaceUsuario.Classes.Usuario usuario = new InterfaceUsuario.Classes.Usuario();
+            usuario = usuario.ConsultaUsuario(IdUsuario);
+        }
     }
     protected void LinkLogOff_Click(object sender, EventArgs e)
     {
-
+        Response.Close();
+    }
+    protected void lnkConsultaPatrimonio_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ConsultarPatrimonio.aspx");
+    }
+    protected void lnkCadastroPatrimonio_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("CadastrarPatrimonio.aspx");
+    }
+    protected void lnkConsultaTipo_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ConsultarTipoPatrimonio.aspx");
+    }
+    protected void lnkCadastraTipo_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("CadastraTipoPatrimonio.aspx");
+    }
+    protected void lnkConsultaAtributo_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ConsultarAtributo.aspx");
+    }
+    protected void lnkCadastraAtributo_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("CriarAtributo.aspx");
+    }
+    protected void lnkConsultaUsuario_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("consultaUsuario.aspx");
+    }
+    protected void lnkCadastraUsuario_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("cadastraUsuario.aspx");
     }
 }

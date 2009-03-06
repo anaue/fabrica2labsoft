@@ -270,89 +270,182 @@ namespace InterfaceUsuario
 
         void VisualizarParaConsulta(Classes.Patrimonio patrimonio)
         {
-            //for (int i = 0; i < lstAtributos.Count; i++)
-            //{
-            //    Label lblValor = (Label)grvAtributos.Rows[i].FindControl("txtValor");
-            //    DropDownList ddlValor = (DropDownList)grvAtributos.Rows[i].FindControl("ddlValor");
-            //    TextBox txtValor = (TextBox)grvAtributos.Rows[i].FindControl("txtValor");
-            //    txtValor.Visible = false;
-            //    ddlValor.Visible = false;
-            //    lblValor.Visible = true;
-
-            //}
+            for (int i = 0; i < patrimonio.ListAtributos.Count; i++)
+            {
+                Label lblValor = (Label)grvAtributos.Rows[i].FindControl("txtValor");
+                DropDownList ddlValor = (DropDownList)grvAtributos.Rows[i].FindControl("ddlValor");
+                TextBox txtValor = (TextBox)grvAtributos.Rows[i].FindControl("txtValor");
+                txtValor.Visible = false;
+                ddlValor.Visible = false;
+                lblValor.Visible = true;
+                lblValor.Text = patrimonio.ListAtributos[i].Valor;
+            }
         }
 
         void VisualizarParaEditar(Classes.Patrimonio patrimonio)
         {
-            //for (int i = 0; i < lstAtributos.Count; i++)
+            for (int i = 0; i < patrimonio.ListAtributos.Count; i++)
+            {
+                Label lblValor = (Label)grvAtributos.Rows[i].FindControl("txtValor");
+                TextBox txtValor = (TextBox)grvAtributos.Rows[i].FindControl("txtValor");
+                DropDownList ddlValor = (DropDownList)grvAtributos.Rows[i].FindControl("ddlValor");
+                PlaceHolder phValidators = (PlaceHolder)grvAtributos.Rows[i].FindControl("phValidators");
+                RequiredFieldValidator rfv = new RequiredFieldValidator();
+                RegularExpressionValidator rev = new RegularExpressionValidator();
+                lblValor.Visible = false;
+                switch (patrimonio.ListAtributos[i].Tipo)
+                {
+                    case "Texto":
+                        if (!patrimonio.ListAtributos[i].Nulo)
+                        {
+                            rfv.ControlToValidate = "txtValor";
+                            rfv.ErrorMessage = patrimonio.ListAtributos[i].Nome + " é necessário.";
+                            rfv.Text = "*";
+                            rfv.ValidationGroup = "Patrimonio";
+                            phValidators.Controls.Add(rfv);
+                        }
+                        txtValor.Text = patrimonio.ListAtributos[i].Valor;
+                        txtValor.Visible = true;
+                        ddlValor.Visible = false;
+                        break;
+                    case "Decimal":
+                        if (!patrimonio.ListAtributos[i].Nulo)
+                        {
+                            rfv.ControlToValidate = "txtValor";
+                            rfv.ErrorMessage = patrimonio.ListAtributos[i].Nome + " é necessário.";
+                            rfv.Text = "*";
+                            rfv.ValidationGroup = "Patrimonio";
+                            phValidators.Controls.Add(rfv);
+                        }
+                        rev.ValidationExpression = "^[-+]?\\d+(\\,\\d+)?$";
+                        rev.ControlToValidate = "txtValor";
+                        rev.ErrorMessage = "Formato Inválido, utilize 9999,99 para " + patrimonio.ListAtributos[i].Nome;
+                        rev.Text = "*";
+                        rev.ValidationGroup = "Patrimonio";
+                        phValidators.Controls.Add(rev);
+                        txtValor.Text = patrimonio.ListAtributos[i].Valor;
+                        txtValor.Visible = true;
+                        ddlValor.Visible = false;
+                        break;
+                    case "Data":
+                        if (!patrimonio.ListAtributos[i].Nulo)
+                        {
+                            rfv.ControlToValidate = "txtValor";
+                            rfv.ErrorMessage = patrimonio.ListAtributos[i].Nome + " é necessário.";
+                            rfv.Text = "*";
+                            rfv.ValidationGroup = "Patrimonio";
+                            phValidators.Controls.Add(rfv);
+                        }
+                        rev.ValidationExpression = "(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\\d\\d";
+                        rev.ControlToValidate = "txtValor";
+                        rev.ErrorMessage = "Formato Inválido, utilize dd/MM/aaaa para " + patrimonio.ListAtributos[i].Nome;
+                        rev.Text = "*";
+                        rev.ValidationGroup = "Patrimonio";
+                        phValidators.Controls.Add(rev);
+                        txtValor.Text = patrimonio.ListAtributos[i].Valor;
+                        txtValor.Visible = true;
+                        ddlValor.Visible = false;
+                        break;
+                    case "Lista":
+                        ddlValor.SelectedItem.Text = patrimonio.ListAtributos[i].Valor;
+                        txtValor.Visible = false;
+                        ddlValor.Visible = true;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        protected void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            Classes.Patrimonio patrimonio = (Classes.Patrimonio)Session["patrimonio"];
+
+            for (int i = 0; i < patrimonio.ListAtributos.Count; i++)
+            {
+                Classes.Atributo inserindoAtributo = new Classes.Atributo();
+                TextBox txtValor = (TextBox)grvAtributos.Rows[i].FindControl("txtValor");
+                DropDownList ddlValor = (DropDownList)grvAtributos.Rows[i].FindControl("ddlValor");
+
+                switch (patrimonio.ListAtributos[i].Tipo)
+                {
+                    case "Texto":
+                        if ((patrimonio.ListAtributos[i].Nulo) && (txtValor.Text == ""))
+                            patrimonio.ListAtributos[i].Valor = "";
+                        else
+                            patrimonio.ListAtributos[i].Valor = txtValor.Text;
+                        break;
+                    case "Decimal":
+                        if ((patrimonio.ListAtributos[i].Nulo) && (txtValor.Text == ""))
+                            patrimonio.ListAtributos[i].Valor = (0).ToString();
+                        else
+                            patrimonio.ListAtributos[i].Valor = (Convert.ToDecimal(txtValor.Text.Replace(',', '.'))).ToString();
+                        break;
+                    case "Data":
+                        if ((!patrimonio.ListAtributos[i].Nulo) && (txtValor.Text == ""))
+                            patrimonio.ListAtributos[i].Valor = (new DateTime()).ToString();
+                        else
+                            patrimonio.ListAtributos[i].Valor = (new DateTime(Convert.ToInt32(txtValor.Text.Split('/')[2]), Convert.ToInt32(txtValor.Text.Split('/')[1]), Convert.ToInt32(txtValor.Text.Split('/')[0]))).ToString();
+                        break;
+                    case "Lista":
+                        patrimonio.ListAtributos[i].Valor = ddlValor.SelectedItem.Text;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            //for (int i = patrimonio.ListAtributos.Count; i > (patrimonio.ListAtributos.Count - 7); i--)
             //{
-            //    TextBox txtValor = (TextBox)grvAtributos.Rows[i].FindControl("txtValor");
-            //    DropDownList ddlValor = (DropDownList)grvAtributos.Rows[i].FindControl("ddlValor");
-            //    PlaceHolder phValidators = (PlaceHolder)grvAtributos.Rows[i].FindControl("phValidators");
-            //    RequiredFieldValidator rfv = new RequiredFieldValidator();
-            //    RegularExpressionValidator rev = new RegularExpressionValidator();
-
-            //    switch (lstAtributos[i].Tipo)
+            //    // adiciono nos atributos comuns do patrimonio
+            //    switch (patrimonio.ListAtributos[i].Nome)
             //    {
-            //        case "Texto":
-            //            if (!lstAtributos[i].Nulo)
-            //            {
-            //                rfv.ControlToValidate = "txtValor";
-            //                rfv.ErrorMessage = lstAtributos[i].Nome + " é necessário.";
-            //                rfv.Text = "*";
-            //                rfv.ValidationGroup = "Patrimonio";
-            //                phValidators.Controls.Add(rfv);
-            //            }
-
-            //            txtValor.Visible = true;
-            //            ddlValor.Visible = false;
+            //        case "NPECE":
+            //            patrimonio.NumeroPECE = Convert.ToInt32(patrimonio.ListAtributos[i].Valor);
             //            break;
-            //        case "Decimal":
-            //            if (!lstAtributos[i].Nulo)
-            //            {
-            //                rfv.ControlToValidate = "txtValor";
-            //                rfv.ErrorMessage = lstAtributos[i].Nome + " é necessário.";
-            //                rfv.Text = "*";
-            //                rfv.ValidationGroup = "Patrimonio";
-            //                phValidators.Controls.Add(rfv);
-            //            }
-            //            rev.ValidationExpression = "^[-+]?\\d+(\\,\\d+)?$";
-            //            rev.ControlToValidate = "txtValor";
-            //            rev.ErrorMessage = "Formato Inválido, utilize 9999,99 para " + lstAtributos[i].Nome;
-            //            rev.Text = "*";
-            //            rev.ValidationGroup = "Patrimonio";
-            //            phValidators.Controls.Add(rev);
-
-            //            txtValor.Visible = true;
-            //            ddlValor.Visible = false;
+            //        case "Data de Compra":
+            //            patrimonio.DtCompra = Convert.ToDateTime(patrimonio.ListAtributos[i].Valor);
             //            break;
-            //        case "Data":
-            //            if (!lstAtributos[i].Nulo)
-            //            {
-            //                rfv.ControlToValidate = "txtValor";
-            //                rfv.ErrorMessage = lstAtributos[i].Nome + " é necessário.";
-            //                rfv.Text = "*";
-            //                rfv.ValidationGroup = "Patrimonio";
-            //                phValidators.Controls.Add(rfv);
-            //            }
-            //            rev.ValidationExpression = "(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\\d\\d";
-            //            rev.ControlToValidate = "txtValor";
-            //            rev.ErrorMessage = "Formato Inválido, utilize dd/MM/aaaa para " + lstAtributos[i].Nome;
-            //            rev.Text = "*";
-            //            rev.ValidationGroup = "Patrimonio";
-            //            phValidators.Controls.Add(rev);
-
-            //            txtValor.Visible = true;
-            //            ddlValor.Visible = false;
+            //        case "Nota Fiscal":
+            //            patrimonio.NumeroNotaFiscal = Convert.ToInt32(patrimonio.ListAtributos[i].Valor);
             //            break;
-            //        case "Lista":
-            //            txtValor.Visible = false;
-            //            ddlValor.Visible = true;
+            //        case "Exp. Garantia":
+            //            patrimonio.DtExpGarantia = Convert.ToDateTime(patrimonio.ListAtributos[i].Valor);
+            //            break;
+            //        case "Foto Nota Fiscal":
+            //            patrimonio.CaminhoFotoNotaFiscal = patrimonio.ListAtributos[i].Valor;
+            //            break;
+            //        case "Foto Patrimonio":
+            //            patrimonio.CaminhoFotoPatrimonio = patrimonio.ListAtributos[i].Valor;
+            //            break;
+            //        case "Local":
+            //            patrimonio.LocalPatrimonio = patrimonio.ListAtributos[i].Valor;
+            //            break;
+            //        case "Id Solicitacao":
+            //            patrimonio.NumeroPedido = patrimonio.ListAtributos[i].Valor;
             //            break;
             //        default:
             //            break;
             //    }
+            //    patrimonio.ListAtributos.RemoveAt(i);
             //}
+            patrimonio.ListAtributos = patrimonio.ListAtributos;
+            try
+            {
+                //patrimonio.AlterarPatrimonio();
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("PaginaDeErro.aspx?Acao=Alterar Patrimonio&Msg=" + ex.Message);
+            }
+            Response.Redirect("PaginaDeSucesso.aspx?Acao=Alterar Patrimonio&Msg=Patrimônio Nº" + patrimonio.NumeroPECE);
+        }
+
+        protected void btnDeletar_Click(object sender, EventArgs e)
+        {
+            Classes.Patrimonio patrimonio = (Classes.Patrimonio)Session["patrimonio"];
+
+            //patrimonio.Deletar(patrimonio.npece)
         }
     }
 }
