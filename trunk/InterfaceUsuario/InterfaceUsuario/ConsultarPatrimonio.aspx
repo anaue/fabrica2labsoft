@@ -113,6 +113,8 @@
                     <td>
                         <asp:Button ID="btnEditar" runat="server" onclick="btnEditar_Click" 
                             SkinID="btnPadrao" Text="Editar" Width="83px" />
+                        &nbsp;<asp:Button ID="btnDeletar" runat="server" onclick="btnDeletar_Click" 
+                            SkinID="btnPadrao" Text="Deletar" Width="83px" />
                         &nbsp;<asp:Button ID="btnBaixa" runat="server" onclick="btnBaixa_Click" 
                             SkinID="btnPadrao" Text="Baixa" Width="83px" />
                         &nbsp;<asp:Button ID="btnManutencao" runat="server" onclick="btnManutencao_Click" 
@@ -177,7 +179,7 @@
                         &nbsp;</td>
                     <td>
                         <asp:Button ID="btnCadastrar" runat="server" onclick="btnCadastrar_Click" 
-                            SkinID="btnPadrao" Text="Cadastrar" ValidationGroup="Patrimonio" 
+                            SkinID="btnPadrao" Text="Salvar Edição" ValidationGroup="Patrimonio" 
                             Width="137px" />
                     </td>
                 </tr>

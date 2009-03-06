@@ -155,9 +155,9 @@
             </tr>
             <tr>
                 <td class="texto_titulo" valign="middle">
-                    , bem vindo ao controle de Patrimônio do PECE!<asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Verdana" 
+                    <asp:Label ID="lblUsuario" runat="server" Font-Bold="True" Font-Names="Verdana" 
                         Font-Size="12pt" ForeColor="#4D7F9A" Text="Label"></asp:Label>
-                </td></tr>
+                    , bem vindo ao controle de Patrimônio do PECE!</td></tr>
             <tr>
                 <td class="menu_fundo" width="147px" height="583px" valign="top">
                    
@@ -174,21 +174,31 @@
                             <td class="style39">
                                 </td>
                             <td width="151px"  height="28px" class="menu_dialog_aba">
-                                Equipamentos
-                                </td>
+                                Patrimônio                                 </td>
                                 <td></td>
                         </tr>
                         <tr>
                             <td class="style30">
                             </td>
                             <td width="151px" height="89px" class="menu_dialog_fundo">
-                                <asp:LinkButton ID="LinkButton6" runat="server" onclick="LinkButton6_Click" SkinID="lnkMenu">Consulta</asp:LinkButton>
+                                <asp:LinkButton ID="lnkConsultaPatrimonio" runat="server" 
+                                    onclick="lnkConsultaPatrimonio_Click" SkinID="lnkMenu">Consulta Patrimônio</asp:LinkButton>
                                 <br />
-                                <asp:LinkButton ID="LinkButton2" runat="server" onclick="LinkButton2_Click" SkinID="lnkMenu">Cadastro</asp:LinkButton>
+                                <asp:LinkButton ID="lnkCadastroPatrimonio" runat="server" 
+                                    onclick="lnkCadastroPatrimonio_Click" SkinID="lnkMenu">Cadastro Patrimônio</asp:LinkButton>
                                 <br />
-                                <asp:LinkButton ID="LinkButton3" runat="server" onclick="LinkButton3_Click" SkinID="lnkMenu">Tipo</asp:LinkButton>
+                                <asp:LinkButton ID="lnkConsultaTipo" runat="server" 
+                                    onclick="lnkConsultaTipo_Click" SkinID="lnkMenu">Consulta Tipo</asp:LinkButton>
                                 <br />
-                                <asp:LinkButton ID="LinkButton4" runat="server" onclick="LinkButton4_Click" SkinID="lnkMenu">Atributo</asp:LinkButton>
+                                <asp:LinkButton ID="lnkCadastraTipo" runat="server" 
+                                    onclick="lnkCadastraTipo_Click" SkinID="lnkMenu">Cadastra Tipo</asp:LinkButton>
+                                <br />
+                                <asp:LinkButton ID="lnkConsultaAtributo" runat="server" 
+                                    onclick="lnkConsultaAtributo_Click" SkinID="lnkMenu">Consulta Atributo</asp:LinkButton>
+                                <br />
+                                <asp:LinkButton ID="lnkCadastraAtributo" runat="server" 
+                                    onclick="lnkCadastraAtributo_Click" SkinID="lnkMenu">Cadastra Atributo</asp:LinkButton>
+                                <br />
                             </td>
                             <td class="style20" valign="top">
                             </td>
@@ -205,7 +215,7 @@
                             <td class="style42">
                                 </td>
                             <td width="151px"  height="28px" class="menu_dialog_aba">
-                                Administração</td>
+                                AAdministração</td>
                             <td class="style15" valign="top">
                                 </td>
                         </tr>
@@ -213,7 +223,13 @@
                             <td class="style32">
                             </td>
                             <td width="151px" height="43px" class="menu_dialog_fundo">
-                                <asp:LinkButton ID="LinkButton5" runat="server" SkinID="lnkMenu">Manutenção</asp:LinkButton>
+                                <asp:LinkButton ID="lnkConsultaUsuario" runat="server" SkinID="lnkMenu" 
+                                    onclick="lnkConsultaUsuario_Click">Consulta Usuário</asp:LinkButton>
+                                <br />
+                                <asp:LinkButton ID="lnkCadastraUsuario" runat="server" SkinID="lnkMenu" 
+                                    onclick="lnkCadastraUsuario_Click">Cadastra Usuário</asp:LinkButton>
+                                <br />
+                                <asp:LinkButton ID="lnkTelas" runat="server" SkinID="lnkMenu">Telas</asp:LinkButton>
                             </td>
                             <td class="style23" valign="top">
                             </td>

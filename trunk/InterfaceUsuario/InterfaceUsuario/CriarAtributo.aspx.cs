@@ -16,7 +16,22 @@ namespace InterfaceUsuario
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                //if (Session["IdUsuario"] != null)
+                //{
+                //    Classes.Usuario usuario = new InterfaceUsuario.Classes.Usuario();
+                //    Classes.Autenticador autenticador = new InterfaceUsuario.Classes.Autenticador();
 
+                //    int IdUsuario = (int)Session["IdUsuario"];
+                //    //ID TELA?? QUAL SERA?
+                //    Session["Autenticador"] = autenticador.VerificaPermissoes(IdUsuario, 0);
+                //}
+                //else
+                //{
+                //    Response.Redirect("LogIn.aspx");
+                //}
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
