@@ -112,6 +112,13 @@
     <Compile Include="consultaUsuario.aspx.designer.cs">
       <DependentUpon>consultaUsuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DarBaixa.aspx.cs">
+      <DependentUpon>DarBaixa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DarBaixa.aspx.designer.cs">
+      <DependentUpon>DarBaixa.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -246,6 +253,7 @@
     <Content Include="ConsultarPatrimonio.aspx" />
     <Content Include="ConsultarTipoPatrimonio.aspx" />
     <Content Include="consultaUsuario.aspx" />
+    <Content Include="DarBaixa.aspx" />
     <Content Include="PaginaDeErro.aspx" />
     <Content Include="PaginaDeSucesso.aspx" />
     <Content Include="Relatorios.Master" />

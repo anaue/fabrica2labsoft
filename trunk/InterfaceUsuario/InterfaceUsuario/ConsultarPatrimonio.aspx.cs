@@ -244,23 +244,25 @@ namespace InterfaceUsuario
 
             Session["patrimonio"] = patrimonio;
 
-            VisualizarParaConsulta(patrimonio);
-
             grvAtributos.DataSource = patrimonio;
             grvAtributos.DataBind();
             panAtributos.Visible = true;
             panResultados.Visible = false;
+
+            VisualizarParaConsulta(patrimonio);
         }
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
             Classes.Patrimonio patrimonio = (Classes.Patrimonio)Session["patrimonio"];
-            VisualizarParaConsulta(patrimonio);
+            VisualizarParaEditar(patrimonio);
         }
 
         protected void btnBaixa_Click(object sender, EventArgs e)
         {
-
+            Classes.Baixa baixa = new InterfaceUsuario.Classes.Baixa();
+            Classes.Patrimonio patrimonio;
+            //patrimonio.BaixaPatrimonio(
         }
 
         protected void btnManutencao_Click(object sender, EventArgs e)
@@ -446,6 +448,11 @@ namespace InterfaceUsuario
             Classes.Patrimonio patrimonio = (Classes.Patrimonio)Session["patrimonio"];
 
             //patrimonio.Deletar(patrimonio.npece)
+        }
+
+        protected void grvAtributos_DataBound(object sender, EventArgs e)
+        {
+
         }
     }
 }
