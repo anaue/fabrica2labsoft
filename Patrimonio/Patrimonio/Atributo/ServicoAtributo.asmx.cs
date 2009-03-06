@@ -80,11 +80,8 @@ namespace Patrimonio.Atributo
             {
                 if (_request != null)
                 {
-                    ////implementacao da função vai aqui
-
                     _response.ListaAtributos.Add(daoatributo.alteraAtributo(_request.Atributo));
 
-                    /////
                     _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
                 }
             }
