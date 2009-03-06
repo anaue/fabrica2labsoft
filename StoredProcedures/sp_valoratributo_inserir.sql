@@ -18,7 +18,7 @@ GO
 -- Create date: 05/04/2009
 -- Description:	Insere um novo valor de atributo
 -- =============================================
-use fabrica2db
+
 IF EXISTS (SELECT name FROM sysobjects WHERE name = 'sp_valoratributo_inserir' AND type = 'P')
 BEGIN
   DROP PROCEDURE sp_valoratributo_inserir
