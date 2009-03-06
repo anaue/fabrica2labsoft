@@ -17,7 +17,14 @@ namespace InterfaceUsuario
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                cboNomeTipoPatrimonio.DataTextField = "Nome";
+                cboNomeTipoPatrimonio.DataValueField = "Id";
 
+                cboNomeTipoPatrimonio.DataSource = new Classes.TipoPatrimonio().ListaTipoPatrimonio();
+                cboNomeTipoPatrimonio.DataBind();
+            }
 
         }
 
