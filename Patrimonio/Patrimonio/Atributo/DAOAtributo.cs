@@ -132,7 +132,17 @@ namespace Patrimonio.Atributo
         }
 
 
-        internal List<Atributo> listaAtributosDisponiveis()
+        public List<Atributo> listaAtributosDisponiveis()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Atributo> ListarAtributosTipoPatrimonio(int p)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Atributo> ListarAtributosPorPatrimonio(int p)
         {
             throw new NotImplementedException();
         }
