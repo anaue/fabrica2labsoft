@@ -46,6 +46,13 @@ namespace Patrimonio.Patrimonio
             get { return _idUsuario; }
             set { _idUsuario = value; }
         }
+        private int _idPatrimonio;
+        [XmlElement(ElementName = "IdPatrimonio")]
+        public int IdPatrimonio
+        {
+            get { return _idPatrimonio; }
+            set { _idPatrimonio = value; }
+        }
 
     }
 }
