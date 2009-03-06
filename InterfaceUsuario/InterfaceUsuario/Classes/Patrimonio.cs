@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Xml.Serialization;
+using InterfaceUsuario.ServicoPatrimonio;
 
 namespace InterfaceUsuario.Classes
 {
@@ -151,10 +152,24 @@ namespace InterfaceUsuario.Classes
             return retorno;
         }
         
-        public List<Patrimonio> BuscaPatrimonio(int IdPatrimonio, int IdTipoPatrimonio, int NPece, int IdSolicitacao, DateTime DtCompraMax, DateTime DtCompraMin, int NotaFiscal,
+        public List<Patrimonio> BuscaPatrimonio(int IdPatrimonio, int IdTipoPatrimonio, int NPece, string IdSolicitacao, DateTime DtCompraMax, DateTime DtCompraMin, int NotaFiscal,
             DateTime DtExpGarantiaMin, DateTime DtExpGarantiaMax)
         {
-            return new List<Patrimonio>();
+            Busca busca = new Busca() ;
+            busca.IdEquipamento = IdPatrimonio;
+            busca.IdTipoPatrimonio = IdTipoPatrimonio;
+            busca.NumeroPece = NPece;
+            busca.NumeroPedido = IdSolicitacao;
+            busca.DtCompraMax = DtCompraMax;
+            busca.DtCompraMin = DtCompraMin;
+            busca.DtExpGarantiaMax = DtExpGarantiaMax;
+            busca.DtExpGarantiaMin = DtExpGarantiaMin;
+            busca.NumeroNotaFiscal = NotaFiscal;
+
+            List<Patrimonio> retorno = new List<Patrimonio>();
+            WS.Patrimonio ws = new InterfaceUsuario.WS.Patrimonio();
+            retorno = ws.ConsultarPatrimonio(busca);
+            return retorno;
         }
 
     }

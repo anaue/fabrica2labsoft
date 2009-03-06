@@ -339,6 +339,59 @@ namespace InterfaceUsuario.WS
 
             return retorno;
         }
-     
+
+
+        internal List<InterfaceUsuario.Classes.Patrimonio> ConsultarPatrimonio(InterfaceUsuario.ServicoPatrimonio.Busca busca)
+        {
+            List<InterfaceUsuario.Classes.Patrimonio> retorno = new List<InterfaceUsuario.Classes.Patrimonio>();
+            
+            ServicoPatrimonio.ServicoPatrimonio wsPatrimonio = new InterfaceUsuario.ServicoPatrimonio.ServicoPatrimonio();
+            ServicoPatrimonio.RequestPatrimonio request = new InterfaceUsuario.ServicoPatrimonio.RequestPatrimonio();
+            ServicoPatrimonio.ResponsePatrimonio response = new InterfaceUsuario.ServicoPatrimonio.ResponsePatrimonio();
+
+            #region Acesso WS Diretorio
+            Diretorio dir = new Diretorio();
+            // A nome do serviço é definido no banco de dados, pelo serviço diretório
+            string _url = dir.ObtemEnderecoServico(Arv.Common.WSServicesNames.PATRIMONIO_ALTERAR);
+            dir = null;
+            #endregion
+
+            //Properties.Settings.Default.InterfaceUsuario_ServicoAtributo_ServicoAtributo;
+
+            if (_url != string.Empty)
+            {
+                try
+                {
+                    request.Busca = busca;
+                    response = wsPatrimonio.ConsultarPatrimonio(request);
+                    if (response != null && response.StatusCode == InterfaceUsuario.ServicoPatrimonio.ResponseStatus.OK && response.ListaPatrimonio != null)
+                        foreach (InterfaceUsuario.ServicoPatrimonio.Patrimonio patrimonio in response.ListaPatrimonio)
+                        {
+                            WS.Atributo atr = new Atributo();
+                            InterfaceUsuario.Classes.Patrimonio newPatrimonio = new InterfaceUsuario.Classes.Patrimonio();
+                            newPatrimonio.CaminhoFotoNotaFiscal = patrimonio.CaminhoFotoNotaFiscal;
+                            newPatrimonio.CaminhoFotoPatrimonio = patrimonio.CaminhoFotoPatrimonio;
+                            newPatrimonio.DtCompra = patrimonio.DataCompra;
+                            newPatrimonio.DtExpGarantia = patrimonio.DataExpGarantia;
+                            newPatrimonio.IdEquipamento = patrimonio.IdEquipamento;
+                            //TODO:Atributos
+                            newPatrimonio.LocalPatrimonio = patrimonio.LocalPatrimonio;
+                            newPatrimonio.NumeroNotaFiscal = patrimonio.NumeroNotaFiscal;
+                            newPatrimonio.NumeroPECE = patrimonio.NumeroPECE;
+                            newPatrimonio.NumeroPedido = patrimonio.NumeroPedido;
+                            retorno.Add(newPatrimonio);
+                        }
+
+                }
+                catch (Exception ex)
+                {
+                    //necessario mostrar uma mensagem ao usuario
+                    throw ex;
+                }
+
+            }
+
+            return retorno;
+        }
     }
 }

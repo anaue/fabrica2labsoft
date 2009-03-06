@@ -125,6 +125,13 @@
     <Compile Include="DarManutencao.aspx.designer.cs">
       <DependentUpon>DarManutencao.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -257,6 +264,7 @@
     <Content Include="consultarUsuario.aspx" />
     <Content Include="consultaUsuario.aspx" />
     <Content Include="DarManutencao.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="PaginaDeErro.aspx" />
     <Content Include="PaginaDeSucesso.aspx" />
     <Content Include="Relatorios.Master" />

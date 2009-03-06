@@ -154,7 +154,7 @@ namespace Patrimonio.Patrimonio
 
                     DAOPatrimonio daoPatrimonio = new DAOPatrimonio();
 
-                    List<Patrimonio> listPatrimonio = daoPatrimonio.ObterPatrimonios(_request.Patrimonio);
+                    List<Patrimonio> listPatrimonio = daoPatrimonio.ObterPatrimonios(_request.Busca);
 
                     if (listPatrimonio.Count > 0)
                     {

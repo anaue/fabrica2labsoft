@@ -31,6 +31,13 @@ namespace Patrimonio.Patrimonio
             get { return _baixa; }
             set { _baixa = value; }
         }
+        private Busca busca;
+
+        public Busca Busca
+        {
+            get { return busca; }
+            set { busca = value; }
+        }
 
     }
 }
