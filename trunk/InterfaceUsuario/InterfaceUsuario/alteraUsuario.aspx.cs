@@ -21,13 +21,13 @@ namespace InterfaceUsuario
             usuario = usuario.ConsultaUsuario(Convert.ToInt32(Request.QueryString["Id"]));
 
             
-            usuario.Nome = "João";
-            usuario.Senha = "aaa";
-            usuario.Descricao = "bbb";
+            //usuario.Nome = "João";
+            //usuario.Senha = "aaa";
+            //usuario.Descricao = "bbb";
 
-            TextBoxNome.Text = usuario.Nome;
-            TextBoxSenhaConf.Text = usuario.Senha;
-            TextBoxDescricao.Text = usuario.Descricao;
+            //TextBoxNome.Text = usuario.Nome;
+            //TextBoxSenhaConf.Text = usuario.Senha;
+            //TextBoxDescricao.Text = usuario.Descricao;
 
         }
 
