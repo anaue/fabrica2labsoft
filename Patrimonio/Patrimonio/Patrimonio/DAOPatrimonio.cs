@@ -17,9 +17,10 @@ namespace Patrimonio.Patrimonio
         /// <summary>
         /// Insere manutencao de um determinado patrimonio (OK).
         /// </summary>
-        public void InsereManutencao(Manutencao manutencao)
+        public int InsereManutencao(Manutencao manutencao)
         {
             ArvDatabase db = new ArvDatabase(_connString);
+            int linhas = 0;
             try
             {
                 List<SqlParameter> parameters = new List<SqlParameter>();
@@ -36,7 +37,7 @@ namespace Patrimonio.Patrimonio
 
                 db.AbreConexao();
 
-                db.ExecuteTextNonQuery("sp_manutencao_inserir", parameters);
+                linhas = db.ExecuteTextNonQuery("sp_manutencao_inserir", parameters);
             }
             catch (Exception ex)
             {
@@ -46,14 +47,16 @@ namespace Patrimonio.Patrimonio
             {
                 db.FechaConexao();
             }
+            return linhas;
         }
 
         /// <summary>
         /// Insere um patrimonio apenas com atributos genericos (OK).
         /// </summary>
-        internal void InserePatrimonio(Patrimonio patrimonio)
+        internal int InserePatrimonio(Patrimonio patrimonio)
         {
             ArvDatabase db = new ArvDatabase(_connString);
+            int linhas = 0;
             try
             {
                 List<SqlParameter> parameters = new List<SqlParameter>();
@@ -74,7 +77,7 @@ namespace Patrimonio.Patrimonio
 
                 db.AbreConexao();
 
-                db.ExecuteTextNonQuery("sp_patrimonio_inserir", parameters);
+                linhas = db.ExecuteTextNonQuery("sp_patrimonio_inserir", parameters);
             }
             catch (Exception ex)
             {
@@ -84,14 +87,16 @@ namespace Patrimonio.Patrimonio
             {
                 db.FechaConexao();
             }
+            return linhas;
         }
 
         /// <summary>
         /// Realiza baixa de um determinado patrimonio (OK).
         /// </summary>
-        internal void ExecutaBaixaPatrimonio(Patrimonio patrimonio, Baixa baixa)
+        internal int ExecutaBaixaPatrimonio(Patrimonio patrimonio, Baixa baixa)
         {
             ArvDatabase db = new ArvDatabase(_connString);
+            int linhas = 0;
             try
             {
                 List<SqlParameter> parameters = new List<SqlParameter>();
@@ -107,7 +112,7 @@ namespace Patrimonio.Patrimonio
 
                 db.AbreConexao();
 
-                db.ExecuteTextNonQuery("sp_baixa_inserir", parameters);
+                linhas = db.ExecuteTextNonQuery("sp_baixa_inserir", parameters);
             }
             catch (Exception ex)
             {
@@ -117,14 +122,16 @@ namespace Patrimonio.Patrimonio
             {
                 db.FechaConexao();
             }
+            return linhas;
         }
 
         /// <summary>
         /// Remove um patrimonio (OK).
         /// </summary>
-        internal void DeletaPatrimonio(Patrimonio patrimonio)
+        internal int DeletaPatrimonio(Patrimonio patrimonio)
         {
             ArvDatabase db = new ArvDatabase(_connString);
+            int linhas = 0;
             try
             {
                 List<SqlParameter> parameters = new List<SqlParameter>();
@@ -136,7 +143,7 @@ namespace Patrimonio.Patrimonio
 
                 db.AbreConexao();
 
-                db.ExecuteTextNonQuery("sp_patrimonio_remover", parameters);
+                linhas = db.ExecuteTextNonQuery("sp_patrimonio_remover", parameters);
             }
             catch (Exception ex)
             {
@@ -146,14 +153,16 @@ namespace Patrimonio.Patrimonio
             {
                 db.FechaConexao();
             }
+            return linhas;
         }
 
         /// <summary>
         /// Atualiza valores de um patrimonio (apenas atributos genericos) (OK)
         /// </summary>
-        internal void AlteraPatrimonio(Patrimonio patrimonio)
+        internal bool AlteraPatrimonio(Patrimonio patrimonio)
         {
             ArvDatabase db = new ArvDatabase(_connString);
+            int linhas = 0;
             try
             {
                 List<SqlParameter> parameters = new List<SqlParameter>();
@@ -175,7 +184,7 @@ namespace Patrimonio.Patrimonio
 
                 db.AbreConexao();
 
-                db.ExecuteTextNonQuery("sp_patrimonio_alterar", parameters);
+                linhas = db.ExecuteTextNonQuery("sp_patrimonio_alterar", parameters);
             }
             catch (Exception ex)
             {
@@ -185,6 +194,8 @@ namespace Patrimonio.Patrimonio
             {
                 db.FechaConexao();
             }
+            if (linhas > 0) return true; 
+            else return false;
         }
 
         /// <summary>
