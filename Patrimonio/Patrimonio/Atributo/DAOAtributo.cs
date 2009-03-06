@@ -131,5 +131,10 @@ namespace Patrimonio.Atributo
             return null;
         }
 
+
+        internal List<Atributo> listaAtributosDisponiveis()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
