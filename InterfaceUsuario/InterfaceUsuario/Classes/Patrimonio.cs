@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Collections.Generic;
-using System.Collections.Generic;
 using System.Xml.Serialization;
 
 namespace InterfaceUsuario.Classes
@@ -46,7 +44,7 @@ namespace InterfaceUsuario.Classes
             set { _dtExpGarantia = value; }
         }
         private List<Atributo> _listAtributos;
-        [XmlElement(ElementName = "ListAtributos")]
+
         public List<Atributo> ListAtributos
         {
             get { return _listAtributos; }
@@ -103,18 +101,7 @@ namespace InterfaceUsuario.Classes
 
             return retorno;
         }
-        /// <summary>
-        /// Apaga os atributo do sistema, identificando pelo ID
-        /// </summary>
-        /// <returns>True ou False se foi bem sucessido</returns>
-        public bool BaixaPatrimonio(Classes.Baixa baixa)
-        {
-            bool retorno = false;
-            WS.Patrimonio ws = new InterfaceUsuario.WS.Patrimonio();
-            // retorno = ws.DeletaAtributo(id);
 
-            return retorno;
-        }
         /// <summary>
         /// Atualiza os dados do Atributo em questão
         /// </summary>
@@ -132,18 +119,6 @@ namespace InterfaceUsuario.Classes
             return retorno;
         }
         /// <summary>
-        /// Realiza a consulta de atributos.
-        /// </summary>
-        /// <returns>Retorna lista com um atributo</returns>
-        public Patrimonio ConsultaPatrimonio(int id)
-        {
-            Patrimonio patrimonio = new Patrimonio();
-            WS.Patrimonio ws = new InterfaceUsuario.WS.Patrimonio();
-            //patrimonio = ws.ConsultaAtributo(id);
-
-            return patrimonio;
-        }
-        /// <summary>
         /// Registra manutencao.
         /// </summary>
         /// <returns>Retorna o id do patrimonio</returns>
@@ -154,11 +129,33 @@ namespace InterfaceUsuario.Classes
             retorno = ws.RegistrarManutencao(manutencao);
             return retorno;
         }
+        /// <summary>
+        /// Realiza a consulta de atributos.
+        /// </summary>
+        /// <returns>Retorna lista com um atributo</returns>
+        public Patrimonio ConsultaPatrimonio(int id)
+        {
+            Patrimonio patrimonio = new Patrimonio();
+            WS.Patrimonio ws = new InterfaceUsuario.WS.Patrimonio();
+            patrimonio = ws.ConsultarPatrimonio(id);
 
+            return patrimonio;
+        }
+
+
+        public bool BaixaPatrimonio(Classes.Baixa baixa)
+        {
+            bool retorno = false;
+            WS.Patrimonio ws = new InterfaceUsuario.WS.Patrimonio();
+            retorno = ws.BaixaPatrimonio(baixa) > 0 ? true : false ;
+            return retorno;
+        }
+        
         public List<Patrimonio> BuscaPatrimonio(int IdPatrimonio, int IdTipoPatrimonio, int NPece, int IdSolicitacao, DateTime DtCompraMax, DateTime DtCompraMin, int NotaFiscal,
             DateTime DtExpGarantiaMin, DateTime DtExpGarantiaMax)
         {
             return new List<Patrimonio>();
         }
+
     }
 }
