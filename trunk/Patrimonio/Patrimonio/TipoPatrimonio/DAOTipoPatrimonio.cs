@@ -17,8 +17,7 @@ namespace Patrimonio.TipoPatrimonio
 
 		internal int InsereTipoPatrimonio(TipoPatrimonio tipopatrimonio)
         {
-            int idGerado = 0;
-			
+            int linhasafetadas = 0;
             ArvDatabase db = new ArvDatabase(_connString);
             try
             {
@@ -39,16 +38,12 @@ namespace Patrimonio.TipoPatrimonio
             {
                 db.FechaConexao();
             }
-            if (idGerado != 0)
-                return idGerado;
-            else
-                return -1;
+            return linhasafetadas;
         }
 
         public int deletaTipoPatrimonio(int tipoPatrimonioId)
         {
-            int idGerado = 0;
-
+            int linhasafetadas = 0;
             ArvDatabase db = new ArvDatabase(_connString);
             try
             {
@@ -69,24 +64,19 @@ namespace Patrimonio.TipoPatrimonio
                 db.FechaConexao();
             }
 
-            if (idGerado == 0) { return true; }
-            else { return false; }
+            return linhasafetadas;
         }
 
         public TipoPatrimonio alteraTipoPatrimonio(TipoPatrimonio tipopatrimonio)
         {
-            int idGerado = 0;
-
             ArvDatabase db = new ArvDatabase(_connString);
+            int linhasafetadas = 0;
             try
             {
-
                 List<SqlParameter> parameters = new List<SqlParameter>();
-
                 parameters.Add(new SqlParameter("@id", tipopatrimonio.Id));
                 parameters.Add(new SqlParameter("@nome", tipopatrimonio.Nome));
                 parameters.Add(new SqlParameter("@desc", tipopatrimonio.Descricao));
-                // parameters.Add(new SqlParameter("@tipo", tipopatrimonio.Tipo));
                 
                 db.AbreConexao();
                 linhasafetadas = db.ExecuteProcedureNonQuery("sp_tipopatrimonio_alterar", parameters);
@@ -99,13 +89,14 @@ namespace Patrimonio.TipoPatrimonio
             {
                 db.FechaConexao();
             }
+            if (linhasafetadas <= 0)
+                throw new Exception("Tipo de Patrimônio não atualizado corretamente.");
 
-            if (idGerado == 0) { return true; }
-            else { return false; }
+            return tipopatrimonio;
         }
         public TipoPatrimonio consultaTipoPatrimonio(int tipoPatrimonioId)
         {
-            TipoPatrimonio tipopatrimonio = new TipoPatrimonio;
+            TipoPatrimonio tipoPatrimonio = null;
             SqlDataReader rd;
 
             ArvDatabase db = new ArvDatabase(_connString);
@@ -114,21 +105,16 @@ namespace Patrimonio.TipoPatrimonio
                 List<SqlParameter> parameters = new List<SqlParameter>();
 
                 parameters.Add(new SqlParameter("@id", tipoPatrimonioId));
-                parameters.Add(new SqlParameter("@nome", NULL));
-                parameters.Add(new SqlParameter("@desc", NULL));
-                parameters.Add(new SqlParameter("@tipo", NULL));
 
                 db.AbreConexao();
                 rd = db.ExecuteProcedureReader("sp_tipopatrimonio_consultar");
 
-                while (rd.Read())
+                if (rd.Read())
                 {
-                    TipoPatrimonio tipopa = new TipoPatrimonio();
-                    tipopa.Id = Convert.ToInt32(rd["idTipoPatrimonio"].ToString());
-                    tipopa.Nome = rd["nomeTipoPatrimonio"].ToString();
-                    tipopa.Descricao = rd["descTipoPatrimonio"].ToString();
-
-                    tipopatrimonio.Add(tipopa);
+                    tipoPatrimonio = new TipoPatrimonio();
+                    tipoPatrimonio.Id = Convert.ToInt32(rd["idTipoPatrimonio"].ToString());
+                    tipoPatrimonio.Nome = rd["nomeTipoPatrimonio"].ToString();
+                    tipoPatrimonio.Descricao = rd["descTipoPatrimonio"].ToString();
                 }
             }
             catch (Exception ex)
@@ -140,11 +126,12 @@ namespace Patrimonio.TipoPatrimonio
                 db.FechaConexao();
             }
 
-            return tipopatrimonio;
+            return tipoPatrimonio;
         }
-        public List<TipoPatrimonio> buscaTipoPatrimonio(int tipoPatrimonioId)
+
+        public List<TipoPatrimonio> buscaTipoPatrimonio(TipoPatrimonio tipoPatrimonio)
         {
-            List<TipoPatrimonio> tipopatrimonio = new List<TipoPatrimonio>();
+            List<TipoPatrimonio> listTipoPatrimonio = new List<TipoPatrimonio>();
             SqlDataReader rd;
 
             ArvDatabase db = new ArvDatabase(_connString);
@@ -152,10 +139,9 @@ namespace Patrimonio.TipoPatrimonio
             {
                 List<SqlParameter> parameters = new List<SqlParameter>();
 
-                parameters.Add(new SqlParameter("@id", tipoPatrimonioId));
-                parameters.Add(new SqlParameter("@nome", NULL));
-                parameters.Add(new SqlParameter("@desc", NULL));
-                parameters.Add(new SqlParameter("@tipo", NULL));
+                parameters.Add(new SqlParameter("@id", tipoPatrimonio.Id));
+                parameters.Add(new SqlParameter("@nome", tipoPatrimonio.Nome));
+                parameters.Add(new SqlParameter("@desc", tipoPatrimonio.Descricao));
 
                 db.AbreConexao();
                 rd = db.ExecuteProcedureReader("sp_tipopatrimonio_consultar");
@@ -167,7 +153,7 @@ namespace Patrimonio.TipoPatrimonio
                     tipopa.Nome = rd["nomeTipoPatrimonio"].ToString();
                     tipopa.Descricao = rd["descTipoPatrimonio"].ToString();
 
-                    tipopatrimonio.Add(tipopa);
+                    listTipoPatrimonio.Add(tipopa);
                 }
             }
             catch (Exception ex)
@@ -179,7 +165,7 @@ namespace Patrimonio.TipoPatrimonio
                 db.FechaConexao();
             }
 
-            return tipopatrimonio;
+            return listTipoPatrimonio;
         }
     }
 

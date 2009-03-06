@@ -112,8 +112,6 @@ namespace InterfaceUsuario.Classes
         /// <returns>True ou False se foi bem sucessido</returns>
         public bool DeletaAtributo(int id)
         {
-
-
             bool retorno = false;
             WS.Atributo ws = new InterfaceUsuario.WS.Atributo();
             retorno = ws.DeletaAtributo(id);

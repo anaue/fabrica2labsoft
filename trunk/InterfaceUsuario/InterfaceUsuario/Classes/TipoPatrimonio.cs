@@ -118,14 +118,17 @@ namespace InterfaceUsuario.Classes
         {
             //throw new NotImplementedException();
             List<Atributo> listAtributos = new List<Atributo>();
-            Atributo atributo = new Atributo();
-            atributo.Id = 1;
-            atributo.Nome = "teste";
-            Atributo atributo1 = new Atributo();
-            atributo1.Nome = "teste1";
-            atributo1.Id = 2;
-            listAtributos.Add(atributo);
-            listAtributos.Add(atributo1);
+            //Atributo atributo = new Atributo();
+            //atributo.Id = 1;
+            //atributo.Nome = "teste";
+            //Atributo atributo1 = new Atributo();
+            //atributo1.Nome = "teste1";
+            //atributo1.Id = 2;
+            //listAtributos.Add(atributo);
+            //listAtributos.Add(atributo1);
+
+
+
 
             return listAtributos;
         }
