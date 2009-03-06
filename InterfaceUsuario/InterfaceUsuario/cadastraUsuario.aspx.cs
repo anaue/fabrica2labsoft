@@ -24,6 +24,7 @@ namespace InterfaceUsuario
             usuario.Nome = TextBoxNome.Text;
             usuario.Senha = TextBoxSenhaConf.Text;
             usuario.Descricao = TextBoxDescricao.Text;
+            if(CheckBox1.Checked) usuario.TipoUsuario = 1;
 
             if (usuario.CriaUsuario(usuario) > 0)
             Response.Redirect("PaginaDeSucesso.aspx?Acao=Cadastrar Usuário&Msg=Cadastrado com sucesso");

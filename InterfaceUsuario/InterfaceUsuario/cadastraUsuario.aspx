@@ -76,7 +76,10 @@
             <td style="width: 12px">
                 &nbsp;</td>
             <td>
-                &nbsp;</td>
+                Administrador</td>
+                <td>
+                    <asp:CheckBox ID="CheckBox1" runat="server" />
+                </td>
         </tr>
         <tr>
             <td style="width: 12px">
