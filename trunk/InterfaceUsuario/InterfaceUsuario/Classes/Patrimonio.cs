@@ -99,7 +99,7 @@ namespace InterfaceUsuario.Classes
         {
             bool retorno = false;
             WS.Patrimonio ws = new InterfaceUsuario.WS.Patrimonio();
-           // retorno = ws.DeletaAtributo(id);
+            retorno = ws.DeletaPatrimonio(id);
 
             return retorno;
         }
@@ -126,7 +126,7 @@ namespace InterfaceUsuario.Classes
             if (patrimonio._idEquipamento > -1)
             {
                 WS.Patrimonio ws = new InterfaceUsuario.WS.Patrimonio();
-                //retorno = ws.AlteraAtributo(atributo);
+                retorno = ws.AlteraPatrimonio(patrimonio) > 0 ? true: false;
             }
 
             return retorno;
