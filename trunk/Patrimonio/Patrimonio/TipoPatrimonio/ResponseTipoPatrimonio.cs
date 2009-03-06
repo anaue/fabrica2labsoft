@@ -18,5 +18,12 @@ namespace Patrimonio.TipoPatrimonio
             get { return _ListaTipoPatrimonio; }
             set { _ListaTipoPatrimonio = value; }
         }
+        private List<Atributo.Atributo> _ListaAtributo;
+        [XmlArray(ElementName = "ListaAtributo", IsNullable = true)]
+        public List<Atributo.Atributo> ListaAtributo
+        {
+            get { return _ListaAtributo; }
+            set { _ListaAtributo = value; }
+        }
     }
 }

@@ -20,7 +20,11 @@ namespace Patrimonio.Patrimonio
         public int InsereManutencao(Manutencao manutencao)
         {
             ArvDatabase db = new ArvDatabase(_connString);
+<<<<<<< .mine
+            int retorno = 0;
+=======
             int linhas = 0;
+>>>>>>> .r268
             try
             {
                 List<SqlParameter> parameters = new List<SqlParameter>();
@@ -38,6 +42,7 @@ namespace Patrimonio.Patrimonio
                 db.AbreConexao();
 
                 linhas = db.ExecuteTextNonQuery("sp_manutencao_inserir", parameters);
+                retorno =  1;
             }
             catch (Exception ex)
             {
@@ -47,7 +52,11 @@ namespace Patrimonio.Patrimonio
             {
                 db.FechaConexao();
             }
+<<<<<<< .mine
+            return retorno;
+=======
             return linhas;
+>>>>>>> .r268
         }
 
         /// <summary>
@@ -55,6 +64,7 @@ namespace Patrimonio.Patrimonio
         /// </summary>
         internal int InserePatrimonio(Patrimonio patrimonio)
         {
+            int retorno = 0;
             ArvDatabase db = new ArvDatabase(_connString);
             int linhas = 0;
             try
@@ -87,7 +97,11 @@ namespace Patrimonio.Patrimonio
             {
                 db.FechaConexao();
             }
+<<<<<<< .mine
+            return retorno;
+=======
             return linhas;
+>>>>>>> .r268
         }
 
         /// <summary>
@@ -95,6 +109,7 @@ namespace Patrimonio.Patrimonio
         /// </summary>
         internal int ExecutaBaixaPatrimonio(Patrimonio patrimonio, Baixa baixa)
         {
+            int retorno = 0;
             ArvDatabase db = new ArvDatabase(_connString);
             int linhas = 0;
             try
@@ -113,6 +128,7 @@ namespace Patrimonio.Patrimonio
                 db.AbreConexao();
 
                 linhas = db.ExecuteTextNonQuery("sp_baixa_inserir", parameters);
+                retorno = 1;
             }
             catch (Exception ex)
             {
@@ -122,7 +138,11 @@ namespace Patrimonio.Patrimonio
             {
                 db.FechaConexao();
             }
+<<<<<<< .mine
+            return retorno;
+=======
             return linhas;
+>>>>>>> .r268
         }
 
         /// <summary>
@@ -130,6 +150,7 @@ namespace Patrimonio.Patrimonio
         /// </summary>
         internal int DeletaPatrimonio(Patrimonio patrimonio)
         {
+            int retorno = 0;
             ArvDatabase db = new ArvDatabase(_connString);
             int linhas = 0;
             try
@@ -153,7 +174,11 @@ namespace Patrimonio.Patrimonio
             {
                 db.FechaConexao();
             }
+<<<<<<< .mine
+            return retorno;
+=======
             return linhas;
+>>>>>>> .r268
         }
 
         /// <summary>
@@ -161,6 +186,7 @@ namespace Patrimonio.Patrimonio
         /// </summary>
         internal bool AlteraPatrimonio(Patrimonio patrimonio)
         {
+            bool retorno = false;
             ArvDatabase db = new ArvDatabase(_connString);
             int linhas = 0;
             try
@@ -185,6 +211,8 @@ namespace Patrimonio.Patrimonio
                 db.AbreConexao();
 
                 linhas = db.ExecuteTextNonQuery("sp_patrimonio_alterar", parameters);
+
+                retorno = true;
             }
             catch (Exception ex)
             {
@@ -194,8 +222,12 @@ namespace Patrimonio.Patrimonio
             {
                 db.FechaConexao();
             }
+<<<<<<< .mine
+            return retorno;
+=======
             if (linhas > 0) return true; 
             else return false;
+>>>>>>> .r268
         }
 
         /// <summary>
