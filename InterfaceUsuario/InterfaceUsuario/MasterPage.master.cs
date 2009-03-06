@@ -49,7 +49,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
     }
     protected void lnkConsultaUsuario_Click(object sender, EventArgs e)
     {
-        Response.Redirect("consultaUsuario.aspx");
+        Response.Redirect("consultarUsuario.aspx");
     }
     protected void lnkCadastraUsuario_Click(object sender, EventArgs e)
     {
