@@ -147,8 +147,48 @@ namespace Patrimonio.Atributo
             {
                 if (_request != null)
                 {
-                    //_response.ListaAtributos = daoatributo.listaAtributosDisponiveis();
+                    _response.ListaAtributos = daoatributo.listaAtributosDisponiveis();
 
+                    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
+                }
+            }
+            catch (Exception ex)
+            {
+                _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.InternalServerError;
+                _response.Message = string.Format("Erro na consulta do registro: {0}", ex.Message);
+            }
+            return _response;
+        }
+        [WebMethod(MessageName = "ListarAtributosTipoPatrimonio")]
+        public ResponseAtributo ListarAtributosTipoPatrimonio(TipoPatrimonio.RequestTipoPatrimonio  _request)
+        {
+            ResponseAtributo _response = new ResponseAtributo();
+            DAOAtributo daoatributo = new DAOAtributo();
+            try
+            {
+                if (_request != null)
+                {
+                    _response.ListaAtributos = daoatributo.ListarAtributosTipoPatrimonio(_request.TipoPatrimonio.Id);
+                    _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
+                }
+            }
+            catch (Exception ex)
+            {
+                _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.InternalServerError;
+                _response.Message = string.Format("Erro na consulta do registro: {0}", ex.Message);
+            }
+            return _response;
+        }
+        [WebMethod(MessageName = "ListarAtributosPorPatrimonio")]
+        public ResponseAtributo ListarAtributosPorPatrimonio(Patrimonio.RequestPatrimonio _request)
+        {
+            ResponseAtributo _response = new ResponseAtributo();
+            DAOAtributo daoatributo = new DAOAtributo();
+            try
+            {
+                if (_request != null)
+                {
+                    _response.ListaAtributos = daoatributo.ListarAtributosPorPatrimonio(_request.Patrimonio.IdEquipamento);
                     _response.StatusCode = Arv.Common.BaseResponse.ResponseStatus.OK;
                 }
             }
