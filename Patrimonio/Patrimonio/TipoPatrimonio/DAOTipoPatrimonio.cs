@@ -30,7 +30,7 @@ namespace Patrimonio.TipoPatrimonio
                 //parameters.Add(new SqlParameter("@tipo", usuario.Descricao));
 
                 db.AbreConexao();
-                idUsuario = db.ExecuteProcedureNonQuery("sp_usuario_inserir", parameters);
+                idGerado = db.ExecuteProcedureNonQuery("sp_usuario_inserir", parameters);
             }
             catch (Exception ex)
             {

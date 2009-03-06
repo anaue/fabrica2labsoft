@@ -18,7 +18,7 @@ namespace Patrimonio.Patrimonio
             set { _patrimonio = value; }
         }
         private Manutencao _manutencao;
-        [XmlElement(ElementName = "ManutencaoPatrimonio", IsNullable = true)]
+        [XmlElement(ElementName = "Manutencao", IsNullable = true)]
         public Manutencao Manutencao
         {
             get { return _manutencao; }
