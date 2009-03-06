@@ -43,7 +43,7 @@ BEGIN
 	IF @RetSt <> 0 GOTO FIM
 
     -- Insert statements for procedure here
-	UPDATE tbPatrimonioAtributo	SET		idValorAtributo = @idvaloratributo,
+	UPDATE tb_PatrimonioAtributo	SET		idValorAtributo = @idvaloratributo,
 										valorAtributoTexto = @valor
 								WHERE	idPatrimonio = @idpatrimonio AND
 										idAtributo = @idatributo
