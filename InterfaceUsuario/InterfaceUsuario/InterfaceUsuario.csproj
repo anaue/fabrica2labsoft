@@ -105,19 +105,19 @@
     <Compile Include="ConsultarTipoPatrimonio.aspx.designer.cs">
       <DependentUpon>ConsultarTipoPatrimonio.aspx</DependentUpon>
     </Compile>
+    <Compile Include="consultarUsuario.aspx.cs">
+      <DependentUpon>consultarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="consultarUsuario.aspx.designer.cs">
+      <DependentUpon>consultarUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="consultaUsuario.aspx.cs">
       <DependentUpon>consultaUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="consultaUsuario.aspx.designer.cs">
       <DependentUpon>consultaUsuario.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DarBaixa.aspx.cs">
-      <DependentUpon>DarBaixa.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DarBaixa.aspx.designer.cs">
-      <DependentUpon>DarBaixa.aspx</DependentUpon>
     </Compile>
     <Compile Include="DarManutencao.aspx.cs">
       <DependentUpon>DarManutencao.aspx</DependentUpon>
@@ -259,8 +259,8 @@
     <Content Include="ConsultarAtributo.aspx" />
     <Content Include="ConsultarPatrimonio.aspx" />
     <Content Include="ConsultarTipoPatrimonio.aspx" />
+    <Content Include="consultarUsuario.aspx" />
     <Content Include="consultaUsuario.aspx" />
-    <Content Include="DarBaixa.aspx" />
     <Content Include="DarManutencao.aspx" />
     <Content Include="PaginaDeErro.aspx" />
     <Content Include="PaginaDeSucesso.aspx" />
