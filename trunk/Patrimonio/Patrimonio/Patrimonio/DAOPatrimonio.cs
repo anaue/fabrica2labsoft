@@ -98,9 +98,8 @@ namespace Patrimonio.Patrimonio
         /// </summary>
         internal int ExecutaBaixaPatrimonio(Patrimonio patrimonio, Baixa baixa)
         {
-            int retorno = 0;
+            
             ArvDatabase db = new ArvDatabase(_connString);
-            int linhas = 0;
             try
             {
                 List<SqlParameter> parameters = new List<SqlParameter>();
@@ -116,8 +115,7 @@ namespace Patrimonio.Patrimonio
 
                 db.AbreConexao();
 
-                linhas = db.ExecuteTextNonQuery("sp_baixa_inserir", parameters);
-                retorno = 1;
+                return 1;
             }
             catch (Exception ex)
             {
@@ -127,7 +125,7 @@ namespace Patrimonio.Patrimonio
             {
                 db.FechaConexao();
             }
-            return linhas;
+            
         }
 
         /// <summary>
@@ -167,7 +165,7 @@ namespace Patrimonio.Patrimonio
         /// </summary>
         internal bool AlteraPatrimonio(Patrimonio patrimonio)
         {
-            bool retorno = false;
+           
             ArvDatabase db = new ArvDatabase(_connString);
             int linhas = 0;
             try
@@ -193,7 +191,7 @@ namespace Patrimonio.Patrimonio
 
                 linhas = db.ExecuteTextNonQuery("sp_patrimonio_alterar", parameters);
 
-                retorno = true;
+                return true;
             }
             catch (Exception ex)
             {
@@ -203,8 +201,8 @@ namespace Patrimonio.Patrimonio
             {
                 db.FechaConexao();
             }
-            if (linhas > 0) return true; 
-            else return false;
+        
+           
         }
 
         /// <summary>
@@ -221,7 +219,7 @@ namespace Patrimonio.Patrimonio
                 Patrimonio objPatrimonio;
 
                 parameters.Add(new SqlParameter("@RetSt", SqlDbType.Int));
-
+                
                 if (busca.IdEquipamento != null)
                     parameters.Add(new SqlParameter("@IdPatrimonio", busca.IdEquipamento));
 
