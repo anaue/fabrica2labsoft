@@ -91,8 +91,8 @@ namespace Patrimonio.Patrimonio
         [XmlElement(ElementName = "IdTipoPatrimonio")]
         public int IdTipoPatrimonio
         {
-            get { return _idTipoPatrimonio}
-            set { _idTipoPatrimonio = value}
+            get { return _idTipoPatrimonio;}
+            set { _idTipoPatrimonio = value; }
         }
 
     }
