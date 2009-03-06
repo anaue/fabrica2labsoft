@@ -23,7 +23,7 @@ namespace InterfaceUsuario
                 ddlTipoPatrimonio.DataTextField = "Nome";
                 ddlTipoPatrimonio.DataValueField = "Id";
 
-                ddlTipoPatrimonio.DataSource = Classes.TipoPatrimonio.ListaTipoPatrimonio();
+                ddlTipoPatrimonio.DataSource =  new Classes.TipoPatrimonio().ListaTipoPatrimonio();
                 ddlTipoPatrimonio.DataBind();
             }
         }

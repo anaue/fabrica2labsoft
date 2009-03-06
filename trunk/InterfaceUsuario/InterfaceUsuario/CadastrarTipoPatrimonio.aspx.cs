@@ -19,7 +19,7 @@ namespace InterfaceUsuario
         {
             if (!IsPostBack)
             {
-                lstAtributosDisponiveis.DataSource = InterfaceUsuario.Classes.TipoPatrimonio.ListaAtributosDisponiveis();
+                lstAtributosDisponiveis.DataSource = new InterfaceUsuario.Classes.TipoPatrimonio().ListaAtributosDisponiveis();
                 lstAtributosDisponiveis.DataValueField = "Id";
                 lstAtributosDisponiveis.DataTextField = "Nome";
                 lstAtributosDisponiveis.DataBind();
@@ -46,7 +46,7 @@ namespace InterfaceUsuario
             //Rotina de Efetivacao de dados
             try
             {
-                Classes.TipoPatrimonio.AdicionarTipoPatrimonio(tipoPatrimonio);
+                tipoPatrimonio.CriaTipoPatrimonio();
             }
             catch (Exception ex)
             {
