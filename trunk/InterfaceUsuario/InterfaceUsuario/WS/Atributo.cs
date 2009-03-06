@@ -33,15 +33,16 @@ namespace InterfaceUsuario.WS
                 request.Atributo.Tipo = atributo.Tipo;
                 request.Atributo.Nulo = atributo.Nulo;
                 request.Atributo.Valor = atributo.Valor;
-                //string[] valores = new string[atributo.ListaValores.Count];
-                //int i = 0;
-                //foreach (string strValor in atributo.ListaValores)
-                //{
-                //    valores.SetValue(strValor, i);
-                //    i++;
-                //}
 
-                // request.Atributo.ListaValores = valores;
+                string[] valores = new string[atributo.ListaValores.Count];
+                int i = 0;
+                foreach (string strValor in atributo.ListaValores)
+                {
+                    valores.SetValue(strValor, i);
+                    i++;
+                }
+
+                request.Atributo.ListaValores = valores;
 
                
                 try
