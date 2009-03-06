@@ -23,7 +23,7 @@ CREATE PROCEDURE [dbo].[sp_baixa_inserir]
 	,@DtBaixa			DATETIME
     ,@ObservacoesBaixa	VARCHAR(255)
     ,@IdUsuario			INT
-    ,@IdEquipamento		INT
+    ,@IdPatrimonio		INT
 	,@RetSt				INT = 0	OUTPUT
 AS
 	-- Para evitar 1 row affected
@@ -43,10 +43,10 @@ AS
 		GOTO FIM
 	END
 
-	-- Verifica se o equipamento existe
-	IF NOT EXISTS(SELECT IdEquipamento FROM tb_Equipamento (NOLOCK) WHERE IdEquipamento = @IdEquipamento)
+	-- Verifica se o Patrimonio existe
+	IF NOT EXISTS(SELECT IdPatrimonio FROM tb_Patrimonio (NOLOCK) WHERE IdPatrimonio = @IdPatrimonio)
 	BEGIN
-		RAISERROR 70000 'Equipamento nao encontrado'
+		RAISERROR 70000 'Patrimonio nao encontrado'
 		SET @RetSt = @@ERROR
 		GOTO FIM
 	END
@@ -68,7 +68,7 @@ AS
 	---------------------------------------------------------
 	-- Inserindo baixa
 	INSERT INTO tb_Baixa (DestinoBaixa, ObservacoesBaixa, IdUsuario, IdPatrimonio, IdBaixa, DtBaixa)
-	VALUES (@DestinoBaixa, @ObservacoesBaixa, @IdUsuario, @IdEquipamento, @IdBaixa, @DtBaixa)
+	VALUES (@DestinoBaixa, @ObservacoesBaixa, @IdUsuario, @IdPatrimonio, @IdBaixa, @DtBaixa)
 
 	SET @RetSt = @@ERROR
 	---------------------------------------------------------
@@ -163,14 +163,15 @@ AS
 	END
 
 	-- Verifica se usuario existe
-	IF NOT EXISTS(	SELECT IdUsuario 
-					FROM tb_Baixa (NOLOCK) 
-					WHERE IdUsuario = @IdUsuario)
-	BEGIN
-		RAISERROR 70000 'Usuario nao encontrado'
-		SET @RetSt = @@ERROR
-		GOTO FIM
-	END
+	IF @IdUsuario IS NOT NULL
+		IF NOT EXISTS(	SELECT IdUsuario 
+						FROM tb_Baixa (NOLOCK) 
+						WHERE IdUsuario = @IdUsuario)
+		BEGIN
+			RAISERROR 70000 'Usuario nao encontrado'
+			SET @RetSt = @@ERROR
+			GOTO FIM
+		END
 	--------------------------------------------------------
 
 
