@@ -145,7 +145,7 @@ namespace Patrimonio.TipoPatrimonio
                     TipoPatrimonio tipoPatrimonioConsultado = new TipoPatrimonio();
                     _response.ListaTipoPatrimonio = new System.Collections.Generic.List<TipoPatrimonio>();
 
-                    tipoPatrimonioConsultado = daotipopatrimonio.ListaTipoPatrimonio(_request.TipoPatrimonio.Id);
+                    tipoPatrimonioConsultado = daotipopatrimonio.ListaTipoPatrimonio(_request.TipoPatrimonio)[0];
                     if (tipoPatrimonioConsultado != null)
                     {
                         _response.ListaTipoPatrimonio.Add(tipoPatrimonioConsultado);
