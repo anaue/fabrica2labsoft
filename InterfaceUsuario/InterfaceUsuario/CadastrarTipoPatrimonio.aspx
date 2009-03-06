@@ -60,9 +60,9 @@
     </table>
      <table style="height: 19px; width: 828px;">
      <tr>
-                    <td style="text-align: left; font-size: small; color: #3F3F3F;">
+                    <td style="text-align: left; font-size: small; color: #3F3F3F; width: 233px;">
                         <span style="font-family: Verdana; font-size: small; color: #3F3F3F">
-                        AtributosAdicionados</span><br 
+                        Atributos Disponíveis</span><br 
                             style="font-family: Verdana; font-size: small; color: #3F3F3F" />
                         <span style="font-family: Verdana"><span style="font-size: x-small">
                         <span style="font-size: small"><span style="color: #3F3F3F">
@@ -87,7 +87,7 @@
                     </td>
                     <td valign="top">
                         <span style="font-family: Verdana; font-size: small; color: #3F3F3F">Atributos 
-                        Disponiveis</span><br 
+                        Adicionados</span><br 
                             style="font-family: Verdana; font-size: small; color: #3F3F3F" />
                         <span style="font-family: Verdana"><span style="font-size: x-small">
                         <span style="font-size: small"><span style="color: #3F3F3F">
@@ -97,7 +97,7 @@
                         </span></span></span></span></td>
                 </tr>
      <tr>
-         <td>
+         <td style="width: 233px">
              &nbsp;</td>
          <td>
              <asp:Button ID="btnCadastrarTipoPatrimonio" runat="server" 

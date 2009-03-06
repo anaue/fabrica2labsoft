@@ -34,6 +34,10 @@ namespace InterfaceUsuario.Classes
             _listaValores = null;
             _valor = string.Empty;
         }
+        public Atributo(int id)
+        {
+            _id = id;
+        }
 
         #region Accessors
         private int _id;

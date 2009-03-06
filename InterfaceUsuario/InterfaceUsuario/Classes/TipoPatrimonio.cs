@@ -48,6 +48,15 @@ namespace InterfaceUsuario.Classes
             set { _descricao = value; }
         }
         private string _tipo;
+
+        private List<Atributo> listAtributos;
+
+        public List<Atributo> ListAtributos
+        {
+            get { return listAtributos; }
+            set { listAtributos = value; }
+        }
+
         #endregion
 
         #region Methods
@@ -74,29 +83,9 @@ namespace InterfaceUsuario.Classes
 
             return retorno;
         }
-        /// <summary>
-        /// Atualiza os dados do Tipos de Patrimonio em questão
-        /// </summary>
-        /// <param name="atributo">O objeto precisa ter o ID definido para fazer a busca</param>
-        /// <returns>True ou False se foi bem sucessido </returns>
-        public bool AlteraTipoPatrimonio(TipoPatrimonio tipopatrimonio)
-        {
-            bool retorno = true;
-            //if (atributo.Id > -1)
-            //{
-
-            //}
-            //else
-            //{
-            //    retorno = false;
-            //}
-            return retorno;
-        }
+       
         
-        public TipoPatrimonio ConsultaTiposPatrimonio(int id)
-        {
-            return new TipoPatrimonio();
-        }
+       
         /// <summary>
         /// Lista os Tipos de Patrimonio
         /// </summary>
@@ -140,5 +129,51 @@ namespace InterfaceUsuario.Classes
 
             return listAtributos;
         }
+
+        // falta implementar
+        public static void AdicionarTipoPatrimonio(TipoPatrimonio tipoPatrimonio)
+        {
+            throw new NotImplementedException();
+        }
+
+        // Falta implementar.... retorna um objeto TipoPatrimonio
+        public TipoPatrimonio ConsultaTipoPatrimonio(int id)
+        {   
+            //
+            TipoPatrimonio patrimonio = new TipoPatrimonio();
+            patrimonio.Id = 1;
+            patrimonio.Nome = "teste";
+            patrimonio.Descricao = "Teste";
+            List<Atributo> listAtributos = new List<Atributo>();
+            Atributo atributo = new Atributo();
+            atributo.Id = 1;
+            atributo.Nome = "teste";
+            listAtributos.Add(atributo);
+            patrimonio.ListAtributos = listAtributos;
+            
+            //
+
+            return patrimonio;
+        }
+        //Falta Implementar
+        /// <summary>
+        /// Atualiza os dados do Tipos de Patrimonio em questão
+        /// </summary>
+        /// <param name="atributo">O objeto precisa ter o ID definido para fazer a busca</param>
+        /// <returns>True ou False se foi bem sucessido </returns>
+        public bool AlteraTipoPatrimonio(TipoPatrimonio tipopatrimonio)
+        {
+            bool retorno = true;
+            //if (atributo.Id > -1)
+            //{
+
+            //}
+            //else
+            //{
+            //    retorno = false;
+            //}
+            return retorno;
+        }
+
     }
 }
