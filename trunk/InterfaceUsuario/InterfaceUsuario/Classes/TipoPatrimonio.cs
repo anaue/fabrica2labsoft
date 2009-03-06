@@ -80,17 +80,16 @@ namespace InterfaceUsuario.Classes
         public bool DeletaTipoPatrimonio(int id)
         {
             bool retorno = true;
-
+            WS.TipoPatrimonio ws = new InterfaceUsuario.WS.TipoPatrimonio();
+            retorno = ws.DeletaTipoPatrimonio(id);
             return retorno;
-        }
-       
-        
+        }  
        
         /// <summary>
         /// Lista os Tipos de Patrimonio
         /// </summary>
         /// <returns>Retorna lista de atributos do sistema</returns>
-        public static List<TipoPatrimonio> ListaTipoPatrimonio()
+        public List<TipoPatrimonio> ListaTipoPatrimonio()
         {
             List<TipoPatrimonio> retorno = new List<TipoPatrimonio>();
 
@@ -100,8 +99,6 @@ namespace InterfaceUsuario.Classes
             return retorno;
         }
 
-
-       
         public List<Atributo> ListaAtributos(int IdPatrimonio)
         {
             List<Atributo> retorno = new List<Atributo>();
@@ -111,13 +108,14 @@ namespace InterfaceUsuario.Classes
 
             return retorno;
         }
-        #endregion
 
-        // Função deve ser implementada....   (Busca lista de todos os atributos)
-        public static List<Atributo> ListaAtributosDisponiveis()
+    
+        public List<Atributo> ListaAtributosDisponiveis()
         {
             //throw new NotImplementedException();
             List<Atributo> listAtributos = new List<Atributo>();
+<<<<<<< .mine
+=======
             //Atributo atributo = new Atributo();
             //atributo.Id = 1;
             //atributo.Nome = "teste";
@@ -126,17 +124,18 @@ namespace InterfaceUsuario.Classes
             //atributo1.Id = 2;
             //listAtributos.Add(atributo);
             //listAtributos.Add(atributo1);
+>>>>>>> .r257
+
+<<<<<<< .mine
+            WS.TipoPatrimonio ws = new InterfaceUsuario.WS.TipoPatrimonio();
+            listAtributos = ws.ListaAtributosDisponiveis();
+
+=======
 
 
 
-
+>>>>>>> .r257
             return listAtributos;
-        }
-
-        // falta implementar
-        public static void AdicionarTipoPatrimonio(TipoPatrimonio tipoPatrimonio)
-        {
-            throw new NotImplementedException();
         }
 
         // Falta implementar.... retorna um objeto TipoPatrimonio
@@ -167,16 +166,17 @@ namespace InterfaceUsuario.Classes
         public bool AlteraTipoPatrimonio(TipoPatrimonio tipopatrimonio)
         {
             bool retorno = true;
-            //if (atributo.Id > -1)
-            //{
+            if (tipopatrimonio.Id > -1)
+            {
 
-            //}
-            //else
-            //{
-            //    retorno = false;
-            //}
+            }
+            else
+            {
+                retorno = false;
+            }
             return retorno;
         }
 
+        #endregion
     }
 }
