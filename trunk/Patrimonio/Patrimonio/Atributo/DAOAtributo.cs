@@ -44,20 +44,84 @@ namespace Patrimonio.Atributo
         }
 
         public int deletaAtributo(int atributoId)
-        { 
-         //remover atributo do banco e retornar status de deleção
-            return 0;
+        {
+            int linhasafetadas = 0;
+            ArvDatabase db = new ArvDatabase(_connString);
+            try
+            {
+                db.AbreConexao();
+                linhasafetadas = db.ExecuteProcedureNonQuery("sp_atributo_remover");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                db.FechaConexao();
+            }
+            return linhasafetadas;
         }
 
         public Atributo alteraAtributo(Atributo atributo)
         {
-            //alterar valor do atributo e retorna o atributo
-            return null;
+            ArvDatabase db = new ArvDatabase(_connString);
+            try
+            {
+                List<SqlParameter> parameters = new List<SqlParameter>();
+                parameters.Add(new SqlParameter("@id", atributo.Id));
+                parameters.Add(new SqlParameter("@nome", atributo.Nome));
+                parameters.Add(new SqlParameter("@tipo", atributo.Tipo));
+                parameters.Add(new SqlParameter("@desc", atributo.Descricao));
+                parameters.Add(new SqlParameter("@tipoPatrimonio", atributo.IdTipoPatrimonio));
+                parameters.Add(new SqlParameter("@nulo", atributo.Nulo ? "s" : "n"));
+
+                db.AbreConexao();
+                linhasafetadas = db.ExecuteProcedureNonQuery("sp_atributo_alterar", parameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                db.FechaConexao();
+            }
+            return atributo;
         }
         public Atributo consultaAtributo(int atributoId)
-        { 
-           //retorna um atributo com seus valores
-            return null;
+        {
+            Atributo atributo = null;
+            ArvDatabase db = new ArvDatabase(_connString);
+            try
+            {
+                List<SqlParameter> parameters = new List<SqlParameter>();
+                parameters.Add(new SqlParameter("@id", atributoId));
+
+                db.AbreConexao();
+                SqlDataReader reader = db.ExecuteProcedureReader("sp_atributo_consultar", parameters);
+                if (reader.Read())
+                {
+                    atributo = new Atributo();
+                    atributo.Descricao = (reader["descAtributo"] != DBNull.Value) ? Convert.ToString(reader["descAtributo"]) : String.Empty;
+                    atributo.Id = (reader["idAtributo"] != DBNull.Value) ? Convert.ToString(reader["idAtributo"]) : String.Empty;
+                    atributo.IdTipoPatrimonio = (reader["idTipoPatrimonio"] != DBNull.Value) ? Convert.ToString(reader["idTipoPatrimonio"]) : String.Empty;
+                    atributo.Nome = (reader["nomeAtributo"] != DBNull.Value) ? Convert.ToString(reader["nomeAtributo"]) : String.Empty;
+                    atributo.Nulo = (reader["nuloAtributo"] != DBNull.Value) ?
+                        (Convert.ToString(reader["nuloAtributo"]) == "s") ? true : false
+                        : false;
+                    atributo.Tipo = (reader["tipoAtributo"] != DBNull.Value) ? Convert.ToString(reader["tipoAtributo"]) : String.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                db.FechaConexao();
+            }
+            return atributo;
         }
         public List<Atributo> buscaAtributos(string atributoNome,string atributoDescricao,string atributoTipo,bool atributoNulo, List<string> listaValores, string valor)
         {
