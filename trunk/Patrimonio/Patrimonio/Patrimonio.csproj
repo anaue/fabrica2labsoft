@@ -47,7 +47,6 @@
   <ItemGroup>
     <Content Include="Atributo\ServicoAtributo.asmx" />
     <Content Include="Patrimonio\ServicoPatrimonio.asmx" />
-    <Content Include="Relatorio\ServicoRelatorio.asmx" />
     <Content Include="TipoPatrimonio\ServicoTipoPatrimonio.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -77,13 +76,6 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="Relatorio\Relatorio.cs" />
-    <Compile Include="Relatorio\RequestRelatorio.cs" />
-    <Compile Include="Relatorio\ResponseRelatorio.cs" />
-    <Compile Include="Relatorio\ServicoRelatorio.asmx.cs">
-      <DependentUpon>ServicoRelatorio.asmx</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="TipoPatrimonio\DAOTipoPatrimonio.cs" />
     <Compile Include="TipoPatrimonio\RequestTipoPatrimonio.cs" />
